@@ -1,0 +1,5 @@
+#baseURL = 'https://stackstorm.com/wp'
+baseURL = 'https://stackstorm.github.io/stackstorm.com'
+languageCode = 'en-us'
+title = 'StackStorm'
+# description: Event-driven automation
