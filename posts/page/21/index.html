@@ -1,343 +1,262 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-      <link href="/stackstorm.com/posts/index.xml" rel="alternate" type="application/rss+xml" title="StackStorm" />
-      <link href="/stackstorm.com/posts/index.xml" rel="feed" type="application/rss+xml" title="StackStorm" />
-      
-    
-    
-    <meta property="og:title" content="Posts" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/posts/" />
-
-<meta itemprop="name" content="Posts">
-<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content=""/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-
-  <header>
-    <div class="pb3-m pb6-l bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content>
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<link href=/stackstorm.com/posts/index.xml rel=alternate type=application/rss+xml title=StackStorm>
+<link href=/stackstorm.com/posts/index.xml rel=feed type=application/rss+xml title=StackStorm>
+<meta property="og:title" content="Posts">
+<meta property="og:description" content>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/posts/">
+<meta itemprop=name content="Posts">
+<meta itemprop=description content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Posts">
+<meta name=twitter:description content>
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class="pb3-m pb6-l bg-black">
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-      <div class="tc-l pv3 ph3 ph4-ns">
-        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
-          Posts
-        </h1>
-        
-      </div>
-    </div>
-  </header>
-
-
-    <main class="pb7" role="main">
-      
-  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
-    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
-    <section class="flex-ns flex-wrap justify-around mt5">
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/27/ci-using-stackstorm-on-top-of-github-docker-and-dockerhub/" class="link black dim">
-        CI Using StackStorm On Top Of GitHub, Docker And DockerHub
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <p><strong>May 27, 2015</strong></p>
-<p><em>by Lakshmi Kannan</em></p>
-<p>In this blog post, we cover CI part of CICD with Docker as an example. At a high level, this blog post will demonstrate how to create a docker image and push it to a registry on every commit to a github repo. You have probably read our own James Fryman’s excellent <!-- raw HTML omitted -->blog post<!-- raw HTML omitted --> on continuous delivery with StackStorm in a more traditional environment. If not, I highly recommend reading it. Also, this recent <!-- raw HTML omitted -->blog post<!-- raw HTML omitted --> from docker is a great introduction to using docker in continuous delivery. Before diving into the details, below is some motivation for switching to container based immutable infrastructure.</p>
-<h2 id="a-classanchor-stylecolor-4183c4-hrefhttpsgistgithubcomlakshmi-kannan2b95e6bae7dc4ed8c6c7motivation-relnoreferrer-nameuser-content-motivationamotivation"><!-- raw HTML omitted --><!-- raw HTML omitted -->Motivation</h2>
-<p>As Michael Dehaan of Ansible fame notes, <!-- raw HTML omitted -->immutable infrastructure is the way of the future<!-- raw HTML omitted -->. Containers (especially, Docker) facilitate this by offering users a way to define their infrastructure through simple files (Dockerfile, for example). The role of orchestration tools changes when dealing with immutable infrastructure. A relevant quote from Michael Dehaan’s blog:</p>
-<!-- raw HTML omitted -->
-    </div>
-  </div>
+<div class="tc-l pv3 ph3 ph4-ns">
+<h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+Posts
+</h1>
 </div>
 </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/26/openstack-summit/" class="link black dim">
-        OpenStack Summit Vancouver 2015
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      May 18-22, 2015
-Vancouver, BC
-“ChatOps Your (Open)Stack” Demo
-May 20, 12:10pm, Marketplace Theater
-Stop by Booth T17 to learn how to control OpenStack via Twitter!
-EVENT WEBSITE
-    </div>
-  </div>
-</div>
-</div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/" class="link black dim">
-        On Beginning Software Delivery Acceleration
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <p><strong>May 20, 2015</strong></p>
+</header>
+<main class=pb7 role=main>
+<article class="pa3 pa4-ns nested-copy-line-height nested-img">
+<section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+<section class="flex-ns flex-wrap justify-around mt5">
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/ class="link black dim">
+On Beginning Software Delivery Acceleration
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+<p><strong>May 20, 2015</strong></p>
 <p><em>by James Fryman</em></p>
 <p>Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000+ number. But, what does this even mean?</p>
 <p>Unpacking this number is often one IT leaders stumble on, and is the greatest source of pushback when talking about rapid acceleration. How stable is the software being delivered? How many of these deployments are successful? What constitutes a deployment?</p>
 <p>These questions and more often end up creating analysis paralysis, and nothing changes. In fact, the most common response starts with, “There is no way we could implement something like that at my company because…” We know this to be false. Companies who have traditionally delivered in a waterfall fashion with a single, bloated deploy per month or quarter are successfully transitioning to rapid deployment posting similar baseline numbers as other teams.</p>
 <p>How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started.</p>
-    </div>
-  </div>
 </div>
 </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/20/talkin-cloud-stackstorm-extends-automation-reach-to-microsoft-azure/" class="link black dim">
-        [Talkin’ Cloud] StackStorm Extends Automation Reach To Microsoft Azure
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      StackStorm becomes certified for distribution on the Microsoft Azure cloud itself
+</div>
+</div>
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/05/20/talkin-cloud-stackstorm-extends-automation-reach-to-microsoft-azure/ class="link black dim">
+[Talkin’ Cloud] StackStorm Extends Automation Reach To Microsoft Azure
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+StackStorm becomes certified for distribution on the Microsoft Azure cloud itself
 May 19, 2015
 One of the major challenges that any organization routinely faces is managing all the complexity associated with deploying application workloads in the cloud. Once those workloads begin to leave the local data center finding some way to automate the management of the public cloud they are running on becomes a much higher priority than it ever do when those workloads were running on premise.
-    </div>
-  </div>
 </div>
 </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/16/stackstorm-automation-happy-hour-may-15-2015/" class="link black dim">
-        StackStorm “Automation Happy Hour” (May 15, 2015)
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Friday, May 15, 2015
+</div>
+</div>
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/05/16/stackstorm-automation-happy-hour-may-15-2015/ class="link black dim">
+StackStorm “Automation Happy Hour” (May 15, 2015)
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+Friday, May 15, 2015
 10:00 am Pacific
 GOOGLE HANGOUTStackStorm kicked off its bi-weekly online “happy hours” to connect with the community and solve automation challenges together. Stormer Patrick Hoolboom led the discussion on Friday, May 15, please check out his presentation and let us know if you have any questions.EVENT WEBSITE
-    </div>
-  </div>
 </div>
 </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/15/ahh-01-action-authoring/" class="link black dim">
-        AHH #01 – Action Authoring
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      
-    </div>
-  </div>
 </div>
 </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/15/first-event-driven-automation-meetup-fun-filling-next-fbar/" class="link black dim">
-        First Event-Driven Automation Meetup Fun &amp; Filling. Next = FBAR
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <p><strong>May 15, 2015</strong></p>
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/05/15/ahh-01-action-authoring/ class="link black dim">
+AHH #01 – Action Authoring
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+</div>
+</div>
+</div>
+</div>
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/05/15/first-event-driven-automation-meetup-fun-filling-next-fbar/ class="link black dim">
+First Event-Driven Automation Meetup Fun & Filling. Next = FBAR
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+<p><strong>May 15, 2015</strong></p>
 <p><em>by Evan Powell</em></p>
-<p>Yesterday’s inaugural <!-- raw HTML omitted -->event-driven automation meetup<!-- raw HTML omitted --> was informative, and a lot of fun.</p>
+<p>Yesterday’s inaugural event-driven automation meetup was informative, and a lot of fun.</p>
 <p>LinkedIn did a great job of hosting and accommodating us at the last minute, as reservations exceed expectations and a larger room, more pizza, and beer were needed.</p>
 <p>It was great to see friends from Netflix, HP, Facebook, Asurion, eBay, VISA and elsewhere in attendance. The questions were sharp and direct. As someone pointed out – “event-driven automation” is a relatively new space now getting tremendous attention as operators seek to compare notes on how they are boosting their operational agility through intelligent automation.</p>
-<p>I strongly recommend the talks given by both Brian Sherwin and <!-- raw HTML omitted -->Dmitri Zimine<!-- raw HTML omitted -->.</p>
+<p>I strongly recommend the talks given by both Brian Sherwin and Dmitri Zimine.</p>
 <p>Brian’s talk got right into why and how LinkedIn built what they are calling Nurse. His talk was engaging and straightforward and Nurse itself is clearly extremely well thought through. Nurse has been designed to do remediations as simply as possible, with workflow and basic event handling included. While Nurse is relatively new and is being rolled out more broadly within LinkedIn, it already is handling some thousands of plans a week. It is run as a true Remediation as a Service in that the developers themselves – who are responsible for most of the ops of their code – utilize Nurse to save time and improve availability of their applications a pattern we also see frequently with StackStorm. LinkedIn has not yet open sourced Nurse; however, Brian indicated that they are interested in doing so.</p>
-    </div>
-  </div>
 </div>
 </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/15/meetup-workflow-auto-remediation-at-linkedin-overview-of-open-source-workflows/" class="link black dim">
-        Meetup: Workflow &amp; Auto-Remediation At LinkedIn &amp; Overview Of Open Source Workflows
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Thursday, May 14, 2015, 6:30 pm
+</div>
+</div>
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/05/15/meetup-workflow-auto-remediation-at-linkedin-overview-of-open-source-workflows/ class="link black dim">
+Meetup: Workflow & Auto-Remediation At LinkedIn & Overview Of Open Source Workflows
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+Thursday, May 14, 2015, 6:30 pm
 LinkedIn Headquarters, Neon Carrot Room
 2061 Stierlin Ct, Mountain View, CA
 Topics:
 – Workflow and auto-remediation at LinkedIn (Brian Sherwin, LinkedIn)
 – An overview of Workflows from Pinball to Mistral and more (Dmitri Zimine, StackStorm)
 EVENT WEBSITE
-    </div>
-  </div>
 </div>
 </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/14/press-release-stackstorm-introduces-event-driven-infrastructure-automation-for-microsoft-azure/" class="link black dim">
-        [Press Release] StackStorm Introduces Event-Driven Infrastructure Automation For Microsoft Azure
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      <p><strong><em>StackStorm Extends Support for Users Beyond Linux / FreeBSD Servers, Provides Ability to Directly Manage and Orchestrate Windows Infrastructure</em></strong></p>
-<p>PALO ALTO, Calif. — May 14, 2015 — <a href="www.stackstorm.com">StackStorm</a>, a provider of open source event-driven automation software, today announced the availability of StackStorm software as a certified solution on the Microsoft Azure Marketplace. Additionally, StackStorm announced that it is now offering StackStorm users the ability to wire operations automation into Windows Server and Microsoft Azure services, including Azure Virtual Machines and Azure Blob storage.</p>
+</div>
+</div>
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/05/14/press-release-stackstorm-introduces-event-driven-infrastructure-automation-for-microsoft-azure/ class="link black dim">
+[Press Release] StackStorm Introduces Event-Driven Infrastructure Automation For Microsoft Azure
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+<p><strong><em>StackStorm Extends Support for Users Beyond Linux / FreeBSD Servers, Provides Ability to Directly Manage and Orchestrate Windows Infrastructure</em></strong></p>
+<p>PALO ALTO, Calif. — May 14, 2015 — <a href=www.stackstorm.com>StackStorm</a>, a provider of open source event-driven automation software, today announced the availability of StackStorm software as a certified solution on the Microsoft Azure Marketplace. Additionally, StackStorm announced that it is now offering StackStorm users the ability to wire operations automation into Windows Server and Microsoft Azure services, including Azure Virtual Machines and Azure Blob storage.</p>
 <p>StackStorm’s support for these Microsoft products allows users to automate their infrastructure using event-driven automation, an approach to tying together and automating entire environments used to run some of the world’s largest environments including Facebook and Google.</p>
 <p>With these integrations, users are now able to directly manage and orchestrate their Windows Server infrastructure and their Azure services using StackStorm. With StackStorm’s direct support now available, those operators can re-use all of their existing Windows PowerShell-based tooling and automation scripts. This means users can immediately start receiving the value and benefits of StackStorm event driven automation without incurring additional overhead. Because many new automation tools don’t embrace the re-use of existing tools and scripts, this forces development teams to incur huge costs in terms of time, resources, porting scripts and existing infrastructure to new tools.</p>
-    </div>
-  </div>
 </div>
 </div>
-      
-        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
-  <div class="bg-white mb3 pa4 gray overflow-hidden">
-    <span class="f6 db">Posts</span>
-    <h1 class="f3 near-black">
-      <a href="/stackstorm.com/2015/05/08/openstack-online-meetup-how-stackstorm-builds-and-operates-stackstorm-software-itself/" class="link black dim">
-        OpenStack Online Meetup: How StackStorm Builds And Operates StackStorm Software Itself
-      </a>
-    </h1>
-    <div class="nested-links f5 lh-copy nested-copy-line-height">
-      Thursday, May 7, 2015
+</div>
+</div>
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/05/08/openstack-online-meetup-how-stackstorm-builds-and-operates-stackstorm-software-itself/ class="link black dim">
+OpenStack Online Meetup: How StackStorm Builds And Operates StackStorm Software Itself
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+Thursday, May 7, 2015
 9:00 am Pacific
 PLEASE RSVP HERE
-    </div>
-  </div>
 </div>
 </div>
-      
-    </section>
-    <ul class="pagination pagination-default">
-      <li class="page-item">
-        <a href="/stackstorm.com/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/stackstorm.com/posts/page/20/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/stackstorm.com/posts/page/19/" aria-label="Page 19" class="page-link" role="button">19</a>
-      </li>
-      <li class="page-item">
-        <a href="/stackstorm.com/posts/page/20/" aria-label="Page 20" class="page-link" role="button">20</a>
-      </li>
-      <li class="page-item active">
-        <a href="#" aria-current="page" aria-label="Page 21" class="page-link" role="button">21</a>
-      </li>
-      <li class="page-item">
-        <a href="/stackstorm.com/posts/page/22/" aria-label="Page 22" class="page-link" role="button">22</a>
-      </li>
-      <li class="page-item">
-        <a href="/stackstorm.com/posts/page/23/" aria-label="Page 23" class="page-link" role="button">23</a>
-      </li>
-      <li class="page-item">
-        <a href="/stackstorm.com/posts/page/22/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
-      </li>
-      <li class="page-item">
-        <a href="/stackstorm.com/posts/page/36/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
-      </li>
-    </ul></article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-  </div>
+</div>
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/05/01/implementing-chatops-with-stackstorm/ class="link black dim">
+Implementing ChatOps With StackStorm
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+<p><strong>May 1, 2015</strong></p>
+<p><em>by James Fryman</em></p>
+<p>ChatOps is the methodology of bringing operations work that you are already doing into the context of the conversation you are currently having. Ultimately, leveraging ChatOps leads to increased transparency and democratized IT delivery. To achieve this, SMEs should codify their knowledge using a system such as StackStorm to help form that information so that it is consumable by everyone.</p>
+<p>Check out my <a href=https://youtu.be/IhzxnY7FIvg>talk</a> discussing not only the philosophy behind and history of ChatOps, but also best practices for implementing and maintaining ChatOps in your environment.</p>
+<p>With our v0.9 release, we have added a feature to enable ChatOps. ChatOps via StackStorm is ready for trial and we would really appreciate some feedback. Please follow the <a href=https://github.com/StackStorm/st2/blob/master/instructables/chatops.md>instructions</a> to set up ChatOps using StackStorm.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+<div class="bg-white mb3 pa4 gray overflow-hidden">
+<span class="f6 db">Posts</span>
+<h1 class="f3 near-black">
+<a href=/stackstorm.com/2015/04/30/stackstorm-0-9-azure/ class="link black dim">
+StackStorm 0.9 Features Support For Microsoft Windows And Azure
+</a>
+</h1>
+<div class="nested-links f5 lh-copy nested-copy-line-height">
+<p><strong>April 30, 2015</strong></p>
+<p><em>by Evan Powell</em></p>
+<p>The pace here never seems to let up, and in fact it just keeps accelerating, as Thursday we introduced the general release of version 0.9 of StackStorm. The new release supports an important partnership with Microsoft and adds some new visual authoring tools in our new WebUI to simplify use of StackStorm.</p>
+<p>Additionally, as always, we are listening to you on IRC (#stackstorm on Freenode) and to our supported customers as well and constantly improving and fixing the platform itself.  Please take a look at the <a href=https://github.com/StackStorm/st2/releases/tag/v0.9.0>release notes</a> to see all the details.</p>
+<h6 id=microsoft-integrations>Microsoft Integrations</h6>
+<p>With 0.9 we will be supporting Microsoft products and services including Azure and Microsoft Windows.</p>
+<p>We will talk much more about this relationship in the next week or two along with our friends at Microsoft. As an aside, I’m absolutely flummoxed – in a good way – by the enthusiasm and professionalism and, yes, friendliness of the team we work with at Microsoft. I’ve dealt with pre anti-trust Microsoft and still carry scars from all those years ago. As many have pointed out, today’s Microsoft is a lot, lot different than in those days.</p>
+<p>As you’ll note, we are not charging for StackStorm on Azure. We’re hopeful this will be another way for users to try out StackStorm without much friction. Note that Rackspace integration for StackStorm is of course strong as well and we have users running us on Digital Ocean and AWS of course as well.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<ul class="pagination pagination-default">
+<li class=page-item>
+<a href=/stackstorm.com/posts/ aria-label=First class=page-link role=button><span aria-hidden=true>&#171;&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/stackstorm.com/posts/page/20/ aria-label=Previous class=page-link role=button><span aria-hidden=true>&#171;</span></a>
+</li>
+<li class=page-item>
+<a href=/stackstorm.com/posts/page/19/ aria-label="Page 19" class=page-link role=button>19</a>
+</li>
+<li class=page-item>
+<a href=/stackstorm.com/posts/page/20/ aria-label="Page 20" class=page-link role=button>20</a>
+</li>
+<li class="page-item active">
+<a href=# aria-current=page aria-label="Page 21" class=page-link role=button>21</a>
+</li>
+<li class=page-item>
+<a href=/stackstorm.com/posts/page/22/ aria-label="Page 22" class=page-link role=button>22</a>
+</li>
+<li class=page-item>
+<a href=/stackstorm.com/posts/page/23/ aria-label="Page 23" class=page-link role=button>23</a>
+</li>
+<li class=page-item>
+<a href=/stackstorm.com/posts/page/22/ aria-label=Next class=page-link role=button><span aria-hidden=true>&#187;</span></a>
+</li>
+<li class=page-item>
+<a href=/stackstorm.com/posts/page/35/ aria-label=Last class=page-link role=button><span aria-hidden=true>&#187;&#187;</span></a>
+</li>
+</ul></article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
+</div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

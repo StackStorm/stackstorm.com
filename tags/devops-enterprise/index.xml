@@ -1,37 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>devops enterprise on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/devops-enterprise/</link>
-    <description>Recent content in devops enterprise on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 14 Nov 2017 06:42:41 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/devops-enterprise/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>DevOps Enterprise Summit 2017 –San Francisco</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/11/13/devops-enterprise-summit-2017-san-francisco/</link>
-      <pubDate>Tue, 14 Nov 2017 06:42:41 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/11/13/devops-enterprise-summit-2017-san-francisco/</guid>
-      <description>&lt;h3 id=&#34;stackstorm-community-thought-leaders1&#34;&gt;&lt;a href=&#34;https://stackstorm.com/stackstorm-thought-leaders/&#34;&gt;StackStorm Community Thought Leaders:&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Demonstrating Transformational Leadership with Event Driven Automation&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;By Dana Christensen&lt;/em&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;The 3-day DevOps Enterprise Summit (DOES17) hosted by IT Revolution and Gene Kim is sold out and in full swing in San Francisco!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>DevOps Enterprise Summit 2014</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2014/10/24/devops-enterprise-summit-2014/</link>
-      <pubDate>Fri, 24 Oct 2014 22:29:32 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2014/10/24/devops-enterprise-summit-2014/</guid>
-      <description>October 21-23, 2014
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>devops enterprise on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/devops-enterprise/</link><description>Recent content in devops enterprise on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 14 Nov 2017 06:42:41 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/devops-enterprise/index.xml" rel="self" type="application/rss+xml"/><item><title>DevOps Enterprise Summit 2017 –San Francisco</title><link>https://stackstorm.github.io/stackstorm.com/2017/11/13/devops-enterprise-summit-2017-san-francisco/</link><pubDate>Tue, 14 Nov 2017 06:42:41 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/11/13/devops-enterprise-summit-2017-san-francisco/</guid><description>&lt;h3 id="stackstorm-community-thought-leaders1">&lt;a href="https://stackstorm.com/stackstorm-thought-leaders/">StackStorm Community Thought Leaders:&lt;/a>&lt;/h3>
+&lt;p>&lt;!-- raw HTML omitted -->Demonstrating Transformational Leadership with Event Driven Automation&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>&lt;em>By Dana Christensen&lt;/em>&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>The 3-day DevOps Enterprise Summit (DOES17) hosted by IT Revolution and Gene Kim is sold out and in full swing in San Francisco!&lt;/p></description></item><item><title>DevOps Enterprise Summit 2014</title><link>https://stackstorm.github.io/stackstorm.com/2014/10/24/devops-enterprise-summit-2014/</link><pubDate>Fri, 24 Oct 2014 22:29:32 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2014/10/24/devops-enterprise-summit-2014/</guid><description>October 21-23, 2014
 San Francisco, CA
 Visit StackStorm at Booth TT1
 RSVP for the DevOps Enterprise After Party Event at AKQA, co-sponsored by StackStorm!
-EVENT WEBSITE</description>
-    </item>
-    
-  </channel>
-</rss>
+EVENT WEBSITE</description></item></channel></rss>

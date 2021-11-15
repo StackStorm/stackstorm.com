@@ -1,196 +1,109 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>OpenStack Day Two Operations Tools | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="September 26, 2014
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>OpenStack Day Two Operations Tools | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="September 26, 2014
 by Dmitri Zimine
 This post originally appeared September 26, 2014 on OpenSource.com.
 This is the third part in a series of three articles surveying automation projects within OpenStack, explaining what they do, how they do it, and where they stand in development readiness and field usage. Previously, in part one, I covered cloud deployment tools that enable you to install/update OpenStack cloud on bare metal. In part two, I covered workload deployment tools. Today, we’ll look at tools for day two operations.
 Day two operations automation is all about maintaining and managing the cloud infrastructure and workload to keep it running.">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="OpenStack Day Two Operations Tools" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="OpenStack Day Two Operations Tools">
 <meta property="og:description" content="September 26, 2014
 by Dmitri Zimine
 This post originally appeared September 26, 2014 on OpenSource.com.
 This is the third part in a series of three articles surveying automation projects within OpenStack, explaining what they do, how they do it, and where they stand in development readiness and field usage. Previously, in part one, I covered cloud deployment tools that enable you to install/update OpenStack cloud on bare metal. In part two, I covered workload deployment tools. Today, we’ll look at tools for day two operations.
-Day two operations automation is all about maintaining and managing the cloud infrastructure and workload to keep it running." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2014/09/26/openstack-day-two-operations-tools/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2014-09-26T15:51:34+00:00" />
-<meta property="article:modified_time" content="2014-09-26T15:51:34+00:00" />
-
-<meta itemprop="name" content="OpenStack Day Two Operations Tools">
-<meta itemprop="description" content="September 26, 2014
+Day two operations automation is all about maintaining and managing the cloud infrastructure and workload to keep it running.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2014/09/26/openstack-day-two-operations-tools/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2014-09-26T15:51:34+00:00">
+<meta property="article:modified_time" content="2014-09-26T15:51:34+00:00">
+<meta itemprop=name content="OpenStack Day Two Operations Tools">
+<meta itemprop=description content="September 26, 2014
 by Dmitri Zimine
 This post originally appeared September 26, 2014 on OpenSource.com.
 This is the third part in a series of three articles surveying automation projects within OpenStack, explaining what they do, how they do it, and where they stand in development readiness and field usage. Previously, in part one, I covered cloud deployment tools that enable you to install/update OpenStack cloud on bare metal. In part two, I covered workload deployment tools. Today, we’ll look at tools for day two operations.
-Day two operations automation is all about maintaining and managing the cloud infrastructure and workload to keep it running."><meta itemprop="datePublished" content="2014-09-26T15:51:34+00:00" />
-<meta itemprop="dateModified" content="2014-09-26T15:51:34+00:00" />
-<meta itemprop="wordCount" content="1050">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="OpenStack Day Two Operations Tools"/>
-<meta name="twitter:description" content="September 26, 2014
+Day two operations automation is all about maintaining and managing the cloud infrastructure and workload to keep it running."><meta itemprop=datePublished content="2014-09-26T15:51:34+00:00">
+<meta itemprop=dateModified content="2014-09-26T15:51:34+00:00">
+<meta itemprop=wordCount content="1050">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="OpenStack Day Two Operations Tools">
+<meta name=twitter:description content="September 26, 2014
 by Dmitri Zimine
 This post originally appeared September 26, 2014 on OpenSource.com.
 This is the third part in a series of three articles surveying automation projects within OpenStack, explaining what they do, how they do it, and where they stand in development readiness and field usage. Previously, in part one, I covered cloud deployment tools that enable you to install/update OpenStack cloud on bare metal. In part two, I covered workload deployment tools. Today, we’ll look at tools for day two operations.
-Day two operations automation is all about maintaining and managing the cloud infrastructure and workload to keep it running."/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+Day two operations automation is all about maintaining and managing the cloud infrastructure and workload to keep it running.">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2014/09/26/openstack-day-two-operations-tools/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2014/09/26/openstack-day-two-operations-tools/&amp;text=OpenStack%20Day%20Two%20Operations%20Tools" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2014/09/26/openstack-day-two-operations-tools/&amp;title=OpenStack%20Day%20Two%20Operations%20Tools" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">OpenStack Day Two Operations Tools</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              Dmitri Zimine
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2014-09-26T15:51:34Z">September 26, 2014</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>September 26, 2014</strong></p>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2014/09/26/openstack-day-two-operations-tools/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2014/09/26/openstack-day-two-operations-tools/&text=OpenStack%20Day%20Two%20Operations%20Tools" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2014/09/26/openstack-day-two-operations-tools/&title=OpenStack%20Day%20Two%20Operations%20Tools" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">OpenStack Day Two Operations Tools</h1>
+<p class=tracked>
+By <strong>
+Dmitri Zimine
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2014-09-26T15:51:34Z>September 26, 2014</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>September 26, 2014</strong></p>
 <p><em>by Dmitri Zimine</em></p>
-<p><em>This post originally appeared September 26, 2014 on <!-- raw HTML omitted -->OpenSource.com<!-- raw HTML omitted -->.</em></p>
-<p>This is the third part in a series of three articles surveying automation projects within <!-- raw HTML omitted -->OpenStack<!-- raw HTML omitted -->, explaining what they do, how they do it, and where they stand in development readiness and field usage. Previously, in <!-- raw HTML omitted -->part one<!-- raw HTML omitted -->, I covered cloud deployment tools that enable you to install/update OpenStack cloud on bare metal. In <!-- raw HTML omitted -->part two<!-- raw HTML omitted -->, I covered workload deployment tools. Today, we’ll look at tools for day two operations.</p>
+<p><em>This post originally appeared September 26, 2014 on OpenSource.com.</em></p>
+<p>This is the third part in a series of three articles surveying automation projects within OpenStack, explaining what they do, how they do it, and where they stand in development readiness and field usage. Previously, in part one, I covered cloud deployment tools that enable you to install/update OpenStack cloud on bare metal. In part two, I covered workload deployment tools. Today, we’ll look at tools for day two operations.</p>
 <p>Day two operations automation is all about maintaining and managing the cloud infrastructure and workload to keep it running.</p>
 <p>The day two use cases include responding to hardware failures and app performance degradations, troubleshooting, reactive and proactive maintenance, and other tasks, often boring and mundane—stuff we really want to automate so that we can spend time on more creative work. This is a wide area, but the projects here are only emerging now. And, unlike cloud or workload deployment automation, there is no established pattern or dominant approach to automating day two operations.</p>
 <p>Some projects, like Rubick, Blazar, or Satori, are solving a specific, narrow use case. Others, like Mistral and Congress, are set to become generic, general-purpose cross-domain automation tools.</p>
 <p><strong>Blazar</strong></p>
-<p><!-- raw HTML omitted -->Blazar<!-- raw HTML omitted --> (ex. Climate) is an “OpenStack reservation as a service project”. Blazar manages the “lease” of cloud resources (virtual or physical), scheduling resource use in the future, negotiating lease terms between the user and the system, automating the process of allocating and releasing the resources, and providing visibility to resource consumption.</p>
+<p>Blazar (ex. Climate) is an “OpenStack reservation as a service project”. Blazar manages the “lease” of cloud resources (virtual or physical), scheduling resource use in the future, negotiating lease terms between the user and the system, automating the process of allocating and releasing the resources, and providing visibility to resource consumption.</p>
 <p>Blazar introduces Nova filters and API extensions to Nova (blazar-nova) to make it aware of lease concept (see blazar-nova).</p>
 <p>It currently implements reservation of virtual instances and physical hosts. With its pluggable architecture, the support for volumes and other resources is coming.</p>
 <p>Blazar is a new “related” project and was first announced at the OpenStack Hong Kong Summit 2013, and now has base functionality implemented, but it’s not ready for use beyond POC.</p>
 <p><strong>Rubick</strong></p>
-<p><!-- raw HTML omitted -->Rubick<!-- raw HTML omitted --> is a diagnostic tool that inspects and validates OpenStack cloud configurations for correctness and consistency, and reports any errors or misconfigurations.</p>
+<p>Rubick is a diagnostic tool that inspects and validates OpenStack cloud configurations for correctness and consistency, and reports any errors or misconfigurations.</p>
 <p>Rubick auto-discovers an OpenStack cluster, extracts actual configurations of OpenStack components (Keystone, Cinder, Nova, etc.), and checks them against a rule set to validate consistency and correctness. Some rules are simple syntax checks of configuration parameters. Other rules are more complex and inspect the entire model to find semantic inconsistencies across multiple OpenStack components. A simple web UI walks the user through the process of discovery and validation, and reports configuration errors and warnings.</p>
 <p>Status: OpenStack related product. It is functional and complete but the out of box rule set is limited. For broad adoption, Rubick needs other OpenStack projects to jump on contributing the rules. As of now, this has not happened.</p>
 <p><strong>Satori</strong></p>
-<p><!-- raw HTML omitted -->Satori<!-- raw HTML omitted --> provides configuration discovery for existing infrastructure. Given a URL and some credentials, it will discover the role and resource behind this URL, figure out how this resource is related to the OpenStack cloud (e.g., it’s a Nova instance, or Cinder control node), and lists the services that are running on this server.</p>
-<p>Satori is conceptually similar to discovery tools like <!-- raw HTML omitted -->Ohai<!-- raw HTML omitted --> and <!-- raw HTML omitted -->Facter<!-- raw HTML omitted -->, and may leverage these tools, adding OpenStack specifics to it.</p>
+<p>Satori provides configuration discovery for existing infrastructure. Given a URL and some credentials, it will discover the role and resource behind this URL, figure out how this resource is related to the OpenStack cloud (e.g., it’s a Nova instance, or Cinder control node), and lists the services that are running on this server.</p>
+<p>Satori is conceptually similar to discovery tools like Ohai and Facter, and may leverage these tools, adding OpenStack specifics to it.</p>
 <p>With pluggable implementation on the roadmap, Satori plans to discover non-OpenStack infrastructure—API for other clouds, nodes in a Chef server, operating system and application topologies, run time processes and relations between the systems.</p>
 <p>Satori is a very young project—it started in 2014 and just had a first proof of concept in March 2014.</p>
 <p><strong>Congress</strong></p>
-<p><!-- raw HTML omitted -->Congress<!-- raw HTML omitted --> is a generic cross-domain policy management framework for the cloud. It monitors the set of cloud services for policy compliance, and applies corrective actions when violations are identified. In the future, Congress will even prevent violations from happening in the first place when possible.</p>
+<p>Congress is a generic cross-domain policy management framework for the cloud. It monitors the set of cloud services for policy compliance, and applies corrective actions when violations are identified. In the future, Congress will even prevent violations from happening in the first place when possible.</p>
 <p>Congress policies apply to applications, hardware, networking, security and business rules. By being a cross-domain framework, it is capable of handling cross-domain policies, like “every network attached to a VM must be a private network owned by someone in the same group as the VM owner”—touching Neutron, Nova, and Keystone.</p>
-<p>The policies are declared in the <!-- raw HTML omitted -->DataLog<!-- raw HTML omitted --> language. Data providers are used to connect with cloud services, fetch the relevant data, keep them up-to-date, and execute corrective actions.</p>
+<p>The policies are declared in the DataLog language. Data providers are used to connect with cloud services, fetch the relevant data, keep them up-to-date, and execute corrective actions.</p>
 <p>To be successful, Congress will need a buy in from OpenStack projects, so that they provide their own hooks and plugins for policy monitoring and enforcement.</p>
 <p>Congress is a “related” OpenStack project. It has an early implementation showing basic architecture, policy language support and basic data source plugins for Nova and Neutron.</p>
 <p><strong>Mistral</strong></p>
-<p><!-- raw HTML omitted -->Mistral<!-- raw HTML omitted --> is a workflow service for OpenStack cloud automation.</p>
-<p>A workflow—a sequence of tasks with transitions and conditional logic—is expressed as YAML based definition. A workflow can be triggered on demand, on schedule, or on a monitoring event. Mistral runs workflows at scale, with high availability and resilience. It executes task actions, keeps the workflow state, and carries data between the tasks. The new improved <a href="https://wiki.openstack.org/wiki/Mistral/DSLv2">Version 2 of DSL and API</a>introduced a variety of new features.</p>
+<p>Mistral is a workflow service for OpenStack cloud automation.</p>
+<p>A workflow—a sequence of tasks with transitions and conditional logic—is expressed as YAML based definition. A workflow can be triggered on demand, on schedule, or on a monitoring event. Mistral runs workflows at scale, with high availability and resilience. It executes task actions, keeps the workflow state, and carries data between the tasks. The new improved <a href=https://wiki.openstack.org/wiki/Mistral/DSLv2>Version 2 of DSL and API</a>introduced a variety of new features.</p>
 <p>Mistral offers an extensible set of actions, with SSH, REST HTTP, email, and OpenStack pack included. A basic UI is available as a Horizon dashboard; a visual representation of workflow plan and execution is on the roadmap.</p>
 <p>Mistral’s target users are cloud administrators for workflow-based automation of operational procedures, integration across cloud components, other infrastructure services and business processes. Application developers can leverage Mistral as workflow service, similar to AWS Simple Workflow.</p>
 <p>Mistral is also a platform component for other OpenStack services that need a concept of a workflow service. Solum, Fuel, Barbican, Murano, Keystone, Trove, Congress, and a few more are beginning to integrate with Mistral.</p>
@@ -199,48 +112,23 @@ Day two operations automation is all about maintaining and managing the cloud in
 <p>Day two operations are still dominated by manual and custom individual scripts that operators have built themselves. Automation is inevitably coming to the enterprise but the operational patterns are still being established.</p>
 <p>General cross-domain tools can help form these patterns—Congress policies and Mistral workflows can become a currency to capture and share them across the community.</p>
 <p>As the patterns are established, we can expect more projects and solutions to emerge, getting OpenStack closer to a fully automated, autonomic, self-driving cloud.</p>
-<!-- raw HTML omitted --><ul class="pa0">
-  
+<ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-  </div>
+</div>
+<aside class="w-30-l mt6-l">
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
+</div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

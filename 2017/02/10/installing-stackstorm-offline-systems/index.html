@@ -1,315 +1,177 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Installing StackStorm on Offline Systems | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Feb 10, 2017
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Installing StackStorm on Offline Systems | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Feb 10, 2017
 by Siddharth Krishna
 Want to install StackStorm on a machine that doesn’t have access to the internet? If you’ve got another box on your local network that connects to the public network, you can do this by making it a local package repository server. In this post, we’ll walk you through steps for setting up an apt-mirror server with the required packages and configuring the offline client machine to quickly get a full StackStorm installation up and running!">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Installing StackStorm on Offline Systems" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Installing StackStorm on Offline Systems">
 <meta property="og:description" content="Feb 10, 2017
 by Siddharth Krishna
-Want to install StackStorm on a machine that doesn’t have access to the internet? If you’ve got another box on your local network that connects to the public network, you can do this by making it a local package repository server. In this post, we’ll walk you through steps for setting up an apt-mirror server with the required packages and configuring the offline client machine to quickly get a full StackStorm installation up and running!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-02-10T17:45:13+00:00" />
-<meta property="article:modified_time" content="2017-02-10T17:45:13+00:00" />
-
-<meta itemprop="name" content="Installing StackStorm on Offline Systems">
-<meta itemprop="description" content="Feb 10, 2017
+Want to install StackStorm on a machine that doesn’t have access to the internet? If you’ve got another box on your local network that connects to the public network, you can do this by making it a local package repository server. In this post, we’ll walk you through steps for setting up an apt-mirror server with the required packages and configuring the offline client machine to quickly get a full StackStorm installation up and running!">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2017-02-10T17:45:13+00:00">
+<meta property="article:modified_time" content="2017-02-10T17:45:13+00:00">
+<meta itemprop=name content="Installing StackStorm on Offline Systems">
+<meta itemprop=description content="Feb 10, 2017
 by Siddharth Krishna
-Want to install StackStorm on a machine that doesn’t have access to the internet? If you’ve got another box on your local network that connects to the public network, you can do this by making it a local package repository server. In this post, we’ll walk you through steps for setting up an apt-mirror server with the required packages and configuring the offline client machine to quickly get a full StackStorm installation up and running!"><meta itemprop="datePublished" content="2017-02-10T17:45:13+00:00" />
-<meta itemprop="dateModified" content="2017-02-10T17:45:13+00:00" />
-<meta itemprop="wordCount" content="563">
-<meta itemprop="keywords" content="tutorial," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Installing StackStorm on Offline Systems"/>
-<meta name="twitter:description" content="Feb 10, 2017
+Want to install StackStorm on a machine that doesn’t have access to the internet? If you’ve got another box on your local network that connects to the public network, you can do this by making it a local package repository server. In this post, we’ll walk you through steps for setting up an apt-mirror server with the required packages and configuring the offline client machine to quickly get a full StackStorm installation up and running!"><meta itemprop=datePublished content="2017-02-10T17:45:13+00:00">
+<meta itemprop=dateModified content="2017-02-10T17:45:13+00:00">
+<meta itemprop=wordCount content="563">
+<meta itemprop=keywords content="tutorial,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Installing StackStorm on Offline Systems">
+<meta name=twitter:description content="Feb 10, 2017
 by Siddharth Krishna
-Want to install StackStorm on a machine that doesn’t have access to the internet? If you’ve got another box on your local network that connects to the public network, you can do this by making it a local package repository server. In this post, we’ll walk you through steps for setting up an apt-mirror server with the required packages and configuring the offline client machine to quickly get a full StackStorm installation up and running!"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+Want to install StackStorm on a machine that doesn’t have access to the internet? If you’ve got another box on your local network that connects to the public network, you can do this by making it a local package repository server. In this post, we’ll walk you through steps for setting up an apt-mirror server with the required packages and configuring the offline client machine to quickly get a full StackStorm installation up and running!">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/&amp;text=Installing%20StackStorm%20on%20Offline%20Systems" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/&amp;title=Installing%20StackStorm%20on%20Offline%20Systems" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Installing StackStorm on Offline Systems</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2017-02-10T17:45:13Z">February 10, 2017</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Feb 10, 2017</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/&text=Installing%20StackStorm%20on%20Offline%20Systems" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/&title=Installing%20StackStorm%20on%20Offline%20Systems" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Installing StackStorm on Offline Systems</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2017-02-10T17:45:13Z>February 10, 2017</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Feb 10, 2017</strong><br>
 <em>by Siddharth Krishna</em></p>
 <p>Want to install StackStorm on a machine that doesn’t have access to the internet? If you’ve got another box on your local network that connects to the public network, you can do this by making it a local package repository server. In this post, we’ll walk you through steps for setting up an apt-mirror server with the required packages and configuring the <strong>offline</strong> client machine to quickly get a full StackStorm installation up and running!</p>
 <blockquote>
 <p><strong>Note:</strong> We are using Ubuntu on the mirror server and therefore going with apt-mirror in the example here. You can build a local Yum repository in case you are running RHEL/CentOS.</p>
 </blockquote>
-<h3 id="setting-up-the-mirror">Setting up the Mirror</h3>
+<h3 id=setting-up-the-mirror>Setting up the Mirror</h3>
 <ol>
 <li>
-<p>Let’s assume that you already have an apt-mirror server with packages for an Ubuntu distribution in place: see an example guide <a href="http://linoxide.com/ubuntu-how-to/setup-local-repository-ubuntu/">here</a>. As part of this, you would need to install the apache web server as well. It’s used to make the repositories accessible from the client machine (ST2 installation target) over HTTP.</p>
+<p>Let’s assume that you already have an apt-mirror server with packages for an Ubuntu distribution in place: see an example guide <a href=http://linoxide.com/ubuntu-how-to/setup-local-repository-ubuntu/>here</a>. As part of this, you would need to install the apache web server as well. It’s used to make the repositories accessible from the client machine (ST2 installation target) over HTTP.</p>
 </li>
 <li>
 <p>The following packages should be made available on the local package repository for a complete installation of StackStorm (including Web UI, Chatops etc.):</p>
 </li>
 </ol>
 <ul>
-<li><strong>ST2:</strong> <a href="https://packagecloud.io/StackStorm/stable/ubuntu/">https://packagecloud.io/StackStorm/stable/ubuntu/</a></li>
-<li><strong>Mongodb:</strong> <a href="http://repo.mongodb.org/apt/ubuntu">http://repo.mongodb.org/apt/ubuntu</a> trusty/mongodb-org/3.2</li>
-<li><strong>Nodejs:</strong> <a href="https://deb.nodesource.com/node_6.x">https://deb.nodesource.com/node_6.x</a></li>
-<li><strong>Nginx:</strong> <a href="http://nginx.org/packages/ubuntu/">http://nginx.org/packages/ubuntu/</a></li>
+<li><strong>ST2:</strong> <a href=https://packagecloud.io/StackStorm/stable/ubuntu/>https://packagecloud.io/StackStorm/stable/ubuntu/</a></li>
+<li><strong>Mongodb:</strong> <a href=http://repo.mongodb.org/apt/ubuntu>http://repo.mongodb.org/apt/ubuntu</a> trusty/mongodb-org/3.2</li>
+<li><strong>Nodejs:</strong> <a href=https://deb.nodesource.com/node_6.x>https://deb.nodesource.com/node_6.x</a></li>
+<li><strong>Nginx:</strong> <a href=http://nginx.org/packages/ubuntu/>http://nginx.org/packages/ubuntu/</a></li>
 </ul>
 <p>Add the custom repository URL details for these packages to the apt mirror.list file on the server.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<ol start="3">
+<ol start=3>
 <li>Update the mirror to download the required packages on the local mirror:<code>sudo apt-mirror</code></li>
 </ol>
 <p>Directories for each of the new packages should get created inside the apt-mirror base path (<code>set base_path</code>):</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<h3 id="making-the-repos-accessible">Making the Repos Accessible</h3>
-<ol start="4">
+<h3 id=making-the-repos-accessible>Making the Repos Accessible</h3>
+<ol start=4>
 <li>Configure the webserver on the local mirror to make the repositories accessible over HTTP from the client machine by creating symbolic links to each of the repos in the <code>/var/www/html/</code> directory.</li>
 </ol>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Restart the web server: <code>sudo service apache2 restart</code></p>
 <p>Verify the repository directory structure in web browser: <code>http://local-mirror-ip/</code></p>
-<h3 id="setting-up-the-offline-client-system">Setting up the Offline Client System</h3>
-<ol start="5">
+<h3 id=setting-up-the-offline-client-system>Setting up the Offline Client System</h3>
+<ol start=5>
 <li>Modify apt sources to point to the local mirror server for all packages – Ubuntu, ST2, MongoDb, NodeJS and Nginx. Replace <code>mirror</code> with the hostname or IP of the local mirror server:</li>
 </ol>
-<!-- raw HTML omitted -->
 <p>Comment out (#) all existing content and replace with the following:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Update package information: <code>sudo apt-get update</code></p>
-<h3 id="gpg-key-errors">GPG Key Errors?</h3>
+<h3 id=gpg-key-errors>GPG Key Errors?</h3>
 <p>At this point you might hit some GPG signing errors for the custom packages on the client:</p>
 <p><code>The following signatures couldn't be verified because the public key is not available: NO_PUBKEY</code></p>
 <p>To fix this, do the following:</p>
 <p><strong>On Server:</strong></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Move the exportedkey file to the client.<br>
 Note: In case you are facing errors for multiple keys, you may use the following instead:</p>
-<!-- raw HTML omitted -->
 <p><strong>On Client:</strong></p>
-<!-- raw HTML omitted -->
 <p>Retry <code>apt-get update</code></p>
-<ol start="6">
-<li>All required packages should now be downloadable from the local mirror server using <code>sudo apt-get install –y</code> command. The one-line installation process won’t work for this system. You’ll need to follow the manual install steps documented <a href="https://docs.stackstorm.com/install/deb.html">here</a>. Or better yet, use something like Ansible to configure your system. Note that you do not need to setup any custom repositories on the client system. We have already done this by pointing apt towards the local repository server. Install the dependencies directly using <code>sudo apt-get install –y st2|st2mistral|mongodb|nginx|nodejs|st2chatops</code> instead.</li>
+<ol start=6>
+<li>All required packages should now be downloadable from the local mirror server using <code>sudo apt-get install –y</code> command. The one-line installation process won’t work for this system. You’ll need to follow the manual install steps documented <a href=https://docs.stackstorm.com/install/deb.html>here</a>. Or better yet, use something like Ansible to configure your system. Note that you do not need to setup any custom repositories on the client system. We have already done this by pointing apt towards the local repository server. Install the dependencies directly using <code>sudo apt-get install –y st2|st2mistral|mongodb|nginx|nodejs|st2chatops</code> instead.</li>
 </ol>
-<h3 id="what-next">What Next?</h3>
-<p>You should now have StackStorm running. <a href="https://docs.stackstorm.com/install/deb.html#verify">Verify</a> the installation. Since its in offline system, the usual pack install process won’t work on it. One of the ways of working around this is to use an <a href="https://docs.stackstorm.com/reference/proxy.html">HTTP proxy</a>. In a follow-up blog I’ll show you how to set that up.</p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/tutorial" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorial</a>
-   </li>
-  
+<h3 id=what-next>What Next?</h3>
+<p>You should now have StackStorm running. <a href=https://docs.stackstorm.com/install/deb.html#verify>Verify</a> the installation. Since its in offline system, the usual pack install process won’t work on it. One of the ways of working around this is to use an <a href=https://docs.stackstorm.com/reference/proxy.html>HTTP proxy</a>. In a follow-up blog I’ll show you how to set that up.</p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/tutorial class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorial</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/">StackStorm 1.2.0: the new ChatOps</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/">Auto-remediation by example: handling out-of-disk-space.</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/09/15/java-action/">Turning Java App Into StackStorm Action</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/07/29/getting-started-with-stackstorm-and-saltstack/">Getting Started With StackStorm and SaltStack</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/07/08/automating-with-mistral-workflow/">Automated Troubleshooting With StackStorm and Mistral</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/12/integrating-chatops-with-stackstorm/">Integrating ChatOps With StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/04/20/actions-of-all-flavors-in-stackstorm/">Actions Of All Flavors In StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/">Rapid Integration Development With StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/">Managing AWS Instance Lifecycle With StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/">Monitor Twitter And Fire Automations Based On Twitter Keywords Using StackStorm</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/>StackStorm 1.2.0: the new ChatOps</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/>Auto-remediation by example: handling out-of-disk-space.</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/09/15/java-action/>Turning Java App Into StackStorm Action</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/07/29/getting-started-with-stackstorm-and-saltstack/>Getting Started With StackStorm and SaltStack</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/07/08/automating-with-mistral-workflow/>Automated Troubleshooting With StackStorm and Mistral</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/12/integrating-chatops-with-stackstorm/>Integrating ChatOps With StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/04/20/actions-of-all-flavors-in-stackstorm/>Actions Of All Flavors In StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/>Rapid Integration Development With StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/>Managing AWS Instance Lifecycle With StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/>Monitor Twitter And Fire Automations Based On Twitter Keywords Using StackStorm</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

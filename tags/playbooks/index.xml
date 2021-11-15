@@ -1,38 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>playbooks on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/playbooks/</link>
-    <description>Recent content in playbooks on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 15 May 2017 19:19:14 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/playbooks/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Ansible playbooks to deploy StackStorm: BWC, ChatOps and more</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</link>
-      <pubDate>Mon, 15 May 2017 19:19:14 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;May 15, 2017&lt;/strong&gt; &lt;em&gt;by Eugen C. (&lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;)&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;p&gt;As you may know, previously we &lt;a href=&#34;https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&#34;&gt;announced&lt;/a&gt; availability of Ansible production-friendly playbooks to install &amp;amp; configure StackStorm for cases when our demo &lt;code&gt;bash&lt;/code&gt; installer wasn’t sufficient.&lt;/p&gt;
-&lt;p&gt;With the new release &lt;a href=&#34;https://github.com/StackStorm/ansible-st2&#34;&gt;github.com/StackStorm/ansible-st2&lt;/a&gt; &lt;code&gt;v0.7.0&lt;/code&gt; you can do even more!&lt;/p&gt;
-&lt;p&gt;This version includes new &lt;code&gt;bwc&lt;/code&gt; and &lt;code&gt;st2chatops&lt;/code&gt; roles, features like passing settings to &lt;code&gt;st2.conf&lt;/code&gt;, enhancements to use custom SSL certificate for &lt;code&gt;st2web&lt;/code&gt;, more documentation use-cases, some breaking changes and of course, bug fixes.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Introducing Ansible playbooks to deploy StackStorm</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</link>
-      <pubDate>Thu, 02 Feb 2017 19:16:27 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Feb 2, 2017&lt;/strong&gt; &lt;em&gt;by Eugen C. (&lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;)&lt;/em&gt;&lt;br&gt;
-&lt;a href=&#34;https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Did you know we have Ansible playbooks to deploy StackStorm?&lt;br&gt;
-It’s something we’ve been working on quietly for a while:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/StackStorm/ansible-st2&#34;&gt;github.com/StackStorm/ansible-st2&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Well, now you know!&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>playbooks on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/playbooks/</link><description>Recent content in playbooks on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 15 May 2017 19:19:14 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/playbooks/index.xml" rel="self" type="application/rss+xml"/><item><title>Ansible playbooks to deploy StackStorm: BWC, ChatOps and more</title><link>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</link><pubDate>Mon, 15 May 2017 19:19:14 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</guid><description>&lt;p>&lt;strong>May 15, 2017&lt;/strong> &lt;em>by Eugen C. (&lt;!-- raw HTML omitted -->@armab&lt;!-- raw HTML omitted -->)&lt;/em>&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>As you may know, previously we &lt;a href="https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/">announced&lt;/a> availability of Ansible production-friendly playbooks to install &amp;amp; configure StackStorm for cases when our demo &lt;code>bash&lt;/code> installer wasn’t sufficient.&lt;/p>
+&lt;p>With the new release &lt;a href="https://github.com/StackStorm/ansible-st2">github.com/StackStorm/ansible-st2&lt;/a> &lt;code>v0.7.0&lt;/code> you can do even more!&lt;/p>
+&lt;p>This version includes new &lt;code>bwc&lt;/code> and &lt;code>st2chatops&lt;/code> roles, features like passing settings to &lt;code>st2.conf&lt;/code>, enhancements to use custom SSL certificate for &lt;code>st2web&lt;/code>, more documentation use-cases, some breaking changes and of course, bug fixes.&lt;/p></description></item><item><title>Introducing Ansible playbooks to deploy StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</link><pubDate>Thu, 02 Feb 2017 19:16:27 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</guid><description>&lt;p>&lt;strong>Feb 2, 2017&lt;/strong> &lt;em>by Eugen C. (&lt;!-- raw HTML omitted -->@armab&lt;!-- raw HTML omitted -->)&lt;/em>&lt;br>
+&lt;a href="https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/">&lt;!-- raw HTML omitted -->&lt;/a>&lt;/p>
+&lt;p>Did you know we have Ansible playbooks to deploy StackStorm?&lt;br>
+It’s something we’ve been working on quietly for a while:&lt;/p>
+&lt;p>&lt;a href="https://github.com/StackStorm/ansible-st2">github.com/StackStorm/ansible-st2&lt;/a>&lt;/p>
+&lt;p>Well, now you know!&lt;/p></description></item></channel></rss>

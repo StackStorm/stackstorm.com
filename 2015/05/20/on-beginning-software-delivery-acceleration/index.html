@@ -1,187 +1,100 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>On Beginning Software Delivery Acceleration | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="May 20, 2015
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>On Beginning Software Delivery Acceleration | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="May 20, 2015
 by James Fryman
-Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000&#43; number. But, what does this even mean?
+Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000+ number. But, what does this even mean?
 Unpacking this number is often one IT leaders stumble on, and is the greatest source of pushback when talking about rapid acceleration. How stable is the software being delivered? How many of these deployments are successful? What constitutes a deployment?
 These questions and more often end up creating analysis paralysis, and nothing changes. In fact, the most common response starts with, “There is no way we could implement something like that at my company because…” We know this to be false. Companies who have traditionally delivered in a waterfall fashion with a single, bloated deploy per month or quarter are successfully transitioning to rapid deployment posting similar baseline numbers as other teams.
 How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started.">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="On Beginning Software Delivery Acceleration" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="On Beginning Software Delivery Acceleration">
 <meta property="og:description" content="May 20, 2015
 by James Fryman
-Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000&#43; number. But, what does this even mean?
+Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000+ number. But, what does this even mean?
 Unpacking this number is often one IT leaders stumble on, and is the greatest source of pushback when talking about rapid acceleration. How stable is the software being delivered? How many of these deployments are successful? What constitutes a deployment?
 These questions and more often end up creating analysis paralysis, and nothing changes. In fact, the most common response starts with, “There is no way we could implement something like that at my company because…” We know this to be false. Companies who have traditionally delivered in a waterfall fashion with a single, bloated deploy per month or quarter are successfully transitioning to rapid deployment posting similar baseline numbers as other teams.
-How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2015-05-20T18:07:08+00:00" />
-<meta property="article:modified_time" content="2015-05-20T18:07:08+00:00" />
-
-<meta itemprop="name" content="On Beginning Software Delivery Acceleration">
-<meta itemprop="description" content="May 20, 2015
+How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2015-05-20T18:07:08+00:00">
+<meta property="article:modified_time" content="2015-05-20T18:07:08+00:00">
+<meta itemprop=name content="On Beginning Software Delivery Acceleration">
+<meta itemprop=description content="May 20, 2015
 by James Fryman
-Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000&#43; number. But, what does this even mean?
+Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000+ number. But, what does this even mean?
 Unpacking this number is often one IT leaders stumble on, and is the greatest source of pushback when talking about rapid acceleration. How stable is the software being delivered? How many of these deployments are successful? What constitutes a deployment?
 These questions and more often end up creating analysis paralysis, and nothing changes. In fact, the most common response starts with, “There is no way we could implement something like that at my company because…” We know this to be false. Companies who have traditionally delivered in a waterfall fashion with a single, bloated deploy per month or quarter are successfully transitioning to rapid deployment posting similar baseline numbers as other teams.
-How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started."><meta itemprop="datePublished" content="2015-05-20T18:07:08+00:00" />
-<meta itemprop="dateModified" content="2015-05-20T18:07:08+00:00" />
-<meta itemprop="wordCount" content="1697">
-<meta itemprop="keywords" content="devops," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="On Beginning Software Delivery Acceleration"/>
-<meta name="twitter:description" content="May 20, 2015
+How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started."><meta itemprop=datePublished content="2015-05-20T18:07:08+00:00">
+<meta itemprop=dateModified content="2015-05-20T18:07:08+00:00">
+<meta itemprop=wordCount content="1697">
+<meta itemprop=keywords content="devops,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="On Beginning Software Delivery Acceleration">
+<meta name=twitter:description content="May 20, 2015
 by James Fryman
-Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000&#43; number. But, what does this even mean?
+Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000+ number. But, what does this even mean?
 Unpacking this number is often one IT leaders stumble on, and is the greatest source of pushback when talking about rapid acceleration. How stable is the software being delivered? How many of these deployments are successful? What constitutes a deployment?
 These questions and more often end up creating analysis paralysis, and nothing changes. In fact, the most common response starts with, “There is no way we could implement something like that at my company because…” We know this to be false. Companies who have traditionally delivered in a waterfall fashion with a single, bloated deploy per month or quarter are successfully transitioning to rapid deployment posting similar baseline numbers as other teams.
-How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started."/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started.">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/&amp;text=On%20Beginning%20Software%20Delivery%20Acceleration" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/&amp;title=On%20Beginning%20Software%20Delivery%20Acceleration" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">On Beginning Software Delivery Acceleration</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2015-05-20T18:07:08Z">May 20, 2015</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>May 20, 2015</strong></p>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/&text=On%20Beginning%20Software%20Delivery%20Acceleration" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/&title=On%20Beginning%20Software%20Delivery%20Acceleration" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">On Beginning Software Delivery Acceleration</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2015-05-20T18:07:08Z>May 20, 2015</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>May 20, 2015</strong></p>
 <p><em>by James Fryman</em></p>
 <p>Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000+ number. But, what does this even mean?</p>
 <p>Unpacking this number is often one IT leaders stumble on, and is the greatest source of pushback when talking about rapid acceleration. How stable is the software being delivered? How many of these deployments are successful? What constitutes a deployment?</p>
 <p>These questions and more often end up creating analysis paralysis, and nothing changes. In fact, the most common response starts with, “There is no way we could implement something like that at my company because…” We know this to be false. Companies who have traditionally delivered in a waterfall fashion with a single, bloated deploy per month or quarter are successfully transitioning to rapid deployment posting similar baseline numbers as other teams.</p>
 <p>How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started.</p>
-<h2 id="ground-rules">Ground Rules</h2>
+<h2 id=ground-rules>Ground Rules</h2>
 <p>Let’s set the stage with some key principles that will light the path ahead. They are:</p>
 <ul>
 <li>Embrace failure</li>
-<li>Blamelessly analyze failures<!-- raw HTML omitted -->1<!-- raw HTML omitted --></li>
+<li>Blamelessly analyze failures1</li>
 <li>Quickly repair failures when understood</li>
 <li>Always be iterating</li>
 </ul>
 <p>In a nutshell, the goal should be to <strong>Deploy Fast, Fail Fast, Learn Fast, and Improve Fast.</strong> This is a never-ending task, and it is important to consider it as such. Too many times, a project is spun up to start working on these tasks, and inevitably that project ends. Unless continual improvement becomes a core tenant of delivery, any efforts risk falling apart at the seams over time.</p>
 <p>With these rules in mind, let’s continue.</p>
-<h2 id="how-is-software-developed">How is software developed?</h2>
+<h2 id=how-is-software-developed>How is software developed?</h2>
 <p>The first stop is incidentally not within the delivery organization, but rather the development organization. This is where the <strong>empathy</strong> that is so often discussed alongside DevOps will come in; we first need to ensure the developers who are delivering features are equipped for success.</p>
 <p>How is software developed? What does it really mean to get into the flow of production? Ask yourself questions like: how is code introduced into the source tree? What does acceptance of that code look like? (For example: are there code formatting guidelines, are tests needed, etc).</p>
 <p>Once this is understood, the key is the gate that exists to advance code to the next stage of delivery. This is where bottlenecks often exist, and often have valid historic cases for existing. Usually, this is to try and improve quality by introducing checkpoints, but these checkpoints are often human driven, and will invariably contain defects of their own.</p>
@@ -198,99 +111,65 @@ How then can you be successful in beginning software delivery? There is no singl
 <li>Where is work being assigned?</li>
 <li>Where are feature discussions happening?</li>
 </ul>
-<h2 id="kicking-things-into-high-gear">Kicking things into high gear</h2>
+<h2 id=kicking-things-into-high-gear>Kicking things into high gear</h2>
 <p>By this point, it is possible that you have a laundry list of things you have already identified as areas to improve. But, where do you focus? The default tendency is to clean up shop first, and then go work with external teams to try and integrate better. However, that is actually the least ideal thing to do, because it ends up creating silos of isolation. Possibly against your better judgment, plan on integrating first.</p>
 <p>Your first steps should be focused on two objectives. The first of which is to embed yourself into the development work stream… get work items from development via their existing process and find yourself an advocate. This advocate will be your “first follower,” and will help you understand what changes are working and which are not, and will provide valuable and honest feedback that may not come from other members not because they don’t care, but as their energy is focused on other things. It is almost a necessity to start small.</p>
 <p>The point of <strong>empathy</strong> that comes up most times DevOps is mentioned will come into major play here. No matter what efforts that you make to try to improve things, any friction introduced into the life of a developer will dramatically affect your success in any real change. For example: It may be advantageous for you to change the underlying ticketing platform for you all to communicate better, but if you disrupt the existing delivery pipeline, the odds of making new friends may go down a bit.</p>
 <p>Work with your advocate to firm up how development reports issue to your team and vice versa, and run <strong>it</strong> through the gauntlet. Do not forget to apply ground rules… <strong>Deploy Fast, Fail Fast, Learn Fast, and Improve Fast.</strong> Fix easy process holes quickly. Do be mindful of the amount of change that is being introduced at any given time, don’t be afraid to make changes, but also be consistent and measured with this change. This will set the appropriate tone for sustained and long-term process improvement.</p>
 <p>Likewise, do a real project via this first process. One early victory can be to ensure that developers have the ability to run any version of code (git checkout, major version, doesn’t matter) with minimal effort. This allows me to run other colleagues’ code to test out fixes, confirm bugs, or whatnot. By having the ability to run arbitrary code, collaboration speeds up closest to the code, and the number of problems that bubble up to later phases of deployment are cleaned up much earlier. This may mean staging environments; this may mean local development environments. But, solving the smaller task of how developers can run code becomes a test bed for how a production delivery pipeline may behave.</p>
 <p>When you find failures in both process and tooling, it is essential to be blameless while analyzing and working through failures. Early on, there will be many, and it is essential to set tone early on. John Allspaw talks about this in his article when he discusses incentives.</p>
-<!-- raw HTML omitted -->
 <p>Another often-overlooked concern is how these solutions are implemented. Repair of these processes cannot be driven by a single person or in a top-down fashion. Rather, all members of the team must be a part of owning the solution. Time and encouragement will go a tremendous length.</p>
 <p>Finally, deploy. The entire point of this project is to deploy code. The work done up to this point largely will focus on the interaction between Development and Operations, but assuredly there is work to be done on both sides. Until you are able to deploy daily without any breakage, that should be your target. Every day, attempt a code deploy regardless if you know the outcome already. Pick one of two things to fix daily: a failure in the process, or a manual step. Repeat this until you can deploy each day with a minimal number of commands (best case: single command).</p>
-<h2 id="the-path-ahead-is-dangerous-take-these">The Path Ahead is Dangerous, Take These!</h2>
+<h2 id=the-path-ahead-is-dangerous-take-these>The Path Ahead is Dangerous, Take These!</h2>
 <p>As you go along this path, there will be two themes that appear to come up time and time again. The first has to do with communication. Processes to deploy may get faster or more streamlined over time, but there are always ways that communication roadblocks cause challenges for the best of teams.</p>
 <p>The second always has to do with tool disparity. Once engineers get wind that tools need to be implemented, all people and process concerns become secondary. This typically becomes a quagmire, as these tools need to actually participate in the communication streams within the organization to facilitate software delivery.</p>
-<p>To this end, there are two tools that are very beneficial to keep in mind as you go down this path: ChatOps<!-- raw HTML omitted -->2<!-- raw HTML omitted --> and Workflow<!-- raw HTML omitted -->3,4<!-- raw HTML omitted -->. Both of these topics deserve entire sections dedicated to their own right, but in a nutshell, here are the two things that should whet your palette.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p>To this end, there are two tools that are very beneficial to keep in mind as you go down this path: ChatOps2 and Workflow3,4. Both of these topics deserve entire sections dedicated to their own right, but in a nutshell, here are the two things that should whet your palette.</p>
 <p>Just remember: it’s not about one tool. These tools are a means to an end. The people and process have to be part of this conversation. ChatOps enables the communication and collaboration that creates and drives the development. Workflow enables collaboration around infrastructure process. Both of these will become essential.</p>
-<h2 id="closing">Closing</h2>
+<h2 id=closing>Closing</h2>
 <p>To succeed, we as technologists need to know what’s going on in our organization, how technology efforts are helping delivery, and how the technology being deployed is being consumed and by whom. Without this understanding, we’re just throwing tools at a problem and often wind up complicating matters. These tools can jam things up or become shelf ware because nobody is ready to implement them. And in the rapidly moving, lean businesses of today, there is no time for breakdowns.</p>
 <p>Do you know how your teams deliver and collaborate around software? Do you have a tight feedback loop established between your teams and those you provide services to? Are you moving fast, and fixing even faster?</p>
 <p>How teams deliver software today is quickly being recognized as a market differentiator. This journey is neither easy nor quick, but will enable your organization to be prepared for the next phase of rapid growth in the industry.</p>
 <p>Until next time!</p>
 <hr>
 <p> </p>
-<p><!-- raw HTML omitted -->1<!-- raw HTML omitted --><a href="https://codeascraft.com/2012/05/22/blameless-postmortems/">https://codeascraft.com/2012/05/22/blameless-postmortems/</a></p>
-<p><!-- raw HTML omitted -->2<!-- raw HTML omitted --><a href="https://speakerdeck.com/jfryman/chatops-technology-and-philosophy">https://speakerdeck.com/jfryman/chatops-technology-and-philosophy</a></p>
-<p><!-- raw HTML omitted -->3<!-- raw HTML omitted --><a href="http://stackstorm.com/2015/04/10/the-return-of-workflows">http://stackstorm.com/2015/04/10/the-return-of-workflows</a></p>
-<p><!-- raw HTML omitted -->4<!-- raw HTML omitted --><a href="https://www.slideshare.net/slideshow/embed_code/key/cHCIlAlU4Xb1Lw">https://www.slideshare.net/slideshow/embed_code/key/cHCIlAlU4Xb1Lw</a></p>
-<p> </p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/devops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">devops</a>
-   </li>
-  
+<p>1<a href=https://codeascraft.com/2012/05/22/blameless-postmortems/>https://codeascraft.com/2012/05/22/blameless-postmortems/</a></p>
+<p>2<a href=https://speakerdeck.com/jfryman/chatops-technology-and-philosophy>https://speakerdeck.com/jfryman/chatops-technology-and-philosophy</a></p>
+<p>3<a href=http://stackstorm.com/2015/04/10/the-return-of-workflows>http://stackstorm.com/2015/04/10/the-return-of-workflows</a></p>
+<p>4<a href=https://www.slideshare.net/slideshow/embed_code/key/cHCIlAlU4Xb1Lw>https://www.slideshare.net/slideshow/embed_code/key/cHCIlAlU4Xb1Lw</a></p>
+<p> </p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/devops class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">devops</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/">Managing AWS Instance Lifecycle With StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2014/08/11/devopsdays-presentation-devops-greatest-shift-industry/">DevOpsDays Presentation: Why DevOps Is The Greatest Shift In The IT Industry</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/">A Look Back At The Successes Of OpenStack, And Some Emerging Challenges</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/>Managing AWS Instance Lifecycle With StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2014/08/11/devopsdays-presentation-devops-greatest-shift-industry/>DevOpsDays Presentation: Why DevOps Is The Greatest Shift In The IT Industry</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/>A Look Back At The Successes Of OpenStack, And Some Emerging Challenges</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

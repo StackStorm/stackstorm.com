@@ -1,52 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>serverless on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/serverless/</link>
-    <description>Recent content in serverless on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 27 Jul 2018 21:28:00 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/serverless/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>StackStorm at ServerlessConf, SFO, July 31 – Aug 1, 2018</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/07/27/stackstorm-at-serverlessconf-sfo-july-31-aug-1-2018/</link>
-      <pubDate>Fri, 27 Jul 2018 21:28:00 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/07/27/stackstorm-at-serverlessconf-sfo-july-31-aug-1-2018/</guid>
-      <description>&lt;p&gt;&lt;em&gt;July 27, 2018&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lakshmi Kannan&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;For all the people in a hurry, StackStorm will be at &lt;a href=&#34;https://sf.serverless.io&#34;&gt;ServerlessConf in San Francisco&lt;/a&gt; July 31-Aug 1, 2018. Winson Chan and Dmitri Zimine will be speakers from StackStorm talking about our new workflow engine and serverless functions. We also have a booth with cool demos showcasing our new multi-cloud serverless orchestrator – &lt;a href=&#34;https://orquesta.cloud&#34;&gt;Orquesta&lt;/a&gt; and our &lt;a href=&#34;https://github.com/StackStorm/orquesta&#34;&gt;new workflow engine&lt;/a&gt;. Of course, we will have some cool swags! Stop by and don’t be a stranger! For all the people who are enjoying your Friday afternoon like I am, read the longer version.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm Exchange goes Serverless</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/</link>
-      <pubDate>Thu, 14 Dec 2017 09:00:10 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/</guid>
-      <description>&lt;p&gt;Run &lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt; actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;December 14, 2017&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by &lt;a href=&#34;https://twitter.com/dzimine&#34;&gt;Dmitri Zimine&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt; is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying &lt;a href=&#34;https://stackstorm.com/&#34;&gt;StackStorm&lt;/a&gt; may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/connectors/apis-list#popular-connectors&#34;&gt;great library of reusable connectors&lt;/a&gt;? Why can’t YOU grab something ready-to-use?&lt;/p&gt;
-&lt;p&gt;Now you can! Run StackStorm Exchange actions as lambda functions. Without StackStorm. &lt;strong&gt;Serverless and Stormless.&lt;/strong&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Consider a detailed tutorial &lt;a href=&#34;https://medium.com/@dzimine/tutorial-building-a-community-on-boarding-app-with-serverless-stepfunctions-and-stackstorm-b2f7cf2cc419&#34;&gt;“Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange”&lt;/a&gt; to really get your hands dirty and try this out for real.&lt;/p&gt;
-&lt;/blockquote&gt;</description>
-    </item>
-    
-    <item>
-      <title>Serverless’ Event Gateway explained for StackStorm users</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/</link>
-      <pubDate>Tue, 10 Oct 2017 13:52:20 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/</guid>
-      <description>&lt;p&gt;October 10, 2017&lt;br&gt;
-&lt;em&gt;by &lt;!-- raw HTML omitted --&gt;Dmitri Zimine&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;In &lt;a href=&#34;https://stackstorm.com/2017/10/05/event-grid-event-gateway-explained-part1/&#34;&gt;Part 1&lt;/a&gt; of the series, I shared my excitement with two new event-driven systems introduced last month: &lt;!-- raw HTML omitted --&gt;Event Grid&lt;!-- raw HTML omitted --&gt; from Microsoft Azure and &lt;!-- raw HTML omitted --&gt;Event Gateway&lt;!-- raw HTML omitted --&gt; from &lt;!-- raw HTML omitted --&gt;Serverless.com&lt;!-- raw HTML omitted --&gt;, and posted some observations on Event Grid.&lt;/p&gt;
-&lt;p&gt;Before we continue with Event Gateway, let’s bring the “terminology normalization” from &lt;a href=&#34;https://stackstorm.com/2017/10/05/event-grid-event-gateway-explained-part1/&#34;&gt;Part 1&lt;/a&gt;. In the table below StackStorm terms are used as as a reference point for our blog’s regular readers, along with a short explanation of their meaning for the guests.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>serverless on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/serverless/</link><description>Recent content in serverless on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Jul 2018 21:28:00 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/serverless/index.xml" rel="self" type="application/rss+xml"/><item><title>StackStorm at ServerlessConf, SFO, July 31 – Aug 1, 2018</title><link>https://stackstorm.github.io/stackstorm.com/2018/07/27/stackstorm-at-serverlessconf-sfo-july-31-aug-1-2018/</link><pubDate>Fri, 27 Jul 2018 21:28:00 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/07/27/stackstorm-at-serverlessconf-sfo-july-31-aug-1-2018/</guid><description>&lt;p>&lt;em>July 27, 2018&lt;/em>&lt;br>
+&lt;em>by Lakshmi Kannan&lt;/em>&lt;/p>
+&lt;p>For all the people in a hurry, StackStorm will be at &lt;a href="https://sf.serverless.io">ServerlessConf in San Francisco&lt;/a> July 31-Aug 1, 2018. Winson Chan and Dmitri Zimine will be speakers from StackStorm talking about our new workflow engine and serverless functions. We also have a booth with cool demos showcasing our new multi-cloud serverless orchestrator – &lt;a href="https://orquesta.cloud">Orquesta&lt;/a> and our &lt;a href="https://github.com/StackStorm/orquesta">new workflow engine&lt;/a>. Of course, we will have some cool swags! Stop by and don’t be a stranger! For all the people who are enjoying your Friday afternoon like I am, read the longer version.&lt;/p></description></item><item><title>StackStorm Exchange goes Serverless</title><link>https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/</link><pubDate>Thu, 14 Dec 2017 09:00:10 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/</guid><description>&lt;p>Run &lt;a href="https://exchange.stackstorm.org/">StackStorm Exchange&lt;/a> actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.&lt;/p>
+&lt;p>&lt;em>December 14, 2017&lt;/em>&lt;br>
+&lt;em>by &lt;a href="https://twitter.com/dzimine">Dmitri Zimine&lt;/a>&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://exchange.stackstorm.org/">StackStorm Exchange&lt;/a> is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying &lt;a href="https://stackstorm.com/">StackStorm&lt;/a> may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their &lt;a href="https://docs.microsoft.com/en-us/azure/connectors/apis-list#popular-connectors">great library of reusable connectors&lt;/a>? Why can’t YOU grab something ready-to-use?&lt;/p>
+&lt;p>Now you can! Run StackStorm Exchange actions as lambda functions. Without StackStorm. &lt;strong>Serverless and Stormless.&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>Consider a detailed tutorial &lt;a href="https://medium.com/@dzimine/tutorial-building-a-community-on-boarding-app-with-serverless-stepfunctions-and-stackstorm-b2f7cf2cc419">“Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange”&lt;/a> to really get your hands dirty and try this out for real.&lt;/p>
+&lt;/blockquote></description></item><item><title>Serverless’ Event Gateway explained for StackStorm users</title><link>https://stackstorm.github.io/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/</link><pubDate>Tue, 10 Oct 2017 13:52:20 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/</guid><description>&lt;p>October 10, 2017&lt;br>
+&lt;em>by &lt;!-- raw HTML omitted -->Dmitri Zimine&lt;!-- raw HTML omitted -->&lt;/em>&lt;/p>
+&lt;p>In &lt;a href="https://stackstorm.com/2017/10/05/event-grid-event-gateway-explained-part1/">Part 1&lt;/a> of the series, I shared my excitement with two new event-driven systems introduced last month: &lt;!-- raw HTML omitted -->Event Grid&lt;!-- raw HTML omitted --> from Microsoft Azure and &lt;!-- raw HTML omitted -->Event Gateway&lt;!-- raw HTML omitted --> from &lt;!-- raw HTML omitted -->Serverless.com&lt;!-- raw HTML omitted -->, and posted some observations on Event Grid.&lt;/p>
+&lt;p>Before we continue with Event Gateway, let’s bring the “terminology normalization” from &lt;a href="https://stackstorm.com/2017/10/05/event-grid-event-gateway-explained-part1/">Part 1&lt;/a>. In the table below StackStorm terms are used as as a reference point for our blog’s regular readers, along with a short explanation of their meaning for the guests.&lt;/p></description></item></channel></rss>

@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>acqusition on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/acqusition/</link>
-    <description>Recent content in acqusition on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 11 Apr 2016 09:37:39 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/acqusition/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Brocade Acquisition FAQ</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</link>
-      <pubDate>Mon, 11 Apr 2016 09:37:39 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</guid>
-      <description>&lt;h2 id=&#34;directions-and-roadmap&#34;&gt;Directions and Roadmap&lt;/h2&gt;
-&lt;p&gt;**Q: What will happen with StackStorm open-source project?&lt;br&gt;
-**&lt;br&gt;
-&lt;strong&gt;A: No change:&lt;/strong&gt; StackStorm automation platform will continue to be actively developed, and stays open-source under Apache 2.0. StackStorm Community product remains available as a free download.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>acqusition on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/acqusition/</link><description>Recent content in acqusition on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 11 Apr 2016 09:37:39 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/acqusition/index.xml" rel="self" type="application/rss+xml"/><item><title>Brocade Acquisition FAQ</title><link>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</link><pubDate>Mon, 11 Apr 2016 09:37:39 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</guid><description>&lt;h2 id="directions-and-roadmap">Directions and Roadmap&lt;/h2>
+&lt;p>**Q: What will happen with StackStorm open-source project?&lt;br>
+**&lt;br>
+&lt;strong>A: No change:&lt;/strong> StackStorm automation platform will continue to be actively developed, and stays open-source under Apache 2.0. StackStorm Community product remains available as a free download.&lt;/p></description></item></channel></rss>

@@ -1,187 +1,99 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Improved pack configuration, user scoped datastore items and secure secrets store | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="June 30, 2016
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Improved pack configuration, user scoped datastore items and secure secrets store | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="June 30, 2016
 By Tomaz Muraus
 The last couple of months, since the Brocade acquisition, have been pretty busy for us here at StackStorm. We have been getting to know our new friends at Brocade, learning the typical networking use-cases and figuring out how we can use StackStorm to automate them and bring all the DevOps and data-center automation goodness to the networking space, while keeping StackStorm a generic DevOps automation platform.
 As always, we have continued to support our users and the community. We also haven’t been slacking with the StackStorm feature development and improvements. We have worked hard to bring you two new releases in the last 2 months – StackStorm v1.4 and StackStorm v1.5.
 StackStorm v1.5 which has been released just recently includes many new features and improvements so if you haven’t already, I would encourage you to go check it out.
 Today I will talk about the one of the major new features in StackStorm v1.5 which has been discussed and requested many times in the past already. That is improved pack configuration.">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Improved pack configuration, user scoped datastore items and secure secrets store" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Improved pack configuration, user scoped datastore items and secure secrets store">
 <meta property="og:description" content="June 30, 2016
 By Tomaz Muraus
 The last couple of months, since the Brocade acquisition, have been pretty busy for us here at StackStorm. We have been getting to know our new friends at Brocade, learning the typical networking use-cases and figuring out how we can use StackStorm to automate them and bring all the DevOps and data-center automation goodness to the networking space, while keeping StackStorm a generic DevOps automation platform.
 As always, we have continued to support our users and the community. We also haven’t been slacking with the StackStorm feature development and improvements. We have worked hard to bring you two new releases in the last 2 months – StackStorm v1.4 and StackStorm v1.5.
 StackStorm v1.5 which has been released just recently includes many new features and improvements so if you haven’t already, I would encourage you to go check it out.
-Today I will talk about the one of the major new features in StackStorm v1.5 which has been discussed and requested many times in the past already. That is improved pack configuration." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2016-06-30T15:35:33+00:00" />
-<meta property="article:modified_time" content="2016-06-30T15:35:33+00:00" />
-
-<meta itemprop="name" content="Improved pack configuration, user scoped datastore items and secure secrets store">
-<meta itemprop="description" content="June 30, 2016
+Today I will talk about the one of the major new features in StackStorm v1.5 which has been discussed and requested many times in the past already. That is improved pack configuration.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2016-06-30T15:35:33+00:00">
+<meta property="article:modified_time" content="2016-06-30T15:35:33+00:00">
+<meta itemprop=name content="Improved pack configuration, user scoped datastore items and secure secrets store">
+<meta itemprop=description content="June 30, 2016
 By Tomaz Muraus
 The last couple of months, since the Brocade acquisition, have been pretty busy for us here at StackStorm. We have been getting to know our new friends at Brocade, learning the typical networking use-cases and figuring out how we can use StackStorm to automate them and bring all the DevOps and data-center automation goodness to the networking space, while keeping StackStorm a generic DevOps automation platform.
 As always, we have continued to support our users and the community. We also haven’t been slacking with the StackStorm feature development and improvements. We have worked hard to bring you two new releases in the last 2 months – StackStorm v1.4 and StackStorm v1.5.
 StackStorm v1.5 which has been released just recently includes many new features and improvements so if you haven’t already, I would encourage you to go check it out.
-Today I will talk about the one of the major new features in StackStorm v1.5 which has been discussed and requested many times in the past already. That is improved pack configuration."><meta itemprop="datePublished" content="2016-06-30T15:35:33+00:00" />
-<meta itemprop="dateModified" content="2016-06-30T15:35:33+00:00" />
-<meta itemprop="wordCount" content="2492">
-<meta itemprop="keywords" content="configs,configuration,datastore,integration packs,new feature,packs,secrets," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Improved pack configuration, user scoped datastore items and secure secrets store"/>
-<meta name="twitter:description" content="June 30, 2016
+Today I will talk about the one of the major new features in StackStorm v1.5 which has been discussed and requested many times in the past already. That is improved pack configuration."><meta itemprop=datePublished content="2016-06-30T15:35:33+00:00">
+<meta itemprop=dateModified content="2016-06-30T15:35:33+00:00">
+<meta itemprop=wordCount content="2492">
+<meta itemprop=keywords content="configs,configuration,datastore,integration packs,new feature,packs,secrets,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Improved pack configuration, user scoped datastore items and secure secrets store">
+<meta name=twitter:description content="June 30, 2016
 By Tomaz Muraus
 The last couple of months, since the Brocade acquisition, have been pretty busy for us here at StackStorm. We have been getting to know our new friends at Brocade, learning the typical networking use-cases and figuring out how we can use StackStorm to automate them and bring all the DevOps and data-center automation goodness to the networking space, while keeping StackStorm a generic DevOps automation platform.
 As always, we have continued to support our users and the community. We also haven’t been slacking with the StackStorm feature development and improvements. We have worked hard to bring you two new releases in the last 2 months – StackStorm v1.4 and StackStorm v1.5.
 StackStorm v1.5 which has been released just recently includes many new features and improvements so if you haven’t already, I would encourage you to go check it out.
-Today I will talk about the one of the major new features in StackStorm v1.5 which has been discussed and requested many times in the past already. That is improved pack configuration."/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+Today I will talk about the one of the major new features in StackStorm v1.5 which has been discussed and requested many times in the past already. That is improved pack configuration.">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/&amp;text=Improved%20pack%20configuration,%20user%20scoped%20datastore%20items%20and%20secure%20secrets%20store" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/&amp;title=Improved%20pack%20configuration,%20user%20scoped%20datastore%20items%20and%20secure%20secrets%20store" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Improved pack configuration, user scoped datastore items and secure secrets store</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              Tomaz Muraus
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2016-06-30T15:35:33Z">June 30, 2016</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>June 30, 2016</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/&text=Improved%20pack%20configuration,%20user%20scoped%20datastore%20items%20and%20secure%20secrets%20store" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/&title=Improved%20pack%20configuration,%20user%20scoped%20datastore%20items%20and%20secure%20secrets%20store" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Improved pack configuration, user scoped datastore items and secure secrets store</h1>
+<p class=tracked>
+By <strong>
+Tomaz Muraus
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2016-06-30T15:35:33Z>June 30, 2016</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>June 30, 2016</strong><br>
 By Tomaz Muraus</p>
-<p>The last couple of months, since the <a href="https://stackstorm.com/2016/03/29/stackstorm-joining-brocade/">Brocade acquisition</a>, have been pretty busy for us here at StackStorm. We have been getting to know our new friends at Brocade, learning the typical networking use-cases and figuring out how we can use StackStorm to automate them and bring all the DevOps and data-center automation goodness to the networking space, while keeping StackStorm a generic DevOps automation platform.</p>
-<p>As always, we have continued to support our users and the community. We also haven’t been slacking with the StackStorm feature development and improvements. We have worked hard to bring you two new releases in the last 2 months – <a href="https://stackstorm.com/2016/04/20/stackstorm-v1-4/">StackStorm v1.4</a> and <a href="https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/">StackStorm v1.5</a>.</p>
-<p>StackStorm v1.5 which has been released just recently includes many new features and improvements so if you haven’t already, I would encourage you to go <a href="https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/">check it out</a>.</p>
-<p>Today I will talk about the one of the major new features in StackStorm v1.5 which has been <a href="https://github.com/StackStorm/st2/issues/2542">discussed and requested many times in the past</a> already. That is improved pack configuration.</p>
-<h2 id="background">Background</h2>
+<p>The last couple of months, since the <a href=https://stackstorm.com/2016/03/29/stackstorm-joining-brocade/>Brocade acquisition</a>, have been pretty busy for us here at StackStorm. We have been getting to know our new friends at Brocade, learning the typical networking use-cases and figuring out how we can use StackStorm to automate them and bring all the DevOps and data-center automation goodness to the networking space, while keeping StackStorm a generic DevOps automation platform.</p>
+<p>As always, we have continued to support our users and the community. We also haven’t been slacking with the StackStorm feature development and improvements. We have worked hard to bring you two new releases in the last 2 months – <a href=https://stackstorm.com/2016/04/20/stackstorm-v1-4/>StackStorm v1.4</a> and <a href=https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/>StackStorm v1.5</a>.</p>
+<p>StackStorm v1.5 which has been released just recently includes many new features and improvements so if you haven’t already, I would encourage you to go <a href=https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/>check it out</a>.</p>
+<p>Today I will talk about the one of the major new features in StackStorm v1.5 which has been <a href=https://github.com/StackStorm/st2/issues/2542>discussed and requested many times in the past</a> already. That is improved pack configuration.</p>
+<h2 id=background>Background</h2>
 <p>In the previous versions of StackStorm, users would configure packs by editing <strong>config.yaml</strong> file in the pack directory. This approach works fine for simple use cases, but it breaks down for some of the more advanced ones (e.g. you want to use a different configuration value based on the user who has executed an action, etc.).</p>
 <p>An example of a more advanced, but a pretty common use case is having two users with two different set of AWS / OpenStack credentials. You want these two users to create VMs and other resources using their credentials on the same instance of StackStorm. In addition to that, users also want to keep those credentials secret from each other. Before StackStorm v1.5 there was no simple and straight-forward way to achieve that.</p>
 <p>In StackStorm v1.5, we solved all of those limitations and made the whole thing simple and straight-forward.</p>
 <p>Another annoyance was that this config.yaml file was located inside the pack root directory and as such, was part of the pack. This means config was not separated from the code which made updating packs harder. This would get especially hairy if the config.yaml file template was updated upstream and user wanted to update the local pack – usually this would result in merge conflicts and require manual conflict resolution.</p>
 <p>To resolve that and some of the other limitations of the old pack configuration, we have reworked pack configuration. You can learn more about it in the section below.</p>
-<h2 id="improved-pack-configuration">Improved Pack Configuration</h2>
+<h2 id=improved-pack-configuration>Improved Pack Configuration</h2>
 <p>First thing we did is separated config from the upstream pack code. This means that the content of the pack doesn’t need to be modified by the user anymore. The user can now easily update the pack without worrying that the local config file would be overwritten by the upstream changes or similar.</p>
 <p>Pack configuration is now stored inside the new <strong>/opt/stackstorm/configs/</strong> directory. The config file name needs to match the pack name. For example, for pack libcloud, config would previously live in <strong>/opt/stackstorm/packs/libcloud/config.yaml</strong>. The new location now is <strong>/opt/stackstorm/configs/libcloud.yaml</strong>.</p>
 <p>This new config format includes some cool new features such as dynamic configuration values which are described in more details below, but if you don’t utilize those new features, the configuration file format is fully backward compatible. This means that migrating to the new approach is very easy. You simply need to move your existing configuration to the new location as shown in the example below:</p>
-<!-- raw HTML omitted -->
 <pre><code>            &lt;td id=&quot;file-move-sh-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               mv /opt/stackstorm/packs/libcloud/config.yaml /opt/stackstorm/configs/libcloud.yaml
             &lt;/td&gt;
@@ -192,25 +104,23 @@ By Tomaz Muraus</p>
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
 <p>Keep in mind that this is just an example to give you an idea of how easy it is. We are big believers and advocates of Infrastructure as Code approach so in production scenarios, we would encourage all of our users to follow the same infrastructure as code practices as you do for any other code and config files.</p>
 <p>In this case this would mean that at the very least you should version control the whole <strong>/opt/stackstorm/configs/</strong> directory and follow the same review and other practices as you do for any other code and config files.</p>
-<h2 id="dynamic-configuration-values">Dynamic Configuration Values</h2>
+<h2 id=dynamic-configuration-values>Dynamic Configuration Values</h2>
 <p>In addition to separating config from code, we also introduced some other new features. One of those is dynamic configuration values which allows users to utilize values from the datastore in the config.</p>
 <p>To make it easier to understand this new feature, we will first dive into a couple of other features on top of which dynamic configurations values are built.</p>
-<h2 id="user-scoped-datastore-items">User-scoped datastore items</h2>
+<h2 id=user-scoped-datastore-items>User-scoped datastore items</h2>
 <p>Previously, all the datastore values were stored in a global scope. This means that no matter which user referenced a datastore value in a template using “{{system.datastore_key}}” notation, they would all get access to the same value.</p>
 <p>In many scenarios this is desired (e.g. shared values, configuration, thresholds, etc.), but in some situations allowing users to scope values to themselves makes a lot more sense. One of the commonly requested features was allowing different users to utilize different sets of API credentials. This is important for security (limiting access) and auditing purposes. Many services such as AWS with IAM roles allow administrators to create different set of credentials for different users with limited access.</p>
 <p>With this new feature, users can now set a datastore value which is scoped to themselves. This value is then only visible and accessible to the administrators and user who set the value (that assumes you are running enterprise version of StackStorm with RBAC of course).</p>
-<p>For more information on this feature please refer to the documentation – <a href="https://docs.stackstorm.com/datastore.html#scoping-items-stored-in-datastore">Scoping items stored in datastore</a>.</p>
-<h2 id="encrypted-datastore-items-secrets">Encrypted datastore items (secrets)</h2>
+<p>For more information on this feature please refer to the documentation – <a href=https://docs.stackstorm.com/datastore.html#scoping-items-stored-in-datastore>Scoping items stored in datastore</a>.</p>
+<h2 id=encrypted-datastore-items-secrets>Encrypted datastore items (secrets)</h2>
 <p>Another feature introduced in StackStorm v1.5 is encrypted datastore values. This has been requested by many of enterprise customers and users.</p>
 <p>This features allows users to store encrypted values in the datastore. Values are encrypted using AES256 symmetric encryption. The key file used to encrypt and decrypt values is generated by the StackStorm administrator.</p>
 <p>The plaintext version of the encrypted datastore items is only accessible to an administrator and in the case of user-scoped items, also to the user who has set that value.</p>
 <p>For more information on limitations and how to utilize this feature, please refer to the documentation – <a href="https://docs.stackstorm.com/datastore.html?highlight=scoped#securing-secrets-in-key-value-store-admin-only">Securing secrets in key value store</a>.</p>
-<!-- raw HTML omitted -->
 <p>In the example above we put everything together and set a user-scoped datastore item with key <strong>api_key</strong> and value <strong>user1_api_key</strong> which is also a secret. Because this value is also a secret, encrypted value (ciphertext) will be output by default, unless decrypted version is requested using <strong>–decrypt</strong> CLI flag. As mentioned above, the encrypted and plaintext version of this value can only be seen by the administrator and user who set the value.</p>
-<h2 id="putting-it-all-together">Putting it all together</h2>
+<h2 id=putting-it-all-together>Putting it all together</h2>
 <p>Now that you have a basic understanding of user-scoped and encrypted datastore items I will explain how to pull everything together, including dynamic config values (values which point to a datastore item).</p>
 <p>To utilize datastore item inside the config, you need to use the following Jinja template notation for the config value:</p>
 <ul>
@@ -218,7 +128,6 @@ By Tomaz Muraus</p>
 <li>User-scoped datastore items – “{{user.datastore_key_name}}”</li>
 </ul>
 <p>For example:</p>
-<!-- raw HTML omitted -->
 <pre><code>            &lt;td id=&quot;file-my_pack-yaml-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               ---
             &lt;/td&gt;
@@ -265,11 +174,9 @@ By Tomaz Muraus</p>
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
 <p>In the example above, we utilize all the possible options (<strong>api_key</strong> and <strong>api_secret</strong> refer to encrypted user-scoped datastore item, <strong>private_key</strong> uses system scoped datastore item and <strong>region</strong> is a simple static value which doesn’t utilize any of the new features).</p>
 <p>For this example config to work you also need a configuration file schema. This is an optional file stored in the root of a pack directory and named <strong>config.schema.yaml</strong>. This file is defined by the pack author and contains types and some other information about possible configuration file items.</p>
 <p>This file is optional unless you want to utilize encrypted datastore values. In that case, you will need to declare configuration items as secret in the config schema as shown below (that is required to let StackStorm know that the value is secret and as such needs to be decrypted before use).</p>
-<!-- raw HTML omitted -->
 <pre><code>            &lt;td id=&quot;file-config-schema-yaml-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               ---
             &lt;/td&gt;
@@ -478,91 +385,57 @@ By Tomaz Muraus</p>
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
 <p>As you can see in the example above, we define types for all the config items (and you as a pack author are encouraged to do so), but to provide flexibility and make getting started easier, we don’t perform any validation yet.</p>
 <p>In the future, we plan to introduce an optional strict validation mode. In that mode, all the static config value types will be validated against the valid types defined in the config schema. We call this “optional typing” and we believe it provides best of the both worlds – when you need to quickly prototype something and get started you don’t need to do anything, but in production you can enable strict validation mode. With strict validation mode, you will be able to catch a lot of common errors earlier when registering / loading the configs instead of at run time. This provides faster feedback and a better user experience.</p>
 <p>Once you have defined the pack config you need to run the <strong>st2-register-content –register-configs</strong> command. This commands synchronizes config information on the file system with the database. You will need to run it every time you change the config file on disk.</p>
 <p>For demonstration purposes, I will use an action which simply prints out the config values. In real life, this action would of course do something with the config values (e.g. authenticate against AWS API or similar) instead of just printing them out.</p>
-<!-- raw HTML omitted -->
 <p>In the example above we ran the same action with two different StackStorm users (<strong>user1</strong> and <strong>user2</strong>). As you can see in the output, the actual config value printed are different – they resolved to a datastore item which is local to a particular user.</p>
 <p>User-scoped datastore items and dynamic config values come especially handy in situations where you want to use different credentials for a particular user, different thresholds and so on.</p>
-<h2 id="quick-note-on-backward-compatibility">Quick note on backward compatibility</h2>
+<h2 id=quick-note-on-backward-compatibility>Quick note on backward compatibility</h2>
 <p>As mentioned above, existing config files (config.yaml) are fully backward compatible. If you want to separate config from the pack data and / or utilize new features, you simply need to move the existing config to <strong>/opt/stackstorm/configs/my_pack.yaml</strong>. In addition to that, if you want to utilize encrypted datastore values you also need to make sure that the pack contains a valid and correct <strong>config.schema.yaml</strong> file. If that’s not the case yet, we encourage you to contribute one – writing a config schema is very simple and you will make StackStorm a better place for everyone.</p>
 <p>In addition to that, if both files are found (<strong>/opt/stackstorm/packs/my_pack/config.yaml</strong> and <strong>/opt/stackstorm/configs/my_pack.yaml</strong>), configs are merged from left to right and values in the new config have precedence over the old ones.</p>
 <p>To make the migration easier, we also plan to support old-style configs for at least a couple of more months. Nevertheless, if you get a chance we would encourage you to migrate to the new and improved approach. This will make your life a lot easier since you will be able to update packs without potential merge conflicts and you will be able to utilize new features.</p>
-<h2 id="conclusion">Conclusion</h2>
+<h2 id=conclusion>Conclusion</h2>
 <p>We hope you are as excited as we are about the improved pack configuration, user-scoped datastore items, datastore secrets and other new features. Over the coming weeks, we will be updating existing packs inside StackStorm Exchange (add config.schema.yaml file, etc.) so you will be able to leverage this new functionality.</p>
 <p>In the mean-time, we encourage you to try play with it and try it out. If a particular pack you are interested in hasn’t been updated yet and is missing a config schema, don’t be afraid. It is easy to add one yourself. If you get stuck or don’t know how to proceed, we are here to help.</p>
-<p>As always, if you have questions or feedback, you can reach us at one of our <a href="https://stackstorm.com/community/">community channels.</a></p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/configs" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">configs</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/configuration" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">configuration</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/datastore" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">datastore</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/integration-packs" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">integration packs</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/new-feature" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">new feature</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/packs" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">packs</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/secrets" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">secrets</a>
-   </li>
-  
+<p>As always, if you have questions or feedback, you can reach us at one of our <a href=https://stackstorm.com/community/>community channels.</a></p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/configs class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">configs</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/configuration class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">configuration</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/datastore class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">datastore</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/integration-packs class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">integration packs</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/new-feature class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">new feature</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/packs class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">packs</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/secrets class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">secrets</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-  </div>
+</div>
+<aside class="w-30-l mt6-l">
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
+</div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

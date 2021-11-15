@@ -1,26 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>OctopusDeploy on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/octopusdeploy/</link>
-    <description>Recent content in OctopusDeploy on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 01 Oct 2015 15:02:25 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/octopusdeploy/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>OctopusDeploy Integration with StackStorm</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</link>
-      <pubDate>Thu, 01 Oct 2015 15:02:25 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;October 1, 2015&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;Guest post by &lt;a href=&#34;https://twitter.com/anthonypjshaw&#34;&gt;Anthony Shaw&lt;/a&gt;, Head of Innovation, ITaaS at &lt;a href=&#34;http://dimensiondata.com&#34;&gt;Dimension Data&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;This blog post will take you through the &lt;a href=&#34;https://github.com/StackStorm-Exchange/stackstorm-octopusdeploy&#34;&gt;integration pack for OctopusDeploy&lt;/a&gt; and give you some example actions and rules to integrate with other packs.&lt;/p&gt;
-&lt;h2 id=&#34;what-is-octopusdeploy&#34;&gt;What is OctopusDeploy?&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.octopusdeploy.com&#34;&gt;Octopus Deploy&lt;/a&gt; is an automated deployment tool for .NET and Windows environments. It has gained significant popularity amongst the .NET development community for it’s ease of use and integration into the Microsoft development ecosystem. OctopusDeploy enables users to automate deployment of applications, packages and tools to Windows environments.&lt;/p&gt;
-&lt;h2 id=&#34;why-integrate-octopusdeploy-into-stackstorm&#34;&gt;Why integrate OctopusDeploy into StackStorm?&lt;/h2&gt;
-&lt;p&gt;Octopus Deploy provides a rich system for Windows application deployments, but this is typically part of a wider DevOps process. Unlike StackStorm, it does not support closed-loop monitoring, remediation or infrastructure configuration and building, it does not integrate into configuration management tools (nor claim to). If you want to integrate OctopusDeploy from another tool, as part of a DevOps or environment tool you could&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OctopusDeploy on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/octopusdeploy/</link><description>Recent content in OctopusDeploy on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 01 Oct 2015 15:02:25 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/octopusdeploy/index.xml" rel="self" type="application/rss+xml"/><item><title>OctopusDeploy Integration with StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</link><pubDate>Thu, 01 Oct 2015 15:02:25 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</guid><description>&lt;p>&lt;strong>October 1, 2015&lt;/strong>&lt;br>
+&lt;em>Guest post by &lt;a href="https://twitter.com/anthonypjshaw">Anthony Shaw&lt;/a>, Head of Innovation, ITaaS at &lt;a href="http://dimensiondata.com">Dimension Data&lt;/a>&lt;/em>&lt;/p>
+&lt;p>This blog post will take you through the &lt;a href="https://github.com/StackStorm-Exchange/stackstorm-octopusdeploy">integration pack for OctopusDeploy&lt;/a> and give you some example actions and rules to integrate with other packs.&lt;/p>
+&lt;h2 id="what-is-octopusdeploy">What is OctopusDeploy?&lt;/h2>
+&lt;p>&lt;a href="http://www.octopusdeploy.com">Octopus Deploy&lt;/a> is an automated deployment tool for .NET and Windows environments. It has gained significant popularity amongst the .NET development community for it’s ease of use and integration into the Microsoft development ecosystem. OctopusDeploy enables users to automate deployment of applications, packages and tools to Windows environments.&lt;/p>
+&lt;h2 id="why-integrate-octopusdeploy-into-stackstorm">Why integrate OctopusDeploy into StackStorm?&lt;/h2>
+&lt;p>Octopus Deploy provides a rich system for Windows application deployments, but this is typically part of a wider DevOps process. Unlike StackStorm, it does not support closed-loop monitoring, remediation or infrastructure configuration and building, it does not integrate into configuration management tools (nor claim to). If you want to integrate OctopusDeploy from another tool, as part of a DevOps or environment tool you could&lt;/p></description></item></channel></rss>

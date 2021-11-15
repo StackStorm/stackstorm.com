@@ -1,106 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>devops on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/devops/</link>
-    <description>Recent content in devops on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jan 2017 16:36:44 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/devops/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Innovation at Dimension Data: Accelerating Innovation and Digital Transformation with StackStorm Event Driven Automation</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/</link>
-      <pubDate>Tue, 24 Jan 2017 16:36:44 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Jan 24, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Dana Christensen&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;part-1-of-3&#34;&gt;Part 1 of 3&lt;/h2&gt;
-&lt;p&gt;At DevOps Enterprise Summit 2016, DevOps leaders like Target, American Airlines, Disney, and Quicken Loans spoke of the importance of managing/optimizing operations, addressing technical debt, eliminating silos, collaboration, and the importance of open source and community to drive innovation. I was especially struck by &lt;!-- raw HTML omitted --&gt;Jason Cox of Disney&lt;!-- raw HTML omitted --&gt;, who stressed the importance of “creating a culture of courage” where teams are encouraged to be curious, to experiment, explore and embrace change across process, roles, and technology-all for the purpose of enabling meaningful work.&lt;/p&gt;
-&lt;p&gt;It turns out that these themes are being talked about not only by these large Enterprise DevOps leaders. These themes are being repeated in conversations around the globe with IT leaders who are looking to leverage DevOps practices to successfully drive innovation and digital transformation.&lt;/p&gt;
-&lt;p&gt;Anthony Shaw, Group Director of Innovation and Technical Talent at &lt;!-- raw HTML omitted --&gt;Dimension Data&lt;!-- raw HTML omitted --&gt; has seen this first hand. Anthony not only leads innovation efforts within Dimension Data-but he also travels the world speaking with customers about their business priorities, their Digital Transformation goals, and how the innovative use of technology, organizational structure, community, and transforming day to day operational practices can accelerate their Digital Transformation journey.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Innovation at Dimension Data: Taking DevOps Beyond Deployment</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/12/15/dimension-data-devops-beyond-deployment/</link>
-      <pubDate>Thu, 15 Dec 2016 18:44:25 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/12/15/dimension-data-devops-beyond-deployment/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;December 6, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By Dana Christensen&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;At the DevOps Enterprise Summit in San Francisco last month, DevOps leaders like Target, American Airlines, Disney, and Quicken Loans spoke of the importance collaboration, eliminating silos, managing/optimizing operations and addressing technical debt, the importance of open source and contributing to community, and continuous learning. I was especially struck by Jason Cox of Disney, who stressed the importance of “creating a culture of courage” where teams are encouraged to be curious, to experiment, explore and embrace change–including process, roles, and technology.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;It turns out that these themes are being talked about not only by the large DevOps leaders. These themes are being repeated in conversations around the globe with IT leaders who are looking to leverage DevOps practices to successfully drive Digital Transformation.&lt;/p&gt;
-&lt;p&gt;Anthony Shaw, Director of Innovation and Technical Talent at &lt;a href=&#34;http://www.dimensiondata.com&#34;&gt;Dimension Data&lt;/a&gt; has seen this first hand. Anthony not only leads innovation efforts within Dimension Data-but he also travels the world speaking with customers about their business priorities, their Digital Transformation goals, and how the innovative use of technology, organizational structure, and day to day operational practices can accelerate their Digital Transformation journey.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 1.2.0: the new ChatOps</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</link>
-      <pubDate>Tue, 08 Dec 2015 15:07:00 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;December 8, 2015&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Edward Medvedev&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the &lt;a href=&#34;https://www.youtube.com/watch?v=37LmuHToYjQ&#34;&gt;DevOps Next Steps talk&lt;/a&gt; by &lt;a href=&#34;https://github.com/jfryman&#34;&gt;James Fryman&lt;/a&gt;, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the &lt;a href=&#34;http://www.youtube.com/watch?v=NST3u-GjjFw&#34;&gt;ChatOps at GitHub talk&lt;/a&gt; by Jesse Newland.&lt;/p&gt;
-&lt;p&gt;Today, we’re all excited to introduce — as a part of our &lt;a href=&#34;https://github.com/StackStorm/st2/releases/tag/v1.2.0&#34;&gt;1.2.0 release&lt;/a&gt; — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>On Beginning Software Delivery Acceleration</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/</link>
-      <pubDate>Wed, 20 May 2015 18:07:08 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;May 20, 2015&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;by James Fryman&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000+ number. But, what does this even mean?&lt;/p&gt;
-&lt;p&gt;Unpacking this number is often one IT leaders stumble on, and is the greatest source of pushback when talking about rapid acceleration. How stable is the software being delivered? How many of these deployments are successful? What constitutes a deployment?&lt;/p&gt;
-&lt;p&gt;These questions and more often end up creating analysis paralysis, and nothing changes. In fact, the most common response starts with, “There is no way we could implement something like that at my company because…” We know this to be false. Companies who have traditionally delivered in a waterfall fashion with a single, bloated deploy per month or quarter are successfully transitioning to rapid deployment posting similar baseline numbers as other teams.&lt;/p&gt;
-&lt;p&gt;How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Managing AWS Instance Lifecycle With StackStorm</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/</link>
-      <pubDate>Wed, 14 Jan 2015 00:38:05 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;January 13, 2015&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;by Patrick Hoolboom&lt;/em&gt;&lt;/p&gt;
-&lt;h6 id=&#34;introduction&#34;&gt;Introduction&lt;/h6&gt;
-&lt;p&gt;The StackStorm community repo has a rich integration pack for EC2 and Route53 action that you can find inside the &lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt;. These actions are incredibly useful but they are just the building blocks. The real power of using StackStorm actions comes when they are stitched together into workflows. I’ve taken the two basic workflows we use for EC2 instance lifecycle management and genericized them, then added them to the AWS integration pack. I’m going to go over how these can be used to greatly simplify creation and termination of instances.&lt;/p&gt;
-&lt;h6 id=&#34;why&#34;&gt;Why?&lt;/h6&gt;
-&lt;p&gt;At StackStorm we needed a way to rapidly provision VMs that had all of our bootstrapping done…and it had to be easy to do from the command line or StackStorm UI. This version of the workflow has been simplified to remove some of our internal bootstrapping steps but still reduces the entire process of instance creation, DNS registration, and basic bootstrapping to a single command.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>DevOpsDays Presentation: Why DevOps Is The Greatest Shift In The IT Industry</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2014/08/11/devopsdays-presentation-devops-greatest-shift-industry/</link>
-      <pubDate>Mon, 11 Aug 2014 15:18:37 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2014/08/11/devopsdays-presentation-devops-greatest-shift-industry/</guid>
-      <description>August 11, 2014
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>devops on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/devops/</link><description>Recent content in devops on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 24 Jan 2017 16:36:44 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/devops/index.xml" rel="self" type="application/rss+xml"/><item><title>Innovation at Dimension Data: Accelerating Innovation and Digital Transformation with StackStorm Event Driven Automation</title><link>https://stackstorm.github.io/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/</link><pubDate>Tue, 24 Jan 2017 16:36:44 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/</guid><description>&lt;p>&lt;strong>Jan 24, 2017&lt;/strong>&lt;br>
+&lt;em>by Dana Christensen&lt;/em>&lt;/p>
+&lt;h2 id="part-1-of-3">Part 1 of 3&lt;/h2>
+&lt;p>At DevOps Enterprise Summit 2016, DevOps leaders like Target, American Airlines, Disney, and Quicken Loans spoke of the importance of managing/optimizing operations, addressing technical debt, eliminating silos, collaboration, and the importance of open source and community to drive innovation. I was especially struck by &lt;!-- raw HTML omitted -->Jason Cox of Disney&lt;!-- raw HTML omitted -->, who stressed the importance of “creating a culture of courage” where teams are encouraged to be curious, to experiment, explore and embrace change across process, roles, and technology-all for the purpose of enabling meaningful work.&lt;/p>
+&lt;p>It turns out that these themes are being talked about not only by these large Enterprise DevOps leaders. These themes are being repeated in conversations around the globe with IT leaders who are looking to leverage DevOps practices to successfully drive innovation and digital transformation.&lt;/p>
+&lt;p>Anthony Shaw, Group Director of Innovation and Technical Talent at &lt;!-- raw HTML omitted -->Dimension Data&lt;!-- raw HTML omitted --> has seen this first hand. Anthony not only leads innovation efforts within Dimension Data-but he also travels the world speaking with customers about their business priorities, their Digital Transformation goals, and how the innovative use of technology, organizational structure, community, and transforming day to day operational practices can accelerate their Digital Transformation journey.&lt;/p></description></item><item><title>Innovation at Dimension Data: Taking DevOps Beyond Deployment</title><link>https://stackstorm.github.io/stackstorm.com/2016/12/15/dimension-data-devops-beyond-deployment/</link><pubDate>Thu, 15 Dec 2016 18:44:25 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/12/15/dimension-data-devops-beyond-deployment/</guid><description>&lt;p>&lt;strong>December 6, 2016&lt;/strong>&lt;br>
+&lt;em>By Dana Christensen&lt;/em>&lt;/p>
+&lt;p>At the DevOps Enterprise Summit in San Francisco last month, DevOps leaders like Target, American Airlines, Disney, and Quicken Loans spoke of the importance collaboration, eliminating silos, managing/optimizing operations and addressing technical debt, the importance of open source and contributing to community, and continuous learning. I was especially struck by Jason Cox of Disney, who stressed the importance of “creating a culture of courage” where teams are encouraged to be curious, to experiment, explore and embrace change–including process, roles, and technology.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>It turns out that these themes are being talked about not only by the large DevOps leaders. These themes are being repeated in conversations around the globe with IT leaders who are looking to leverage DevOps practices to successfully drive Digital Transformation.&lt;/p>
+&lt;p>Anthony Shaw, Director of Innovation and Technical Talent at &lt;a href="http://www.dimensiondata.com">Dimension Data&lt;/a> has seen this first hand. Anthony not only leads innovation efforts within Dimension Data-but he also travels the world speaking with customers about their business priorities, their Digital Transformation goals, and how the innovative use of technology, organizational structure, and day to day operational practices can accelerate their Digital Transformation journey.&lt;/p></description></item><item><title>StackStorm 1.2.0: the new ChatOps</title><link>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</link><pubDate>Tue, 08 Dec 2015 15:07:00 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</guid><description>&lt;p>&lt;strong>December 8, 2015&lt;/strong>&lt;br>
+&lt;em>by Edward Medvedev&lt;/em>&lt;/p>
+&lt;p>ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the &lt;a href="https://www.youtube.com/watch?v=37LmuHToYjQ">DevOps Next Steps talk&lt;/a> by &lt;a href="https://github.com/jfryman">James Fryman&lt;/a>, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the &lt;a href="http://www.youtube.com/watch?v=NST3u-GjjFw">ChatOps at GitHub talk&lt;/a> by Jesse Newland.&lt;/p>
+&lt;p>Today, we’re all excited to introduce — as a part of our &lt;a href="https://github.com/StackStorm/st2/releases/tag/v1.2.0">1.2.0 release&lt;/a> — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.&lt;/p></description></item><item><title>On Beginning Software Delivery Acceleration</title><link>https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/</link><pubDate>Wed, 20 May 2015 18:07:08 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/</guid><description>&lt;p>&lt;strong>May 20, 2015&lt;/strong>&lt;/p>
+&lt;p>&lt;em>by James Fryman&lt;/em>&lt;/p>
+&lt;p>Time and time again, we hear of companies achieving rapid acceleration with DevOps. Companies are touting success with the metric of deploys/day, sharing new baselines of 10, 50 or even 100 deploys/day. In more mature organizations the likes of LinkedIn, Netflix, Etsy, Facebook and others, this number is a startling 1,000+ number. But, what does this even mean?&lt;/p>
+&lt;p>Unpacking this number is often one IT leaders stumble on, and is the greatest source of pushback when talking about rapid acceleration. How stable is the software being delivered? How many of these deployments are successful? What constitutes a deployment?&lt;/p>
+&lt;p>These questions and more often end up creating analysis paralysis, and nothing changes. In fact, the most common response starts with, “There is no way we could implement something like that at my company because…” We know this to be false. Companies who have traditionally delivered in a waterfall fashion with a single, bloated deploy per month or quarter are successfully transitioning to rapid deployment posting similar baseline numbers as other teams.&lt;/p>
+&lt;p>How then can you be successful in beginning software delivery? There is no single silver bullet or magic wand, but there is a fairly prescriptive methodology for achieving our goal of rapid delivery. Let’s dive in and take a look on how to get started.&lt;/p></description></item><item><title>Managing AWS Instance Lifecycle With StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/</link><pubDate>Wed, 14 Jan 2015 00:38:05 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/</guid><description>&lt;p>&lt;strong>January 13, 2015&lt;/strong>&lt;/p>
+&lt;p>&lt;em>by Patrick Hoolboom&lt;/em>&lt;/p>
+&lt;h6 id="introduction">Introduction&lt;/h6>
+&lt;p>The StackStorm community repo has a rich integration pack for EC2 and Route53 action that you can find inside the &lt;a href="https://exchange.stackstorm.org/">StackStorm Exchange&lt;/a>. These actions are incredibly useful but they are just the building blocks. The real power of using StackStorm actions comes when they are stitched together into workflows. I’ve taken the two basic workflows we use for EC2 instance lifecycle management and genericized them, then added them to the AWS integration pack. I’m going to go over how these can be used to greatly simplify creation and termination of instances.&lt;/p>
+&lt;h6 id="why">Why?&lt;/h6>
+&lt;p>At StackStorm we needed a way to rapidly provision VMs that had all of our bootstrapping done…and it had to be easy to do from the command line or StackStorm UI. This version of the workflow has been simplified to remove some of our internal bootstrapping steps but still reduces the entire process of instance creation, DNS registration, and basic bootstrapping to a single command.&lt;/p></description></item><item><title>DevOpsDays Presentation: Why DevOps Is The Greatest Shift In The IT Industry</title><link>https://stackstorm.github.io/stackstorm.com/2014/08/11/devopsdays-presentation-devops-greatest-shift-industry/</link><pubDate>Mon, 11 Aug 2014 15:18:37 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2014/08/11/devopsdays-presentation-devops-greatest-shift-industry/</guid><description>August 11, 2014
 by Patrick Hoolboom
-Last month, we attended DevOpsDays Silicon Valley and had a great time meeting other people in the industry while learning about different DevOps tools and best practices. It was the fifth anniversary of the event and we were honored to be a part of the sold out show! I gave an Ignite Talk on the “10 Reasons Why DevOps is the Greatest Shift in the IT Industry.</description>
-    </item>
-    
-    <item>
-      <title>A Look Back At The Successes Of OpenStack, And Some Emerging Challenges</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/</link>
-      <pubDate>Thu, 31 Jul 2014 16:36:08 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;July 31, 2014&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;by Evan Powell&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;As an entrepreneur betting heavily – in time, money, and relationships – on OpenStack, I’m biased towards its success and more than a little interested in how it is growing up. I have long believed in open infrastructure and remain convinced that OpenStack is the best chance we all have for a future of greater innovation, quality, capability, and, yes, affordability for cloud infrastructure.&lt;/p&gt;
-&lt;p&gt;I first looked at OpenStack a number of years ago when growing Nexenta and creating a market we then called the OpenStorage market, and recently took some time to look at the entire project and how far it’s come, as well as some emerging challenges.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;The gap between the mainstream user and hyper scale cloud providers is growing greater by the day&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+Last month, we attended DevOpsDays Silicon Valley and had a great time meeting other people in the industry while learning about different DevOps tools and best practices. It was the fifth anniversary of the event and we were honored to be a part of the sold out show! I gave an Ignite Talk on the “10 Reasons Why DevOps is the Greatest Shift in the IT Industry.</description></item><item><title>A Look Back At The Successes Of OpenStack, And Some Emerging Challenges</title><link>https://stackstorm.github.io/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/</link><pubDate>Thu, 31 Jul 2014 16:36:08 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/</guid><description>&lt;p>&lt;strong>July 31, 2014&lt;/strong>&lt;/p>
+&lt;p>&lt;em>by Evan Powell&lt;/em>&lt;/p>
+&lt;p>As an entrepreneur betting heavily – in time, money, and relationships – on OpenStack, I’m biased towards its success and more than a little interested in how it is growing up. I have long believed in open infrastructure and remain convinced that OpenStack is the best chance we all have for a future of greater innovation, quality, capability, and, yes, affordability for cloud infrastructure.&lt;/p>
+&lt;p>I first looked at OpenStack a number of years ago when growing Nexenta and creating a market we then called the OpenStorage market, and recently took some time to look at the entire project and how far it’s come, as well as some emerging challenges.&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>The gap between the mainstream user and hyper scale cloud providers is growing greater by the day&lt;/strong>&lt;/li>
+&lt;/ol></description></item></channel></rss>

@@ -1,24 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>python 2 on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/python-2/</link>
-    <description>Recent content in python 2 on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 15 Nov 2020 21:02:54 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/python-2/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Python 2 Deprecation Plan: Say goodbye to python 2</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</link>
-      <pubDate>Sun, 15 Nov 2020 21:02:54 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Nov 16, 2020&lt;/strong&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>python 2 on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/python-2/</link><description>Recent content in python 2 on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 15 Nov 2020 21:02:54 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/python-2/index.xml" rel="self" type="application/rss+xml"/><item><title>Python 2 Deprecation Plan: Say goodbye to python 2</title><link>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</link><pubDate>Sun, 15 Nov 2020 21:02:54 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</guid><description>&lt;p>&lt;strong>Nov 16, 2020&lt;/strong>&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

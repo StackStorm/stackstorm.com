@@ -1,73 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>uk on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/uk/</link>
-    <description>Recent content in uk on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 09 Nov 2020 12:30:06 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/uk/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>UK Infrastructure Automation Meetup</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/11/09/uk-infrastructure-automation-meetup/</link>
-      <pubDate>Mon, 09 Nov 2020 12:30:06 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/11/09/uk-infrastructure-automation-meetup/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Nov 9, 2020&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;We’d like to inform our community about the &lt;a href=&#34;https://www.meetup.com/infra-orchestration-automation-uk/events/273795132/&#34;&gt;UK Infrastructure Automation Meetup&lt;/a&gt; that’ll take place on &lt;em&gt;Thursday, Nov 12, 06:00 PM&lt;/em&gt; &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;GMT&lt;!-- raw HTML omitted --&gt; (10:00 AM US Pacific Time).&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;UK evening or US morning time we welcome everyone to join!&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;p style=&amp;quot;margin:5px 0;font-size:16px&amp;quot;&amp;gt;
-  Thursday, Nov 12, 2020, 6:00 PM
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>uk on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/uk/</link><description>Recent content in uk on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 09 Nov 2020 12:30:06 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/uk/index.xml" rel="self" type="application/rss+xml"/><item><title>UK Infrastructure Automation Meetup</title><link>https://stackstorm.github.io/stackstorm.com/2020/11/09/uk-infrastructure-automation-meetup/</link><pubDate>Mon, 09 Nov 2020 12:30:06 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/11/09/uk-infrastructure-automation-meetup/</guid><description>&lt;p>&lt;strong>Nov 9, 2020&lt;/strong>&lt;/p>
+&lt;p>We’d like to inform our community about the &lt;a href="https://www.meetup.com/infra-orchestration-automation-uk/events/273795132/">UK Infrastructure Automation Meetup&lt;/a> that’ll take place on &lt;em>Thursday, Nov 12, 06:00 PM&lt;/em> &lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->GMT&lt;!-- raw HTML omitted --> (10:00 AM US Pacific Time).&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->UK evening or US morning time we welcome everyone to join!&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;pre>&lt;code>&amp;lt;p style=&amp;quot;margin:5px 0;font-size:16px&amp;quot;&amp;gt;
+Thursday, Nov 12, 2020, 6:00 PM
 &amp;lt;/p&amp;gt;
-
 &amp;lt;p style=&amp;quot;margin: 0 0 5px;&amp;quot;&amp;gt;
-  &amp;lt;span style=&amp;quot;font-size:14px&amp;quot;&amp;gt;Online event&amp;lt;/span&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;span style=&amp;quot;font-size:12px;&amp;quot;&amp;gt; , &amp;lt;/span&amp;gt;
+&amp;lt;span style=&amp;quot;font-size:14px&amp;quot;&amp;gt;Online event&amp;lt;/span&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;span style=&amp;quot;font-size:12px;&amp;quot;&amp;gt; , &amp;lt;/span&amp;gt;
 &amp;lt;/p&amp;gt;
-
-&amp;lt;span style=&amp;quot;color:#4F8A10;font-size:16px;&amp;quot;&amp;gt;29 Members Attending&amp;lt;/span&amp;gt; 
-
+&amp;lt;span style=&amp;quot;color:#4F8A10;font-size:16px;&amp;quot;&amp;gt;29 Members Attending&amp;lt;/span&amp;gt;
 &amp;lt;div style=&amp;quot;margin:5px 0 10px&amp;quot; class=&amp;quot;mu_clearfix&amp;quot;&amp;gt;
-  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
-    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/9/7/c/0/thumb_251918848.jpeg&amp;quot; /&amp;gt;
-  &amp;lt;/div&amp;gt;
-  
-  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
-    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/1/8/9/b/thumb_280986299.jpeg&amp;quot; /&amp;gt;
-  &amp;lt;/div&amp;gt;
-  
-  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
-    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/9/7/f/a/thumb_299858906.jpeg&amp;quot; /&amp;gt;
-  &amp;lt;/div&amp;gt;
-  
-  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
-    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/2/1/d/3/thumb_263648659.jpeg&amp;quot; /&amp;gt;
-  &amp;lt;/div&amp;gt;
-  
-  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
-    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/c/4/4/3/thumb_275990243.jpeg&amp;quot; /&amp;gt;
-  &amp;lt;/div&amp;gt;
-  
-  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
-    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/9/b/e/d/thumb_277899917.jpeg&amp;quot; /&amp;gt;
-  &amp;lt;/div&amp;gt;
-  
-  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
-    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/c/c/a/6/thumb_255352390.jpeg&amp;quot; /&amp;gt;
-  &amp;lt;/div&amp;gt;
-  
-  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
-    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/5/2/3/3/thumb_260601043.jpeg&amp;quot; /&amp;gt;
-  &amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/9/7/c/0/thumb_251918848.jpeg&amp;quot; /&amp;gt;
 &amp;lt;/div&amp;gt;
-
+&amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/1/8/9/b/thumb_280986299.jpeg&amp;quot; /&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/9/7/f/a/thumb_299858906.jpeg&amp;quot; /&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/2/1/d/3/thumb_263648659.jpeg&amp;quot; /&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/c/4/4/3/thumb_275990243.jpeg&amp;quot; /&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/9/b/e/d/thumb_277899917.jpeg&amp;quot; /&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/c/c/a/6/thumb_255352390.jpeg&amp;quot; /&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+&amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/5/2/3/3/thumb_260601043.jpeg&amp;quot; /&amp;gt;
+&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
 &amp;lt;p style=&amp;quot;line-height:16px&amp;quot;&amp;gt;
-  For the re-launch group meet in November, it will be online (naturally), so make yourself comfy for an hour and a half and bring a favourite drink! We&amp;amp;#8217;ll have guest speakers from the StackStorm community and Technical Steering Community and others. As we get closer we&amp;amp;#8217;ll add an agenda. Expect an action packed first group meet as the interests wid&amp;amp;#8230;
+For the re-launch group meet in November, it will be online (naturally), so make yourself comfy for an hour and a half and bring a favourite drink! We&amp;amp;#8217;ll have guest speakers from the StackStorm community and Technical Steering Community and others. As we get closer we&amp;amp;#8217;ll add an agenda. Expect an action packed first group meet as the interests wid&amp;amp;#8230;
 &amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/code>&lt;/pre>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

@@ -1,164 +1,77 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Pre-Change Freeze: StackStorm 2.10 | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Dec 14, 2018
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Pre-Change Freeze: StackStorm 2.10 | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Dec 14, 2018
 By Lindsay Hill
-Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 &#43; Python 3 packages (for test only!). Read on for full details:">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Pre-Change Freeze: StackStorm 2.10" />
+Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 + Python 3 packages (for test only!). Read on for full details:">
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Pre-Change Freeze: StackStorm 2.10">
 <meta property="og:description" content="Dec 14, 2018
 By Lindsay Hill
-Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 &#43; Python 3 packages (for test only!). Read on for full details:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-12-14T19:00:02+00:00" />
-<meta property="article:modified_time" content="2018-12-14T19:00:02+00:00" />
-
-<meta itemprop="name" content="Pre-Change Freeze: StackStorm 2.10">
-<meta itemprop="description" content="Dec 14, 2018
+Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 + Python 3 packages (for test only!). Read on for full details:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2018-12-14T19:00:02+00:00">
+<meta property="article:modified_time" content="2018-12-14T19:00:02+00:00">
+<meta itemprop=name content="Pre-Change Freeze: StackStorm 2.10">
+<meta itemprop=description content="Dec 14, 2018
 By Lindsay Hill
-Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 &#43; Python 3 packages (for test only!). Read on for full details:"><meta itemprop="datePublished" content="2018-12-14T19:00:02+00:00" />
-<meta itemprop="dateModified" content="2018-12-14T19:00:02+00:00" />
-<meta itemprop="wordCount" content="888">
-<meta itemprop="keywords" content="release,release announcement," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Pre-Change Freeze: StackStorm 2.10"/>
-<meta name="twitter:description" content="Dec 14, 2018
+Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 + Python 3 packages (for test only!). Read on for full details:"><meta itemprop=datePublished content="2018-12-14T19:00:02+00:00">
+<meta itemprop=dateModified content="2018-12-14T19:00:02+00:00">
+<meta itemprop=wordCount content="888">
+<meta itemprop=keywords content="release,release announcement,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Pre-Change Freeze: StackStorm 2.10">
+<meta name=twitter:description content="Dec 14, 2018
 By Lindsay Hill
-Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 &#43; Python 3 packages (for test only!). Read on for full details:"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 + Python 3 packages (for test only!). Read on for full details:">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/&amp;text=Pre-Change%20Freeze:%20StackStorm%202.10" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/&amp;title=Pre-Change%20Freeze:%20StackStorm%202.10" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Pre-Change Freeze: StackStorm 2.10</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2018-12-14T19:00:02Z">December 14, 2018</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Dec 14, 2018</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/&text=Pre-Change%20Freeze:%20StackStorm%202.10" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/&title=Pre-Change%20Freeze:%20StackStorm%202.10" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Pre-Change Freeze: StackStorm 2.10</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2018-12-14T19:00:02Z>December 14, 2018</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Dec 14, 2018</strong><br>
 <em>By Lindsay Hill</em></p>
 <p>Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 + Python 3 packages (for test only!). Read on for full details:</p>
-<h2 id="why-210-why-not-30">Why 2.10? Why not 3.0?</h2>
+<h2 id=why-210-why-not-30>Why 2.10? Why not 3.0?</h2>
 <p>We wanted to ship 3.0 this year. We really did. But we have got some big things planned, worthy of a 3.0 release, and they weren’t <em>quite</em> ready. But we had lots of good stuff already merged into master, like Orquesta updates. So we decided to ship 2.10 now, to get that code into people’s hands now. It gives us time to make the next release worthy of a major version change.</p>
-<h2 id="orquesta-ready-for-action">Orquesta: Ready for Action</h2>
+<h2 id=orquesta-ready-for-action>Orquesta: Ready for Action</h2>
 <p>Orquesta is now ready for all users. This release added those missing features that you’ve been waiting for. Key enhancements include:</p>
 <ul>
 <li>`with-items` – this was the big one holding back many migrations.</li>
@@ -167,158 +80,114 @@ Thought you could wind down for the change freeze? Sorry, we’ve got one last t
 <li>Workflow output on error, to help understand why a task failed.</li>
 <li>Unicode support for handling Unicode data in Orquesta workflows. Thank you to our Japanese users, we 😍 you.</li>
 </ul>
-<p>We recommend starting your Mistral -&gt; Orquesta migration now. In the second half of 2019 we will remove Mistral from StackStorm. Don’t worry! You still have lots of time, but you should start planning now.</p>
-<h2 id="ubuntu-1804--python-3-early-preview">Ubuntu 18.04 + Python 3: Early Preview</h2>
-<p>Check out our staging-unstable repo – we are now building <a href="https://packagecloud.io/app/StackStorm/staging-unstable/search?q=&amp;filter=all&amp;dist=bionic">Ubuntu 18.04 aka Bionic packages</a>.</p>
+<p>We recommend starting your Mistral -> Orquesta migration now. In the second half of 2019 we will remove Mistral from StackStorm. Don’t worry! You still have lots of time, but you should start planning now.</p>
+<h2 id=ubuntu-1804--python-3-early-preview>Ubuntu 18.04 + Python 3: Early Preview</h2>
+<p>Check out our staging-unstable repo – we are now building <a href="https://packagecloud.io/app/StackStorm/staging-unstable/search?q=&filter=all&dist=bionic">Ubuntu 18.04 aka Bionic packages</a>.</p>
 <p>A few things to know:</p>
 <ul>
 <li>This is still <strong>EARLY</strong>. There will be bugs. Do not use it in production then come crying to me because everything broke. By all means, test them out, but expect things to break. This is because…</li>
 <li>These packages use <strong>Python 3.6</strong> for all StackStorm processes. Some Exchange packs have been updated, and will work with  Python 3. Some will work anyway, and plenty of others <em>will have problems</em>. PRs welcome.</li>
 <li>No Mistral. Orquesta only. We are not going to create st2mistral packages that will work with Python 3.</li>
 <li>You will need MongoDB 4.0 with Ubuntu 18.04. The one-line install script installs MongoDB 4.0 on Ubuntu 18.04, but sticks with 3.4 on other distros. In future we’ll switch to MongoDB 4.0 for all supported systems.</li>
-<li>For now, those packages are only available in our <a href="https://packagecloud.io/app/StackStorm/staging-unstable/search?q=&amp;filter=all&amp;dist=bionic">“staging-unstable” package repos</a>. To use them, pass `–staging –unstable` flags to the installer script. For example: `wget <a href="https://stackstorm.com/packages/install.sh;">https://stackstorm.com/packages/install.sh;</a> bash install.sh –user=st2admin –password=Ch@ngeMe –staging –unstable`</li>
+<li>For now, those packages are only available in our <a href="https://packagecloud.io/app/StackStorm/staging-unstable/search?q=&filter=all&dist=bionic">“staging-unstable” package repos</a>. To use them, pass `–staging –unstable` flags to the installer script. For example: `wget <a href=https://stackstorm.com/packages/install.sh;>https://stackstorm.com/packages/install.sh;</a> bash install.sh –user=st2admin –password=Ch@ngeMe –staging –unstable`</li>
 </ul>
 <p>We’ll do more testing over the next few months before calling this release GA. When RHEL 8.0 comes out, we will create Python 3-only packages for that too.</p>
-<h2 id="changes-under-the-hood-8211-new-scheduler-service">Changes Under the Hood – New Scheduler Service</h2>
+<h2 id=changes-under-the-hood-8211-new-scheduler-service>Changes Under the Hood – New Scheduler Service</h2>
 <p>To add <code>delay</code> functionality for Orquesta workflows we needed to re-design our scheduling service. This service schedules action executions.</p>
 <p>In the past, scheduling related code was in the <code>st2notifier</code> service. It has moved to a new purpose-built <code>st2scheduler</code> service.</p>
 <p>This gives us better decoupling, and future flexibility with regards to scheduling algorithms. Today, executions are scheduled using FIFO approach (first in first out). We have plans to add priority scheduling and more efficient workflow execution scheduling. For example, executions belonging to a particular workflow should have priority over other workflow executions. This provides better perceived performance when running many concurrent workflows.</p>
-<h2 id="chatops-updates">ChatOps Updates</h2>
+<h2 id=chatops-updates>ChatOps Updates</h2>
 <p>We have updated all the components used by ChatOps. We updated all our hubot adapters, and we now support Node.js v8 and v10 (preferred). We no longer support Node.js v6. You will need to update your Node.js versions when you upgrade.</p>
-<p>While we’ve been updating components, we’ve also had a cleanout. We no longer ship a Yammer adapter by default. (Be honest: you won’t miss it). You can still <a href="https://docs.stackstorm.com/latest/chatops/chatops.html#using-an-external-adapter">add your own adapter</a>.</p>
+<p>While we’ve been updating components, we’ve also had a cleanout. We no longer ship a Yammer adapter by default. (Be honest: you won’t miss it). You can still <a href=https://docs.stackstorm.com/latest/chatops/chatops.html#using-an-external-adapter>add your own adapter</a>.</p>
 <p>These upgrades are laying the groundwork for future ChatOps improvements we have planned.</p>
-<h2 id="plus-all-the-rest">Plus all the rest</h2>
+<h2 id=plus-all-the-rest>Plus all the rest</h2>
 <p>Of course, there’s the usual assortment of small fixes and enhancements. A selection of interesting items:</p>
 <ul>
 <li>`core.http` supports more HTTP methods such as OPTION, TRACE, PATCH, PURGE.</li>
 <li>Runners are now dynamically loaded, as Python packages. In future we will stop shipping the Cloudslang and Winexe-based runners. This dynamic loading will make it easier for users who need to load those legacy runners.</li>
-<li>We deprecated old runner names a <strong>very</strong> <a href="https://docs.stackstorm.com/upgrade_notes.html#st2-v0-9">long time ago</a>. We have finally removed those aliases. If you have a very old action that stops working, check it’s using the right name.</li>
+<li>We deprecated old runner names a <strong>very</strong> <a href=https://docs.stackstorm.com/upgrade_notes.html#st2-v0-9>long time ago</a>. We have finally removed those aliases. If you have a very old action that stops working, check it’s using the right name.</li>
 <li>New MongoDB authentication options for those needing high-security authentication.</li>
 </ul>
-<p>The rest of the details are in the <a href="https://docs.stackstorm.com/changelog.html">Change log</a>.</p>
-<h2 id="updating">Updating</h2>
-<p>As always, make sure you have backups first. Then follow the <a href="https://docs.stackstorm.com/latest/install/upgrades.html">Upgrade Instructions</a>. There’s a couple of key points to call out:</p>
+<p>The rest of the details are in the <a href=https://docs.stackstorm.com/changelog.html>Change log</a>.</p>
+<h2 id=updating>Updating</h2>
+<p>As always, make sure you have backups first. Then follow the <a href=https://docs.stackstorm.com/latest/install/upgrades.html>Upgrade Instructions</a>. There’s a couple of key points to call out:</p>
 <ol>
 <li>The GPG keys used for signing our repository metadata have changed. You will need to update your systems to use the new keys.</li>
 <li>As noted above, we now support Node.js v10. You will need to add the Node.js v10 repositories to your system to update st2chatops.</li>
 </ol>
-<p>Both of those changes are straightforward. If you use Ansible, <a href="https://github.com/StackStorm/ansible-st2">our playbooks</a> will manage this for you.</p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/release" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/release-announcement" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release announcement</a>
-   </li>
-  
+<p>Both of those changes are straightforward. If you use Ansible, <a href=https://github.com/StackStorm/ansible-st2>our playbooks</a> will manage this for you.</p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/release class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/release-announcement class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release announcement</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/11/27/website-updates-pack-updates/">Website Updates, Pack Updates</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/10/23/stackstorm-2-9-1-and-exchange-updates/">StackStorm 2.9.1 and Exchange Updates</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/">StackStorm 2.9: K8s, Streaming, Inquiries, Windows</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/">StackStorm 2.8: UI Changes, New Workflow Engine, and More</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/">Patch Patch Patch: StackStorm 2.7.2</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/">Early Christmas: StackStorm Patch Release 2.5.1</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/">Quick update: v2.1.1 published</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/12/06/2-1-new-pack-management/">2.1 is here! New Pack Management and More!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/11/29/2-1-headsup/">2.1 is Coming to Town: Check the New Pack Management</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/09/01/stackstorm-enterprise-back/">StackStorm Enterprise is Back!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/08/10/stackstorm-v1-6-0/">StackStorm v1.6.0 is here</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/04/20/stackstorm-v1-4/">StackStorm v1.4 is out</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/?p=9569/">Clone of StackStorm v3.4.1 – Security fix</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/">StackStorm Puppet Module goes v1.0.0 stable!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/">Say hello to StackStorm v2.7</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2018/11/27/website-updates-pack-updates/>Website Updates, Pack Updates</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/10/23/stackstorm-2-9-1-and-exchange-updates/>StackStorm 2.9.1 and Exchange Updates</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/>StackStorm 2.9: K8s, Streaming, Inquiries, Windows</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/>StackStorm 2.8: UI Changes, New Workflow Engine, and More</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/>Patch Patch Patch: StackStorm 2.7.2</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/>Early Christmas: StackStorm Patch Release 2.5.1</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/>Quick update: v2.1.1 published</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/12/06/2-1-new-pack-management/>2.1 is here! New Pack Management and More!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/11/29/2-1-headsup/>2.1 is Coming to Town: Check the New Pack Management</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/09/01/stackstorm-enterprise-back/>StackStorm Enterprise is Back!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/08/10/stackstorm-v1-6-0/>StackStorm v1.6.0 is here</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/04/20/stackstorm-v1-4/>StackStorm v1.4 is out</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/>StackStorm Puppet Module goes v1.0.0 stable!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/>Say hello to StackStorm v2.7</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/>New Year, New StackStorm – v2.6 Released</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

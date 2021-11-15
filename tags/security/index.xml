@@ -1,50 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>security on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/security/</link>
-    <description>Recent content in security on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 30 May 2019 08:00:18 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/security/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>StackStorm v3.0.1</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/05/30/stackstorm-v3-0-1/</link>
-      <pubDate>Thu, 30 May 2019 08:00:18 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/05/30/stackstorm-v3-0-1/</guid>
-      <description>May 30, 2019
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>security on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/security/</link><description>Recent content in security on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 30 May 2019 08:00:18 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/security/index.xml" rel="self" type="application/rss+xml"/><item><title>StackStorm v3.0.1</title><link>https://stackstorm.github.io/stackstorm.com/2019/05/30/stackstorm-v3-0-1/</link><pubDate>Thu, 30 May 2019 08:00:18 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/05/30/stackstorm-v3-0-1/</guid><description>May 30, 2019
 By Tomaz Muraus
 Today we are happy to announce StackStorm v3.0.1.
 This is a first bug fix patch / patch release in the v3.0.x release series. It includes the following bug fixes and improvements:
-  Fix a bug in the remote command and script runner so it correctly uses SSH port from a SSH config
-file if ssh_runner.use_ssh_config parameter is set to True and if a custom (non-default)</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v2.10.4</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/03/15/stackstorm-v2-10-4/</link>
-      <pubDate>Fri, 15 Mar 2019 17:17:37 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/03/15/stackstorm-v2-10-4/</guid>
-      <description>March 15, 2019
+Fix a bug in the remote command and script runner so it correctly uses SSH port from a SSH config
+file if ssh_runner.use_ssh_config parameter is set to True and if a custom (non-default)</description></item><item><title>StackStorm v2.10.4</title><link>https://stackstorm.github.io/stackstorm.com/2019/03/15/stackstorm-v2-10-4/</link><pubDate>Fri, 15 Mar 2019 17:17:37 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/03/15/stackstorm-v2-10-4/</guid><description>March 15, 2019
 By Tomaz Muraus
 Today we are happy to announce StackStorm v2.10.4.
 This is another bug fix release in the v2.10.x release series. It includes the following bug fixes and improvements:
- Fix inadvertent regression in notifier service which would cause generic action trigger to only be dispatched for completed states even if custom states were specified using action_sensor.emit_when config option. Make sure we don’t log auth token and api key inside st2api log file if those values are provided via query parameter and not header (?</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.9.3/2.10.3</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/03/08/stackstorm-2-9-3-2-10-3/</link>
-      <pubDate>Fri, 08 Mar 2019 19:00:28 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/03/08/stackstorm-2-9-3-2-10-3/</guid>
-      <description>March 8, 2019
+Fix inadvertent regression in notifier service which would cause generic action trigger to only be dispatched for completed states even if custom states were specified using action_sensor.emit_when config option. Make sure we don’t log auth token and api key inside st2api log file if those values are provided via query parameter and not header (?</description></item><item><title>StackStorm 2.9.3/2.10.3</title><link>https://stackstorm.github.io/stackstorm.com/2019/03/08/stackstorm-2-9-3-2-10-3/</link><pubDate>Fri, 08 Mar 2019 19:00:28 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/03/08/stackstorm-2-9-3-2-10-3/</guid><description>March 8, 2019
 By Matt Stone
 In the last couple of weeks StackStorm has published back-to-back releases. 2.10.2 is a traditional patch release from StackStorm, and you’ll find some of the highlights below. 2.10.3 and 2.9.3; however, are releases to address CVE-2019-9580. I want to thank Barak Tawily and Anna Tsibulskaya: the researchers who discovered and submitted a patch for the issue.
-The issue found by Barak and Anna is an improper handling of CORS headers.</description>
-    </item>
-    
-  </channel>
-</rss>
+The issue found by Barak and Anna is an improper handling of CORS headers.</description></item></channel></rss>

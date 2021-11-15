@@ -1,189 +1,100 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Introducing Ansible playbooks to deploy StackStorm | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Feb 2, 2017 by Eugen C. (@armab)
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Introducing Ansible playbooks to deploy StackStorm | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Feb 2, 2017 by Eugen C. (@armab)
 
 Did you know we have Ansible playbooks to deploy StackStorm?
 It’s something we’ve been working on quietly for a while:
 github.com/StackStorm/ansible-st2
 Well, now you know!">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Introducing Ansible playbooks to deploy StackStorm" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Introducing Ansible playbooks to deploy StackStorm">
 <meta property="og:description" content="Feb 2, 2017 by Eugen C. (@armab)
 
 Did you know we have Ansible playbooks to deploy StackStorm?
 It’s something we’ve been working on quietly for a while:
 github.com/StackStorm/ansible-st2
-Well, now you know!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-02-02T19:16:27+00:00" />
-<meta property="article:modified_time" content="2017-02-02T19:16:27+00:00" />
-
-<meta itemprop="name" content="Introducing Ansible playbooks to deploy StackStorm">
-<meta itemprop="description" content="Feb 2, 2017 by Eugen C. (@armab)
-
-Did you know we have Ansible playbooks to deploy StackStorm?
-It’s something we’ve been working on quietly for a while:
-github.com/StackStorm/ansible-st2
-Well, now you know!"><meta itemprop="datePublished" content="2017-02-02T19:16:27+00:00" />
-<meta itemprop="dateModified" content="2017-02-02T19:16:27+00:00" />
-<meta itemprop="wordCount" content="412">
-<meta itemprop="keywords" content="ansible,configuration management,playbooks,release," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Introducing Ansible playbooks to deploy StackStorm"/>
-<meta name="twitter:description" content="Feb 2, 2017 by Eugen C. (@armab)
+Well, now you know!">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2017-02-02T19:16:27+00:00">
+<meta property="article:modified_time" content="2017-02-02T19:16:27+00:00">
+<meta itemprop=name content="Introducing Ansible playbooks to deploy StackStorm">
+<meta itemprop=description content="Feb 2, 2017 by Eugen C. (@armab)
 
 Did you know we have Ansible playbooks to deploy StackStorm?
 It’s something we’ve been working on quietly for a while:
 github.com/StackStorm/ansible-st2
-Well, now you know!"/>
+Well, now you know!"><meta itemprop=datePublished content="2017-02-02T19:16:27+00:00">
+<meta itemprop=dateModified content="2017-02-02T19:16:27+00:00">
+<meta itemprop=wordCount content="412">
+<meta itemprop=keywords content="ansible,configuration management,playbooks,release,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Introducing Ansible playbooks to deploy StackStorm">
+<meta name=twitter:description content="Feb 2, 2017 by Eugen C. (@armab)
 
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+Did you know we have Ansible playbooks to deploy StackStorm?
+It’s something we’ve been working on quietly for a while:
+github.com/StackStorm/ansible-st2
+Well, now you know!">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&amp;text=Introducing%20Ansible%20playbooks%20to%20deploy%20StackStorm" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&amp;title=Introducing%20Ansible%20playbooks%20to%20deploy%20StackStorm" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Introducing Ansible playbooks to deploy StackStorm</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              Eugen C.
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2017-02-02T19:16:27Z">February 2, 2017</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Feb 2, 2017</strong> <em>by Eugen C. (<!-- raw HTML omitted -->@armab<!-- raw HTML omitted -->)</em><br>
-<a href="https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/"><!-- raw HTML omitted --></a></p>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&text=Introducing%20Ansible%20playbooks%20to%20deploy%20StackStorm" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&title=Introducing%20Ansible%20playbooks%20to%20deploy%20StackStorm" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Introducing Ansible playbooks to deploy StackStorm</h1>
+<p class=tracked>
+By <strong>
+Eugen C.
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2017-02-02T19:16:27Z>February 2, 2017</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Feb 2, 2017</strong> <em>by Eugen C. (@armab)</em><br>
+<a href=https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/></a></p>
 <p>Did you know we have Ansible playbooks to deploy StackStorm?<br>
 It’s something we’ve been working on quietly for a while:</p>
-<p><a href="https://github.com/StackStorm/ansible-st2">github.com/StackStorm/ansible-st2</a></p>
+<p><a href=https://github.com/StackStorm/ansible-st2>github.com/StackStorm/ansible-st2</a></p>
 <p>Well, now you know!</p>
-<p>In spite of this “secrecy”, some people used it and even actively contributed. For example our friends from <a href="http://arteria-project.github.io/">Arteria Project</a>.</p>
-<h3 id="ansible-st2-v060-released">ansible-st2 v0.6.0 released</h3>
+<p>In spite of this “secrecy”, some people used it and even actively contributed. For example our friends from <a href=http://arteria-project.github.io/>Arteria Project</a>.</p>
+<h3 id=ansible-st2-v060-released>ansible-st2 v0.6.0 released</h3>
 <p>But there is more good news! Recently we released a big update to <code>ansible-st2</code>. In addition to the existing Ubuntu <code>Trusty</code> and <code>Xenial</code> support, we’ve added new platforms: <code>RHEL6/CentOS6</code>, <code>RHEL7/CentOS7</code>. Lots more too: new features, bugfixes, CI improvements like running a play in Docker with Test-Kitchen and Travis across all 4 platforms, idempotence, a lot of end-to-end testing and polishing.</p>
 <p>So you can deploy StackStorm with Ansible, even on a real <code>RHEL</code> now!</p>
-<p><a href="https://github.com/StackStorm/ansible-st2"><img src="https://stackstorm.com/wp/wp-content/uploads/2017/02/ansible-st2-v0.6.0-release.png" alt="Ansible Playbooks to deploy StackStorm v0.6.0 released"></a></p>
+<p><a href=https://github.com/StackStorm/ansible-st2><img src=https://stackstorm.com/wp/wp-content/uploads/2017/02/ansible-st2-v0.6.0-release.png alt="Ansible Playbooks to deploy StackStorm v0.6.0 released"></a></p>
 <p>Looks like a lot of activity for a single version release in Ansible playbooks repo, isn’t it?<br>
-Thanks to our own <a href="https://github.com/humblearner">Anirudh Rekhi</a> and <a href="https://github.com/mierdin/">Matt Oswalt</a> for making it possible!</p>
-<p>Being confident about the quality now, we reference Ansible Playbooks as an additional installation method in our docs, check out: <a href="https://docs.stackstorm.com/install/ansible.html">docs.stackstorm.com/install/ansible.html</a></p>
-<p>If you are aware of using Ansible with StackStorm, here is the full <a href="https://github.com/StackStorm/ansible-st2/releases/tag/v0.6.0">v0.6.0 CHANGELOG</a>.</p>
-<h3 id="quick-install">Quick Install</h3>
-<p>So if you’re tired of our <a href="https://docs.stackstorm.com/install/index.html"><code>curl | bash</code></a> installer (which is for demonstration purposes) and missing real idempotence and production-friendly deployment and configuration, here are basic instructions to get started:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+Thanks to our own <a href=https://github.com/humblearner>Anirudh Rekhi</a> and <a href=https://github.com/mierdin/>Matt Oswalt</a> for making it possible!</p>
+<p>Being confident about the quality now, we reference Ansible Playbooks as an additional installation method in our docs, check out: <a href=https://docs.stackstorm.com/install/ansible.html>docs.stackstorm.com/install/ansible.html</a></p>
+<p>If you are aware of using Ansible with StackStorm, here is the full <a href=https://github.com/StackStorm/ansible-st2/releases/tag/v0.6.0>v0.6.0 CHANGELOG</a>.</p>
+<h3 id=quick-install>Quick Install</h3>
+<p>So if you’re tired of our <a href=https://docs.stackstorm.com/install/index.html><code>curl | bash</code></a> installer (which is for demonstration purposes) and missing real idempotence and production-friendly deployment and configuration, here are basic instructions to get started:</p>
 <p>Behind the scenes the <code>stackstorm.yml</code> play is composed of the following roles for a complete installation:<br>
 – <code>epel</code> – Repository with extra packages for <code>RHEL/CentOS</code>.<br>
 – <code>mongodb</code> – Main DB storage engine for StackStorm.<br>
@@ -193,124 +104,75 @@ Thanks to our own <a href="https://github.com/humblearner">Anirudh Rekhi</a> and
 – <code>st2</code> – Install and configure StackStorm itself.<br>
 – <code>st2mistral</code> – Install and configure StackStorm Mistral workflow engine.<br>
 – <code>nginx</code> – Dependency for <code>st2web</code>.<br>
-– <code>st2web</code> – Nice &amp; shiny WebUI for StackStorm.<br>
+– <code>st2web</code> – Nice & shiny WebUI for StackStorm.<br>
 – <code>st2smoketests</code> – Simple checks to know if StackStorm really works.</p>
-<p>For more detailed configuration, please refer to <a href="https://github.com/stackstorm/ansible-st2#variables">GitHub repository</a> with a full list of <code>vars</code>.</p>
-<h3 id="community">Community</h3>
+<p>For more detailed configuration, please refer to <a href=https://github.com/stackstorm/ansible-st2#variables>GitHub repository</a> with a full list of <code>vars</code>.</p>
+<h3 id=community>Community</h3>
 <p>If you need more, – please feel free to submit your Pull Requests and remember that our users and contributors are those who make biggest impact on StackStorm, so your involvement or opinion is very important!</p>
-<p>Keep an eye on <a href="https://github.com/StackStorm/ansible-st2">StackStorm/ansible-st2</a> for more improvements. In future updates you’ll see <code>st2chatops</code>, more options and vars for Custom Installations, Integration tests and eventually we’ll publish everything on Ansible Galaxy.</p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/ansible" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ansible</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/configuration-management" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">configuration management</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/playbooks" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">playbooks</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/release" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release</a>
-   </li>
-  
+<p>Keep an eye on <a href=https://github.com/StackStorm/ansible-st2>StackStorm/ansible-st2</a> for more improvements. In future updates you’ll see <code>st2chatops</code>, more options and vars for Custom Installations, Integration tests and eventually we’ll publish everything on Ansible Galaxy.</p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/ansible class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ansible</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/configuration-management class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">configuration management</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/playbooks class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">playbooks</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/release class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/">Quick update: v2.1.1 published</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/12/06/2-1-new-pack-management/">2.1 is here! New Pack Management and More!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/11/29/2-1-headsup/">2.1 is Coming to Town: Check the New Pack Management</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/09/30/minor-update-v2-0-1/">Minor update: v2.0.1</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/09/01/stackstorm-enterprise-back/">StackStorm Enterprise is Back!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/08/10/stackstorm-v1-6-0/">StackStorm v1.6.0 is here</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/?p=5809/">StackStorm &#43; Ansible: Summer Update</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/06/27/stackstorm-v1-5-alive/">StackStorm v1.5 is alive!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/04/20/stackstorm-v1-4/">StackStorm v1.4 is out</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/">Ansible and ChatOps. Get started 🚀</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/05/new-in-stackstorm-ansible-integration/">New In StackStorm: Ansible Integration</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/?p=9569/">Clone of StackStorm v3.4.1 – Security fix</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/>Quick update: v2.1.1 published</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/12/06/2-1-new-pack-management/>2.1 is here! New Pack Management and More!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/11/29/2-1-headsup/>2.1 is Coming to Town: Check the New Pack Management</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/09/30/minor-update-v2-0-1/>Minor update: v2.0.1</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/09/01/stackstorm-enterprise-back/>StackStorm Enterprise is Back!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/08/10/stackstorm-v1-6-0/>StackStorm v1.6.0 is here</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/06/27/stackstorm-v1-5-alive/>StackStorm v1.5 is alive!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/04/20/stackstorm-v1-4/>StackStorm v1.4 is out</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/>Ansible and ChatOps. Get started 🚀</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/05/new-in-stackstorm-ansible-integration/>New In StackStorm: Ansible Integration</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

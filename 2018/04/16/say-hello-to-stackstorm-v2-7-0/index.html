@@ -1,315 +1,179 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Say hello to StackStorm v2.7 | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="April 16, 2018
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Say hello to StackStorm v2.7 | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="April 16, 2018
 by Tomaz Muraus
 Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Say hello to StackStorm v2.7" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Say hello to StackStorm v2.7">
 <meta property="og:description" content="April 16, 2018
 by Tomaz Muraus
-Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-04-16T23:38:38+00:00" />
-<meta property="article:modified_time" content="2018-04-16T23:38:38+00:00" />
-
-<meta itemprop="name" content="Say hello to StackStorm v2.7">
-<meta itemprop="description" content="April 16, 2018
+Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2018-04-16T23:38:38+00:00">
+<meta property="article:modified_time" content="2018-04-16T23:38:38+00:00">
+<meta itemprop=name content="Say hello to StackStorm v2.7">
+<meta itemprop=description content="April 16, 2018
 by Tomaz Muraus
-Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:"><meta itemprop="datePublished" content="2018-04-16T23:38:38+00:00" />
-<meta itemprop="dateModified" content="2018-04-16T23:38:38+00:00" />
-<meta itemprop="wordCount" content="759">
-<meta itemprop="keywords" content="release," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Say hello to StackStorm v2.7"/>
-<meta name="twitter:description" content="April 16, 2018
+Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:"><meta itemprop=datePublished content="2018-04-16T23:38:38+00:00">
+<meta itemprop=dateModified content="2018-04-16T23:38:38+00:00">
+<meta itemprop=wordCount content="759">
+<meta itemprop=keywords content="release,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Say hello to StackStorm v2.7">
+<meta name=twitter:description content="April 16, 2018
 by Tomaz Muraus
-Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/&amp;text=Say%20hello%20to%20StackStorm%20v2.7" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/&amp;title=Say%20hello%20to%20StackStorm%20v2.7" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Say hello to StackStorm v2.7</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              Tomaz Muraus
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2018-04-16T23:38:38Z">April 16, 2018</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><em>April 16, 2018</em><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/&text=Say%20hello%20to%20StackStorm%20v2.7" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/&title=Say%20hello%20to%20StackStorm%20v2.7" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Say hello to StackStorm v2.7</h1>
+<p class=tracked>
+By <strong>
+Tomaz Muraus
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2018-04-16T23:38:38Z>April 16, 2018</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><em>April 16, 2018</em><br>
 <em>by Tomaz Muraus</em></p>
 <p>Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:</p>
 <blockquote>
-<p>Note: StackStorm 2.7.1 was released a few days after 2.7.0. This fixed two small issues, one related to the release of <a href="https://blog.python.org/2018/04/pip-10-has-been-released.html">Pip 10.0</a>. If you installed StackStorm v2.7.0, you should upgrade to v2.7.1.</p>
+<p>Note: StackStorm 2.7.1 was released a few days after 2.7.0. This fixed two small issues, one related to the release of <a href=https://blog.python.org/2018/04/pip-10-has-been-released.html>Pip 10.0</a>. If you installed StackStorm v2.7.0, you should upgrade to v2.7.1.</p>
 </blockquote>
-<h2 id="improved-performance-of-mistral-workflows">Improved Performance of Mistral Workflows</h2>
+<h2 id=improved-performance-of-mistral-workflows>Improved Performance of Mistral Workflows</h2>
 <p>One of the bigger changes included in this release is how we retrieve results for Mistral workflows.</p>
 <p>In the previous versions, we used the <code>st2resultstracker</code> service which would periodically poll Mistral for results of the completed workflows and store that information in the database. That was a so-called polling approach.</p>
 <p>In this release we switched from polling to a push-based approach. Instead of <code>st2resulttracker</code> periodically polling Mistral for workflow status, Mistral now notifies StackStorm of completion, using the <code>st2api</code> service.</p>
 <p>This approach allows for a better utilization of CPU by action runners services and Mistral. On average users should see long Mistral workflows complete 5-20% faster compared to older versions.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>We believe the performance increases we have seen and measured should apply to most of our users, so we have enabled this behavior by default. If for some reason you want to revert back to the previous approach you can do that by setting the <code>mistral.enable_polling</code> config option to <code>True</code> and restart all ST2 services.</p>
 <blockquote>
 <p>…ran about 20% faster, with more of the machine actually being utilized by st2actionrunner instances instead of dominated by st2resultstracker and st2api</p>
 </blockquote>
-<!-- raw HTML omitted -->
-<p>For more information, please refer to the <a href="https://docs.stackstorm.com/mistral.html#mistral-workflows-completion-latency-and-performance">Mistral Workflows Completion, Latency, and Performance</a> section of the documentation.</p>
-<p>For people who would like to dig deeper and are interested in the code changes, you can check those pull requests – <a href="https://github.com/StackStorm/st2/pull/4000">https://github.com/StackStorm/st2/pull/4000</a>, <a href="https://github.com/StackStorm/st2mistral/pull/35">https://github.com/StackStorm/st2mistral/pull/35</a>, <a href="https://github.com/StackStorm/st2/pull/4023">https://github.com/StackStorm/st2/pull/4023</a>.</p>
-<h2 id="ability-to-specify-a-git-revision-of-a-pack-action-to-use-for-an-execution">Ability to specify a git revision of a pack action to use for an execution</h2>
+<p>For more information, please refer to the <a href=https://docs.stackstorm.com/mistral.html#mistral-workflows-completion-latency-and-performance>Mistral Workflows Completion, Latency, and Performance</a> section of the documentation.</p>
+<p>For people who would like to dig deeper and are interested in the code changes, you can check those pull requests – <a href=https://github.com/StackStorm/st2/pull/4000>https://github.com/StackStorm/st2/pull/4000</a>, <a href=https://github.com/StackStorm/st2mistral/pull/35>https://github.com/StackStorm/st2mistral/pull/35</a>, <a href=https://github.com/StackStorm/st2/pull/4023>https://github.com/StackStorm/st2/pull/4023</a>.</p>
+<h2 id=ability-to-specify-a-git-revision-of-a-pack-action-to-use-for-an-execution>Ability to specify a git revision of a pack action to use for an execution</h2>
 <p>We added a new feature which allows users to specify a git revision (tag/branch/commit hash) of a pack resource (action) to use for an execution.</p>
 <p>This functionality is useful in many scenarios, including zero downtime pack deployments where you have deployed a new version of a pack to the system, but you want some of your executions to still use the old version of the pack content.</p>
-<p>Right now this feature is supported by the local and Python runner. It only applies and works with packs which are git repositories (this is the default recommended way and true for all packs on <a href="https://exchange.stackstorm.org/">StackStorm Exchange</a>).</p>
-<p>Internally this feature utilizes <a href="https://git-scm.com/docs/git-worktree">git worktree</a> functionality and requires a git version &gt;= 2.5 to be installed on the system (the latest stable git version is recommended).</p>
-<p>If you running Ubuntu 14.04 you can get the latest version of git from the <a href="https://launchpad.net/~git-core/+archive/ubuntu/ppa">official git ppa repository</a> and if you use RedHat 6 / 7, you can use <a href="https://ius.io/Packages/">IUS repositories</a>.</p>
-<h3 id="example-usage">Example Usage</h3>
-<p>The best way to demonstrate this functionality is using a pack which was built for purposes of demonstrating and testing it – <a href="https://github.com/StackStorm-Exchange/stackstorm-test-content-version">https://github.com/StackStorm-Exchange/stackstorm-test-content-version</a>.</p>
-<p><!-- raw HTML omitted -->This pack contains 3 different actions which sole purpose is to print out the current pack version. The pack itself contains 4 different versions/tags (v0.1.0, v0.2.0, v0.3.0, v0.4.0). In a standard StackStorm pack git repository layout each pack version should have a corresponding git tag.<!-- raw HTML omitted --></p>
+<p>Right now this feature is supported by the local and Python runner. It only applies and works with packs which are git repositories (this is the default recommended way and true for all packs on <a href=https://exchange.stackstorm.org/>StackStorm Exchange</a>).</p>
+<p>Internally this feature utilizes <a href=https://git-scm.com/docs/git-worktree>git worktree</a> functionality and requires a git version >= 2.5 to be installed on the system (the latest stable git version is recommended).</p>
+<p>If you running Ubuntu 14.04 you can get the latest version of git from the <a href=https://launchpad.net/~git-core/+archive/ubuntu/ppa>official git ppa repository</a> and if you use RedHat 6 / 7, you can use <a href=https://ius.io/Packages/>IUS repositories</a>.</p>
+<h3 id=example-usage>Example Usage</h3>
+<p>The best way to demonstrate this functionality is using a pack which was built for purposes of demonstrating and testing it – <a href=https://github.com/StackStorm-Exchange/stackstorm-test-content-version>https://github.com/StackStorm-Exchange/stackstorm-test-content-version</a>.</p>
+<p>This pack contains 3 different actions which sole purpose is to print out the current pack version. The pack itself contains 4 different versions/tags (v0.1.0, v0.2.0, v0.3.0, v0.4.0). In a standard StackStorm pack git repository layout each pack version should have a corresponding git tag.</p>
 <p>By default, if no version if specified, the latest installed and checked out version is used. This is the same behavior as before:</p>
 <p>To run a specific version, you provide content_version runner parameter. In this case we specified git tag v0.2.0 which matches the same pack version:</p>
-<p>More information and limitations can be found in the documentation – <a href="https://docs.stackstorm.com/latest/reference/content_version.html">Using a Specific Version of Pack Content When Running an Action</a>.</p>
-<p>For people interested in the code changes, please see the following pull requests – <a href="https://github.com/StackStorm/st2/pull/3997">https://github.com/StackStorm/st2/pull/3997</a>, <a href="https://github.com/StackStorm/st2/pull/4078">https://github.com/StackStorm/st2/pull/4078</a>.</p>
-<h2 id="other-changes">Other Changes</h2>
+<p>More information and limitations can be found in the documentation – <a href=https://docs.stackstorm.com/latest/reference/content_version.html>Using a Specific Version of Pack Content When Running an Action</a>.</p>
+<p>For people interested in the code changes, please see the following pull requests – <a href=https://github.com/StackStorm/st2/pull/3997>https://github.com/StackStorm/st2/pull/3997</a>, <a href=https://github.com/StackStorm/st2/pull/4078>https://github.com/StackStorm/st2/pull/4078</a>.</p>
+<h2 id=other-changes>Other Changes</h2>
 <p>In addition to those two new features, this release also includes many other improvements and bug-fixes.</p>
 <p>To name a few:</p>
-<!-- raw HTML omitted -->
 <p>For a full list of changes, please refer to the changelog.</p>
-<h2 id="try-it-out">Try It Out</h2>
-<p>v2.7.1 packages are available in apt and yum repos. Follow the standard instructions to <a href="https://docs.stackstorm.com/install/index.html">install this version</a>, or upgrade following the <a href="https://docs.stackstorm.com/install/upgrades.html#general-upgrade-procedure">General Upgrade Procedure</a>. As always, backup first.</p>
-<h2 id="thank-you">Thank You</h2>
+<h2 id=try-it-out>Try It Out</h2>
+<p>v2.7.1 packages are available in apt and yum repos. Follow the standard instructions to <a href=https://docs.stackstorm.com/install/index.html>install this version</a>, or upgrade following the <a href=https://docs.stackstorm.com/install/upgrades.html#general-upgrade-procedure>General Upgrade Procedure</a>. As always, backup first.</p>
+<h2 id=thank-you>Thank You</h2>
 <p>As always, this release wouldn’t have been possible without our great open-source community and users.</p>
-<p>Special thanks to Nick Maludy, Anthony Shaw, Ben Hohnke, Carlos, @djh2020, @mxmader, @sumkire, @SURAJTHEGREAT and others who have contributed to the release in one form or another.</p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/release" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release</a>
-   </li>
-  
+<p>Special thanks to Nick Maludy, Anthony Shaw, Ben Hohnke, Carlos, @djh2020, @mxmader, @sumkire, @SURAJTHEGREAT and others who have contributed to the release in one form or another.</p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/release class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/">New Year, New StackStorm – v2.6 Released</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/">Puppet Module to Install StackStorm – Announcing Release Candidate</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/">Early Christmas: StackStorm Patch Release 2.5.1</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/">StackStorm 2.5 Has Hit the Streets!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/">What’s This? StackStorm 2.4 Already?</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/">StackStorm 2.3.2: Summer of Bugfixes Continues</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/07/06/stackstorm-2-3-1-bug-smashing/">StackStorm 2.3.1: Bug Smashing</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/">StackStorm 2.3: Something for Everyone!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/">Bugs, fixes, security updates: It’s ST2 2.2.1</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/02/27/stackstorm-2-2/">StackStorm 2.2 is up!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/">Introducing Ansible playbooks to deploy StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/">Quick update: v2.1.1 published</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/12/06/2-1-new-pack-management/">2.1 is here! New Pack Management and More!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/11/29/2-1-headsup/">2.1 is Coming to Town: Check the New Pack Management</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/09/30/minor-update-v2-0-1/">Minor update: v2.0.1</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/>New Year, New StackStorm – v2.6 Released</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/>Puppet Module to Install StackStorm – Announcing Release Candidate</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/>Early Christmas: StackStorm Patch Release 2.5.1</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/>StackStorm 2.5 Has Hit the Streets!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/>What’s This? StackStorm 2.4 Already?</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/>StackStorm 2.3.2: Summer of Bugfixes Continues</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/07/06/stackstorm-2-3-1-bug-smashing/>StackStorm 2.3.1: Bug Smashing</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/>StackStorm 2.3: Something for Everyone!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/>Bugs, fixes, security updates: It’s ST2 2.2.1</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/02/27/stackstorm-2-2/>StackStorm 2.2 is up!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/>Introducing Ansible playbooks to deploy StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/>Quick update: v2.1.1 published</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/12/06/2-1-new-pack-management/>2.1 is here! New Pack Management and More!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/11/29/2-1-headsup/>2.1 is Coming to Town: Check the New Pack Management</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/09/30/minor-update-v2-0-1/>Minor update: v2.0.1</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

@@ -1,244 +1,72 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>chatops on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/chatops/</link>
-    <description>Recent content in chatops on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 03 Aug 2020 21:14:36 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/chatops/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>2020 ChatOps User Survey</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/08/03/2020-chatops-user-survey/</link>
-      <pubDate>Mon, 03 Aug 2020 21:14:36 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/08/03/2020-chatops-user-survey/</guid>
-      <description>**August 3rd, 2020
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>chatops on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/chatops/</link><description>Recent content in chatops on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 03 Aug 2020 21:14:36 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/chatops/index.xml" rel="self" type="application/rss+xml"/><item><title>2020 ChatOps User Survey</title><link>https://stackstorm.github.io/stackstorm.com/2020/08/03/2020-chatops-user-survey/</link><pubDate>Mon, 03 Aug 2020 21:14:36 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/08/03/2020-chatops-user-survey/</guid><description>**August 3rd, 2020
 ** by @blag
 The 2020 ChatOps User Survey is here! This is your chance to submit your feedback on using ChatOps with StackStorm – what we get right, what we get wrong, and what we need to focus on.
-We will use this feedback to chart the development roadmap for ChatOps, whether that means leaving st2chatops as-is, or focusing on supporting more chat providers, deeper feature support for specific providers, improving ChatOps integration with the rest of StackStorm (RBAC for ChatOps!</description>
-    </item>
-    
-    <item>
-      <title>What’s This? StackStorm 2.4 Already?</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/</link>
-      <pubDate>Thu, 24 Aug 2017 17:00:03 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/</guid>
-      <description>&lt;p&gt;We had said we were planning on releasing StackStorm 2.4 &lt;a href=&#34;https://stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/&#34;&gt;in September&lt;/a&gt;. Well, we changed our mind: StackStorm 2.4 has just been released. We wanted to get some of these new features out now, rather than wait. Pack UI, Workflow pause &amp;amp; resume, ChatOps fixes, and more. Read on to see what we’ve done.&lt;/p&gt;
-&lt;h2 id=&#34;web-ui&#34;&gt;Web UI:&lt;/h2&gt;
-&lt;p&gt;Ooh boy, lots of stuff has been happening here. The first feature you’ll see is the new “Packs” tab:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://stackstorm.com/wp/wp-content/uploads/2017/08/packs_tab.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm at OpenStack Summit Boston 2017</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</link>
-      <pubDate>Thu, 04 May 2017 19:29:51 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</guid>
-      <description>The world runs on open infrastructure. At the OpenStack Summit, you’ll learn about the mix of open technologies building the modern infrastructure stack, including OpenStack, Kubernetes, Docker, network automation and more. From integrating legacy applications, to self-healing clouds, robotics and network automation the StackStorm open source event driven automation platform provides DevOps teams a powerful, flexible, and reliable solution to take your cloud to the next level. Be sure to stop by the StackStorm booth to meet the StackStorm team, and learn how you can integrate the StackStorm event driven automation platform with your OpenStack cloud</description>
-    </item>
-    
-    <item>
-      <title>Execution Time for ChatOps commands</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/11/07/chatops-execution-time/</link>
-      <pubDate>Mon, 07 Nov 2016 17:00:47 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/07/chatops-execution-time/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;November 7, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Eugen C. aka &lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Did you know you can do something like this with &lt;a href=&#34;https://docs.stackstorm.com/chatops/index.html&#34;&gt;StackStorm ChatOps&lt;/a&gt;?&lt;br&gt;
-&lt;img src=&#34;https://i.imgur.com/evtmoCq.png&#34; alt=&#34;ChatOps Command Execution time&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Looks simple, but it’s a very useful thing to have in your ChatOps toolset, especially for potentially long-running commands.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Auto-Remediation with StackStorm &amp; Splunk</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</link>
-      <pubDate>Fri, 21 Oct 2016 20:13:26 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Oct 21, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.splunk.com&#34;&gt;&lt;strong&gt;Splunk&lt;/strong&gt;&lt;/a&gt; is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm &#43; Ansible: Summer Update</title>
-      <link>https://stackstorm.github.io/stackstorm.com/?p=5809/</link>
-      <pubDate>Wed, 29 Jun 2016 17:22:45 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/?p=5809/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>A brief history of ChatOps (at StackStorm)</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/06/06/a-brief-history-of-chatops/</link>
-      <pubDate>Tue, 07 Jun 2016 06:22:16 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/06/06/a-brief-history-of-chatops/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 7, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Edward Medvedev&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;ChatOps has been a key part of StackStorm from the outset. Even before 1.0, our first public release, you could execute any action or workflow from your chat window and get a bunch of text in response. Like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/aJCOKC9.png&#34; alt=&#34;&#34;&gt;&lt;br&gt;
-&lt;em&gt;StackStorm 1.0, September 2015&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Last September (even less than a year ago, to think about it) ChatOps as a defined collaboration model was still relatively new, and the ability to execute a StackStorm action or workflow from chat was enough to excite early adopters. You could make basic workflows and routine actions work, and it made your job a little easier while keeping your teammates in the loop. However, when you wanted to read and share the output, a dumped Python object as a response wasn’t ideal.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Brocade Acquisition FAQ</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</link>
-      <pubDate>Mon, 11 Apr 2016 09:37:39 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</guid>
-      <description>&lt;h2 id=&#34;directions-and-roadmap&#34;&gt;Directions and Roadmap&lt;/h2&gt;
-&lt;p&gt;**Q: What will happen with StackStorm open-source project?&lt;br&gt;
-**&lt;br&gt;
-&lt;strong&gt;A: No change:&lt;/strong&gt; StackStorm automation platform will continue to be actively developed, and stays open-source under Apache 2.0. StackStorm Community product remains available as a free download.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Cisco Spark integration for StackStorm</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</link>
-      <pubDate>Wed, 23 Mar 2016 04:01:31 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;March 22, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by &lt;!-- raw HTML omitted --&gt;Anthony Shaw&lt;!-- raw HTML omitted --&gt; of Dimension Data&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.&lt;br&gt;
-This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.&lt;/p&gt;
-&lt;h2 id=&#34;what-is-cisco-spark&#34;&gt;What is Cisco Spark?&lt;/h2&gt;
-&lt;p&gt;Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.&lt;/p&gt;
-&lt;h2 id=&#34;what-is-stackstorm&#34;&gt;What is StackStorm?&lt;/h2&gt;
-&lt;p&gt;StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.&lt;/p&gt;
-&lt;h2 id=&#34;configuring-cisco-spark&#34;&gt;Configuring Cisco Spark&lt;/h2&gt;
-&lt;p&gt;If you don’t already have a Cisco Spark account, you can sign up at &lt;a href=&#34;https://www.ciscospark.com/&#34;&gt;www.ciscospark.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Once you have signed up, go to &lt;a href=&#34;https://developer.ciscospark.com/&#34;&gt;developer.ciscospark.com&lt;/a&gt; and sign in, then you should be able to generate a key&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://s8.postimg.org/dnq0660g5/developer_key.png&#34; alt=&#34;&#34;&gt;  &lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Automation Happy Hour #12 – ChatOps Patterns</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/</link>
-      <pubDate>Tue, 08 Mar 2016 22:48:42 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/</guid>
-      <description>   </description>
-    </item>
-    
-    <item>
-      <title>The Brief History of ChatOps at StackStorm (and How We Got Here)</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/02/25/history-of-chatops/</link>
-      <pubDate>Fri, 26 Feb 2016 02:19:14 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/25/history-of-chatops/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;February 25, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Evan Powell&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;These days ChatOps has become all the rage. In this blog I’ll talk a little bit about how we came to be here – in a leading position when it comes to ChatOps adoption for operations. And I’ll point you to some resources from users and our own engineers to learn more.&lt;/p&gt;
-&lt;p&gt;The history lesson will be brief, I promise.&lt;/p&gt;
-&lt;p&gt;We started StackStorm after observing that existing solutions in the devops universe were generally point solutions, often evolved from scripts and other projects that DevOps engineers wrote to make their own lives easier. And that’s a great way to build a solution that appeals at least to those types of users for those specific use cases.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;What we saw was that while there were leaders within certain segments amongst those tools, there was no clearly adopted pattern for the wiring that tied all these tools together. Moreover, with our backgrounds in enterprises we knew that wiring together extremely heterogeneous environments is always a challenge. The enterprise is more a brownfield than a greenfield.&lt;/p&gt;
-&lt;p&gt;A quick shout out to teams at Facebook and at WebEx Spark and all those other early interviewees that taught us so much about event driven automation. And if you want to join a non commercial Bay Area meet-up about the subject and hear speakers from organizations like Facebook and LinkedIn and Netflix, please join here:&lt;br&gt;
-&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/&#34;&gt;http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt; &lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Improvements to ChatOps Pack Development User Story in ST2 1.4dev</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</link>
-      <pubDate>Mon, 15 Feb 2016 22:34:17 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;February 15, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by &lt;!-- raw HTML omitted --&gt;Jon Middleton&lt;!-- raw HTML omitted --&gt;, Optimisation Project Lead @ Pulsant Limited&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;In the post &lt;!-- raw HTML omitted --&gt;StackStorm QuickTip: ChatOps your pack dev workflow&lt;!-- raw HTML omitted --&gt; James Fryman gave a ChatOPS alias recipe to reduce the friction for deploying packs and then in the &lt;em&gt;Random Thoughts&lt;/em&gt; section asked:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;This action is tied directly to the &lt;code&gt;packs.install&lt;/code&gt;. What about a workflow? Seems like that would be a better way to structure this.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This resonated with me as I had already started working on an internal pack that did just that, as I thought attempting to deploy a pack via an alias (and action) contained within the same pack would be madness (or just lead to interesting race conditions). In the last week, our &lt;em&gt;Pull Request&lt;/em&gt; has been merged, documentation has been included in st2docs (&lt;a href=&#34;https://docs.stackstorm.com/latest/chatops/pack_deploy.html&#34;&gt;link&lt;/a&gt;) for a workflow that fulfils the above random thought and should be released with 1.4.&lt;/p&gt;
-&lt;p&gt;So introducing &lt;code&gt;packs.deploy&lt;/code&gt;, an action written in Mistral to handle the mapping of names for Git repositories to the information required to carry out the &lt;code&gt;packs.install&lt;/code&gt; action.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Stackstorm: from Nagios integration to Openstack automation</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/</link>
-      <pubDate>Thu, 07 Jan 2016 01:17:26 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;January 07, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Igor Cherkaev aka eMptywee&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Recently I’ve been playing around Stackstorm – a platform for integration and automation of day-to-day tasks, monitoring events, existing scripts and deployment tools.&lt;/p&gt;
-&lt;p&gt;I am going to explain how easy it is to wrap your daily tasks into Stackstorm actions and workflows and how to provide a simple way of execution for complex tasks.&lt;/p&gt;
-&lt;p&gt;I’ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn’t seem like a good idea. That being said, I’d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it’d be more practical and easier to read and understand.&lt;/p&gt;
-&lt;h2 id=&#34;nagios&#34;&gt;Nagios&lt;/h2&gt;
-&lt;p&gt;Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &amp;lt;www.stackstorm.com&amp;gt; and &amp;lt;www.nagios.org&amp;gt; (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.&lt;/p&gt;
-&lt;p&gt;First of all, I was happy to find an existing Nagios integration pack &lt;a href=&#34;https://github.com/StackStorm-Exchange/stackstorm-nagios&#34;&gt;on StackStorm community repo&lt;/a&gt;, but my joy ended really quickly as I found it not working. Secondly, &lt;a href=&#34;https://stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/&#34;&gt;this StackStorm tutorial&lt;/a&gt; helped me to get started.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Chatops Pitfalls and Tips</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/</link>
-      <pubDate>Fri, 11 Dec 2015 02:05:47 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;December 11, 2015&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Dmitri Zimine&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;You are starting with ChatOps.&lt;/p&gt;
-&lt;p&gt;You have already watched &lt;a href=&#34;http://www.youtube.com/watch?v=NST3u-GjjFw&#34;&gt;Jesse Newland&lt;/a&gt;, &lt;a href=&#34;https://www.youtube.com/watch?v=pCVvYCjvoZI&#34;&gt;Mark Imbriaco&lt;/a&gt; and our own &lt;a href=&#34;https://www.youtube.com/watch?v=37LmuHToYjQ&#34;&gt;James Fryman&lt;/a&gt; and &lt;a href=&#34;http://www.slideshare.net/EvanPowell/some-chat-ops-what&#34;&gt;Evan Powell&lt;/a&gt; preaching it. You’ve read the &lt;a href=&#34;https://reddit.com/r/chatops&#34;&gt;links on reddit&lt;/a&gt;, and skimmed ChatOps blogs from &lt;a href=&#34;https://www.pagerduty.com/blog/what-is-chatops&#34;&gt;PagerDuty&lt;/a&gt; and &lt;a href=&#34;https://victorops.com/blog/getting-started-chatops-step-step-guide/&#34;&gt;VictorOps&lt;/a&gt;. You’ve studied &lt;a href=&#34;https://victorops.com/chatops-for-dummies/&#34;&gt;ChatOps for Dummies&lt;/a&gt;…&lt;/p&gt;
-&lt;p&gt;Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 1.2.0: the new ChatOps</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</link>
-      <pubDate>Tue, 08 Dec 2015 15:07:00 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;December 8, 2015&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Edward Medvedev&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the &lt;a href=&#34;https://www.youtube.com/watch?v=37LmuHToYjQ&#34;&gt;DevOps Next Steps talk&lt;/a&gt; by &lt;a href=&#34;https://github.com/jfryman&#34;&gt;James Fryman&lt;/a&gt;, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the &lt;a href=&#34;http://www.youtube.com/watch?v=NST3u-GjjFw&#34;&gt;ChatOps at GitHub talk&lt;/a&gt; by Jesse Newland.&lt;/p&gt;
-&lt;p&gt;Today, we’re all excited to introduce — as a part of our &lt;a href=&#34;https://github.com/StackStorm/st2/releases/tag/v1.2.0&#34;&gt;1.2.0 release&lt;/a&gt; — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Ansible and ChatOps. Get started 🚀</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</link>
-      <pubDate>Wed, 24 Jun 2015 20:16:09 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 25, 2015&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;(Updated: February 21, 2017)&lt;!-- raw HTML omitted --&gt;&lt;br&gt;
-&lt;em&gt;Contribution by Integration Developer &lt;!-- raw HTML omitted --&gt;Eugen C.&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/HWN8T78.png&#34; alt=&#34;Ansible and ChatOps with StackStorm event-driven automation platform, Slack, Hubot&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;what-is-chatops&#34;&gt;What is ChatOps?&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ChatOps brings the context of work you are already doing into the conversations you are already having. &lt;!-- raw HTML omitted --&gt;@jfryman&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ChatOps is still a fresh and uncommon thing in the DevOps world, where work is brought into a shared chat room. You can run commands directly from chat and everyone in the chatroom can see the history of work being done, do the same, interact with each other and even learn. The information and process is owned by the entire team which brings a lot of benefits.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>AHH #03 – ChatOps &amp; Notifications</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/06/12/ahh03-chatops-notifications/</link>
-      <pubDate>Sat, 13 Jun 2015 00:03:19 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/12/ahh03-chatops-notifications/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>StackStorm – Automated Troubleshooting</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/</link>
-      <pubDate>Tue, 25 Nov 2014 05:32:24 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;November 24, 2014&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;by Patrick Hoolboom&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I’ve done a couple articles about getting StackStorm set up, an introductory video, and put a fair amount of effort towards minimizing the barrier to entry for new users.  Overall, I think StackStorm was successful in providing a quick and easy way to get our system up and running but users need more than that.  Users need to see how StackStorm can help solve their specific pain points.  We needed a way to illustrate that we can provide an easy to use solution without the steep learning curve of throwing out your existing tools.  Over a series of a few blog posts we are going to go over some of the ways that we have leveraged the StackStorm platform internally and how these solutions could map to your environment.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+We will use this feedback to chart the development roadmap for ChatOps, whether that means leaving st2chatops as-is, or focusing on supporting more chat providers, deeper feature support for specific providers, improving ChatOps integration with the rest of StackStorm (RBAC for ChatOps!</description></item><item><title>What’s This? StackStorm 2.4 Already?</title><link>https://stackstorm.github.io/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/</link><pubDate>Thu, 24 Aug 2017 17:00:03 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/</guid><description>&lt;p>We had said we were planning on releasing StackStorm 2.4 &lt;a href="https://stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/">in September&lt;/a>. Well, we changed our mind: StackStorm 2.4 has just been released. We wanted to get some of these new features out now, rather than wait. Pack UI, Workflow pause &amp;amp; resume, ChatOps fixes, and more. Read on to see what we’ve done.&lt;/p>
+&lt;h2 id="web-ui">Web UI:&lt;/h2>
+&lt;p>Ooh boy, lots of stuff has been happening here. The first feature you’ll see is the new “Packs” tab:&lt;/p>
+&lt;p>&lt;a href="https://stackstorm.com/wp/wp-content/uploads/2017/08/packs_tab.png">&lt;!-- raw HTML omitted -->&lt;/a>&lt;/p></description></item><item><title>StackStorm at OpenStack Summit Boston 2017</title><link>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</link><pubDate>Thu, 04 May 2017 19:29:51 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</guid><description>The world runs on open infrastructure. At the OpenStack Summit, you’ll learn about the mix of open technologies building the modern infrastructure stack, including OpenStack, Kubernetes, Docker, network automation and more. From integrating legacy applications, to self-healing clouds, robotics and network automation the StackStorm open source event driven automation platform provides DevOps teams a powerful, flexible, and reliable solution to take your cloud to the next level. Be sure to stop by the StackStorm booth to meet the StackStorm team, and learn how you can integrate the StackStorm event driven automation platform with your OpenStack cloud</description></item><item><title>Execution Time for ChatOps commands</title><link>https://stackstorm.github.io/stackstorm.com/2016/11/07/chatops-execution-time/</link><pubDate>Mon, 07 Nov 2016 17:00:47 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/11/07/chatops-execution-time/</guid><description>&lt;p>&lt;strong>November 7, 2017&lt;/strong>&lt;br>
+&lt;em>by Eugen C. aka &lt;!-- raw HTML omitted -->@armab&lt;!-- raw HTML omitted -->&lt;/em>&lt;/p>
+&lt;p>Did you know you can do something like this with &lt;a href="https://docs.stackstorm.com/chatops/index.html">StackStorm ChatOps&lt;/a>?&lt;br>
+&lt;img src="https://i.imgur.com/evtmoCq.png" alt="ChatOps Command Execution time">&lt;/p>
+&lt;p>Looks simple, but it’s a very useful thing to have in your ChatOps toolset, especially for potentially long-running commands.&lt;/p></description></item><item><title>Auto-Remediation with StackStorm &amp; Splunk</title><link>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</link><pubDate>Fri, 21 Oct 2016 20:13:26 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</guid><description>&lt;p>&lt;strong>Oct 21, 2016&lt;/strong>&lt;br>
+&lt;em>by Siddharth Krishna&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://www.splunk.com">&lt;strong>Splunk&lt;/strong>&lt;/a> is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using &lt;strong>StackStorm&lt;/strong>!&lt;/p></description></item><item><title>A brief history of ChatOps (at StackStorm)</title><link>https://stackstorm.github.io/stackstorm.com/2016/06/06/a-brief-history-of-chatops/</link><pubDate>Tue, 07 Jun 2016 06:22:16 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/06/06/a-brief-history-of-chatops/</guid><description>&lt;p>&lt;strong>June 7, 2016&lt;/strong>&lt;br>
+&lt;em>by Edward Medvedev&lt;/em>&lt;/p>
+&lt;p>ChatOps has been a key part of StackStorm from the outset. Even before 1.0, our first public release, you could execute any action or workflow from your chat window and get a bunch of text in response. Like this:&lt;/p>
+&lt;p>&lt;img src="http://i.imgur.com/aJCOKC9.png" alt="">&lt;br>
+&lt;em>StackStorm 1.0, September 2015&lt;/em>&lt;/p>
+&lt;p>Last September (even less than a year ago, to think about it) ChatOps as a defined collaboration model was still relatively new, and the ability to execute a StackStorm action or workflow from chat was enough to excite early adopters. You could make basic workflows and routine actions work, and it made your job a little easier while keeping your teammates in the loop. However, when you wanted to read and share the output, a dumped Python object as a response wasn’t ideal.&lt;/p></description></item><item><title>Brocade Acquisition FAQ</title><link>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</link><pubDate>Mon, 11 Apr 2016 09:37:39 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</guid><description>&lt;h2 id="directions-and-roadmap">Directions and Roadmap&lt;/h2>
+&lt;p>**Q: What will happen with StackStorm open-source project?&lt;br>
+**&lt;br>
+&lt;strong>A: No change:&lt;/strong> StackStorm automation platform will continue to be actively developed, and stays open-source under Apache 2.0. StackStorm Community product remains available as a free download.&lt;/p></description></item><item><title>Cisco Spark integration for StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</link><pubDate>Wed, 23 Mar 2016 04:01:31 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</guid><description>&lt;p>&lt;strong>March 22, 2016&lt;/strong>&lt;br>
+&lt;em>by &lt;!-- raw HTML omitted -->Anthony Shaw&lt;!-- raw HTML omitted --> of Dimension Data&lt;/em>&lt;/p>
+&lt;p>I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.&lt;br>
+This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.&lt;/p>
+&lt;h2 id="what-is-cisco-spark">What is Cisco Spark?&lt;/h2>
+&lt;p>Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.&lt;/p>
+&lt;h2 id="what-is-stackstorm">What is StackStorm?&lt;/h2>
+&lt;p>StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.&lt;/p>
+&lt;h2 id="configuring-cisco-spark">Configuring Cisco Spark&lt;/h2>
+&lt;p>If you don’t already have a Cisco Spark account, you can sign up at &lt;a href="https://www.ciscospark.com/">www.ciscospark.com&lt;/a>.&lt;/p>
+&lt;p>Once you have signed up, go to &lt;a href="https://developer.ciscospark.com/">developer.ciscospark.com&lt;/a> and sign in, then you should be able to generate a key&lt;/p>
+&lt;p>&lt;img src="http://s8.postimg.org/dnq0660g5/developer_key.png" alt="">  &lt;/p></description></item><item><title>Automation Happy Hour #12 – ChatOps Patterns</title><link>https://stackstorm.github.io/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/</link><pubDate>Tue, 08 Mar 2016 22:48:42 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/</guid><description>   </description></item><item><title>The Brief History of ChatOps at StackStorm (and How We Got Here)</title><link>https://stackstorm.github.io/stackstorm.com/2016/02/25/history-of-chatops/</link><pubDate>Fri, 26 Feb 2016 02:19:14 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/02/25/history-of-chatops/</guid><description>&lt;p>&lt;strong>February 25, 2016&lt;/strong>&lt;br>
+&lt;em>by Evan Powell&lt;/em>&lt;/p>
+&lt;p>These days ChatOps has become all the rage. In this blog I’ll talk a little bit about how we came to be here – in a leading position when it comes to ChatOps adoption for operations. And I’ll point you to some resources from users and our own engineers to learn more.&lt;/p>
+&lt;p>The history lesson will be brief, I promise.&lt;/p>
+&lt;p>We started StackStorm after observing that existing solutions in the devops universe were generally point solutions, often evolved from scripts and other projects that DevOps engineers wrote to make their own lives easier. And that’s a great way to build a solution that appeals at least to those types of users for those specific use cases.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>What we saw was that while there were leaders within certain segments amongst those tools, there was no clearly adopted pattern for the wiring that tied all these tools together. Moreover, with our backgrounds in enterprises we knew that wiring together extremely heterogeneous environments is always a challenge. The enterprise is more a brownfield than a greenfield.&lt;/p>
+&lt;p>A quick shout out to teams at Facebook and at WebEx Spark and all those other early interviewees that taught us so much about event driven automation. And if you want to join a non commercial Bay Area meet-up about the subject and hear speakers from organizations like Facebook and LinkedIn and Netflix, please join here:&lt;br>
+&lt;!-- raw HTML omitted -->&lt;a href="http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/">http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/&lt;/a>&lt;!-- raw HTML omitted --> &lt;/p></description></item><item><title>Improvements to ChatOps Pack Development User Story in ST2 1.4dev</title><link>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</link><pubDate>Mon, 15 Feb 2016 22:34:17 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</guid><description>&lt;p>&lt;strong>February 15, 2016&lt;/strong>&lt;br>
+&lt;em>by &lt;!-- raw HTML omitted -->Jon Middleton&lt;!-- raw HTML omitted -->, Optimisation Project Lead @ Pulsant Limited&lt;/em>&lt;/p>
+&lt;p>In the post &lt;!-- raw HTML omitted -->StackStorm QuickTip: ChatOps your pack dev workflow&lt;!-- raw HTML omitted --> James Fryman gave a ChatOPS alias recipe to reduce the friction for deploying packs and then in the &lt;em>Random Thoughts&lt;/em> section asked:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>This action is tied directly to the &lt;code>packs.install&lt;/code>. What about a workflow? Seems like that would be a better way to structure this.&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>This resonated with me as I had already started working on an internal pack that did just that, as I thought attempting to deploy a pack via an alias (and action) contained within the same pack would be madness (or just lead to interesting race conditions). In the last week, our &lt;em>Pull Request&lt;/em> has been merged, documentation has been included in st2docs (&lt;a href="https://docs.stackstorm.com/latest/chatops/pack_deploy.html">link&lt;/a>) for a workflow that fulfils the above random thought and should be released with 1.4.&lt;/p>
+&lt;p>So introducing &lt;code>packs.deploy&lt;/code>, an action written in Mistral to handle the mapping of names for Git repositories to the information required to carry out the &lt;code>packs.install&lt;/code> action.&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>Stackstorm: from Nagios integration to Openstack automation</title><link>https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/</link><pubDate>Thu, 07 Jan 2016 01:17:26 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/</guid><description>&lt;p>&lt;strong>January 07, 2016&lt;/strong>&lt;br>
+&lt;em>by Igor Cherkaev aka eMptywee&lt;/em>&lt;/p>
+&lt;p>Recently I’ve been playing around Stackstorm – a platform for integration and automation of day-to-day tasks, monitoring events, existing scripts and deployment tools.&lt;/p>
+&lt;p>I am going to explain how easy it is to wrap your daily tasks into Stackstorm actions and workflows and how to provide a simple way of execution for complex tasks.&lt;/p>
+&lt;p>I’ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn’t seem like a good idea. That being said, I’d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it’d be more practical and easier to read and understand.&lt;/p>
+&lt;h2 id="nagios">Nagios&lt;/h2>
+&lt;p>Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &amp;lt;www.stackstorm.com&amp;gt; and &amp;lt;www.nagios.org&amp;gt; (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.&lt;/p>
+&lt;p>First of all, I was happy to find an existing Nagios integration pack &lt;a href="https://github.com/StackStorm-Exchange/stackstorm-nagios">on StackStorm community repo&lt;/a>, but my joy ended really quickly as I found it not working. Secondly, &lt;a href="https://stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/">this StackStorm tutorial&lt;/a> helped me to get started.&lt;/p></description></item><item><title>Chatops Pitfalls and Tips</title><link>https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/</link><pubDate>Fri, 11 Dec 2015 02:05:47 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/</guid><description>&lt;p>&lt;strong>December 11, 2015&lt;/strong>&lt;br>
+&lt;em>by Dmitri Zimine&lt;/em>&lt;/p>
+&lt;p>You are starting with ChatOps.&lt;/p>
+&lt;p>You have already watched &lt;a href="http://www.youtube.com/watch?v=NST3u-GjjFw">Jesse Newland&lt;/a>, &lt;a href="https://www.youtube.com/watch?v=pCVvYCjvoZI">Mark Imbriaco&lt;/a> and our own &lt;a href="https://www.youtube.com/watch?v=37LmuHToYjQ">James Fryman&lt;/a> and &lt;a href="http://www.slideshare.net/EvanPowell/some-chat-ops-what">Evan Powell&lt;/a> preaching it. You’ve read the &lt;a href="https://reddit.com/r/chatops">links on reddit&lt;/a>, and skimmed ChatOps blogs from &lt;a href="https://www.pagerduty.com/blog/what-is-chatops">PagerDuty&lt;/a> and &lt;a href="https://victorops.com/blog/getting-started-chatops-step-step-guide/">VictorOps&lt;/a>. You’ve studied &lt;a href="https://victorops.com/chatops-for-dummies/">ChatOps for Dummies&lt;/a>…&lt;/p>
+&lt;p>Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>StackStorm 1.2.0: the new ChatOps</title><link>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</link><pubDate>Tue, 08 Dec 2015 15:07:00 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</guid><description>&lt;p>&lt;strong>December 8, 2015&lt;/strong>&lt;br>
+&lt;em>by Edward Medvedev&lt;/em>&lt;/p>
+&lt;p>ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the &lt;a href="https://www.youtube.com/watch?v=37LmuHToYjQ">DevOps Next Steps talk&lt;/a> by &lt;a href="https://github.com/jfryman">James Fryman&lt;/a>, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the &lt;a href="http://www.youtube.com/watch?v=NST3u-GjjFw">ChatOps at GitHub talk&lt;/a> by Jesse Newland.&lt;/p>
+&lt;p>Today, we’re all excited to introduce — as a part of our &lt;a href="https://github.com/StackStorm/st2/releases/tag/v1.2.0">1.2.0 release&lt;/a> — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.&lt;/p></description></item><item><title>Ansible and ChatOps. Get started 🚀</title><link>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</link><pubDate>Wed, 24 Jun 2015 20:16:09 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</guid><description>&lt;p>&lt;strong>June 25, 2015&lt;/strong> &lt;!-- raw HTML omitted -->(Updated: February 21, 2017)&lt;!-- raw HTML omitted -->&lt;br>
+&lt;em>Contribution by Integration Developer &lt;!-- raw HTML omitted -->Eugen C.&lt;!-- raw HTML omitted -->&lt;/em>&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/HWN8T78.png" alt="Ansible and ChatOps with StackStorm event-driven automation platform, Slack, Hubot">&lt;/p>
+&lt;h2 id="what-is-chatops">What is ChatOps?&lt;/h2>
+&lt;blockquote>
+&lt;p>ChatOps brings the context of work you are already doing into the conversations you are already having. &lt;!-- raw HTML omitted -->@jfryman&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;/blockquote>
+&lt;p>ChatOps is still a fresh and uncommon thing in the DevOps world, where work is brought into a shared chat room. You can run commands directly from chat and everyone in the chatroom can see the history of work being done, do the same, interact with each other and even learn. The information and process is owned by the entire team which brings a lot of benefits.&lt;/p></description></item><item><title>AHH #03 – ChatOps &amp; Notifications</title><link>https://stackstorm.github.io/stackstorm.com/2015/06/12/ahh03-chatops-notifications/</link><pubDate>Sat, 13 Jun 2015 00:03:19 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/06/12/ahh03-chatops-notifications/</guid><description/></item><item><title>StackStorm – Automated Troubleshooting</title><link>https://stackstorm.github.io/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/</link><pubDate>Tue, 25 Nov 2014 05:32:24 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/</guid><description>&lt;p>&lt;strong>November 24, 2014&lt;/strong>&lt;/p>
+&lt;p>&lt;em>by Patrick Hoolboom&lt;/em>&lt;/p>
+&lt;p>I’ve done a couple articles about getting StackStorm set up, an introductory video, and put a fair amount of effort towards minimizing the barrier to entry for new users.  Overall, I think StackStorm was successful in providing a quick and easy way to get our system up and running but users need more than that.  Users need to see how StackStorm can help solve their specific pain points.  We needed a way to illustrate that we can provide an easy to use solution without the steep learning curve of throwing out your existing tools.  Over a series of a few blog posts we are going to go over some of the ways that we have leveraged the StackStorm platform internally and how these solutions could map to your environment.&lt;/p></description></item></channel></rss>

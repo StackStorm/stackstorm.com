@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>FBAR on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/fbar/</link>
-    <description>Recent content in FBAR on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 02 Jun 2015 15:00:51 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/fbar/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Expanded StackStorm Services And A Meetup At Facebook</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/06/02/expanded-stackstorm-services-and-a-meetup-at-facebook/</link>
-      <pubDate>Tue, 02 Jun 2015 15:00:51 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/02/expanded-stackstorm-services-and-a-meetup-at-facebook/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 2, 2015&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;by Evan Powell&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Your stories – and your ingenuity in wiring your environments together – have inspired us to build something truly different with StackStorm in order to help us all wire our environments together without incurring the massive technical debt of purely home built solutions. In the months since open-sourcing StackStorm late last year, the response has been almost overwhelming with downloads now in the tens of thousands per month, and recently doubling month over month over month.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>FBAR on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/fbar/</link><description>Recent content in FBAR on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 02 Jun 2015 15:00:51 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/fbar/index.xml" rel="self" type="application/rss+xml"/><item><title>Expanded StackStorm Services And A Meetup At Facebook</title><link>https://stackstorm.github.io/stackstorm.com/2015/06/02/expanded-stackstorm-services-and-a-meetup-at-facebook/</link><pubDate>Tue, 02 Jun 2015 15:00:51 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/06/02/expanded-stackstorm-services-and-a-meetup-at-facebook/</guid><description>&lt;p>&lt;strong>June 2, 2015&lt;/strong>&lt;/p>
+&lt;p>&lt;em>by Evan Powell&lt;/em>&lt;/p>
+&lt;p>Your stories – and your ingenuity in wiring your environments together – have inspired us to build something truly different with StackStorm in order to help us all wire our environments together without incurring the massive technical debt of purely home built solutions. In the months since open-sourcing StackStorm late last year, the response has been almost overwhelming with downloads now in the tens of thousands per month, and recently doubling month over month over month.&lt;/p>
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

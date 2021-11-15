@@ -1,215 +1,123 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>StackStorm Exchange: The New Pack Management | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Jan 30, 2017
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>StackStorm Exchange: The New Pack Management | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Jan 30, 2017
 by Edward Medvedev
 Warning: this post describes a long set of important changes. It is enormous in size and full of cheesy puns, feelings, and heart emojis. You might prefer to read the documentation if that is not what you are into. Otherwise, grab a favorite caffeinated drink of your choice and let’s begin!
 A little while ago we rolled out StackStorm 2.1, a release focused on one primary theme: integration packs.
 StackStorm pack management infrastructure is evolving with the demand. As the number of integration packs grows, we want to provide means for faster and easier deployment, make pack development more productive, and encourage collaboration. There are dozens of changes making it happen—both in our internal infrastructure and the StackStorm core—and we are excited and hopeful that through better experience with integration packs, working with StackStorm will become even more efficient, easy, and fun.
 As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell.">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="StackStorm Exchange: The New Pack Management" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="StackStorm Exchange: The New Pack Management">
 <meta property="og:description" content="Jan 30, 2017
 by Edward Medvedev
 Warning: this post describes a long set of important changes. It is enormous in size and full of cheesy puns, feelings, and heart emojis. You might prefer to read the documentation if that is not what you are into. Otherwise, grab a favorite caffeinated drink of your choice and let’s begin!
 A little while ago we rolled out StackStorm 2.1, a release focused on one primary theme: integration packs.
 StackStorm pack management infrastructure is evolving with the demand. As the number of integration packs grows, we want to provide means for faster and easier deployment, make pack development more productive, and encourage collaboration. There are dozens of changes making it happen—both in our internal infrastructure and the StackStorm core—and we are excited and hopeful that through better experience with integration packs, working with StackStorm will become even more efficient, easy, and fun.
-As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-01-31T20:36:28+00:00" />
-<meta property="article:modified_time" content="2017-01-31T20:36:28+00:00" />
-
-<meta itemprop="name" content="StackStorm Exchange: The New Pack Management">
-<meta itemprop="description" content="Jan 30, 2017
+As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2017-01-31T20:36:28+00:00">
+<meta property="article:modified_time" content="2017-01-31T20:36:28+00:00">
+<meta itemprop=name content="StackStorm Exchange: The New Pack Management">
+<meta itemprop=description content="Jan 30, 2017
 by Edward Medvedev
 Warning: this post describes a long set of important changes. It is enormous in size and full of cheesy puns, feelings, and heart emojis. You might prefer to read the documentation if that is not what you are into. Otherwise, grab a favorite caffeinated drink of your choice and let’s begin!
 A little while ago we rolled out StackStorm 2.1, a release focused on one primary theme: integration packs.
 StackStorm pack management infrastructure is evolving with the demand. As the number of integration packs grows, we want to provide means for faster and easier deployment, make pack development more productive, and encourage collaboration. There are dozens of changes making it happen—both in our internal infrastructure and the StackStorm core—and we are excited and hopeful that through better experience with integration packs, working with StackStorm will become even more efficient, easy, and fun.
-As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell."><meta itemprop="datePublished" content="2017-01-31T20:36:28+00:00" />
-<meta itemprop="dateModified" content="2017-01-31T20:36:28+00:00" />
-<meta itemprop="wordCount" content="2756">
-<meta itemprop="keywords" content="exchange,StackStorm," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="StackStorm Exchange: The New Pack Management"/>
-<meta name="twitter:description" content="Jan 30, 2017
+As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell."><meta itemprop=datePublished content="2017-01-31T20:36:28+00:00">
+<meta itemprop=dateModified content="2017-01-31T20:36:28+00:00">
+<meta itemprop=wordCount content="2756">
+<meta itemprop=keywords content="exchange,StackStorm,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="StackStorm Exchange: The New Pack Management">
+<meta name=twitter:description content="Jan 30, 2017
 by Edward Medvedev
 Warning: this post describes a long set of important changes. It is enormous in size and full of cheesy puns, feelings, and heart emojis. You might prefer to read the documentation if that is not what you are into. Otherwise, grab a favorite caffeinated drink of your choice and let’s begin!
 A little while ago we rolled out StackStorm 2.1, a release focused on one primary theme: integration packs.
 StackStorm pack management infrastructure is evolving with the demand. As the number of integration packs grows, we want to provide means for faster and easier deployment, make pack development more productive, and encourage collaboration. There are dozens of changes making it happen—both in our internal infrastructure and the StackStorm core—and we are excited and hopeful that through better experience with integration packs, working with StackStorm will become even more efficient, easy, and fun.
-As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell."/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell.">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/&amp;text=StackStorm%20Exchange:%20The%20New%20Pack%20Management" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/&amp;title=StackStorm%20Exchange:%20The%20New%20Pack%20Management" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">StackStorm Exchange: The New Pack Management</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2017-01-31T20:36:28Z">January 31, 2017</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Jan 30, 2017</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/&text=StackStorm%20Exchange:%20The%20New%20Pack%20Management" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/&title=StackStorm%20Exchange:%20The%20New%20Pack%20Management" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">StackStorm Exchange: The New Pack Management</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2017-01-31T20:36:28Z>January 31, 2017</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Jan 30, 2017</strong><br>
 <em>by Edward Medvedev</em></p>
-<p><em>Warning: this post describes a long set of important changes. It is enormous in size and full of cheesy puns, feelings, and heart emojis. You might prefer to <a href="docs.stackstorm.com/packs.html">read the documentation</a> if that is not what you are into. Otherwise, grab a favorite caffeinated drink of your choice and let’s begin!</em></p>
-<p>A little while ago we <a href="https://stackstorm.com/2016/12/06/2-1-new-pack-management/">rolled out StackStorm 2.1</a>, a release focused on one primary theme: integration packs.</p>
+<p><em>Warning: this post describes a long set of important changes. It is enormous in size and full of cheesy puns, feelings, and heart emojis. You might prefer to <a href=docs.stackstorm.com/packs.html>read the documentation</a> if that is not what you are into. Otherwise, grab a favorite caffeinated drink of your choice and let’s begin!</em></p>
+<p>A little while ago we <a href=https://stackstorm.com/2016/12/06/2-1-new-pack-management/>rolled out StackStorm 2.1</a>, a release focused on one primary theme: integration packs.</p>
 <p>StackStorm pack management infrastructure is evolving with the demand. As the number of integration packs grows, we want to provide means for faster and easier deployment, make pack development more productive, and encourage collaboration. There are dozens of changes making it happen—both in our internal infrastructure and the StackStorm core—and we are excited and hopeful that through better experience with integration packs, working with StackStorm will become even more efficient, easy, and fun.</p>
 <p>As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell.</p>
-<h3 id="from-st2contrib-to-stackstorm-exchange">From st2contrib to StackStorm Exchange</h3>
-<p>Our contribution repository, <a href="https://github.com/StackStorm/st2contrib">st2contrib</a>, served the StackStorm users well for a long time. It was home for about a dozen integration packs when it started, and over a few years it successfully expanded to more than a hundred.</p>
+<h3 id=from-st2contrib-to-stackstorm-exchange>From st2contrib to StackStorm Exchange</h3>
+<p>Our contribution repository, <a href=https://github.com/StackStorm/st2contrib>st2contrib</a>, served the StackStorm users well for a long time. It was home for about a dozen integration packs when it started, and over a few years it successfully expanded to more than a hundred.</p>
 <p>The amount of StackStorm content is growing <em>fast</em>, and around the time when the pack count couldn’t fit into an <code>int8</code> anymore, placing all packs into a single repository suddenly stopped looking like such a good idea.</p>
 <p>Having more content than we could handle was a good problem to have—and still, it was a problem that needed solving. Every clone of <code>st2contrib</code> downloaded thousands of extra actions, it was very hard to version and process packs separately, and it was nearly impossible to give external contributors access to a subset of packs or assign pack maintainers.</p>
 <p>So we had to bid farewell. As of the 2.1 release, <code>st2contrib</code> has been closed to new contributions, and the packs have moved to a new home. The goodbye was bittersweet, but we knew it had to happen.</p>
-<p>Of course, the repository will stay open for backwards compatibility with the old StackStorm versions that might have deployment workflows depending on it. However, if you want to keep up with the bug fixes, updates, and new pack versions, we encourage you to upgrade to StackStorm 2.1 and read our <a href="https://docs.stackstorm.com/reference/pack_management_transition.html">transition guide</a>.</p>
+<p>Of course, the repository will stay open for backwards compatibility with the old StackStorm versions that might have deployment workflows depending on it. However, if you want to keep up with the bug fixes, updates, and new pack versions, we encourage you to upgrade to StackStorm 2.1 and read our <a href=https://docs.stackstorm.com/reference/pack_management_transition.html>transition guide</a>.</p>
 <p>Now, about that new home.</p>
-<p><a href="https://exchange.stackstorm.org"><img src="https://i.imgur.com/PSqGRDb.png" alt="StackStorm Exchange"></a></p>
+<p><a href=https://exchange.stackstorm.org><img src=https://i.imgur.com/PSqGRDb.png alt="StackStorm Exchange"></a></p>
 <p>StackStorm Exchange is the hub around which our new pack management system works. We have been planning and preparing the transition for a while, and the new infrastructure has been successfully rolled out with the release of StackStorm 2.1.</p>
 <p>There is a huge number of changes, big and small, and most of them can be attributed to one of the four key scenarios that we will talk about: discovery, collaboration, development, and deployment.</p>
 <p>Those make up four entirely different stories—varying even in mood and tone—but in the end they combine into one giant Super Robot and awesomeness ensues.</p>
 <p>Let’s begin.</p>
-<h3 id="discovery">Discovery</h3>
-<p><img src="https://i.imgur.com/7jmr8QC.png" alt="StackStorm Exchange pack list"></p>
+<h3 id=discovery>Discovery</h3>
+<p><img src=https://i.imgur.com/7jmr8QC.png alt="StackStorm Exchange pack list"></p>
 <p>Of all the things introduced in this release, the StackStorm Exchange front-end is probably the shiniest. It has been crafted with sweat, tears, ReactJS, and a little bit of love, and we hope you enjoy using it to find new packs you might like.</p>
-<!-- raw HTML omitted -->
 <p><em>The “a little bit of love” part might seem debatable in light of some earlier UI prototypes, but our love for automated tests is just as important as our love for users.</em></p>
 <p>We are determined to keep updating the UI with new amazing features, and we won’t stop until discovering and installing the packs you need is effortless. We’ll just have to write a React plugin for mind-reading (I’ve heard you can do anything in JS just by gluing a few hundred of npm modules together, so it should be pretty simple).</p>
-<p>Visit the Exchange at <a href="https://exchange.stackstorm.org">exchange.stackstorm.org</a>, or check out the source code at <a href="https://github.com/StackStorm-Exchange/web">StackStorm-Exchange/web at Github</a> if you are curious.</p>
+<p>Visit the Exchange at <a href=https://exchange.stackstorm.org>exchange.stackstorm.org</a>, or check out the source code at <a href=https://github.com/StackStorm-Exchange/web>StackStorm-Exchange/web at Github</a> if you are curious.</p>
 <p>Another new way of discovering packs is the <code>st2 pack</code> CLI commands introduced in StackStorm 2.1 (more on that later). You can search for packs or get information about a particular one:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>The underlying back-end behind both the UI and the CLI commands deserves a special mention. We are all into automation, so our pack directory is now exposed as a consumable JSON file: you can download it at <a href="https://index.stackstorm.org/v1/index.json">index.stackstorm.org/v1/index.json</a> or clone the <a href="https://github.com/StackStorm-Exchange/index">StackStorm-Exchange/index</a> repository.</p>
-<p>The index updates in real time: our CI system rebuilds it right after an update is pushed to the packs. Also, because it is served as a static file, we can build the UI as a front-end-only app and host it on GitHub Pages for free, because <!-- raw HTML omitted -->we are cheap<!-- raw HTML omitted --> GitHub is awesome.</p>
-<p>Pack indexes in 2.1 are meant to be extensible: while the StackStorm Exchange index is used by default, you are free to introduce your own! You can mirror our main index, expand it, or even host your own catalog of internal packs, similar to source files in OS package management. Read on to the Deployment section or jump straight to <a href="https://docs.stackstorm.com/packs.html#hosting-your-own-pack-index">the documentation section on indices</a> for the distilled wisdom free of cheesy puns.</p>
+<p>The underlying back-end behind both the UI and the CLI commands deserves a special mention. We are all into automation, so our pack directory is now exposed as a consumable JSON file: you can download it at <a href=https://index.stackstorm.org/v1/index.json>index.stackstorm.org/v1/index.json</a> or clone the <a href=https://github.com/StackStorm-Exchange/index>StackStorm-Exchange/index</a> repository.</p>
+<p>The index updates in real time: our CI system rebuilds it right after an update is pushed to the packs. Also, because it is served as a static file, we can build the UI as a front-end-only app and host it on GitHub Pages for free, because we are cheap GitHub is awesome.</p>
+<p>Pack indexes in 2.1 are meant to be extensible: while the StackStorm Exchange index is used by default, you are free to introduce your own! You can mirror our main index, expand it, or even host your own catalog of internal packs, similar to source files in OS package management. Read on to the Deployment section or jump straight to <a href=https://docs.stackstorm.com/packs.html#hosting-your-own-pack-index>the documentation section on indices</a> for the distilled wisdom free of cheesy puns.</p>
 <p>With StackStorm Exchange, we hope to make the discovery of integration packs easier for both new and advanced users, and the custom indexes can come in handy for larger-scale Enterprise deployments. We hope to hear your thoughts in our Slack community channel, and please stay tuned—we have even more exciting things planned!</p>
-<h3 id="collaboration">Collaboration</h3>
+<h3 id=collaboration>Collaboration</h3>
 <p>Pull requests from our community aren’t just pieces of code: behind each one there is time and effort that someone has put into making StackStorm better for everyone. To show our appreciation, we strive to save as much of your time as we can by reducing the overhead of submitting new packs and features (we also send heart emojis and pug pictures as a sign of appreciation, but I digress).</p>
 <p>StackStorm Exchange continues this tradition: we have made both architectural and organizational changes that are meant to make contributions faster, easier, and more straightforward.</p>
-<p>Most importantly, the packs are now split into multiple single-pack repositories inside a dedicated GitHub organization, <a href="https://github.com/StackStorm-Exchange/">StackStorm-Exchange</a>. Smaller repositories are not just easier to work with, but also more manageable—and they make our primary organizational change possible.</p>
+<p>Most importantly, the packs are now split into multiple single-pack repositories inside a dedicated GitHub organization, <a href=https://github.com/StackStorm-Exchange/>StackStorm-Exchange</a>. Smaller repositories are not just easier to work with, but also more manageable—and they make our primary organizational change possible.</p>
 <p><strong>With the transition to StackStorm Exchange, we are introducing the pack maintainer role.</strong></p>
 <p>A pack maintainer is someone who is an active developer (and often creator) of the pack, and an expert on both the target product of the pack and the API or the library that is used. Pack maintainers often help other users with their contributions, respond to issues, and review pull requests. They heavily rely on the packs they maintain in production use.</p>
 <p>Some of our most active community members have already taken up this role over time, and now we are happy to recognize them in an official capacity. Those we are inviting to become maintainers are getting full permissions to their pack repositories and will be able to develop and manage their packs more efficiently. We are fascinated by everyone who has agreed to step up, and to give credit where it’s due, we will talk about our maintainers shortly in a dedicated post!</p>
 <p>Everyone else submitting a pull request or opening an issue benefits from this equally: in addition to the help from our engineering team, they will also get help from pack maintainers, who are often more knowledgeable about their packs than we are. With this kind of help, we can reduce the average time required for bug fixes, reviews, and new releases, as well as the average response time for issues, which, in turn, benefits our users as well.</p>
 <p>As a conclusion to the collaboration part, we would like to thank everyone who has ever contributed to a StackStorm pack. With the new changes, we humbly hope to encourage you to keep working with StackStorm and developing new integrations. Think of StackStorm Exchange as a huge heart emoji that we’re sending to every one of you.</p>
 <p>❤️️</p>
-<h3 id="development">Development</h3>
+<h3 id=development>Development</h3>
 <p>The core change in the pack development workflow—hosting packs in their separate repositories—has already been mentioned in passing, and now we are going to focus on it a little more. First things first: with this change, we had to make a very hard decision.</p>
 <p><em>Dramatic build-up music plays.</em></p>
 <p><strong>The transition to single-pack repositories is breaking</strong>. Pack installation in StackStorm 2.1 does not support repositories with multiple packs in them.</p>
@@ -217,7 +125,7 @@ As it is the case with all “thematic” releases, 2.1 is more than just a set 
 <p>Let’s rewind and talk history: there were several problem areas with <code>st2contrib</code> that made this change unavoidable.</p>
 <ul>
 <li>
-<p><strong>Organization</strong>: inability to fine-tune access—for instance, assign maintainers to individual packs.<!-- raw HTML omitted --></p>
+<p><strong>Organization</strong>: inability to fine-tune access—for instance, assign maintainers to individual packs.</p>
 </li>
 <li>
 <p><strong>Structure</strong>: overall mess and clutter, like having issues from 100+ packs piled up in one place or being unable to follow the changes only in certain packs.</p>
@@ -229,14 +137,12 @@ As it is the case with all “thematic” releases, 2.1 is more than just a set 
 <p><strong>Technical debt</strong>: best illustrated by the opening comment in the pack download action.</p>
 </li>
 </ul>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Consider this: the transition to single-pack repositories <em>solves all those problems at once</em>. And then some: we can start utilizing git tools and repository metadata to introduce features like versioning at virtually no cost.</p>
-<p>Even though introducing breaking changes always feels like a blood sacrifice—and relying on git for package management <a href="https://github.com/CocoaPods/CocoaPods/issues/4989#issuecomment-193772935">can definitely backfire</a>—no other solution would be nearly as effective at this stage of our growth. And so the blood sacrifice has been made. So it goes.</p>
+<p>Even though introducing breaking changes always feels like a blood sacrifice—and relying on git for package management <a href=https://github.com/CocoaPods/CocoaPods/issues/4989#issuecomment-193772935>can definitely backfire</a>—no other solution would be nearly as effective at this stage of our growth. And so the blood sacrifice has been made. So it goes.</p>
 <p>Regardless of whether you contribute to community packs in the Exchange or create packs for your own internal use, you will notice positive changes from day one. First, let’s see how the problem areas outlined above turn into improvements:</p>
 <ul>
 <li>
-<p><strong>Organization:</strong> as pack maintainers contribute their time and expertise to help us review issues and pull requests, you can expect better code quality of the Exchange contributions—and faster reviews because of the shared workload!<!-- raw HTML omitted --></p>
+<p><strong>Organization:</strong> as pack maintainers contribute their time and expertise to help us review issues and pull requests, you can expect better code quality of the Exchange contributions—and faster reviews because of the shared workload!</p>
 </li>
 <li>
 <p><strong>Structure:</strong> single-pack repositories are easier to manage and control with git. Logs and metadata are concise, diffs in branches and tags are free of clutter, and whenever there is a new commit upstream, you know it is related to your pack. It is also easier to keep track of issues and pull requests—and easier for the users to follow only the packs they need.</p>
@@ -250,13 +156,13 @@ As it is the case with all “thematic” releases, 2.1 is more than just a set 
 </ul>
 <p>Pretty neat, right? But we have only scratched the surface: now we can take this idea of git coupling even further and build up on it to make development—and then deployment—even more convenient.</p>
 <ul>
-<li><strong>Live development:</strong> since pack installation essentially becomes a <code>git clone</code>, you can work with installed packs just like you would with any other git repository. Switch tags and branches, try out local changes and revert them, or even make commits from your StackStorm server (not a good development workflow, but could be useful for playing around or pushing hotfixes upstream).<!-- raw HTML omitted --></li>
+<li><strong>Live development:</strong> since pack installation essentially becomes a <code>git clone</code>, you can work with installed packs just like you would with any other git repository. Switch tags and branches, try out local changes and revert them, or even make commits from your StackStorm server (not a good development workflow, but could be useful for playing around or pushing hotfixes upstream).</li>
 <li><strong>Versioning:</strong> following the previous point, we can easily make our deployment action install specific pack revisions, branches, and tags (only branches were supported before 2.1). Use feature branches for development, pin pack versions to a specific revision in production—you know, do what you would normally do with versioned packages.</li>
 </ul>
 <p>And then a few more extra features for pack developers as a small cherry on top:</p>
 <ul>
 <li>
-<p><strong>Pack metadata additions</strong>: there are several new fields in <code>pack.yaml</code>, like <code>contributors</code> or <code>stackstorm_version</code>—read more about them on the <a href="https://docs.stackstorm.com/reference/pack_management_transition.html?highlight=contributors#changes-to-take-advantage-of">pack documentation page</a>. Additionally, we introduce semver format (<code>X.Y.Z</code>) validation for the <code>version</code> field to keep the versioning more consistent.<!-- raw HTML omitted --></p>
+<p><strong>Pack metadata additions</strong>: there are several new fields in <code>pack.yaml</code>, like <code>contributors</code> or <code>stackstorm_version</code>—read more about them on the <a href="https://docs.stackstorm.com/reference/pack_management_transition.html?highlight=contributors#changes-to-take-advantage-of">pack documentation page</a>. Additionally, we introduce semver format (<code>X.Y.Z</code>) validation for the <code>version</code> field to keep the versioning more consistent.</p>
 </li>
 <li>
 <p><strong>Extensible CI in Exchange</strong>: if you are developing an Exchange pack that requires special treatment (for instance, extra system-level dependencies for running tests), it is now possible to modify its CI environment or add new checks—unlike <code>st2contrib</code> which had uniform CI for all packs.</p>
@@ -269,156 +175,101 @@ As it is the case with all “thematic” releases, 2.1 is more than just a set 
 <p>You do not have to list your packs in StackStorm Exchange, you do not have to host your repositories on GitHub, and you do not even have to use git at all. At the end of the day, StackStorm packs are just directories and files, and you are free to create, store, and deploy them in any way you want.</p>
 <p>Instead of imposing a set of tools or a specific workflow, we would rather take the supporting role and reduce overhead and clutter as much as possible, so that you can focus on writing code and getting things done.</p>
 <p>Damage boost engaged!</p>
-<h3 id="deployment">Deployment</h3>
+<h3 id=deployment>Deployment</h3>
 <p>Now, for the final part of the StackStorm Exchange transition: deployment. Pack deployment in 2.1 is one huge bundle of improvements and new features—something that every change in this release has been building up towards, and something that has made all the blood sacrifices worth it.</p>
 <p>There is enough good news for everyone.</p>
 <p>Good news for those who use our CLI: we have new <code>st2 pack</code> subcommands for installing, upgrading, and managing packs.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Good news for those who work with git: packs can be installed from any git repository—and versioned with tags, branches, or commit SHAs.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Good news for those who like neat interactive prompts: most packs can be configured interactively with <code>st2 pack config</code>.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Good news for those who like ChatOps: we have made a complete overhaul of our pack management aliases.</p>
-<!-- raw HTML omitted -->
 <p>Good news for those who control StackStorm through the API: there is an API endpoint for every pack management command in StackStorm 2.1.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Good news for those who want to keep it classy: you can <a href="https://docs.stackstorm.com/packs.html#hosting-your-own-pack-index">maintain your own pack index</a> to make your private packs searchable and resolvable by name. You can even host your own directory page: just fork our <a href="https://github.com/StackStorm-Exchange/web">Exchange front-end</a>!</p>
-<!-- raw HTML omitted -->
-<p>Good news for those who got sad after learning that we do not support multi-pack repositories anymore: there is a <a href="https://github.com/StackStorm-Exchange/exchange-tools/blob/master/split-packs.sh">migration script</a> (courtesy of <a href="https://github.com/pixelrebel">@pixelrebel</a>) that helps you split them while preserving the commit history.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p>Good news for those who want to keep it classy: you can <a href=https://docs.stackstorm.com/packs.html#hosting-your-own-pack-index>maintain your own pack index</a> to make your private packs searchable and resolvable by name. You can even host your own directory page: just fork our <a href=https://github.com/StackStorm-Exchange/web>Exchange front-end</a>!</p>
+<p>Good news for those who got sad after learning that we do not support multi-pack repositories anymore: there is a <a href=https://github.com/StackStorm-Exchange/exchange-tools/blob/master/split-packs.sh>migration script</a> (courtesy of <a href=https://github.com/pixelrebel>@pixelrebel</a>) that helps you split them while preserving the commit history.</p>
 <p>And what if you would rather not use any of this and prefer a completely different deployment workflow? Oh boy, do we have good news for you, too! As mentioned in the development section, you are completely free to keep doing this in 2.1, and just as before, all you need is to have your packs copied to <code>/opt/stackstorm/packs</code> and reload the content:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>That would be all.</p>
-<h3 id="conclusion">Conclusion</h3>
+<h3 id=conclusion>Conclusion</h3>
 <p>With one release—for most of our users, essentially overnight—pack management in StackStorm turned from a bunch of actions into a full-featured package control system with versioning, CLI commands, API endpoints, and a dedicated hub. It has not been an easy journey, and some sacrifices have been made, but in the end it was well worth it.</p>
 <p>When it comes to acknowledgements, it has been an immense collective effort, and while our entire engineering team has been working in full force to make the release happen, it would not be complete without the support of our amazing community.</p>
 <p>We are grateful to everyone who has ever contributed to our growing library of more than a hundred integration packs—for helping StackStorm and the community grow.</p>
 <p>To the StackStorm experts who stepped up to become our first pack maintainers—for their sincere desire to give back.</p>
 <p>To the curious folks who started testing features before we even announced they are in development—for giving early feedback and showing us the fun of open source.</p>
-<p>To the awesome crowd of a spontaneous <a href="https://www.meetup.com/London-StackStorm-User-Meetup/">StackStorm meetup in London</a>—for sharing their thoughts during my early Exchange presentation.</p>
+<p>To the awesome crowd of a spontaneous <a href=https://www.meetup.com/London-StackStorm-User-Meetup/>StackStorm meetup in London</a>—for sharing their thoughts during my early Exchange presentation.</p>
 <p>To everyone who relies on StackStorm—for giving our work meaning.</p>
 <p>Thank you. ❤️️</p>
 <hr>
 <p>Lastly, a few useful documentation links:</p>
 <ul>
-<li><a href="https://docs.stackstorm.com/changelog.html#december-05-2016">full 2.1.0 changelog</a>;</li>
-<li><a href="https://docs.stackstorm.com/upgrade_notes.html#st2-v2-1">upgrade notes</a>;</li>
-<li><a href="https://docs.stackstorm.com/reference/pack_management_transition.html"><code>st2contrib</code>/Exchange transition notes</a>;</li>
-<li><a href="https://docs.stackstorm.com/packs.html">general pack documentation</a>;</li>
-<li><a href="https://docs.stackstorm.com/reference/packs.html">pack development documentation</a>.</li>
+<li><a href=https://docs.stackstorm.com/changelog.html#december-05-2016>full 2.1.0 changelog</a>;</li>
+<li><a href=https://docs.stackstorm.com/upgrade_notes.html#st2-v2-1>upgrade notes</a>;</li>
+<li><a href=https://docs.stackstorm.com/reference/pack_management_transition.html><code>st2contrib</code>/Exchange transition notes</a>;</li>
+<li><a href=https://docs.stackstorm.com/packs.html>general pack documentation</a>;</li>
+<li><a href=https://docs.stackstorm.com/reference/packs.html>pack development documentation</a>.</li>
 </ul>
-<p>And as always, we are there for you! If you have questions, want to give feedback, or just feel chatty, you can find us in our <a href="https://stackstorm.com/community-signup">StackStorm community Slack</a>.</p>
-<p><em>— Ed</em></p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/exchange" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">exchange</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/stackstorm" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">StackStorm</a>
-   </li>
-  
+<p>And as always, we are there for you! If you have questions, want to give feedback, or just feel chatty, you can find us in our <a href=https://stackstorm.com/community-signup>StackStorm community Slack</a>.</p>
+<p><em>— Ed</em></p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/exchange class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">exchange</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/stackstorm class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">StackStorm</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/">Innovation at Dimension Data: Accelerating Innovation and Digital Transformation with StackStorm Event Driven Automation</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/">Genomics Sequencing, StackStorm, and Reading the Source Code of Biology</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/11/14/iot-event-driven-automation-supercomputing16/">Unleash the power of IoT with Event-Driven Automation (ST2 &amp; BWC @ SuperComputing16)</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/">Summary – Brocade Workflow Composer at NFD 12</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/04/11/two-weeks-brocade/">Two weeks in Brocade: “from team of 10 to 4,000!”</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/04/11/brocade-acquisition-faq/">Brocade Acquisition FAQ</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/03/29/stackstorm-joining-brocade/">StackStorm joining Brocade</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/02/25/history-of-chatops/">The Brief History of ChatOps at StackStorm (and How We Got Here)</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/">Improvements to ChatOps Pack Development User Story in ST2 1.4dev</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/">Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/11/15/ahh-07-unpacking-the-gloriousness-of-stackstorm-1-1-stackstorm-enterprise/">AHH #07 – Unpacking the Gloriousness of StackStorm 1.1 &amp; StackStorm Enterprise</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/">OctopusDeploy Integration with StackStorm</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/>Innovation at Dimension Data: Accelerating Innovation and Digital Transformation with StackStorm Event Driven Automation</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/>Genomics Sequencing, StackStorm, and Reading the Source Code of Biology</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/11/14/iot-event-driven-automation-supercomputing16/>Unleash the power of IoT with Event-Driven Automation (ST2 & BWC @ SuperComputing16)</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/>Summary – Brocade Workflow Composer at NFD 12</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/04/11/two-weeks-brocade/>Two weeks in Brocade: “from team of 10 to 4,000!”</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/04/11/brocade-acquisition-faq/>Brocade Acquisition FAQ</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/03/29/stackstorm-joining-brocade/>StackStorm joining Brocade</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/02/25/history-of-chatops/>The Brief History of ChatOps at StackStorm (and How We Got Here)</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/>Improvements to ChatOps Pack Development User Story in ST2 1.4dev</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/>Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/11/15/ahh-07-unpacking-the-gloriousness-of-stackstorm-1-1-stackstorm-enterprise/>AHH #07 – Unpacking the Gloriousness of StackStorm 1.1 & StackStorm Enterprise</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/>OctopusDeploy Integration with StackStorm</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

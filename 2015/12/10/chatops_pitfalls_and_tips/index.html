@@ -1,194 +1,105 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Chatops Pitfalls and Tips | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="December 11, 2015
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Chatops Pitfalls and Tips | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="December 11, 2015
 by Dmitri Zimine
 You are starting with ChatOps.
 You have already watched Jesse Newland, Mark Imbriaco and our own James Fryman and Evan Powell preaching it. You’ve read the links on reddit, and skimmed ChatOps blogs from PagerDuty and VictorOps. You’ve studied ChatOps for Dummies…
 Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.
 ">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Chatops Pitfalls and Tips" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Chatops Pitfalls and Tips">
 <meta property="og:description" content="December 11, 2015
 by Dmitri Zimine
 You are starting with ChatOps.
 You have already watched Jesse Newland, Mark Imbriaco and our own James Fryman and Evan Powell preaching it. You’ve read the links on reddit, and skimmed ChatOps blogs from PagerDuty and VictorOps. You’ve studied ChatOps for Dummies…
 Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2015-12-11T02:05:47+00:00" />
-<meta property="article:modified_time" content="2015-12-11T02:05:47+00:00" />
-
-<meta itemprop="name" content="Chatops Pitfalls and Tips">
-<meta itemprop="description" content="December 11, 2015
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2015-12-11T02:05:47+00:00">
+<meta property="article:modified_time" content="2015-12-11T02:05:47+00:00">
+<meta itemprop=name content="Chatops Pitfalls and Tips">
+<meta itemprop=description content="December 11, 2015
 by Dmitri Zimine
 You are starting with ChatOps.
 You have already watched Jesse Newland, Mark Imbriaco and our own James Fryman and Evan Powell preaching it. You’ve read the links on reddit, and skimmed ChatOps blogs from PagerDuty and VictorOps. You’ve studied ChatOps for Dummies…
 Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.
-"><meta itemprop="datePublished" content="2015-12-11T02:05:47+00:00" />
-<meta itemprop="dateModified" content="2015-12-11T02:05:47+00:00" />
-<meta itemprop="wordCount" content="2898">
-<meta itemprop="keywords" content="chatops," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Chatops Pitfalls and Tips"/>
-<meta name="twitter:description" content="December 11, 2015
+"><meta itemprop=datePublished content="2015-12-11T02:05:47+00:00">
+<meta itemprop=dateModified content="2015-12-11T02:05:47+00:00">
+<meta itemprop=wordCount content="2898">
+<meta itemprop=keywords content="chatops,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Chatops Pitfalls and Tips">
+<meta name=twitter:description content="December 11, 2015
 by Dmitri Zimine
 You are starting with ChatOps.
 You have already watched Jesse Newland, Mark Imbriaco and our own James Fryman and Evan Powell preaching it. You’ve read the links on reddit, and skimmed ChatOps blogs from PagerDuty and VictorOps. You’ve studied ChatOps for Dummies…
 Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.
-"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/&amp;text=Chatops%20Pitfalls%20and%20Tips" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/&amp;title=Chatops%20Pitfalls%20and%20Tips" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Chatops Pitfalls and Tips</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              Dmitri Zimine
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2015-12-11T02:05:47Z">December 11, 2015</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>December 11, 2015</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/&text=Chatops%20Pitfalls%20and%20Tips" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/&title=Chatops%20Pitfalls%20and%20Tips" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Chatops Pitfalls and Tips</h1>
+<p class=tracked>
+By <strong>
+Dmitri Zimine
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2015-12-11T02:05:47Z>December 11, 2015</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>December 11, 2015</strong><br>
 <em>by Dmitri Zimine</em></p>
 <p>You are starting with ChatOps.</p>
-<p>You have already watched <a href="http://www.youtube.com/watch?v=NST3u-GjjFw">Jesse Newland</a>, <a href="https://www.youtube.com/watch?v=pCVvYCjvoZI">Mark Imbriaco</a> and our own <a href="https://www.youtube.com/watch?v=37LmuHToYjQ">James Fryman</a> and <a href="http://www.slideshare.net/EvanPowell/some-chat-ops-what">Evan Powell</a> preaching it. You’ve read the <a href="https://reddit.com/r/chatops">links on reddit</a>, and skimmed ChatOps blogs from <a href="https://www.pagerduty.com/blog/what-is-chatops">PagerDuty</a> and <a href="https://victorops.com/blog/getting-started-chatops-step-step-guide/">VictorOps</a>. You’ve studied <a href="https://victorops.com/chatops-for-dummies/">ChatOps for Dummies</a>…</p>
+<p>You have already watched <a href="http://www.youtube.com/watch?v=NST3u-GjjFw">Jesse Newland</a>, <a href="https://www.youtube.com/watch?v=pCVvYCjvoZI">Mark Imbriaco</a> and our own <a href="https://www.youtube.com/watch?v=37LmuHToYjQ">James Fryman</a> and <a href=http://www.slideshare.net/EvanPowell/some-chat-ops-what>Evan Powell</a> preaching it. You’ve read the <a href=https://reddit.com/r/chatops>links on reddit</a>, and skimmed ChatOps blogs from <a href=https://www.pagerduty.com/blog/what-is-chatops>PagerDuty</a> and <a href=https://victorops.com/blog/getting-started-chatops-step-step-guide/>VictorOps</a>. You’ve studied <a href=https://victorops.com/chatops-for-dummies/>ChatOps for Dummies</a>…</p>
 <p>Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.</p>
-<!-- raw HTML omitted -->
-<h3 id="tldr">TL;DR</h3>
+<h3 id=tldr>TL;DR</h3>
 <p>This is a loooooong blog posts… so here are topics, jump right in if you’d like:</p>
 <ul>
-<li><a href="#1_coffee"><strong>Coffee? JS? Ruby? Python? A Fallacy of False Choice</strong></a> – the right answer is “any”, I tip my hand</li>
-<li><a href="#2_bot"><strong>Bot or Not</strong></a> – you DO need a bot, but not for the reason you think you do</li>
-<li><a href="#3_slack"><strong>Best Chat for Chatops, or Is Slack eating everything?</strong></a> – even if it does, what to do about it?</li>
-<li><a href="#4_duplex"><strong>It’s a duplex, dummy</strong></a> – how to make a bot act like a human with two-way integration</li>
-<li><a href="#5_future"><strong>Towards a smarter bot</strong></a> – wouldn’t it be cool if…</li>
-<li><a href="#6_stackstorm"><strong>Chatops, StackStorm way</strong></a> – just a short pitch at the end 🙂</li>
+<li><a href=#1_coffee><strong>Coffee? JS? Ruby? Python? A Fallacy of False Choice</strong></a> – the right answer is “any”, I tip my hand</li>
+<li><a href=#2_bot><strong>Bot or Not</strong></a> – you DO need a bot, but not for the reason you think you do</li>
+<li><a href=#3_slack><strong>Best Chat for Chatops, or Is Slack eating everything?</strong></a> – even if it does, what to do about it?</li>
+<li><a href=#4_duplex><strong>It’s a duplex, dummy</strong></a> – how to make a bot act like a human with two-way integration</li>
+<li><a href=#5_future><strong>Towards a smarter bot</strong></a> – wouldn’t it be cool if…</li>
+<li><a href=#6_stackstorm><strong>Chatops, StackStorm way</strong></a> – just a short pitch at the end 🙂</li>
 </ul>
-<h1 id="a-name1_coffeeacoffee-js-ruby-python-a-fallacy-of-false-choice"><!-- raw HTML omitted --><!-- raw HTML omitted -->Coffee? JS? Ruby? Python? A Fallacy of False Choice.</h1>
+<h1 id=a-name1_coffeeacoffee-js-ruby-python-a-fallacy-of-false-choice>Coffee? JS? Ruby? Python? A Fallacy of False Choice.</h1>
 <p>One of the first things you learn about ChatOps is “Bots”. There are bots, quite a few of them. Hubot Lita, and Err are the often cited as the most popular, but there are many more. They are important, and you (tend to believe) need to think carefully about selecting your bot, because this choice defines the programming language you’ll use for ChatOps and other aspects of your implementation.</p>
 <blockquote>
 <p>“Your preference on programming languages may determine which bot you ultimately choose.”<br>
 <em>Jason Hand, ChatOps for Dummies</em></p>
 </blockquote>
 <p>There is a problem, though: this line of thinking leads to a naive implementation of ChatOps which I have seen far too often. Teams often select a bot based on a preferred language to write ChatOps commands. They then go ando implement these actions as Bot plugins. To add another command – add another CoffeeScripts (or JS, or Ruby, or Python, etc)… <strong>Warning: This is the Wrong Way.</strong></p>
-<!-- raw HTML omitted -->
 <p>Let me detail it on a concrete example: provision a VM on cloud. When ChatOps-ed, it would look something like this:</p>
 <pre><code>      &gt; user: ! help create vm 
       &lt; bot: create vm {hostname} on { provider: aws | rackspace } 
@@ -202,8 +113,7 @@ Congratulation and welcome to the journey, ChatOps is awesome way to run develop
 <p>Don’t fall into the fallacy of false choice here. The right choice is: “base Chatops on the Automation Library, expose actions to scripts with no extra code”.</p>
 <p>The Automation Library is a core Operational Pattern that states that the operations against the infrastructure comprise an automation library that can be written in any language and versioned, reviewed, and available to ops and developers with fine-grain access control on who can run what and where. This automation library becomes your control plane. As such, it must be secure, reliable and highly available not only from ChatOps but from API, CLI, and hopefully GUI.</p>
 <p>If you do use an Automation Library, you can then expose actions easily to chatops. A good solution will provide chat friendly syntax, help, and other goodies with no need for extra code on the Bot side. Bots are a part of the ChatOps solution, but they are like wheels, not the whole car, thus their choice is an internal implementation detail.</p>
-<p>We have learned that those who are doing ChatOps right, do it this way. Take GitHub: they have a library of automation scripts, some of which are exposed to Hubot, with no extra Coffee on Hubot side (<a href="https://youtu.be/NST3u-GjjFw?t=27m30s">this part of their Chatops solution</a> is not open sourced yet). Or take the devops folks from Oscar Insurance who presented <a href="https://youtu.be/zwWDQyKQDQs?t=16m00s">their impressive ChatOps solution</a> on <a href="https://de.atlassian.com/company/about/events/summit/2015/videos/enhance/chatops-automating/">Atlassian Summit</a>. Or take WebEx Spark (StackStorm user!) – they <a href="http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/events/223793392/">have spoken</a> about how they use Spark for ChatOps with StackStorm underneath as automation library and more.</p>
-<!-- raw HTML omitted -->
+<p>We have learned that those who are doing ChatOps right, do it this way. Take GitHub: they have a library of automation scripts, some of which are exposed to Hubot, with no extra Coffee on Hubot side (<a href="https://youtu.be/NST3u-GjjFw?t=27m30s">this part of their Chatops solution</a> is not open sourced yet). Or take the devops folks from Oscar Insurance who presented <a href="https://youtu.be/zwWDQyKQDQs?t=16m00s">their impressive ChatOps solution</a> on <a href=https://de.atlassian.com/company/about/events/summit/2015/videos/enhance/chatops-automating/>Atlassian Summit</a>. Or take WebEx Spark (StackStorm user!) – they <a href=http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/events/223793392/>have spoken</a> about how they use Spark for ChatOps with StackStorm underneath as automation library and more.</p>
 <pre><code>&lt;td&gt;
   &lt;strong&gt;Build your automation library first. Than expose some actions to Chatops. Stay in control what actions you expose and what you keep.&lt;/strong&gt;
 &lt;/td&gt;&lt;/table&gt; 
@@ -318,7 +228,7 @@ Congratulation and welcome to the journey, ChatOps is awesome way to run develop
   &amp;gt; bot: @user On it, your execution is 5636fac02aa8856cc3f102ec 
          check the progress at https://st2.example.net/history/5636fac02aa8856cc3f102ec
 </code></pre>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p></p>
 <pre><code>        &lt;p&gt;
           In this short dialog, a bot acts as a two-way relay between the infra and the chat. It reports events and responses to user&amp;#8217;s commands. Under the hood, a solution wires in various sources of events, like Nagios, NewRelic, or Twitter (true, GitHub users Twitter as a monitoring tool), and relays them to chat by some rules. A &lt;code&gt;shut up twitter&lt;/code&gt; may disable a rule for a period of time; a &lt;code&gt;nagios ack&lt;/code&gt; may call Nagios to silence an alert. Other commands call actions which do as little as forming and posting a URL, or as much as launching a full-blown mutli-step auto-scaling workflow.
         &lt;/p&gt;
@@ -328,7 +238,7 @@ Congratulation and welcome to the journey, ChatOps is awesome way to run develop
          Infra ---&amp;gt; st2 Sensors ---&amp;gt; st2 Rules ----------&amp;gt; Chat
          Infra &amp;lt;--- st2 Actions &amp;lt;--- st2 API   &amp;lt;-- Bot &amp;lt;-- Chat
 </code></pre>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p></p>
 <pre><code>        &lt;p&gt;
           Again, don&amp;#8217;t trap yourself in believing that out-of-box integrations from Slack, HipChat, or &amp;#8220;the Next Big Chat&amp;#8221;, will be enough. Not just vendor lock-in, not just lack of code to control/update/edit settings. Think about your behind-firewall logstash and graphite, or posting collectd charts when Sensu events fire. Think Your toolbox will always be ahead of the mainstream. Design for that, and stay in control of your integrations with your infra and tools.
         &lt;/p&gt;
@@ -365,8 +275,8 @@ Congratulation and welcome to the journey, ChatOps is awesome way to run develop
  &amp;gt; dzimine: @bot pink martini
  &amp;gt; bot: ok @dzimine, on it, your execution is 5636fac02aa8856cc3f102ec
 </code></pre>
-<p>&hellip;
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>&mldr;
+</p>
 <pre><code>        &lt;p&gt;
           Another example of a smarter bot is providing two-factor command authorization, when two people should +1 an action. This comes handy on when launching some mission-critical automations. Surely it requires some workflow capabilities on the script side, but it can be done.
         &lt;/p&gt;
@@ -390,75 +300,43 @@ Congratulation and welcome to the journey, ChatOps is awesome way to run develop
         &lt;p&gt;
           This week we released &lt;a href=&quot;https://stackstorm.com/2015/12/08/stackstrom-1-2-release-announcement/&quot;&gt;StackStorm 1.2&lt;/a&gt;; Chatops is a highlight of the release, with so many new things and improvements that that the blog describing them is called &lt;a href=&quot;https://stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/&quot;&gt;“The New Chatops”&lt;/a&gt;. Please check it out, &lt;a href=&quot;https://stackstorm.com/#try-now&quot;&gt;give StackStorm’s Chatops solution a try&lt;/a&gt;, &lt;a href=&quot;https://stackstorm.com/community/#comm-engage&quot;&gt;send us feedback&lt;/a&gt;, and Happy ChatOpsing!
         &lt;/p&gt;
-</code></pre><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/chatops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
-   </li>
-  
+</code></pre><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/chatops class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/">StackStorm 1.2.0: the new ChatOps</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/">Ansible and ChatOps. Get started 🚀</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/12/ahh03-chatops-notifications/">AHH #03 – ChatOps &amp; Notifications</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/">StackStorm – Automated Troubleshooting</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/>StackStorm 1.2.0: the new ChatOps</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/>Ansible and ChatOps. Get started 🚀</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/12/ahh03-chatops-notifications/>AHH #03 – ChatOps & Notifications</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/>StackStorm – Automated Troubleshooting</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

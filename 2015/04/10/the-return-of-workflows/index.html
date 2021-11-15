@@ -1,174 +1,87 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>The Return Of Workflows | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="April 10, 2015
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>The Return Of Workflows | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="April 10, 2015
 by Dmitri Zimine
 This article originally appeared April 9, 2015 on DevOps.com.
 Recently workflows have emerged as a fundamental part of the operational wiring at companies as diverse as AWS, Facebook, HP, LinkedIn, Spotify, and Pinterest, which just open sourced Pinball. We’ve witnessed a spike of interest in workflow-based automation, and a few interesting implementations coming to the open-source world in just the last year or two: Mistral and TaskFlow from OpenStack ecosystem, Score from HP, Azkaban from LinkedIn, Luigi from Spotify, and dray.it by CenturyLink for the Docker ecosystem, to name a few.
 Workflows are used to orchestrate operations in infrastructure and applications, automate complex CI/CD processes, coordinate map/reduce jobs, and handle jobs to containers.
 It is not surprising that when it comes to higher level automation and orchestration, workflows are widely used. To quote the Pinterest blog: “In realistic settings it’s not uncommon to encounter a workflow composed of hundreds of nodes. Building, running and maintaining workflows of that complexity requires specialized tools. A Bash script won’t do.” Workflows are superior to scripts in concept and in practicality.">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="The Return Of Workflows" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="The Return Of Workflows">
 <meta property="og:description" content="April 10, 2015
 by Dmitri Zimine
 This article originally appeared April 9, 2015 on DevOps.com.
 Recently workflows have emerged as a fundamental part of the operational wiring at companies as diverse as AWS, Facebook, HP, LinkedIn, Spotify, and Pinterest, which just open sourced Pinball. We’ve witnessed a spike of interest in workflow-based automation, and a few interesting implementations coming to the open-source world in just the last year or two: Mistral and TaskFlow from OpenStack ecosystem, Score from HP, Azkaban from LinkedIn, Luigi from Spotify, and dray.it by CenturyLink for the Docker ecosystem, to name a few.
 Workflows are used to orchestrate operations in infrastructure and applications, automate complex CI/CD processes, coordinate map/reduce jobs, and handle jobs to containers.
-It is not surprising that when it comes to higher level automation and orchestration, workflows are widely used. To quote the Pinterest blog: “In realistic settings it’s not uncommon to encounter a workflow composed of hundreds of nodes. Building, running and maintaining workflows of that complexity requires specialized tools. A Bash script won’t do.” Workflows are superior to scripts in concept and in practicality." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/04/10/the-return-of-workflows/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2015-04-10T17:43:45+00:00" />
-<meta property="article:modified_time" content="2015-04-10T17:43:45+00:00" />
-
-<meta itemprop="name" content="The Return Of Workflows">
-<meta itemprop="description" content="April 10, 2015
+It is not surprising that when it comes to higher level automation and orchestration, workflows are widely used. To quote the Pinterest blog: “In realistic settings it’s not uncommon to encounter a workflow composed of hundreds of nodes. Building, running and maintaining workflows of that complexity requires specialized tools. A Bash script won’t do.” Workflows are superior to scripts in concept and in practicality.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/04/10/the-return-of-workflows/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2015-04-10T17:43:45+00:00">
+<meta property="article:modified_time" content="2015-04-10T17:43:45+00:00">
+<meta itemprop=name content="The Return Of Workflows">
+<meta itemprop=description content="April 10, 2015
 by Dmitri Zimine
 This article originally appeared April 9, 2015 on DevOps.com.
 Recently workflows have emerged as a fundamental part of the operational wiring at companies as diverse as AWS, Facebook, HP, LinkedIn, Spotify, and Pinterest, which just open sourced Pinball. We’ve witnessed a spike of interest in workflow-based automation, and a few interesting implementations coming to the open-source world in just the last year or two: Mistral and TaskFlow from OpenStack ecosystem, Score from HP, Azkaban from LinkedIn, Luigi from Spotify, and dray.it by CenturyLink for the Docker ecosystem, to name a few.
 Workflows are used to orchestrate operations in infrastructure and applications, automate complex CI/CD processes, coordinate map/reduce jobs, and handle jobs to containers.
-It is not surprising that when it comes to higher level automation and orchestration, workflows are widely used. To quote the Pinterest blog: “In realistic settings it’s not uncommon to encounter a workflow composed of hundreds of nodes. Building, running and maintaining workflows of that complexity requires specialized tools. A Bash script won’t do.” Workflows are superior to scripts in concept and in practicality."><meta itemprop="datePublished" content="2015-04-10T17:43:45+00:00" />
-<meta itemprop="dateModified" content="2015-04-10T17:43:45+00:00" />
-<meta itemprop="wordCount" content="2200">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="The Return Of Workflows"/>
-<meta name="twitter:description" content="April 10, 2015
+It is not surprising that when it comes to higher level automation and orchestration, workflows are widely used. To quote the Pinterest blog: “In realistic settings it’s not uncommon to encounter a workflow composed of hundreds of nodes. Building, running and maintaining workflows of that complexity requires specialized tools. A Bash script won’t do.” Workflows are superior to scripts in concept and in practicality."><meta itemprop=datePublished content="2015-04-10T17:43:45+00:00">
+<meta itemprop=dateModified content="2015-04-10T17:43:45+00:00">
+<meta itemprop=wordCount content="2200">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="The Return Of Workflows">
+<meta name=twitter:description content="April 10, 2015
 by Dmitri Zimine
 This article originally appeared April 9, 2015 on DevOps.com.
 Recently workflows have emerged as a fundamental part of the operational wiring at companies as diverse as AWS, Facebook, HP, LinkedIn, Spotify, and Pinterest, which just open sourced Pinball. We’ve witnessed a spike of interest in workflow-based automation, and a few interesting implementations coming to the open-source world in just the last year or two: Mistral and TaskFlow from OpenStack ecosystem, Score from HP, Azkaban from LinkedIn, Luigi from Spotify, and dray.it by CenturyLink for the Docker ecosystem, to name a few.
 Workflows are used to orchestrate operations in infrastructure and applications, automate complex CI/CD processes, coordinate map/reduce jobs, and handle jobs to containers.
-It is not surprising that when it comes to higher level automation and orchestration, workflows are widely used. To quote the Pinterest blog: “In realistic settings it’s not uncommon to encounter a workflow composed of hundreds of nodes. Building, running and maintaining workflows of that complexity requires specialized tools. A Bash script won’t do.” Workflows are superior to scripts in concept and in practicality."/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+It is not surprising that when it comes to higher level automation and orchestration, workflows are widely used. To quote the Pinterest blog: “In realistic settings it’s not uncommon to encounter a workflow composed of hundreds of nodes. Building, running and maintaining workflows of that complexity requires specialized tools. A Bash script won’t do.” Workflows are superior to scripts in concept and in practicality.">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/04/10/the-return-of-workflows/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/04/10/the-return-of-workflows/&amp;text=The%20Return%20Of%20Workflows" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/04/10/the-return-of-workflows/&amp;title=The%20Return%20Of%20Workflows" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">The Return Of Workflows</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2015-04-10T17:43:45Z">April 10, 2015</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>April 10, 2015</strong></p>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/04/10/the-return-of-workflows/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/04/10/the-return-of-workflows/&text=The%20Return%20Of%20Workflows" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2015/04/10/the-return-of-workflows/&title=The%20Return%20Of%20Workflows" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">The Return Of Workflows</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2015-04-10T17:43:45Z>April 10, 2015</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>April 10, 2015</strong></p>
 <p><em>by Dmitri Zimine</em></p>
-<p><em>This article originally appeared April 9, 2015 on <!-- raw HTML omitted -->DevOps.com<!-- raw HTML omitted -->.</em></p>
-<p>Recently workflows have emerged as a fundamental part of the operational wiring at companies as diverse as AWS, Facebook, HP, LinkedIn, Spotify, and Pinterest, which just <a href="http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball">open sourced Pinball</a>. We’ve witnessed a spike of interest in workflow-based automation, and a few interesting implementations coming to the open-source world in just the last year or two: <a href="http://wiki.openstack.org/wiki/Mistral">Mistral</a> and <a href="https://wiki.openstack.org/wiki/TaskFlow">TaskFlow</a> from OpenStack ecosystem, <a href="http://www.openscore.io/#/">Score</a> from HP, <a href="http://data.linkedin.com/opensource/azkaban">Azkaban</a> from LinkedIn, <a href="https://github.com/spotify/luigi">Luigi</a> from Spotify, and <a href="http://dray.it/">dray.it</a> by CenturyLink for the Docker ecosystem, to name a few.</p>
+<p><em>This article originally appeared April 9, 2015 on DevOps.com.</em></p>
+<p>Recently workflows have emerged as a fundamental part of the operational wiring at companies as diverse as AWS, Facebook, HP, LinkedIn, Spotify, and Pinterest, which just <a href=http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball>open sourced Pinball</a>. We’ve witnessed a spike of interest in workflow-based automation, and a few interesting implementations coming to the open-source world in just the last year or two: <a href=http://wiki.openstack.org/wiki/Mistral>Mistral</a> and <a href=https://wiki.openstack.org/wiki/TaskFlow>TaskFlow</a> from OpenStack ecosystem, <a href=http://www.openscore.io/#/>Score</a> from HP, <a href=http://data.linkedin.com/opensource/azkaban>Azkaban</a> from LinkedIn, <a href=https://github.com/spotify/luigi>Luigi</a> from Spotify, and <a href=http://dray.it/>dray.it</a> by CenturyLink for the Docker ecosystem, to name a few.</p>
 <p>Workflows are used to orchestrate operations in infrastructure and applications, automate complex CI/CD processes, coordinate map/reduce jobs, and handle jobs to containers.</p>
 <p>It is not surprising that when it comes to higher level automation and orchestration, workflows are widely used. To quote the Pinterest blog: “In realistic settings it’s not uncommon to encounter a workflow composed of hundreds of nodes. Building, running and maintaining workflows of that complexity requires specialized tools. A Bash script won’t do.” Workflows are superior to scripts in concept and in practicality.</p>
 <p><strong>Conceptually</strong>, workflow separates the “recipe” from underlying details, giving an extra level of flexibility and mobility. Modify the process to your liking by modifying the workflow “blueprint,” without hacking hardwired code – like adding ticket updates on key steps for business process conformance. Or take an autoscaling workflow built for Rackspace cloud, and use it to scale an AWS cluster.</p>
@@ -176,43 +89,37 @@ It is not surprising that when it comes to higher level automation and orchestra
 <p>1)   Workflow is an execution plan expressed as a directed graph of tasks – simple to define, to reason, and to visualize.<br>
 2)   Workflow engine serves as a ‘messaging fabric,’ carrying structured data between different application domains.<br>
 3)   The state of workflow executions is clear and easy to track: see which steps are running, which are complete, and what has failed.<br>
-4)   It is possible to provide reliability and crash recovery<!-- raw HTML omitted --><a href="http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball">1</a><!-- raw HTML omitted -->, and good workflow engines do it.<br>
+4)   It is possible to provide reliability and crash recovery<a href=http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball>1</a>, and good workflow engines do it.<br>
 5)   There are other convenient frills. How good is logging in your scripts? i18n, anyone?</p>
 <p>What makes a good workflow engine? The answer is “it depends.” It depends on the details of the job the workflow is designed to do, and how broad or narrow is the scope of the functionality. Below, I’ll highlight some architecture choices, features, functionality, and properties that I see as most relevant for using workflows in automation and orchestration.</p>
-<h3 id="1-functionality">1. Functionality</h3>
-<p>The core workflow functionality is to execute the tasks in the right order and pass down the data. In <a href="http://www.workflowpatterns.com/">workflow lingo</a>, they are called flow control patterns, and data patterns.</p>
+<h3 id=1-functionality>1. Functionality</h3>
+<p>The core workflow functionality is to execute the tasks in the right order and pass down the data. In <a href=http://www.workflowpatterns.com/>workflow lingo</a>, they are called flow control patterns, and data patterns.</p>
 <p><strong>1.1 Flow control</strong></p>
-<p>The workflows are known to have over <a href="http://www.workflowpatterns.com/patterns/control/">40 control patterns</a>. But 15 years of using workflow in system automation shows that few patterns are used in practice. The no-frills essentials are ‘sequential execution with conditions, passing data down the line.’ Parallel execution is often desired. But once you split to run tasks in parallel, you need to join them, and there are 16 distinct ways to do it. Handling joins is a high step of complexity in implementation, and in usability. Different workflow engines balance power and complexity differently.</p>
-<p><!-- raw HTML omitted -->Spiff workflow<!-- raw HTML omitted --> implements all (!) control patterns. <!-- raw HTML omitted -->ActionChain<!-- raw HTML omitted --> opted for simplicity of sequential execution, as the name suggests. So does <!-- raw HTML omitted -->Dray.it<!-- raw HTML omitted --> – the workflow there is a sequence of “jobs” – in this case, docker image executions. <!-- raw HTML omitted -->Pinball<!-- raw HTML omitted --> splits for parallel execution but only supports “<a href="http://www.workflowpatterns.com/patterns/control/basic/wcp3.php">synchronization</a>” join – and continues on completion of all input branches. Pinball’s pluggable token-based design is a powerful abstraction to add joins, conditions, and more. <a href="https://wiki.openstack.org/wiki/Mistral%20">Mistral</a> tries to balance power with simplicity of use: it supports conditional transitions, parallel executions, various joins, and deals with multi-instances, handling collections of inputs at engine.</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<p>The workflows are known to have over <a href=http://www.workflowpatterns.com/patterns/control/>40 control patterns</a>. But 15 years of using workflow in system automation shows that few patterns are used in practice. The no-frills essentials are ‘sequential execution with conditions, passing data down the line.’ Parallel execution is often desired. But once you split to run tasks in parallel, you need to join them, and there are 16 distinct ways to do it. Handling joins is a high step of complexity in implementation, and in usability. Different workflow engines balance power and complexity differently.</p>
+<p>Spiff workflow implements all (!) control patterns. ActionChain opted for simplicity of sequential execution, as the name suggests. So does Dray.it – the workflow there is a sequence of “jobs” – in this case, docker image executions. Pinball splits for parallel execution but only supports “<a href=http://www.workflowpatterns.com/patterns/control/basic/wcp3.php>synchronization</a>” join – and continues on completion of all input branches. Pinball’s pluggable token-based design is a powerful abstraction to add joins, conditions, and more. <a href=https://wiki.openstack.org/wiki/Mistral%20>Mistral</a> tries to balance power with simplicity of use: it supports conditional transitions, parallel executions, various joins, and deals with multi-instances, handling collections of inputs at engine.</p>
 <p><strong>1.2 Data passing</strong></p>
 <p>Data passing is another workflow functionality essential in system automation. It is an ability to use workflow input and upstream task outputs as inputs or conditions in downstream tasks. Publishing a named variable to execution context is a convenience feature offered by many engines.</p>
-<p>Structural data commonly passed as JSON. Ansible Playbook, StackStorm <a href="http://docs.stackstorm.com/actionchain.html">ActionChain</a>, and most others use <a href="http://jinja.pocoo.org/">Jinja templating</a> for data manipulation. Jinja is widely adopted and well documented; a power user can do nice hacks with it. The challenge we faced is preserving types outside of Jinja templates. After all its templating engine, not a query language. <a href="https://wiki.openstack.org/wiki/Mistral%20">Mistral</a> solved this problem by using <a href="https://github.com/stackforge/yaql">YAQL</a>. YAQL is a modern extension of <a href="http://goessner.net/articles/JsonPath/">JsonPath</a> – simple to use, very powerful, and easily extensible, but currently it suffers from lack of documentation (that is about to change, according to YAQL authors). <!-- raw HTML omitted -->Score<!-- raw HTML omitted --> workflow offers python syntax in a task definition: while convenient, it brings security concerns. <!-- raw HTML omitted -->Dray.it<!-- raw HTML omitted --> makes jobs communicate by passing environment variables and wiring stdouts to stdins (file output channels possible), but doesn’t offer any data transformation on the platform side. <!-- raw HTML omitted -->Pinball<!-- raw HTML omitted --> support for data passing at this time is rudimentary: it uses a convention to publish a string value, and leaves it up to jobs to agree on data formats.</p>
-<h3 id="2-extensibility">2. Extensibility</h3>
-<p>What it takes to add a new type of action to the workflow? How to write it? How to deploy it? How to upgrade it? Most workflow tools have some answer, few give a rounded one for both development and operations.  <!-- raw HTML omitted -->Pinball<!-- raw HTML omitted --> introduces pluggable job templates, and provides Bash, Python, Hadoop and Hive jobs out of box. However it leaves it up to the jobs to produce expected output format (smart job, simple platform). <!-- raw HTML omitted -->Spiff<!-- raw HTML omitted --> workflow has pluggable tasks, but it is not dynamic enough, therefore Spiff is most often used with Celery, leveraging its extensibility and remote execution functionality. StackStorm makes its full action library available as workflow building blocks, and brings action execution outputs into a common “message fabric.” Better yet, a workflow becomes an action itself. An ability to operate and run individual actions and workflows alike makes it easy to develop, debug, and operate.</p>
-<h3 id="3-reliability">3. Reliability</h3>
+<p>Structural data commonly passed as JSON. Ansible Playbook, StackStorm <a href=http://docs.stackstorm.com/actionchain.html>ActionChain</a>, and most others use <a href=http://jinja.pocoo.org/>Jinja templating</a> for data manipulation. Jinja is widely adopted and well documented; a power user can do nice hacks with it. The challenge we faced is preserving types outside of Jinja templates. After all its templating engine, not a query language. <a href=https://wiki.openstack.org/wiki/Mistral%20>Mistral</a> solved this problem by using <a href=https://github.com/stackforge/yaql>YAQL</a>. YAQL is a modern extension of <a href=http://goessner.net/articles/JsonPath/>JsonPath</a> – simple to use, very powerful, and easily extensible, but currently it suffers from lack of documentation (that is about to change, according to YAQL authors). Score workflow offers python syntax in a task definition: while convenient, it brings security concerns. Dray.it makes jobs communicate by passing environment variables and wiring stdouts to stdins (file output channels possible), but doesn’t offer any data transformation on the platform side. Pinball support for data passing at this time is rudimentary: it uses a convention to publish a string value, and leaves it up to jobs to agree on data formats.</p>
+<h3 id=2-extensibility>2. Extensibility</h3>
+<p>What it takes to add a new type of action to the workflow? How to write it? How to deploy it? How to upgrade it? Most workflow tools have some answer, few give a rounded one for both development and operations.  Pinball introduces pluggable job templates, and provides Bash, Python, Hadoop and Hive jobs out of box. However it leaves it up to the jobs to produce expected output format (smart job, simple platform). Spiff workflow has pluggable tasks, but it is not dynamic enough, therefore Spiff is most often used with Celery, leveraging its extensibility and remote execution functionality. StackStorm makes its full action library available as workflow building blocks, and brings action execution outputs into a common “message fabric.” Better yet, a workflow becomes an action itself. An ability to operate and run individual actions and workflows alike makes it easy to develop, debug, and operate.</p>
+<h3 id=3-reliability>3. Reliability</h3>
 <p>Workflows are long running. Long means: 1) long enough to expect a failure of any component, and the execution must sustain it, and, 2) long enough that I don’t want to start it all over if workflow execution fails for any reason, but rather fix a problem and continue. It all makes reliability a key requirement.</p>
-<p><!-- raw HTML omitted -->Pinball<!-- raw HTML omitted --> gets the highest score on reliability. <!-- raw HTML omitted -->Its fault-tolerant architecture<!-- raw HTML omitted --> (very similar to the one of <a href="https://wiki.openstack.org/wiki/Mistral%20">Mistral</a>) is based on atomic state update on each state transition, providing for scale-out masters and workers, fault tolerant executions, crash recovery and “no-downtime upgrade.” <a href="https://github.com/ansible/ansible">Ansible</a> took a different approach: the playbook execution is not resilient, but the tasks are assumed idempotent, and when they are, it’s safe to re-run the whole playbook. <!-- raw HTML omitted -->Dray<!-- raw HTML omitted --> opted for simplicity and <a href="https://github.com/CenturyLinkLabs/dray/blob/master/job/manager.go#L50">doesn’t seem to come with fault-tolerance</a> yet.</p>
-<p><a href="https://github.com/spotify/luigi">Luigi</a> workflow brings an interesting architecture where distributed workers pick up workflows and tasks alike, essentially treating workflow handling as just yet another job. It makes a great horizontal scale-out, but currently short on fault tolerance: the <a href="http://luigi.readthedocs.org/en/latest/execution_model.html">whole workflow execution is run with a worker where it got started</a>.</p>
-<h3 id="4-workflow-definition">4. Workflow definition</h3>
+<p>Pinball gets the highest score on reliability. Its fault-tolerant architecture (very similar to the one of <a href=https://wiki.openstack.org/wiki/Mistral%20>Mistral</a>) is based on atomic state update on each state transition, providing for scale-out masters and workers, fault tolerant executions, crash recovery and “no-downtime upgrade.” <a href=https://github.com/ansible/ansible>Ansible</a> took a different approach: the playbook execution is not resilient, but the tasks are assumed idempotent, and when they are, it’s safe to re-run the whole playbook. Dray opted for simplicity and <a href=https://github.com/CenturyLinkLabs/dray/blob/master/job/manager.go#L50>doesn’t seem to come with fault-tolerance</a> yet.</p>
+<p><a href=https://github.com/spotify/luigi>Luigi</a> workflow brings an interesting architecture where distributed workers pick up workflows and tasks alike, essentially treating workflow handling as just yet another job. It makes a great horizontal scale-out, but currently short on fault tolerance: the <a href=http://luigi.readthedocs.org/en/latest/execution_model.html>whole workflow execution is run with a worker where it got started</a>.</p>
+<h3 id=4-workflow-definition>4. Workflow definition</h3>
 <p>Human readable, machine scriptable language for declaring workflow is not just convenience. It’s a necessity for dynamic creation, uploading and updating workflows on a live system, and for treating “infrastructure-as-code.” A solid DSL is a good foundation for building UI on top (and not the other way around!). XML-based workflow languages are left the past; YAML is a new de-facto standard.</p>
-<p>StackStorm’s <a href="http://docs.stackstorm.com/actionchain.html">ActionChain</a> and <a href="https://github.com/ansible/ansible">Ansible</a> Playbooks offer fun-to-write YAML workflow definitions. It reflects the simplicity of underlying engines at the expense of advanced functionality.</p>
-<p><!-- raw HTML omitted -->Spiff<!-- raw HTML omitted --> workflow offers XML, JSON, and pure python programmable definitions. <!-- raw HTML omitted -->Dray<!-- raw HTML omitted --> uses JSON. <!-- raw HTML omitted -->Pinball<!-- raw HTML omitted --> comes with no DSL out of box. It provides a python interface for building workflow programmatically; adding JSON or YAML workflow definition is a matter of writing a parser. According to Pinball team, it’s a “conscious choice to not make the configuration syntax part of the system core in order to give developers a lot of flexibility to define workflow configurations in a way that makes the most sense.”</p>
-<p>But honestly two DSL for the same workflow doesn’t make much sense. Check out <!-- raw HTML omitted -->Score<!-- raw HTML omitted -->: it has taken this pluggable approach to the end, separating “languages” from workflow by pluggable compiler, with an idea to support multiple languages to the same workflow. However, the capabilities are defined in the workflow, so it’s impossible to introduce a meaningful new construct – like swap Jinga for YAQL, add “<em>discriminator</em>” pattern, or introduce <em>timeout</em> keyword – without hacking the workflow handler.  Beyond superficial semantic sugar, syntax and capabilities can’t be truly separated.</p>
-<p><a href="https://wiki.openstack.org/wiki/Mistral%20">Mistral</a> and TaskFlow took a different tack, supporting pluggable workflow handlers. <a href="https://wiki.openstack.org/wiki/Mistral%20">Mistral</a> comes with two handlers, representing two types of workflow, with distinct capabilities. A direct workflow explicitly defines the flow of tasks with on-success/on-failure. A ‘reverse’ workflow defines task dependencies on upstream tasks with “requires” keyword, and runs all dependent tasks to satisfy the target task, like make or ant. The base workflow DSL is extended with handler-specific keywords._ _</p>
-<h3 id="5-nice-gui">5. Nice GUI</h3>
-<p>A good graphical representation makes it much easier to comprehend a structure of a workflow and track workflow executions. Building workflows graphically not only excites users, it helps user learn the system and greatly accelerates workflow authoring (you can taste it <a href="http://taskflow.io/">here</a>). One problem: as <!-- raw HTML omitted -->Pinball authors rightly said<!-- raw HTML omitted -->, “Realistic workflows are 100s of steps.” Guess what, existing UI representations don’t scale well for 100 step workflows. Not just the new ones: anything we saw in the last 20 years <!-- raw HTML omitted --><a href="http://wiki.openstack.org/wiki/Mistral">2</a><!-- raw HTML omitted --> – they all suck. I believe this UX problem is yet to be solved.</p>
-<p><!-- raw HTML omitted -->Pinball<!-- raw HTML omitted --> doesn’t let great be the enemy of the good: it offers a visual representation of the workflow, and even an ability to build workflows from the UI. <!-- raw HTML omitted -->Luigi<!-- raw HTML omitted --> is another one that makes a simple d3 based map “good enough” to show the tasks.</p>
-<p><!-- raw HTML omitted -->Score<!-- raw HTML omitted --> and &lt;a &ldquo;href=&ldquo;<a href="https://wiki.openstack.org/wiki/Mistral%20%22%3EMistral">https://wiki.openstack.org/wiki/Mistral%20&quot;&gt;Mistral</a><!-- raw HTML omitted --> took an alternative approach to make authoring workflows faster and bug-free, supplying <!-- raw HTML omitted -->Sublime plugin<!-- raw HTML omitted --> for and syntax check. StackStorm’s WebUI (below) brings an efficient representation of workflow executions for <a href="http://docs.stackstorm.com/actionchain.html">ActionChain</a> and <a href="https://wiki.openstack.org/wiki/Mistral%20">Mistral</a> workflows. In upcoming releases, we will stand up to a challenge of representing workflow execution plan and visual workflow building.</p>
-<!-- raw HTML omitted -->
-<h2 id="conclusion">Conclusion</h2>
-<p>StackStorm loves workflows: they are essential for higher-level automation. Customizable CI/CD, autoscaling, automatic failure remediation, automated security response – it is all workflows. Different workflows are optimized differently for different jobs, and there are tastes in play, too. So we made a workflow engine to be a pluggable component. Currently we supply <a href="http://docs.stackstorm.com/actionchain.html">ActionChain</a> for speed and simplicity, and <a href="https://wiki.openstack.org/wiki/Mistral%20">Mistral</a> for complex workflow logic and scalable reliable execution.</p>
-<p>We liked <!-- raw HTML omitted -->Pinball<!-- raw HTML omitted -->: it is built on simple and powerful abstractions of basic task model and job tokens, it has reliable and scalable architecture, and it provides a good programing interface for workflow and job definitions. We would definitely consider supporting it in StackStorm as it gains maturity and traction.</p>
-<!-- raw HTML omitted -->
+<p>StackStorm’s <a href=http://docs.stackstorm.com/actionchain.html>ActionChain</a> and <a href=https://github.com/ansible/ansible>Ansible</a> Playbooks offer fun-to-write YAML workflow definitions. It reflects the simplicity of underlying engines at the expense of advanced functionality.</p>
+<p>Spiff workflow offers XML, JSON, and pure python programmable definitions. Dray uses JSON. Pinball comes with no DSL out of box. It provides a python interface for building workflow programmatically; adding JSON or YAML workflow definition is a matter of writing a parser. According to Pinball team, it’s a “conscious choice to not make the configuration syntax part of the system core in order to give developers a lot of flexibility to define workflow configurations in a way that makes the most sense.”</p>
+<p>But honestly two DSL for the same workflow doesn’t make much sense. Check out Score: it has taken this pluggable approach to the end, separating “languages” from workflow by pluggable compiler, with an idea to support multiple languages to the same workflow. However, the capabilities are defined in the workflow, so it’s impossible to introduce a meaningful new construct – like swap Jinga for YAQL, add “<em>discriminator</em>” pattern, or introduce <em>timeout</em> keyword – without hacking the workflow handler.  Beyond superficial semantic sugar, syntax and capabilities can’t be truly separated.</p>
+<p><a href=https://wiki.openstack.org/wiki/Mistral%20>Mistral</a> and TaskFlow took a different tack, supporting pluggable workflow handlers. <a href=https://wiki.openstack.org/wiki/Mistral%20>Mistral</a> comes with two handlers, representing two types of workflow, with distinct capabilities. A direct workflow explicitly defines the flow of tasks with on-success/on-failure. A ‘reverse’ workflow defines task dependencies on upstream tasks with “requires” keyword, and runs all dependent tasks to satisfy the target task, like make or ant. The base workflow DSL is extended with handler-specific keywords._ _</p>
+<h3 id=5-nice-gui>5. Nice GUI</h3>
+<p>A good graphical representation makes it much easier to comprehend a structure of a workflow and track workflow executions. Building workflows graphically not only excites users, it helps user learn the system and greatly accelerates workflow authoring (you can taste it <a href=http://taskflow.io/>here</a>). One problem: as Pinball authors rightly said, “Realistic workflows are 100s of steps.” Guess what, existing UI representations don’t scale well for 100 step workflows. Not just the new ones: anything we saw in the last 20 years <a href=http://wiki.openstack.org/wiki/Mistral>2</a> – they all suck. I believe this UX problem is yet to be solved.</p>
+<p>Pinball doesn’t let great be the enemy of the good: it offers a visual representation of the workflow, and even an ability to build workflows from the UI. Luigi is another one that makes a simple d3 based map “good enough” to show the tasks.</p>
+<p>Score and &lt;a &ldquo;href=&ldquo;<a href=https://wiki.openstack.org/wiki/Mistral%20%22%3EMistral>https://wiki.openstack.org/wiki/Mistral%20">Mistral</a> took an alternative approach to make authoring workflows faster and bug-free, supplying Sublime plugin for and syntax check. StackStorm’s WebUI (below) brings an efficient representation of workflow executions for <a href=http://docs.stackstorm.com/actionchain.html>ActionChain</a> and <a href=https://wiki.openstack.org/wiki/Mistral%20>Mistral</a> workflows. In upcoming releases, we will stand up to a challenge of representing workflow execution plan and visual workflow building.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>StackStorm loves workflows: they are essential for higher-level automation. Customizable CI/CD, autoscaling, automatic failure remediation, automated security response – it is all workflows. Different workflows are optimized differently for different jobs, and there are tastes in play, too. So we made a workflow engine to be a pluggable component. Currently we supply <a href=http://docs.stackstorm.com/actionchain.html>ActionChain</a> for speed and simplicity, and <a href=https://wiki.openstack.org/wiki/Mistral%20>Mistral</a> for complex workflow logic and scalable reliable execution.</p>
+<p>We liked Pinball: it is built on simple and powerful abstractions of basic task model and job tokens, it has reliable and scalable architecture, and it provides a good programing interface for workflow and job definitions. We would definitely consider supporting it in StackStorm as it gains maturity and traction.</p>
 <p>_ This table summarizes the areas of functionality discussed in the article, however casts no judgement on pragmatic choices each workflow made to optimize for the target usage._</p>
-<!-- raw HTML omitted -->
 <pre><code>&lt;td width=&quot;82&quot;&gt;
   Advanced flow control
 &lt;/td&gt;
@@ -237,8 +144,6 @@ It is not surprising that when it comes to higher level automation and orchestra
   Visual Representation
 &lt;/td&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <pre><code>&lt;td width=&quot;86&quot;&gt;
 &lt;/td&gt;
 
@@ -260,8 +165,6 @@ It is not surprising that when it comes to higher level automation and orchestra
   +
 &lt;/td&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <pre><code>&lt;td width=&quot;86&quot;&gt;
   +
 &lt;/td&gt;
@@ -282,8 +185,6 @@ It is not surprising that when it comes to higher level automation and orchestra
 &lt;td width=&quot;95&quot;&gt;
 &lt;/td&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <pre><code>&lt;td width=&quot;86&quot;&gt;
 &lt;/td&gt;
 
@@ -304,8 +205,6 @@ It is not surprising that when it comes to higher level automation and orchestra
   +
 &lt;/td&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <pre><code>&lt;td width=&quot;86&quot;&gt;
 &lt;/td&gt;
 
@@ -327,8 +226,6 @@ It is not surprising that when it comes to higher level automation and orchestra
 &lt;td width=&quot;95&quot;&gt;
 &lt;/td&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <pre><code>&lt;td width=&quot;86&quot;&gt;
 &lt;/td&gt;
 
@@ -348,8 +245,6 @@ It is not surprising that when it comes to higher level automation and orchestra
 &lt;td width=&quot;95&quot;&gt;
 &lt;/td&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <pre><code>&lt;td width=&quot;86&quot;&gt;
   +
 &lt;/td&gt;
@@ -373,8 +268,6 @@ It is not surprising that when it comes to higher level automation and orchestra
 &lt;td width=&quot;95&quot;&gt;
 &lt;/td&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <pre><code>&lt;td width=&quot;86&quot;&gt;
 &lt;/td&gt;
 
@@ -396,8 +289,6 @@ It is not surprising that when it comes to higher level automation and orchestra
 &lt;td width=&quot;95&quot;&gt;
 &lt;/td&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <pre><code>&lt;td width=&quot;86&quot;&gt;
   +
 &lt;/td&gt;
@@ -421,78 +312,51 @@ It is not surprising that when it comes to higher level automation and orchestra
 &lt;td width=&quot;95&quot;&gt;
 &lt;/td&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<h3 id="footnotes-and-references">Footnotes and References</h3>
-<p><em><!-- raw HTML omitted --><a href="http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball">1</a><!-- raw HTML omitted --> Workflow execution model and state is significantly simpler and smaller than the one of a Turing-compliant language, making it practical to persist and restore at every step, at scale.</em></p>
-<p><em><!-- raw HTML omitted --><a href="http://wiki.openstack.org/wiki/Mistral">2</a><!-- raw HTML omitted --> M$ System Center Orchestrator (formerly Opalis), HP Operations Orchestration (formerly iConclude), BMC Atrium Orchestrator (formerly Realops), CA ITPAM (now dead), VMware vCenter Orchestrator (formerly Dunes), NetIQ Aegis, MaestroDev, Cisco CPO (formerly Tidal), Cisco UCS Director (formerly Cloupia Unified Infrastructure Controller), Citrix Workflow Studio – check them out, see the UIs, and think how they handle 100-step workflow before you cast your judgement.</em></p>
+<h3 id=footnotes-and-references>Footnotes and References</h3>
+<p><em><a href=http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball>1</a> Workflow execution model and state is significantly simpler and smaller than the one of a Turing-compliant language, making it practical to persist and restore at every step, at scale.</em></p>
+<p><em><a href=http://wiki.openstack.org/wiki/Mistral>2</a> M$ System Center Orchestrator (formerly Opalis), HP Operations Orchestration (formerly iConclude), BMC Atrium Orchestrator (formerly Realops), CA ITPAM (now dead), VMware vCenter Orchestrator (formerly Dunes), NetIQ Aegis, MaestroDev, Cisco CPO (formerly Tidal), Cisco UCS Director (formerly Cloupia Unified Infrastructure Controller), Citrix Workflow Studio – check them out, see the UIs, and think how they handle 100-step workflow before you cast your judgement.</em></p>
 <p><strong>The following are the detailed references to the products and tools mentioned in the article for the reader’s convenience.</strong></p>
 <ul>
 <li>Pinball, by Pinterest
 <ul>
-<li>architecture <a href="https://github.com/pinterest/pinball/blob/master/ARCHITECTURE.rst">https://github.com/pinterest/pinball/blob/master/ARCHITECTURE.rst</a></li>
-<li>intro blog <a href="http://engineering.pinterest.com/post/74429563460/pinball-building-workflow-management">http://engineering.pinterest.com/post/74429563460/pinball-building-workflow-management</a></li>
-<li>opensoucing Pinball blog <a href="http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball">http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball</a></li>
-<li>source <a href="https://github.com/pinterest/pinball">https://github.com/pinterest/pinball</a></li>
+<li>architecture <a href=https://github.com/pinterest/pinball/blob/master/ARCHITECTURE.rst>https://github.com/pinterest/pinball/blob/master/ARCHITECTURE.rst</a></li>
+<li>intro blog <a href=http://engineering.pinterest.com/post/74429563460/pinball-building-workflow-management>http://engineering.pinterest.com/post/74429563460/pinball-building-workflow-management</a></li>
+<li>opensoucing Pinball blog <a href=http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball>http://engineering.pinterest.com/post/113376157699/open-sourcing-pinball</a></li>
+<li>source <a href=https://github.com/pinterest/pinball>https://github.com/pinterest/pinball</a></li>
 </ul>
 </li>
-<li>Spiff Workflow <a href="https://github.com/knipknap/SpiffWorkflow/wiki">https://github.com/knipknap/SpiffWorkflow/wiki</a></li>
+<li>Spiff Workflow <a href=https://github.com/knipknap/SpiffWorkflow/wiki>https://github.com/knipknap/SpiffWorkflow/wiki</a></li>
 <li>Score, by HP:
 <ul>
-<li>main page <a href="http://www.openscore.io/#/">http://www.openscore.io/#/</a></li>
+<li>main page <a href=http://www.openscore.io/#/>http://www.openscore.io/#/</a></li>
 <li>docs http://www.openscore.io/#/docs</li>
 </ul>
 </li>
-<li>Dray, by CenturyLink <a href="http://dray.it/">http://dray.it/</a></li>
-<li>Luigi, by Spotify  – <a href="https://github.com/spotify/luigi">https://github.com/spotify/luigi</a></li>
-<li>Ansible <a href="https://github.com/ansible/ansible">https://github.com/ansible/ansible</a></li>
-<li>TaskFlow <a href="https://wiki.openstack.org/wiki/TaskFlow">https://wiki.openstack.org/wiki/TaskFlow</a></li>
-<li>Ozzie from Apache <a href="http://oozie.apache.org/">http://oozie.apache.org/</a></li>
-<li>Azkaban by LinkedIn <a href="http://data.linkedin.com/opensource/azkaban">http://data.linkedin.com/opensource/azkaban</a></li>
-<li>ActionChain, by StackStorm: <a href="http://docs.stackstorm.com/actionchain.html">http://docs.stackstorm.com/actionchain.html</a></li>
-<li>Mistral, from OpenStack community <a href="https://wiki.openstack.org/wiki/Mistral">https://wiki.openstack.org/wiki/Mistral</a> (integrated into <a href="http://stackstorm.com/product/">StackStorm</a>)</li>
-</ul><ul class="pa0">
-  
+<li>Dray, by CenturyLink <a href=http://dray.it/>http://dray.it/</a></li>
+<li>Luigi, by Spotify  – <a href=https://github.com/spotify/luigi>https://github.com/spotify/luigi</a></li>
+<li>Ansible <a href=https://github.com/ansible/ansible>https://github.com/ansible/ansible</a></li>
+<li>TaskFlow <a href=https://wiki.openstack.org/wiki/TaskFlow>https://wiki.openstack.org/wiki/TaskFlow</a></li>
+<li>Ozzie from Apache <a href=http://oozie.apache.org/>http://oozie.apache.org/</a></li>
+<li>Azkaban by LinkedIn <a href=http://data.linkedin.com/opensource/azkaban>http://data.linkedin.com/opensource/azkaban</a></li>
+<li>ActionChain, by StackStorm: <a href=http://docs.stackstorm.com/actionchain.html>http://docs.stackstorm.com/actionchain.html</a></li>
+<li>Mistral, from OpenStack community <a href=https://wiki.openstack.org/wiki/Mistral>https://wiki.openstack.org/wiki/Mistral</a> (integrated into <a href=http://stackstorm.com/product/>StackStorm</a>)</li>
+</ul><ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-  </div>
+</div>
+<aside class="w-30-l mt6-l">
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
+</div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

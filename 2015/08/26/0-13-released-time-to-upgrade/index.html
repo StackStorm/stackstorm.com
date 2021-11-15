@@ -1,234 +1,122 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>0.13 released! Time to upgrade! | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="August 26, 2015
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>0.13 released! Time to upgrade! | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="August 26, 2015
 by Lakshmi Kannan
 We are excited to announce another release of StackStorm. 0.13 comes with some great features, user contributions and many bug fixes. It’s definitely worth upgrading and the upgrade should be non-eventful. If you are trying us out for the first time, use the shiny GUI installer!
 You can bring your own box or use AWS AMI or a VMware VMDK or vagrant as the base box and kick off the (beta) installer after provisioning.
 Please ask for support if you face issues!
 Speaking of which, if you need help, a great place to get it is our slack community. If you haven’t registered yet, sign up here.
 If you are entering into production with StackStorm, we do have support and professional service options that most of our known production users are leveraging.  Sorry for the sales pitch, read more here: http://stackstorm.com/services/">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="0.13 released! Time to upgrade!" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="0.13 released! Time to upgrade!">
 <meta property="og:description" content="August 26, 2015
 by Lakshmi Kannan
 We are excited to announce another release of StackStorm. 0.13 comes with some great features, user contributions and many bug fixes. It’s definitely worth upgrading and the upgrade should be non-eventful. If you are trying us out for the first time, use the shiny GUI installer!
 You can bring your own box or use AWS AMI or a VMware VMDK or vagrant as the base box and kick off the (beta) installer after provisioning.
 Please ask for support if you face issues!
 Speaking of which, if you need help, a great place to get it is our slack community. If you haven’t registered yet, sign up here.
-If you are entering into production with StackStorm, we do have support and professional service options that most of our known production users are leveraging.  Sorry for the sales pitch, read more here: http://stackstorm.com/services/" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/08/26/0-13-released-time-to-upgrade/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2015-08-26T20:10:37+00:00" />
-<meta property="article:modified_time" content="2015-08-26T20:10:37+00:00" />
-
-<meta itemprop="name" content="0.13 released! Time to upgrade!">
-<meta itemprop="description" content="August 26, 2015
+If you are entering into production with StackStorm, we do have support and professional service options that most of our known production users are leveraging.  Sorry for the sales pitch, read more here: http://stackstorm.com/services/">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/08/26/0-13-released-time-to-upgrade/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2015-08-26T20:10:37+00:00">
+<meta property="article:modified_time" content="2015-08-26T20:10:37+00:00">
+<meta itemprop=name content="0.13 released! Time to upgrade!">
+<meta itemprop=description content="August 26, 2015
 by Lakshmi Kannan
 We are excited to announce another release of StackStorm. 0.13 comes with some great features, user contributions and many bug fixes. It’s definitely worth upgrading and the upgrade should be non-eventful. If you are trying us out for the first time, use the shiny GUI installer!
 You can bring your own box or use AWS AMI or a VMware VMDK or vagrant as the base box and kick off the (beta) installer after provisioning.
 Please ask for support if you face issues!
 Speaking of which, if you need help, a great place to get it is our slack community. If you haven’t registered yet, sign up here.
-If you are entering into production with StackStorm, we do have support and professional service options that most of our known production users are leveraging.  Sorry for the sales pitch, read more here: http://stackstorm.com/services/"><meta itemprop="datePublished" content="2015-08-26T20:10:37+00:00" />
-<meta itemprop="dateModified" content="2015-08-26T20:10:37+00:00" />
-<meta itemprop="wordCount" content="658">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="0.13 released! Time to upgrade!"/>
-<meta name="twitter:description" content="August 26, 2015
+If you are entering into production with StackStorm, we do have support and professional service options that most of our known production users are leveraging.  Sorry for the sales pitch, read more here: http://stackstorm.com/services/"><meta itemprop=datePublished content="2015-08-26T20:10:37+00:00">
+<meta itemprop=dateModified content="2015-08-26T20:10:37+00:00">
+<meta itemprop=wordCount content="658">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="0.13 released! Time to upgrade!">
+<meta name=twitter:description content="August 26, 2015
 by Lakshmi Kannan
 We are excited to announce another release of StackStorm. 0.13 comes with some great features, user contributions and many bug fixes. It’s definitely worth upgrading and the upgrade should be non-eventful. If you are trying us out for the first time, use the shiny GUI installer!
 You can bring your own box or use AWS AMI or a VMware VMDK or vagrant as the base box and kick off the (beta) installer after provisioning.
 Please ask for support if you face issues!
 Speaking of which, if you need help, a great place to get it is our slack community. If you haven’t registered yet, sign up here.
-If you are entering into production with StackStorm, we do have support and professional service options that most of our known production users are leveraging.  Sorry for the sales pitch, read more here: http://stackstorm.com/services/"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+If you are entering into production with StackStorm, we do have support and professional service options that most of our known production users are leveraging.  Sorry for the sales pitch, read more here: http://stackstorm.com/services/">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/08/26/0-13-released-time-to-upgrade/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/08/26/0-13-released-time-to-upgrade/&amp;text=0.13%20released!%20Time%20to%20upgrade!" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/08/26/0-13-released-time-to-upgrade/&amp;title=0.13%20released!%20Time%20to%20upgrade!" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">0.13 released! Time to upgrade!</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2015-08-26T20:10:37Z">August 26, 2015</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>August 26, 2015</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/08/26/0-13-released-time-to-upgrade/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/08/26/0-13-released-time-to-upgrade/&text=0.13%20released!%20Time%20to%20upgrade!" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2015/08/26/0-13-released-time-to-upgrade/&title=0.13%20released!%20Time%20to%20upgrade!" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">0.13 released! Time to upgrade!</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2015-08-26T20:10:37Z>August 26, 2015</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>August 26, 2015</strong><br>
 <em>by Lakshmi Kannan</em></p>
-<p>We are excited to announce another release of StackStorm. 0.13 comes with some great features, user contributions and many bug fixes. It’s definitely worth upgrading and the upgrade should be non-eventful. If you are trying us out for the first time, use the shiny <a href="http://docs.stackstorm.com/install/all_in_one.html">GUI installer</a>!</p>
-<p>You can bring your own box or use <a href="https://aws.amazon.com/marketplace/pp/B014G0NHRM/?ref=_pntr_twitter">AWS AMI</a> or a <!-- raw HTML omitted -->VMware VMDK<!-- raw HTML omitted --> or vagrant as the base box and kick off the (beta) installer after provisioning.</p>
+<p>We are excited to announce another release of StackStorm. 0.13 comes with some great features, user contributions and many bug fixes. It’s definitely worth upgrading and the upgrade should be non-eventful. If you are trying us out for the first time, use the shiny <a href=http://docs.stackstorm.com/install/all_in_one.html>GUI installer</a>!</p>
+<p>You can bring your own box or use <a href="https://aws.amazon.com/marketplace/pp/B014G0NHRM/?ref=_pntr_twitter">AWS AMI</a> or a VMware VMDK or vagrant as the base box and kick off the (beta) installer after provisioning.</p>
 <p>Please ask for support if you face issues!</p>
-<p>Speaking of which, if you need help, a great place to get it is our <a href="https://stackstorm-community.slack.com/">slack community</a>. If you haven’t registered yet, sign up <a href="https://stackstorm.com/community-signup">here</a>.</p>
-<p>If you are entering into production with StackStorm, we do have support and professional service options that most of our known production users are leveraging.  Sorry for the sales pitch, read more here: <a href="http://stackstorm.com/services/">http://stackstorm.com/services/</a></p>
-<p><img src="http://docs.stackstorm.com/_images/st2installer_step_3.png" alt="configure_chatops"></p>
-<h2 id="user-contributions">User contributions</h2>
-<p><a href="https://twitter.com/itxaka">Itxaka</a> added support for openstack authentication backend to StackStorm auth. Now you can use openstack authentication if you already have it installed with StackStorm. This gives you one more opportunity to try out StackStorm’s <a href="https://github.com/StackStorm/openstack">openstack pack</a>. Thanks Itxaka!</p>
-<h2 id="highlights">Highlights</h2>
-<p>0.13 brings you support for tracing. You can now add a trace tag to every execution request for manual executions or add a trace tag to a trigger dispatched from sensor. You can use the trace tag to then see what rules were fired and what executions were executed. This is a wonderful debugging tool and also improves the visibility of what’s happening inside StackStorm. This was a popular request from some of our advanced customers who want the ability to correlate external events to StackStorm events. Please try it out and let us know how you like it! <a href="http://docs.stackstorm.com/traces.html">Docs</a> should get you started. We are open to feedback or comments.</p>
-<p>We are moving away from fabric based SSH runner to a home grown SSH runner on top of Paramiko. Thanks to <a href="https://libcloud.apache.org/">libcloud</a> project and our own <a href="https://twitter.com/KamiSLO">Tomaz Muraus</a> for the initial implementation. This should address a lot of issues we were seeing with parallel execution of actions on multiple hosts. New SSH runner also would allow you to run SSH actions as a different user + credentials combo than the system user. The new runner is enabled by default and it should be exactly compatible with the previous generation SSH runner. Try it out and let us know how it works for you! You can also revert to the old runner by setting <code>use_paramiko_ssh_runner</code> to false in config.</p>
+<p>Speaking of which, if you need help, a great place to get it is our <a href=https://stackstorm-community.slack.com/>slack community</a>. If you haven’t registered yet, sign up <a href=https://stackstorm.com/community-signup>here</a>.</p>
+<p>If you are entering into production with StackStorm, we do have support and professional service options that most of our known production users are leveraging.  Sorry for the sales pitch, read more here: <a href=http://stackstorm.com/services/>http://stackstorm.com/services/</a></p>
+<p><img src=http://docs.stackstorm.com/_images/st2installer_step_3.png alt=configure_chatops></p>
+<h2 id=user-contributions>User contributions</h2>
+<p><a href=https://twitter.com/itxaka>Itxaka</a> added support for openstack authentication backend to StackStorm auth. Now you can use openstack authentication if you already have it installed with StackStorm. This gives you one more opportunity to try out StackStorm’s <a href=https://github.com/StackStorm/openstack>openstack pack</a>. Thanks Itxaka!</p>
+<h2 id=highlights>Highlights</h2>
+<p>0.13 brings you support for tracing. You can now add a trace tag to every execution request for manual executions or add a trace tag to a trigger dispatched from sensor. You can use the trace tag to then see what rules were fired and what executions were executed. This is a wonderful debugging tool and also improves the visibility of what’s happening inside StackStorm. This was a popular request from some of our advanced customers who want the ability to correlate external events to StackStorm events. Please try it out and let us know how you like it! <a href=http://docs.stackstorm.com/traces.html>Docs</a> should get you started. We are open to feedback or comments.</p>
+<p>We are moving away from fabric based SSH runner to a home grown SSH runner on top of Paramiko. Thanks to <a href=https://libcloud.apache.org/>libcloud</a> project and our own <a href=https://twitter.com/KamiSLO>Tomaz Muraus</a> for the initial implementation. This should address a lot of issues we were seeing with parallel execution of actions on multiple hosts. New SSH runner also would allow you to run SSH actions as a different user + credentials combo than the system user. The new runner is enabled by default and it should be exactly compatible with the previous generation SSH runner. Try it out and let us know how it works for you! You can also revert to the old runner by setting <code>use_paramiko_ssh_runner</code> to false in config.</p>
 <p>Support for clustered rabbit mq is now available! This is also a popular request from our advanced customers who have a clustered rabbit mq setup already and want to use that with StackStorm. As a StackStorm user, you won’t have to make any changes in configuration.</p>
 <p>We now have <code>X-Request-ID</code> tagging of API requests as a HTTP header. This will help debug API errors and track it in the logs using the ID (<code>grep {ID} /var/log/st2/st2api.log</code>). Look for that header in API responses.</p>
 <p>We also added support to re-spawn sensors on failures or exceptions. Sensors could be hitting APIs of external services, process the results and inject triggers into StackStorm. Any sensor interacting with an external service or system could crash due to a multitude of reasons. If that happens, sensor process might die. Now those sensor processed will be re-spawned on crash or failure by sensor container a maximum of two times.</p>
-<h2 id="bug-fixes">Bug fixes</h2>
+<h2 id=bug-fixes>Bug fixes</h2>
 <p>A lot of bug fixes went into the 0.13 release. Some critical bugs were fixed with API responses, sandboxed python environment path etc. Also, a potential security issue w.r.t injection of arbitrary code when supplying positional parameters for scripts was fixed. An upgrade is highly recommended.</p>
-<p>We also have several additional features and plans coming up as we gear up for our 1.0 release later this year, including Role Based Access Control. Be sure to take a look at our <a href="http://docs.stackstorm.com/roadmap.html">Roadmap</a> and stay subscribed to our <a href="http://stackstorm.com/subscribe-to-newsletter/">newsletter</a>.</p><ul class="pa0">
-  
+<p>We also have several additional features and plans coming up as we gear up for our 1.0 release later this year, including Role Based Access Control. Be sure to take a look at our <a href=http://docs.stackstorm.com/roadmap.html>Roadmap</a> and stay subscribed to our <a href=http://stackstorm.com/subscribe-to-newsletter/>newsletter</a>.</p><ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-  </div>
+</div>
+<aside class="w-30-l mt6-l">
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
+</div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

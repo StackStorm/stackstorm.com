@@ -1,49 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>self-healing on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/self-healing/</link>
-    <description>Recent content in self-healing on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 04 May 2017 19:29:51 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/self-healing/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>StackStorm at OpenStack Summit Boston 2017</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</link>
-      <pubDate>Thu, 04 May 2017 19:29:51 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</guid>
-      <description>The world runs on open infrastructure. At the OpenStack Summit, you’ll learn about the mix of open technologies building the modern infrastructure stack, including OpenStack, Kubernetes, Docker, network automation and more. From integrating legacy applications, to self-healing clouds, robotics and network automation the StackStorm open source event driven automation platform provides DevOps teams a powerful, flexible, and reliable solution to take your cloud to the next level. Be sure to stop by the StackStorm booth to meet the StackStorm team, and learn how you can integrate the StackStorm event driven automation platform with your OpenStack cloud</description>
-    </item>
-    
-    <item>
-      <title>Auto-Remediation for Real: Self-Healing Clouds and Auto-Remediation as a Service</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</link>
-      <pubDate>Thu, 27 Oct 2016 18:58:59 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Oct 27, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Dana Christensen&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;What do companies like eBay, VMware, Facebook, Netflix, Mirantis, Verizon, Infosys, Cisco, Dell, LinkedIn, and Apple have in common?&lt;/p&gt;
-&lt;p&gt;They all attended the &lt;!-- raw HTML omitted --&gt;Auto-Remediation and Event-Driven Automation MeetUp&lt;!-- raw HTML omitted --&gt; on Oct. 20th hosted by the StackStorm team at Brocade in San Jose.&lt;/p&gt;
-&lt;p&gt;The topic for the evening was “Remediation For Real” and both Mirantis and Netflix provided excellent overviews and demonstrations of how auto-remediation is helping to address business issues and increase their engineers’ productivity (and sleeptime!).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</link>
-      <pubDate>Thu, 13 Oct 2016 02:50:08 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</guid>
-      <description>&lt;h3 id=&#34;stackstorm-at-openstack-summit-highlights&#34;&gt;StackStorm at OpenStack Summit Highlights:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Booth: B34 (You’ll find us in the Brocade Booth)&lt;/li&gt;
-&lt;li&gt;&lt;!-- raw HTML omitted --&gt;StackStorm Theater Presentation&lt;!-- raw HTML omitted --&gt;: StackStorm and OpenStack: Two Practical Cases for Event Driven Automation; Wed 26 11:20am-11:45am, &lt;!-- raw HTML omitted --&gt;P0 – Marketplace Theater&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;Mirantis Session: &lt;!-- raw HTML omitted --&gt;Sleep Better at Night: OpenStack Cloud Auto­-Healing&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;Design Summit: Mistral Working Sessions&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>self-healing on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/self-healing/</link><description>Recent content in self-healing on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 04 May 2017 19:29:51 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/self-healing/index.xml" rel="self" type="application/rss+xml"/><item><title>StackStorm at OpenStack Summit Boston 2017</title><link>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</link><pubDate>Thu, 04 May 2017 19:29:51 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</guid><description>The world runs on open infrastructure. At the OpenStack Summit, you’ll learn about the mix of open technologies building the modern infrastructure stack, including OpenStack, Kubernetes, Docker, network automation and more. From integrating legacy applications, to self-healing clouds, robotics and network automation the StackStorm open source event driven automation platform provides DevOps teams a powerful, flexible, and reliable solution to take your cloud to the next level. Be sure to stop by the StackStorm booth to meet the StackStorm team, and learn how you can integrate the StackStorm event driven automation platform with your OpenStack cloud</description></item><item><title>Auto-Remediation for Real: Self-Healing Clouds and Auto-Remediation as a Service</title><link>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</link><pubDate>Thu, 27 Oct 2016 18:58:59 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</guid><description>&lt;p>&lt;strong>Oct 27, 2016&lt;/strong>&lt;br>
+&lt;em>by Dana Christensen&lt;/em>&lt;/p>
+&lt;p>What do companies like eBay, VMware, Facebook, Netflix, Mirantis, Verizon, Infosys, Cisco, Dell, LinkedIn, and Apple have in common?&lt;/p>
+&lt;p>They all attended the &lt;!-- raw HTML omitted -->Auto-Remediation and Event-Driven Automation MeetUp&lt;!-- raw HTML omitted --> on Oct. 20th hosted by the StackStorm team at Brocade in San Jose.&lt;/p>
+&lt;p>The topic for the evening was “Remediation For Real” and both Mirantis and Netflix provided excellent overviews and demonstrations of how auto-remediation is helping to address business issues and increase their engineers’ productivity (and sleeptime!).&lt;/p></description></item><item><title>OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</title><link>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</link><pubDate>Thu, 13 Oct 2016 02:50:08 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</guid><description>&lt;h3 id="stackstorm-at-openstack-summit-highlights">StackStorm at OpenStack Summit Highlights:&lt;/h3>
+&lt;ul>
+&lt;li>Booth: B34 (You’ll find us in the Brocade Booth)&lt;/li>
+&lt;li>&lt;!-- raw HTML omitted -->StackStorm Theater Presentation&lt;!-- raw HTML omitted -->: StackStorm and OpenStack: Two Practical Cases for Event Driven Automation; Wed 26 11:20am-11:45am, &lt;!-- raw HTML omitted -->P0 – Marketplace Theater&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>Mirantis Session: &lt;!-- raw HTML omitted -->Sleep Better at Night: OpenStack Cloud Auto­-Healing&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>Design Summit: Mistral Working Sessions&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

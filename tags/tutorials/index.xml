@@ -1,48 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>tutorials on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/tutorials/</link>
-    <description>Recent content in tutorials on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 13 Jan 2017 02:30:10 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/tutorials/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Event Driven Auto-Remediation with the Elastic Stack</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</link>
-      <pubDate>Fri, 13 Jan 2017 02:30:10 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Jan 12, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Recently we explained how to use &lt;a href=&#34;https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&#34;&gt;&lt;strong&gt;Syslog with Splunk &amp;amp; StackStorm&lt;/strong&gt;&lt;/a&gt; to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – &lt;a href=&#34;https://www.elastic.co/webinars/introduction-elk-stack&#34;&gt;&lt;strong&gt;Elastic Stack&lt;/strong&gt;&lt;/a&gt; (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same &lt;a href=&#34;https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&#34;&gt;use case as before&lt;/a&gt; and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Auto-Remediation with StackStorm &amp; Splunk</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</link>
-      <pubDate>Fri, 21 Oct 2016 20:13:26 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Oct 21, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.splunk.com&#34;&gt;&lt;strong&gt;Splunk&lt;/strong&gt;&lt;/a&gt; is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>How to Troubleshoot a Rule</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/09/20/troubleshoot_a_rule/</link>
-      <pubDate>Wed, 21 Sep 2016 02:20:06 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/09/20/troubleshoot_a_rule/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Sep 20, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Dmitri Zimine&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I set up a sensor to watch for a trigger (trigger represents an external event; sensor will fire a trigger-instance of the trigger type when the event is detected). I created a rule: if the trigger happens, and matches the criteria, it should fire an action. I see that event had happened. I expected the actions to fire. But it didn’t happen. Where did it break?&lt;/p&gt;
-&lt;p&gt;This is a long read, and may look complicated. But really, it’s just &lt;em&gt;three debugging steps&lt;/em&gt;. And it’s long because I refuse to write briefly, drop bunch of hints on the way and get you distracted. But as they say in math, the thicker the math book the faster it reads. &lt;strong&gt;Brace yourself&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;In the example below, I’ll be showing you how we debugged our Twitter automation that scans tweets for mentions and posts it to Slack. A pretty good way to keep track on who is trash talking about us! The debugging “runbook” is generic and applies to troubleshooting other rules just fine.&lt;/p&gt;
-&lt;p&gt;First, let’s look at the trigger chain and review how it works.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>tutorials on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/tutorials/</link><description>Recent content in tutorials on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 13 Jan 2017 02:30:10 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/tutorials/index.xml" rel="self" type="application/rss+xml"/><item><title>Event Driven Auto-Remediation with the Elastic Stack</title><link>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</link><pubDate>Fri, 13 Jan 2017 02:30:10 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</guid><description>&lt;p>&lt;strong>Jan 12, 2017&lt;/strong>&lt;br>
+&lt;em>by Siddharth Krishna&lt;/em>&lt;/p>
+&lt;p>Recently we explained how to use &lt;a href="https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/">&lt;strong>Syslog with Splunk &amp;amp; StackStorm&lt;/strong>&lt;/a> to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – &lt;a href="https://www.elastic.co/webinars/introduction-elk-stack">&lt;strong>Elastic Stack&lt;/strong>&lt;/a> (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same &lt;a href="https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/">use case as before&lt;/a> and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using &lt;strong>StackStorm&lt;/strong>.&lt;/p></description></item><item><title>Auto-Remediation with StackStorm &amp; Splunk</title><link>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</link><pubDate>Fri, 21 Oct 2016 20:13:26 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</guid><description>&lt;p>&lt;strong>Oct 21, 2016&lt;/strong>&lt;br>
+&lt;em>by Siddharth Krishna&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://www.splunk.com">&lt;strong>Splunk&lt;/strong>&lt;/a> is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using &lt;strong>StackStorm&lt;/strong>!&lt;/p></description></item><item><title>How to Troubleshoot a Rule</title><link>https://stackstorm.github.io/stackstorm.com/2016/09/20/troubleshoot_a_rule/</link><pubDate>Wed, 21 Sep 2016 02:20:06 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/09/20/troubleshoot_a_rule/</guid><description>&lt;p>&lt;strong>Sep 20, 2016&lt;/strong>&lt;br>
+&lt;em>by Dmitri Zimine&lt;/em>&lt;/p>
+&lt;p>I set up a sensor to watch for a trigger (trigger represents an external event; sensor will fire a trigger-instance of the trigger type when the event is detected). I created a rule: if the trigger happens, and matches the criteria, it should fire an action. I see that event had happened. I expected the actions to fire. But it didn’t happen. Where did it break?&lt;/p>
+&lt;p>This is a long read, and may look complicated. But really, it’s just &lt;em>three debugging steps&lt;/em>. And it’s long because I refuse to write briefly, drop bunch of hints on the way and get you distracted. But as they say in math, the thicker the math book the faster it reads. &lt;strong>Brace yourself&lt;/strong>.&lt;/p>
+&lt;p>In the example below, I’ll be showing you how we debugged our Twitter automation that scans tweets for mentions and posts it to Slack. A pretty good way to keep track on who is trash talking about us! The debugging “runbook” is generic and applies to troubleshooting other rules just fine.&lt;/p>
+&lt;p>First, let’s look at the trigger chain and review how it works.&lt;/p>
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

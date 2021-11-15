@@ -1,22 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>support on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/support/</link>
-    <description>Recent content in support on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 06 Jul 2016 18:00:35 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/support/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>The Best thing about StackStorm? The Community</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/07/06/best-thing-stackstorm-community/</link>
-      <pubDate>Wed, 06 Jul 2016 18:00:35 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/07/06/best-thing-stackstorm-community/</guid>
-      <description>&lt;p&gt;The StackStorm documentation is pretty good. But it’s not always enough. Sometimes you need a bit of help. Sometimes you think you’ve found a bug, and want to talk with the developers about it. That’s where our StackStorm community support can help.&lt;/p&gt;
-&lt;p&gt;I’m sure you’ve heard us talk about our &lt;a href=&#34;http://stackstorm.com/community-signup&#34;&gt;Slack channel&lt;/a&gt;. It’s a great place for StackStorm users to get together, share ideas, and solve problems. But did you know that our Stormers are in this channel, and do their best to help support the community?&lt;/p&gt;
-&lt;p&gt;Our engineers hang out here from 9:00 -&amp;gt; 17:00 PST, and often later. They’re happy to answer whatever questions you have. Just in the last few days, we’ve had questions about installation, ChatOps setup, writing sensors, purging history, creating actions, etc. Because the core engineers are involved in those discussions, not only can they help fix problems, they can also explain the design thinking.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>support on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/support/</link><description>Recent content in support on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 06 Jul 2016 18:00:35 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/support/index.xml" rel="self" type="application/rss+xml"/><item><title>The Best thing about StackStorm? The Community</title><link>https://stackstorm.github.io/stackstorm.com/2016/07/06/best-thing-stackstorm-community/</link><pubDate>Wed, 06 Jul 2016 18:00:35 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/07/06/best-thing-stackstorm-community/</guid><description>&lt;p>The StackStorm documentation is pretty good. But it’s not always enough. Sometimes you need a bit of help. Sometimes you think you’ve found a bug, and want to talk with the developers about it. That’s where our StackStorm community support can help.&lt;/p>
+&lt;p>I’m sure you’ve heard us talk about our &lt;a href="http://stackstorm.com/community-signup">Slack channel&lt;/a>. It’s a great place for StackStorm users to get together, share ideas, and solve problems. But did you know that our Stormers are in this channel, and do their best to help support the community?&lt;/p>
+&lt;p>Our engineers hang out here from 9:00 -&amp;gt; 17:00 PST, and often later. They’re happy to answer whatever questions you have. Just in the last few days, we’ve had questions about installation, ChatOps setup, writing sensors, purging history, creating actions, etc. Because the core engineers are involved in those discussions, not only can they help fix problems, they can also explain the design thinking.&lt;/p></description></item></channel></rss>

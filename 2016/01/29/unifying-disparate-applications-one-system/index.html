@@ -1,169 +1,82 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Unifying disparate applications into the One System | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="January 29, 2016
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Unifying disparate applications into the One System | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="January 29, 2016
 By James Fryman
 Originally published at http://devops.com/2016/01/29/unifying-applications-into-one-system
 Let’s talk about a real problem that all of us have faced at one point or another: keeping track of a single thread of work across many disparate tools. Regardless of the specific industry a company operates in, as a company grows, back-office applications in support of the business begin to accumulate. Many knowledge based companies have some sort of communication tool, some sort of project tracker, and some support tracker. These are tools that aim at being more effective with daily business process. Conversations suffice until they do not, and tools are implemented as the need arises. Every tool that was added has purpose, solves a critical need, and made you and/or your team more productive.
 At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work… how many ways can you name how not just conversations are lost, but context">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Unifying disparate applications into the One System" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Unifying disparate applications into the One System">
 <meta property="og:description" content="January 29, 2016
 By James Fryman
 Originally published at http://devops.com/2016/01/29/unifying-applications-into-one-system
 Let’s talk about a real problem that all of us have faced at one point or another: keeping track of a single thread of work across many disparate tools. Regardless of the specific industry a company operates in, as a company grows, back-office applications in support of the business begin to accumulate. Many knowledge based companies have some sort of communication tool, some sort of project tracker, and some support tracker. These are tools that aim at being more effective with daily business process. Conversations suffice until they do not, and tools are implemented as the need arises. Every tool that was added has purpose, solves a critical need, and made you and/or your team more productive.
-At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work… how many ways can you name how not just conversations are lost, but context" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2016-01-29T14:24:00+00:00" />
-<meta property="article:modified_time" content="2016-01-29T14:24:00+00:00" />
-
-<meta itemprop="name" content="Unifying disparate applications into the One System">
-<meta itemprop="description" content="January 29, 2016
+At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work… how many ways can you name how not just conversations are lost, but context">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2016-01-29T14:24:00+00:00">
+<meta property="article:modified_time" content="2016-01-29T14:24:00+00:00">
+<meta itemprop=name content="Unifying disparate applications into the One System">
+<meta itemprop=description content="January 29, 2016
 By James Fryman
 Originally published at http://devops.com/2016/01/29/unifying-applications-into-one-system
 Let’s talk about a real problem that all of us have faced at one point or another: keeping track of a single thread of work across many disparate tools. Regardless of the specific industry a company operates in, as a company grows, back-office applications in support of the business begin to accumulate. Many knowledge based companies have some sort of communication tool, some sort of project tracker, and some support tracker. These are tools that aim at being more effective with daily business process. Conversations suffice until they do not, and tools are implemented as the need arises. Every tool that was added has purpose, solves a critical need, and made you and/or your team more productive.
-At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work… how many ways can you name how not just conversations are lost, but context"><meta itemprop="datePublished" content="2016-01-29T14:24:00+00:00" />
-<meta itemprop="dateModified" content="2016-01-29T14:24:00+00:00" />
-<meta itemprop="wordCount" content="1818">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Unifying disparate applications into the One System"/>
-<meta name="twitter:description" content="January 29, 2016
+At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work… how many ways can you name how not just conversations are lost, but context"><meta itemprop=datePublished content="2016-01-29T14:24:00+00:00">
+<meta itemprop=dateModified content="2016-01-29T14:24:00+00:00">
+<meta itemprop=wordCount content="1818">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Unifying disparate applications into the One System">
+<meta name=twitter:description content="January 29, 2016
 By James Fryman
 Originally published at http://devops.com/2016/01/29/unifying-applications-into-one-system
 Let’s talk about a real problem that all of us have faced at one point or another: keeping track of a single thread of work across many disparate tools. Regardless of the specific industry a company operates in, as a company grows, back-office applications in support of the business begin to accumulate. Many knowledge based companies have some sort of communication tool, some sort of project tracker, and some support tracker. These are tools that aim at being more effective with daily business process. Conversations suffice until they do not, and tools are implemented as the need arises. Every tool that was added has purpose, solves a critical need, and made you and/or your team more productive.
-At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work… how many ways can you name how not just conversations are lost, but context"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work… how many ways can you name how not just conversations are lost, but context">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/&amp;text=Unifying%20disparate%20applications%20into%20the%20One%20System" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/&amp;title=Unifying%20disparate%20applications%20into%20the%20One%20System" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Unifying disparate applications into the One System</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2016-01-29T14:24:00Z">January 29, 2016</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>January 29, 2016</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/&text=Unifying%20disparate%20applications%20into%20the%20One%20System" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/&title=Unifying%20disparate%20applications%20into%20the%20One%20System" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Unifying disparate applications into the One System</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2016-01-29T14:24:00Z>January 29, 2016</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>January 29, 2016</strong><br>
 By James Fryman</p>
-<p><em>Originally published at <a href="http://devops.com/2016/01/29/unifying-applications-into-one-system">http://devops.com/2016/01/29/unifying-applications-into-one-system</a></em></p>
+<p><em>Originally published at <a href=http://devops.com/2016/01/29/unifying-applications-into-one-system>http://devops.com/2016/01/29/unifying-applications-into-one-system</a></em></p>
 <p>Let’s talk about a real problem that all of us have faced at one point or another: keeping track of a single thread of work across many disparate tools. Regardless of the specific industry a company operates in, as a company grows, back-office applications in support of the business begin to accumulate. Many knowledge based companies have some sort of communication tool, some sort of project tracker, and some support tracker. These are tools that aim at being more effective with daily business process. Conversations suffice until they do not, and tools are implemented as the need arises. Every tool that was added has purpose, solves a critical need, and made you and/or your team more productive.</p>
 <p>At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work… how many ways can you name how not just conversations are lost, but <em>context</em></p>
 <p>Commonly, teams attempt to solve this in a few ways:</p>
@@ -174,102 +87,77 @@ By James Fryman</p>
 <li>Make it “Future You”‘s problem. It’s fine as is, and not really an issue.</li>
 </ul>
 <p>At StackStorm, we ran into this problem. We have two ticketing systems (GitHub issues and Jira), a service desk tool (reamaze), and a chat client (Slack). The solution we use at StackStorm is one that I borrowed from my time at GitHub. One of my colleagues setup a really cool hook into Hubot that listened in our chat rooms for conversations we were having related to a GitHub Issue, a Pull Request, or even a code commit. When someone mentions one of these things, Hubot would grab a chat log plank, and cross-link the permalink to the Issue or Pull Request.</p>
-<p><img src="http://stackstorm.com/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png" alt="http://stackstorm.com/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png"></p>
+<p><img src=http://stackstorm.com/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png alt=http://stackstorm.com/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png></p>
 <p>But, that’s just GitHub. Context matters across all tools, and gives team members additional flexibly in learning and gaining knowledge on their own. So, we took our Support Tool, reamaze, and did the same thing!</p>
-<p><img src="http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png" alt="http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png"></p>
+<p><img src=http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png alt=http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png></p>
 <ul>
 <li>In times of speed, breadcrumbs allow you to piece together puzzles from where travelers have once voyaged. May not be the entire puzzle, but having background greatly helps.</li>
 <li>In times of documentation, said breadcrumbs allow you to use the same investigative skills to assemble a better history.</li>
 </ul>
 <p>This is one part of a set of behaviors that helps create a dynamic web of information. By seamlessly having a mechanism to associate conversations and issues/pr/tickets/whatever, it becomes much easier to have conversations happen whenever they need to (serendipitous interactions ftw) and still get context to team members when they’re available.</p>
 <p>This matters because: <a href="https://youtu.be/vEpXJRPITN0?t=10m44s">There is only one system</a>.</p>
-<h2 id="before-we-get-started8230">Before we get started…</h2>
-<p>Full disclosure: I am affiliated with StackStorm the company building StackStorm the tool. That being said, the ultimate goal here is to illustrate the pattern of how harness the recent chat culture change using an event-driven framework with the hopes of regaining just a modicum of sanity in your daily life. If you’re interested in learning more about StackStorm and how it ties into the overall automated troubleshooting and autoremeditaion space, take a look at our <a href="https://stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/">ChatOps Pitfalls and Tips</a> by Dmitri Zimine. That should give you a good background on why we used StackStorm instead of say… just a small script.</p>
+<h2 id=before-we-get-started8230>Before we get started…</h2>
+<p>Full disclosure: I am affiliated with StackStorm the company building StackStorm the tool. That being said, the ultimate goal here is to illustrate the pattern of how harness the recent chat culture change using an event-driven framework with the hopes of regaining just a modicum of sanity in your daily life. If you’re interested in learning more about StackStorm and how it ties into the overall automated troubleshooting and autoremeditaion space, take a look at our <a href=https://stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/>ChatOps Pitfalls and Tips</a> by Dmitri Zimine. That should give you a good background on why we used StackStorm instead of say… just a small script.</p>
 <p>Ok, on to business!</p>
-<h3 id="the-sensor">The Sensor</h3>
-<p>This workflow begins with a sensor. Inside of the StackStorm-Slack integration is a sensor class connects to the Slack Real-Time Messaging API. The first place to begin is with Sensors. The official <a href="https://github.com/StackStorm-Exchange/stackstorm-slack">Slack</a> pack contains a sensor. This sensor uses the Slack RTM to connect to Slack and listen for messages in rooms that it is associated with. Each message is then sent as an “event” to StackStorm which I can create rules that will trap certain events and kick off.</p>
-<h3 id="rules">Rules</h3>
+<h3 id=the-sensor>The Sensor</h3>
+<p>This workflow begins with a sensor. Inside of the StackStorm-Slack integration is a sensor class connects to the Slack Real-Time Messaging API. The first place to begin is with Sensors. The official <a href=https://github.com/StackStorm-Exchange/stackstorm-slack>Slack</a> pack contains a sensor. This sensor uses the Slack RTM to connect to Slack and listen for messages in rooms that it is associated with. Each message is then sent as an “event” to StackStorm which I can create rules that will trap certain events and kick off.</p>
+<h3 id=rules>Rules</h3>
 <p>Now that the sensor is emitting triggers into the system, I need to find a way to take an action when someone mentions an issue or ticket. The mechanism here is via a rule. Rules check triggers emitted into the system via sensors against a series of checks, and then executes an action or workflow if matched. A trigger can match to many rules.</p>
 <p>Let’s create a rule to watch Slack for discussions related to reamaze</p>
 <ul>
-<li>Source: <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/rules/crosslink-slack-to-reamaze.yaml">https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/rules/crosslink-slack-to-reamaze.yaml</a></li>
+<li>Source: <a href=https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/rules/crosslink-slack-to-reamaze.yaml>https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/rules/crosslink-slack-to-reamaze.yaml</a></li>
 </ul>
-<p>The first element in the <code>criteria</code> block is <code>trigger.text</code>. In the rule, the trigger itself is just referred to as <code>trigger</code> as opposed to <code>slack.message.text</code>. We want to see if the <code>text</code> propery <code>contains</code> a pattern related to our reamaze issue tracker. I chose <code>contains</code> out of the <a href="https://docs.stackstorm.com/rules.html#critera-comparision">large list of comparison operators</a>, and made sure the pattern matches what I’m looking for. Last but not least, the <code>action</code> block. This block is basically the next operation. Here, I can choose a single action or a workflow to kick off, and even grab data from the trigger payload to pass to the action. In this case, I opted to create a new workflow for my purposes here, and made sure to grab a few keywords that I needed to do processing.</p>
+<p>The first element in the <code>criteria</code> block is <code>trigger.text</code>. In the rule, the trigger itself is just referred to as <code>trigger</code> as opposed to <code>slack.message.text</code>. We want to see if the <code>text</code> propery <code>contains</code> a pattern related to our reamaze issue tracker. I chose <code>contains</code> out of the <a href=https://docs.stackstorm.com/rules.html#critera-comparision>large list of comparison operators</a>, and made sure the pattern matches what I’m looking for. Last but not least, the <code>action</code> block. This block is basically the next operation. Here, I can choose a single action or a workflow to kick off, and even grab data from the trigger payload to pass to the action. In this case, I opted to create a new workflow for my purposes here, and made sure to grab a few keywords that I needed to do processing.</p>
 <p>At this point, I have a rule matching and now I need to create the action necessary to process the trigger.</p>
-<h3 id="actions-and-workflows">Actions and Workflows</h3>
+<h3 id=actions-and-workflows>Actions and Workflows</h3>
 <p>Next, we get to creating the actions. The goal is to ensure that anytime a discussion randomly breaks out about a reamaze support ticket, that @estee-tew posts the Slack permalink to the support ticket. With the trigger payload extracted in the above rule, the workflow will need to:</p>
 <ul>
 <li>Take the text of a user comment and extract reamaze issue URL</li>
 <li>Calculate the Slack Permalink URL of the matched message from the collected data.</li>
 <li>Post the Slack Permalink on the matched reamaze issue ticket.</li>
 </ul>
-<p>Inside the <a href="https://github.com/StackStorm-Exchange/stackstorm-reamaze/tree/master/actions"><code>reamaze</code> pack</a>, I can see that I have the ability to <code>create_message</code>. This action takes three parameters: <code>slug</code>, <code>message</code>, and <code>visibility</code>. In our rule above, the action that was kicked off when the critera matched desired slack messages is <code>stackstorm.crosslink_slack_to_reamaze</code>. As of right now, this does not exist, so that is the next step. For brevity’s sake, you can take a look at the <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/crosslink_slack_to_reamaze.yaml">action metadata</a> on GitHub.</p>
+<p>Inside the <a href=https://github.com/StackStorm-Exchange/stackstorm-reamaze/tree/master/actions><code>reamaze</code> pack</a>, I can see that I have the ability to <code>create_message</code>. This action takes three parameters: <code>slug</code>, <code>message</code>, and <code>visibility</code>. In our rule above, the action that was kicked off when the critera matched desired slack messages is <code>stackstorm.crosslink_slack_to_reamaze</code>. As of right now, this does not exist, so that is the next step. For brevity’s sake, you can take a look at the <a href=https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/crosslink_slack_to_reamaze.yaml>action metadata</a> on GitHub.</p>
 <ul>
-<li>Source: <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/workflows/crosslink_slack_to_reamaze.yaml">https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/workflows/crosslink_slack_to_reamaze.yaml</a></li>
+<li>Source: <a href=https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/workflows/crosslink_slack_to_reamaze.yaml>https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/workflows/crosslink_slack_to_reamaze.yaml</a></li>
 </ul>
 <p>This is a simple Action Chain. In as much as it just does one task after another. The tasks here are designed to be small and portable so they can be re-used. Let’s quickly inspect each of the actions and walk through what it is that lies before us now.</p>
-<h4 id="step-1-permalink-to-chat-history">Step 1: Permalink to chat history</h4>
-<p>The goal is to create a way to crosslink a Slack permalink, so let’s start there. This starts with the <code>get_permalink</code> action above. While the history permalink is not in the trigger payload (or even in the official API, for that matter), Slack permalinks are actually not too terribly difficult to figure out. The first action takes two parameters (<code>channel</code> and <code>timestamp</code>), and then spits us out our permalink. We know we’re going to publish the <code>permalink</code> variable that can now be globally used in the workflow in the future. In additon, the next step takes us to the <code>sanitize_message</code> task. You can take a look at the <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/script/get_slack_message_permalink.py">python code</a> for this action upstream.</p>
-<h4 id="step-2-get-support-issue-data">Step 2: Get support issue data</h4>
-<p>The next step actually happens in two tasks: <code>sanitize_message</code> and <code>get_reamaze_slug</code>. The immediate next step, <code>sanitize_message</code>, is necessary to clean up the output from Slack. In the message payload, URL data is sent to us as a special <a href="https://api.slack.com/docs/formatting">“escape sequence”</a> which doesn’t do the rest of the actions much good. This action, detailed below, is simple enough to be reused in several other workflows. Again, take a look at the <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/script/sanitize_slack_message.py">action itself</a> The <code>run()</code> method in this <code>python-runner</code> task is the entry point from StackStorm, and this cleans up the text and returns it back as a plain URL which we can then pass to the next action, <code>get_reamaze_slug</code>. This returned information gets us what we need in order to call our final action, <code>reamaze.create_message</code>. We’re able to publish the permalink slug that was shared and discussed in chat. Now we know <em>what</em> is being discussed.</p>
-<h4 id="step-3-post-the-crosslink">Step 3: Post the crosslink</h4>
+<h4 id=step-1-permalink-to-chat-history>Step 1: Permalink to chat history</h4>
+<p>The goal is to create a way to crosslink a Slack permalink, so let’s start there. This starts with the <code>get_permalink</code> action above. While the history permalink is not in the trigger payload (or even in the official API, for that matter), Slack permalinks are actually not too terribly difficult to figure out. The first action takes two parameters (<code>channel</code> and <code>timestamp</code>), and then spits us out our permalink. We know we’re going to publish the <code>permalink</code> variable that can now be globally used in the workflow in the future. In additon, the next step takes us to the <code>sanitize_message</code> task. You can take a look at the <a href=https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/script/get_slack_message_permalink.py>python code</a> for this action upstream.</p>
+<h4 id=step-2-get-support-issue-data>Step 2: Get support issue data</h4>
+<p>The next step actually happens in two tasks: <code>sanitize_message</code> and <code>get_reamaze_slug</code>. The immediate next step, <code>sanitize_message</code>, is necessary to clean up the output from Slack. In the message payload, URL data is sent to us as a special <a href=https://api.slack.com/docs/formatting>“escape sequence”</a> which doesn’t do the rest of the actions much good. This action, detailed below, is simple enough to be reused in several other workflows. Again, take a look at the <a href=https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/script/sanitize_slack_message.py>action itself</a> The <code>run()</code> method in this <code>python-runner</code> task is the entry point from StackStorm, and this cleans up the text and returns it back as a plain URL which we can then pass to the next action, <code>get_reamaze_slug</code>. This returned information gets us what we need in order to call our final action, <code>reamaze.create_message</code>. We’re able to publish the permalink slug that was shared and discussed in chat. Now we know <em>what</em> is being discussed.</p>
+<h4 id=step-3-post-the-crosslink>Step 3: Post the crosslink</h4>
 <p>In this step, a the link is actually created. Here we are! The finish line! Woot! The only thing that is essential to do is to make sure we only set the note as an <em>Internal Only</em> note to avoid sending weird links to our friends. The next step is the <code>crosslink_slack_to_reamaze</code> action. At this point, we have all the data we need, so it’s just execution.</p>
 <p>Permalink from Slack. Crosspost to reamaze</p>
-<p><img src="http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png" alt="http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png"></p>
-<h3 id="and-now-with-github8230">and now, with GitHub…</h3>
-<p>The premise is simple enough. Included in the upstream repository also includes examples for how to setup similar context mapping with StackStorm. Take a look at <a href="https://github.com/stackstorm-packs/st2-crosslink">https://github.com/stackstorm-packs/st2-crosslink</a>_chat_with_applications. Same process, code reuse, and the same end effect.</p>
-<p><img src="http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png" alt="http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png"></p>
-<h1 id="unknowns">Unknowns</h1>
+<p><img src=http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png alt=http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png></p>
+<h3 id=and-now-with-github8230>and now, with GitHub…</h3>
+<p>The premise is simple enough. Included in the upstream repository also includes examples for how to setup similar context mapping with StackStorm. Take a look at <a href=https://github.com/stackstorm-packs/st2-crosslink>https://github.com/stackstorm-packs/st2-crosslink</a>_chat_with_applications. Same process, code reuse, and the same end effect.</p>
+<p><img src=http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png alt=http://stackstorm.com/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png></p>
+<h1 id=unknowns>Unknowns</h1>
 <ul>
 <li>This workflow is not for everyone.</li>
 <li>We expose internal-only links that are unaccessible by users, and it may be confusing to see random links in issues around GitHub. Why?! What are they?!</li>
 <li>Aliens!?</li>
 </ul>
 <p>There are many more that will come up, but the key facter to address here is that it’s not difficult to put this together, and it’s not that difficult to change. And that’s ok. We’ll have questions to be answered, but being able to try something out <em>super quickly</em> was indeed satisfying. (In truth, the workflow went up faster than the blog. :P)</p>
-<h1 id="wrap-up">Wrap up</h1>
+<h1 id=wrap-up>Wrap up</h1>
 <p>For many reasons, it is unfeasable to capture many fluid conversations in many different tools. The answer is not to move data around, but to leverage humans and provide them a helping hand. This is by no mean a solution, but it begins to provide less friction in the daily work. Over time, add enough of these friction reducers, and then suddenly… it’s no longer a panic. This also reinforces the idea that there is not a collection of systems, but rather a single system. The single company. The tools you selected are obviously necessary as we defined at the beginning, but tools should not be dictating the communication structures of your teams, but rather informing them. Removing the ability for silos to form allows data in both bits and ideas to flow and move around. This can even be expanded to do much more…</p>
-<p>Until next time!</p><ul class="pa0">
-  
+<p>Until next time!</p><ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-  </div>
+</div>
+<aside class="w-30-l mt6-l">
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
+</div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

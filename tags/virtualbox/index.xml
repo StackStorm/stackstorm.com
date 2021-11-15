@@ -1,23 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>virtualbox on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/virtualbox/</link>
-    <description>Recent content in virtualbox on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 21 May 2018 05:00:11 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/virtualbox/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Announcing StackStorm Vagrant &amp; OVA</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/05/20/announcing-stackstorm-vagrant-ova/</link>
-      <pubDate>Mon, 21 May 2018 05:00:11 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/05/20/announcing-stackstorm-vagrant-ova/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;May 21, 2018&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By &lt;a href=&#34;https://github.com/warrenvw&#34;&gt;Warren Van Winckel&lt;/a&gt; and &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C.&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.stackstorm.com/install/vagrant.html&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;We’re glad to announce that StackStorm Vagrant box and Community OVA are available for general use and included as installation method in &lt;a href=&#34;https://docs.stackstorm.com/install/vagrant.html&#34;&gt;StackStorm Docs&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>virtualbox on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/virtualbox/</link><description>Recent content in virtualbox on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 21 May 2018 05:00:11 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/virtualbox/index.xml" rel="self" type="application/rss+xml"/><item><title>Announcing StackStorm Vagrant &amp; OVA</title><link>https://stackstorm.github.io/stackstorm.com/2018/05/20/announcing-stackstorm-vagrant-ova/</link><pubDate>Mon, 21 May 2018 05:00:11 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/05/20/announcing-stackstorm-vagrant-ova/</guid><description>&lt;p>&lt;strong>May 21, 2018&lt;/strong>&lt;br>
+&lt;em>By &lt;a href="https://github.com/warrenvw">Warren Van Winckel&lt;/a> and &lt;a href="https://github.com/armab">Eugen C.&lt;/a>&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://docs.stackstorm.com/install/vagrant.html">&lt;!-- raw HTML omitted -->&lt;/a>&lt;/p>
+&lt;p>We’re glad to announce that StackStorm Vagrant box and Community OVA are available for general use and included as installation method in &lt;a href="https://docs.stackstorm.com/install/vagrant.html">StackStorm Docs&lt;/a>.&lt;/p></description></item></channel></rss>

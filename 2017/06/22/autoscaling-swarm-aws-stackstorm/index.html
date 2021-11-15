@@ -1,166 +1,78 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Autoscaling Swarm on AWS with StackStorm | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="June 22, 2017
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Autoscaling Swarm on AWS with StackStorm | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="June 22, 2017
 by Dmitri Zimine
 In this blog, we show how to scale out a Docker Swarm Cluster based on container workload, so that you don’t over-provision your AWS cluster and pay for just enough instances to run your containers. Learn how we achieved this, watch the 2 min video to see it in action. Read the blog for details. Grab our code recipe and adjust it to your liking and use to auto-scale your Swarm on AWS.
 ">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Autoscaling Swarm on AWS with StackStorm" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Autoscaling Swarm on AWS with StackStorm">
 <meta property="og:description" content="June 22, 2017
 by Dmitri Zimine
 In this blog, we show how to scale out a Docker Swarm Cluster based on container workload, so that you don’t over-provision your AWS cluster and pay for just enough instances to run your containers. Learn how we achieved this, watch the 2 min video to see it in action. Read the blog for details. Grab our code recipe and adjust it to your liking and use to auto-scale your Swarm on AWS.
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-06-22T08:14:50+00:00" />
-<meta property="article:modified_time" content="2017-06-22T08:14:50+00:00" />
-
-<meta itemprop="name" content="Autoscaling Swarm on AWS with StackStorm">
-<meta itemprop="description" content="June 22, 2017
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2017-06-22T08:14:50+00:00">
+<meta property="article:modified_time" content="2017-06-22T08:14:50+00:00">
+<meta itemprop=name content="Autoscaling Swarm on AWS with StackStorm">
+<meta itemprop=description content="June 22, 2017
 by Dmitri Zimine
 In this blog, we show how to scale out a Docker Swarm Cluster based on container workload, so that you don’t over-provision your AWS cluster and pay for just enough instances to run your containers. Learn how we achieved this, watch the 2 min video to see it in action. Read the blog for details. Grab our code recipe and adjust it to your liking and use to auto-scale your Swarm on AWS.
-"><meta itemprop="datePublished" content="2017-06-22T08:14:50+00:00" />
-<meta itemprop="dateModified" content="2017-06-22T08:14:50+00:00" />
-<meta itemprop="wordCount" content="1090">
-<meta itemprop="keywords" content="automation,Docker,kubernetes,swarm," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Autoscaling Swarm on AWS with StackStorm"/>
-<meta name="twitter:description" content="June 22, 2017
+"><meta itemprop=datePublished content="2017-06-22T08:14:50+00:00">
+<meta itemprop=dateModified content="2017-06-22T08:14:50+00:00">
+<meta itemprop=wordCount content="1090">
+<meta itemprop=keywords content="automation,Docker,kubernetes,swarm,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Autoscaling Swarm on AWS with StackStorm">
+<meta name=twitter:description content="June 22, 2017
 by Dmitri Zimine
 In this blog, we show how to scale out a Docker Swarm Cluster based on container workload, so that you don’t over-provision your AWS cluster and pay for just enough instances to run your containers. Learn how we achieved this, watch the 2 min video to see it in action. Read the blog for details. Grab our code recipe and adjust it to your liking and use to auto-scale your Swarm on AWS.
-"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/&amp;text=Autoscaling%20Swarm%20on%20AWS%20with%20StackStorm" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/&amp;title=Autoscaling%20Swarm%20on%20AWS%20with%20StackStorm" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Autoscaling Swarm on AWS with StackStorm</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              Dmitri Zimine
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2017-06-22T08:14:50Z">June 22, 2017</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>June 22, 2017</strong><br>
-<em>by <a href="https://twitter.com/dzimine">Dmitri Zimine</a></em></p>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/&text=Autoscaling%20Swarm%20on%20AWS%20with%20StackStorm" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/&title=Autoscaling%20Swarm%20on%20AWS%20with%20StackStorm" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Autoscaling Swarm on AWS with StackStorm</h1>
+<p class=tracked>
+By <strong>
+Dmitri Zimine
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2017-06-22T08:14:50Z>June 22, 2017</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>June 22, 2017</strong><br>
+<em>by <a href=https://twitter.com/dzimine>Dmitri Zimine</a></em></p>
 <p>In this blog, we show how to scale out a Docker Swarm Cluster based on container workload, so that you don’t over-provision your AWS cluster and pay for just enough instances to run your containers. Learn how we achieved this, watch the <em>2 min video</em> to see it in action. Read the blog for details. Grab our code recipe and adjust it to your liking and use to auto-scale your Swarm on AWS.</p>
-<!-- raw HTML omitted -->
 <p>Capacity planning is a lost battle. With uneven, unpredictable workloads, one just can’t get it right: either over-provision and pay for extra capacity, or under-provision and make users suffer with degraded services. Pick how you lose your money.</p>
 <p>Orchestrators such as Docker Swarm and Kubernetes are here to solve the capacity problem. They let you scale the services easily and effectively, creating container instances on demand and scheduling them on the underlying cluster.</p>
 <blockquote>
@@ -169,146 +81,102 @@ In this blog, we show how to scale out a Docker Swarm Cluster based on container
 <p>docker service scale redis=4</p>
 <p>“`</p>
 </blockquote>
-<p>But what if you run the cluster on AWS, or other public cloud? You have to provision a cluster of ec2 instances and do capacity planning again. Which is a lost battle. Amazon auto-scaling groups is little help, they lose their “auto” magic in case of orchestrators: Elastic Load Balancer is typically irrelevant for Kubernetes and Swarm; and the standard utilization-metric based scaling via CloudWatch alerts becomes inefficient and even dangerous [<a href="https://twitter.com/dzimine"> 1 </a>]<a href="#fn1">2</a>.</p>
-<p>Wouldn’t it be great if the cluster can scale based on the container load? If an orchestrator automagically adjusted the size of the cluster by adding more nodes to handle more load,so that all containers have a node to run and there are no idle nodes? Wouldn’t it be great to not have to pay for idle capacity? Absolutely! Kubernetes <a href="https://community.sdl.com/solutions/content-management/tridion/tridion-developer/b/feed/posts/autoscaling-your-kubernetes-cluster-on-aws">does exactly this natively</a> on AWS and Azure via <a href="https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/aws">auto-scaler</a>.</p>
+<p>But what if you run the cluster on AWS, or other public cloud? You have to provision a cluster of ec2 instances and do capacity planning again. Which is a lost battle. Amazon auto-scaling groups is little help, they lose their “auto” magic in case of orchestrators: Elastic Load Balancer is typically irrelevant for Kubernetes and Swarm; and the standard utilization-metric based scaling via CloudWatch alerts becomes inefficient and even dangerous [<a href=https://twitter.com/dzimine> 1 </a>]<a href=#fn1>2</a>.</p>
+<p>Wouldn’t it be great if the cluster can scale based on the container load? If an orchestrator automagically adjusted the size of the cluster by adding more nodes to handle more load,so that all containers have a node to run and there are no idle nodes? Wouldn’t it be great to not have to pay for idle capacity? Absolutely! Kubernetes <a href=https://community.sdl.com/solutions/content-management/tridion/tridion-developer/b/feed/posts/autoscaling-your-kubernetes-cluster-on-aws>does exactly this natively</a> on AWS and Azure via <a href=https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler/cloudprovider/aws>auto-scaler</a>.</p>
 <p>Docker Swarm? no such luck. There’s nothing like the k8b auto-scaler out of the box. But don’t rush to throw away your Docker Swarm. We can help you make it auto-scale. It’s easy with StackStorm, and we will walk you thru on “how exactly” in the rest of this blog.</p>
 <p>The idea is simple: When the cluster fills up on load, create extra worker nodes and add them to the cluster. Swarm will take it from there and distribute the load on workers. <strong>An IFTTT-like rule: If a cluster is full, then add worker nodes.</strong></p>
-<!-- raw HTML omitted -->
 <p>The right task for StackStorm. Just specify a few things precise enough for implementation:</p>
 <p><strong>1) How to define a “cluster filled up” event?</strong> A scaling trigger is defined as “too many pending tasks”, or, more strictly, “a count of pending tasks is going above a threshold”. A trigger is emitted by StackStorm “swarm.pending_queue” sensor that polls the Swarm for unscheduled tasks and fires when the count goes above threshold (scale-out) or below threshold (scale-in).</p>
 <p><strong>2) How to make the swarm cluster tell us that it is “filled up”?</strong> If not given a hint, a swarm scheduler thinks the cluster is bottomless and never stops shoveling the containers on the workers. Swarm CPU shares don’t help: they are modeled after VMware and act exactly as shares; the scheduler still shedule everything, just keep the share-based ratio. Solution? Use memory reservations, and watch “pending tasks” count. Memory is not over-provisioned by default; the scheduler will schedule only the tasks the workers can fit, the rest will be “pending tasks”, waiting for resources (memory) to become available. This will trigger <code>swarm.pending_queue</code> described above.</p>
-<p><strong>3) How to create and add worker nodes?</strong> I chose to use <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroup.html">Auto Scaling Groups</a> as a tried and trusted way to scale on AWS, but drop the “auto-” and trigger scaling events from StackStorm. The launch configuration uses a custom AMI with Docker daemon installed and set up, so that new worker instances come up fast. A new node auto-joins the cluster via cloud-init when the instance comes up [<a href="#fn1"> 2 </a>]<a href="#fn2">6</a>.</p>
+<p><strong>3) How to create and add worker nodes?</strong> I chose to use <a href=http://docs.aws.amazon.com/autoscaling/latest/userguide/AutoScalingGroup.html>Auto Scaling Groups</a> as a tried and trusted way to scale on AWS, but drop the “auto-” and trigger scaling events from StackStorm. The launch configuration uses a custom AMI with Docker daemon installed and set up, so that new worker instances come up fast. A new node auto-joins the cluster via cloud-init when the instance comes up [<a href=#fn1> 2 </a>]<a href=#fn2>6</a>.</p>
 <p>Using ASG is not the only way: you could easily provision new worker instances with st2 workflow, that offers more control over the provisioning process. Or use ASG for creating the node and set up an st2 rule to join a worker to the cluster on ASG lifecycle events. It is your choice: pick an event, set your rules, build your workflows: define a process that matches your operations.</p>
 <p><strong>4) How to define autoscaling rule?</strong> Rule is simple and self-explanatory:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<ol start="5">
-<li><strong>How to simulate a workload?</strong> Easy: just tell the swarm to <a href="https://docs.docker.com/engine/reference/commandline/service_scale/">scale the service</a>! Create one with memory reservations and scale it out to to fill up the cluster.</li>
+<ol start=5>
+<li><strong>How to simulate a workload?</strong> Easy: just tell the swarm to <a href=https://docs.docker.com/engine/reference/commandline/service_scale/>scale the service</a>! Create one with memory reservations and scale it out to to fill up the cluster.</li>
 </ol>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Now everything is ready. <a href="https://youtu.be/O7mDRVU0TIo">Watch the video</a> to see it all in action.</p>
+<p>Now everything is ready. <a href=https://youtu.be/O7mDRVU0TIo>Watch the video</a> to see it all in action.</p>
 <p><strong>What about scale-in?</strong> I will cover it in the next post. Stay tuned. In the mean time, you can write your own, and win a prize from StackStorm.</p>
-<p>You can do it in different ways, on different triggers, using different empirics to constitute a scale-in event. For instance, on queue count going down, wait for chill-down time, drain the node and destroy the worker – a simple 3-steps “workflow” action. Or, configure the Swarm with <a href="http://container-solutions.com/using-binpack-with-docker-swarm/">“binpack strategy”</a> and run a <code>scale-down-if-i-can</code> workflow that checks the number of containers on the nodes and decomissions the empty nodes. Or just reduce the AWS desired capacity (if capacity is over-reduced, the <code>scale-up</code> rule will bring it back). With StackStorm, you define your process to fit your tools and operations.</p>
+<p>You can do it in different ways, on different triggers, using different empirics to constitute a scale-in event. For instance, on queue count going down, wait for chill-down time, drain the node and destroy the worker – a simple 3-steps “workflow” action. Or, configure the Swarm with <a href=http://container-solutions.com/using-binpack-with-docker-swarm/>“binpack strategy”</a> and run a <code>scale-down-if-i-can</code> workflow that checks the number of containers on the nodes and decomissions the empty nodes. Or just reduce the AWS desired capacity (if capacity is over-reduced, the <code>scale-up</code> rule will bring it back). With StackStorm, you define your process to fit your tools and operations.</p>
 <blockquote>
-<p><strong>StackStorm challenge</strong>: create your own Swarm scale-up&amp;down solution and share with the StackStorm community. We will send you a prize. Mention @dzimine or @lhill on [Slack](<a href="https://stackstorm-community.slack.com">https://stackstorm-community.slack.com</a>) or drop us a line at <a href="mailto:info@stackstorm.com">info@stackstorm.com</a>.</p>
+<p><strong>StackStorm challenge</strong>: create your own Swarm scale-up&down solution and share with the StackStorm community. We will send you a prize. Mention @dzimine or @lhill on [Slack](<a href=https://stackstorm-community.slack.com>https://stackstorm-community.slack.com</a>) or drop us a line at <a href=mailto:info@stackstorm.com>info@stackstorm.com</a>.</p>
 </blockquote>
 <p><strong>In summary:</strong> with this simple StackStorm automation, you can make your Swarm Cluster scale out on AWS with the load, taking exactly as much resources as needed. And more: once you have StackStorm deployed, you will likely find more use to event-driven automation: StackStorm is used for a wide range of automations, from auto-remediation, network automation and security orchestration to serverless, bio-computations, and IoT.</p>
-<p>Give it a try and tell us what you think: leave the comments here or join <a href="https://stackstorm-community.slack.com">stackstorm-community on Slack</a> (<a href="https://stackstorm.com/community-signup">sign up here</a> to talk to the team and fellow automators).</p>
-<h3 id="references">References</h3>
+<p>Give it a try and tell us what you think: leave the comments here or join <a href=https://stackstorm-community.slack.com>stackstorm-community on Slack</a> (<a href=https://stackstorm.com/community-signup>sign up here</a> to talk to the team and fellow automators).</p>
+<h3 id=references>References</h3>
 <ul>
 <li>Autoscaling code and rules in StackStorm automation pack.
 <ul>
-<li>Code on GitHub: <a href="https://github.com/dzimine/swarm_scaling">https://github.com/dzimine/swarm_scaling</a></li>
+<li>Code on GitHub: <a href=https://github.com/dzimine/swarm_scaling>https://github.com/dzimine/swarm_scaling</a></li>
 <li>To install the pack:<br>
-<code>`st2 pack install  --base_url=https://github.com/dzimine/swarm_scaling`</code></li>
+<code>`st2 pack install --base_url=https://github.com/dzimine/swarm_scaling`</code></li>
 </ul>
 </li>
-<li>Auto-scaling group terraform definition <a href="https://github.com/dzimine/serverless-swarm">https://github.com/dzimine/serverless-swarm</a> – run the whole thing to install Swarm, StackStorm and AWS ASG, or look at the moving parts:
+<li>Auto-scaling group terraform definition <a href=https://github.com/dzimine/serverless-swarm>https://github.com/dzimine/serverless-swarm</a> – run the whole thing to install Swarm, StackStorm and AWS ASG, or look at the moving parts:
 <ul>
-<li>Terraform configuration <a href="https://github.com/dzimine/serverless-swarm/blob/master/terraform/workers_asg.tf">workers_asg.tf</a></li>
-<li>Cloud init template <a href="https://github.com/dzimine/serverless-swarm/blob/master/terraform/worker_cloudinit.tpl">worker_cloudinit.tpl</a></li>
+<li>Terraform configuration <a href=https://github.com/dzimine/serverless-swarm/blob/master/terraform/workers_asg.tf>workers_asg.tf</a></li>
+<li>Cloud init template <a href=https://github.com/dzimine/serverless-swarm/blob/master/terraform/worker_cloudinit.tpl>worker_cloudinit.tpl</a></li>
 </ul>
 </li>
 </ul>
-<h3 id="footnotes">Footnotes</h3>
-<!-- raw HTML omitted --><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/automation" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">automation</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/docker" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Docker</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/kubernetes" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">kubernetes</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/swarm" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">swarm</a>
-   </li>
-  
+<h3 id=footnotes>Footnotes</h3>
+<ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/automation class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">automation</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/docker class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Docker</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/kubernetes class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">kubernetes</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/swarm class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">swarm</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/05/23/stackstorm-docker-grows-mistral-community-maintainers/">StackStorm on Docker Grows Up: Mistral, Community Maintainers and more…</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/">StackStorm at OpenStack Summit Boston 2017</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/04/21/official-stackstorm-docker-image-here/">Official StackStorm Docker Image is Here!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/">Genomics Sequencing, StackStorm, and Reading the Source Code of Biology</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/">Summary – Brocade Workflow Composer at NFD 12</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/">Network Automation with StackStorm and Docker</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/05/27/ci-using-stackstorm-on-top-of-github-docker-and-dockerhub/">CI Using StackStorm On Top Of GitHub, Docker And DockerHub</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/">A Look Back At The Successes Of OpenStack, And Some Emerging Challenges</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2017/05/23/stackstorm-docker-grows-mistral-community-maintainers/>StackStorm on Docker Grows Up: Mistral, Community Maintainers and more…</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/>StackStorm at OpenStack Summit Boston 2017</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/04/21/official-stackstorm-docker-image-here/>Official StackStorm Docker Image is Here!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/>Genomics Sequencing, StackStorm, and Reading the Source Code of Biology</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/>Summary – Brocade Workflow Composer at NFD 12</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/>Network Automation with StackStorm and Docker</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/05/27/ci-using-stackstorm-on-top-of-github-docker-and-dockerhub/>CI Using StackStorm On Top Of GitHub, Docker And DockerHub</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/>A Look Back At The Successes Of OpenStack, And Some Emerging Challenges</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

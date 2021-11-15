@@ -1,589 +1,173 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>release on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/release/</link>
-    <description>Recent content in release on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 30 Jun 2021 06:59:55 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/release/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>StackStorm v3.5.0 Released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2021/06/29/stackstorm-v3-5-0-released/</link>
-      <pubDate>Wed, 30 Jun 2021 06:59:55 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2021/06/29/stackstorm-v3-5-0-released/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 29, 2021&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;by &lt;a href=&#34;https://github.com/amanda11&#34;&gt;Amanda McGuinness&lt;/a&gt; of &lt;a href=&#34;https://www.ammeonsolutions.com/&#34;&gt;Ammeon Solutions&lt;/a&gt;&lt;/em&gt; &lt;em&gt;and&lt;/em&gt; &lt;em&gt;&lt;a href=&#34;https://github.com/winem&#34;&gt;Marcel Weinberg&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;It has been nearly 4 months since our&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;previous&lt;a href=&#34;https://stackstorm.com/2021/03/04/v3-4-0-released/&#34;&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;v3.4.0 release&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;!-- raw HTML omitted --&gt; &lt;!-- raw HTML omitted --&gt;and we’re super excited about this one!&lt;/p&gt;
-&lt;p&gt;With Ubuntu 16.04 reaching end-of-life, we are pleased to announce support for Ubuntu 20.04 (Focal Fossa). We have also included lots of performance improvements in v3.5.0.&lt;/p&gt;
-&lt;p&gt;See below, for further information on what’s included in the release.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v3.4.1 – Security fix</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2021/03/10/stackstorm-v3-4-1-security-fix/</link>
-      <pubDate>Wed, 10 Mar 2021 20:18:53 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2021/03/10/stackstorm-v3-4-1-security-fix/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Mar 16, 2021&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;by &lt;a href=&#34;https://www.github.com/Kami&#34;&gt;Tomaz Muraus&lt;/a&gt; and &lt;a href=&#34;https://github.com/blag&#34;&gt;@blag&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v3.4.0 Released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2021/03/04/v3-4-0-released/</link>
-      <pubDate>Thu, 04 Mar 2021 20:21:26 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2021/03/04/v3-4-0-released/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Mar 4, 2021&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;_by &lt;a href=&#34;https://github.com/blag&#34;&gt;@blag&lt;/a&gt; and &lt;a href=&#34;https://github.com/amanda11&#34;&gt;Amanda McGuinness&lt;/a&gt; of &lt;a href=&#34;https://www.ammeonsolutions.com/&#34;&gt;Ammeon Solutions&lt;/a&gt;&lt;br&gt;
-_&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;It has been more than 4 months since our&lt;!-- raw HTML omitted --&gt; previous&lt;a href=&#34;https://stackstorm.com/2020/10/22/stackstorm-v3-3-0-released/&#34;&gt; &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;v3.3.0 release&lt;!-- raw HTML omitted --&gt;&lt;/a&gt; and we’re super excited about this one!&lt;/p&gt;
-&lt;p&gt;After Extreme Networks &lt;a href=&#34;https://stackstorm.com/2020/05/27/extreme-networks-donates-ewc-to-linux-foundation/&#34;&gt;Open-Sourced&lt;/a&gt; the EWC Enterprise code last year, this was the most requested and waited release by our Community. In StackStorm v3.4.0 all these goodies have been finally integrated! Besides that, Python 2 Deprecation had happened and many other changes, fixes, and improvements were shipped in v3.4.0.&lt;/p&gt;
-&lt;p&gt;Let’s get into the details below.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v3.3.0 Released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/10/22/stackstorm-v3-3-0-released/</link>
-      <pubDate>Thu, 22 Oct 2020 20:04:37 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/10/22/stackstorm-v3-3-0-released/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h1 id=&#34;goals&#34;&gt;&lt;strong&gt;Goals&lt;/strong&gt;&lt;/h1&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Ansible StackStorm role v2.0.0 released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</link>
-      <pubDate>Wed, 05 Aug 2020 17:18:30 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v3.2.0 released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/04/30/stackstorm-v3-2-0-released/</link>
-      <pubDate>Thu, 30 Apr 2020 17:43:02 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/04/30/stackstorm-v3-2-0-released/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;It happened! 🎉 After a long wait, we’re more than excited to announce the StackStorm &lt;code&gt;v3.2.0&lt;/code&gt; release.&lt;/p&gt;
-&lt;p&gt;The StackStorm project has had some turbulent times since the previous release almost one year ago. The new v3.2.0 version is the first release since the project &lt;a href=&#34;https://stackstorm.com/2019/10/07/stackstorm-joins-the-linux-foundation/&#34;&gt;joined the Linux Foundation&lt;/a&gt;, formed new &lt;a href=&#34;https://stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/&#34;&gt;Governance&lt;/a&gt;, and gathered a new team of &lt;a href=&#34;https://github.com/StackStorm/st2/blob/master/OWNERS.md&#34;&gt;Maintainers&lt;/a&gt;. Considering the amount of changes happened, it looks like a big restart for the project.&lt;/p&gt;
-&lt;p&gt;It’s awesome for StackStorm to be under new governance. But that also means everything is on the Community’s shoulders now. And while it’s harder to rely only on the community’s efforts compared to the previously dedicated team of full-time employees, these days we’re observing increased number of contributors and interest from the larger organizations to adopt StackStorm Event Driven Automation and Automated Remediation. We hope this trend continues and we are striving for a better project future and further growth, together.&lt;/p&gt;
-&lt;p&gt;So what’s new in StackStorm 3.2.0?&lt;br&gt;
-This version aggregated almost one hundred changes including bugfixes, new &lt;a href=&#34;#pack-dependencies&#34;&gt;Pack Dependencies&lt;/a&gt;, &lt;a href=&#34;#rhel-8-centos-8-support&#34;&gt;RHEL 8 / CentOS 8 Support&lt;/a&gt;, Orquesta &lt;a href=&#34;#orquesta-retry&#34;&gt;retry&lt;/a&gt; and &lt;a href=&#34;#orquesta-re-run&#34;&gt;re-run&lt;/a&gt; features, &lt;a href=&#34;#chatops-refactoring&#34;&gt;ChatOps updates&lt;/a&gt;, &lt;a href=&#34;#chatops-immutable-parameters&#34;&gt;Immutable parameters in Action Aliases&lt;/a&gt;, performance improvements, and more.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 3.1</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/07/09/stackstorm-3-1/</link>
-      <pubDate>Tue, 09 Jul 2019 16:30:17 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/07/09/stackstorm-3-1/</guid>
-      <description>StackStorm v3.1 is now available. This new release is focused on stability and bug fixes.
- Update requests library to latest version (2.22.0) in requirements. Disallow “decrypt_kv” filter to be specified in the config for values that are marked as “secret: True” in the schema. Upgrade tooz library to latest stable version (1.65.0) so it uses latest version of grpcio library. Fix timeout handling in the Python runner. In some scenarios where action would time out before producing any output (stdout, stder), timeout was not correctly propagated to the user.</description>
-    </item>
-    
-    <item>
-      <title>ST2 Exchange – A BeerTab Pack??</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/06/20/st2-exchange-a-beertab-pack/</link>
-      <pubDate>Thu, 20 Jun 2019 20:06:56 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/06/20/st2-exchange-a-beertab-pack/</guid>
-      <description>&lt;p&gt;&lt;em&gt;June 20, 2019&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;StackStorm can’t pour you a beer. But now it can keep track of who owes you a beer! Read on for more info about the new &lt;a href=&#34;https://github.com/StackStorm-Exchange/stackstorm-beertab&#34;&gt;beertab&lt;/a&gt; pack, and other new packs &amp;amp; interesting &lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt; updates.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v3.0.1</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/05/30/stackstorm-v3-0-1/</link>
-      <pubDate>Thu, 30 May 2019 08:00:18 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/05/30/stackstorm-v3-0-1/</guid>
-      <description>May 30, 2019
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>release on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/release/</link><description>Recent content in release on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 30 Jun 2021 06:59:55 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/release/index.xml" rel="self" type="application/rss+xml"/><item><title>StackStorm v3.5.0 Released</title><link>https://stackstorm.github.io/stackstorm.com/2021/06/29/stackstorm-v3-5-0-released/</link><pubDate>Wed, 30 Jun 2021 06:59:55 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2021/06/29/stackstorm-v3-5-0-released/</guid><description>&lt;p>&lt;strong>June 29, 2021&lt;/strong>&lt;/p>
+&lt;p>&lt;em>by &lt;a href="https://github.com/amanda11">Amanda McGuinness&lt;/a> of &lt;a href="https://www.ammeonsolutions.com/">Ammeon Solutions&lt;/a>&lt;/em> &lt;em>and&lt;/em> &lt;em>&lt;a href="https://github.com/winem">Marcel Weinberg&lt;/a>&lt;/em>&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->It has been nearly 4 months since our&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted --> &lt;!-- raw HTML omitted -->previous&lt;a href="https://stackstorm.com/2021/03/04/v3-4-0-released/">&lt;!-- raw HTML omitted --> &lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->v3.4.0 release&lt;!-- raw HTML omitted -->&lt;/a>&lt;!-- raw HTML omitted --> &lt;!-- raw HTML omitted -->and we’re super excited about this one!&lt;/p>
+&lt;p>With Ubuntu 16.04 reaching end-of-life, we are pleased to announce support for Ubuntu 20.04 (Focal Fossa). We have also included lots of performance improvements in v3.5.0.&lt;/p>
+&lt;p>See below, for further information on what’s included in the release.&lt;/p></description></item><item><title>StackStorm v3.4.1 – Security fix</title><link>https://stackstorm.github.io/stackstorm.com/2021/03/10/stackstorm-v3-4-1-security-fix/</link><pubDate>Wed, 10 Mar 2021 20:18:53 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2021/03/10/stackstorm-v3-4-1-security-fix/</guid><description>&lt;p>&lt;strong>Mar 16, 2021&lt;/strong>&lt;/p>
+&lt;p>&lt;em>by &lt;a href="https://www.github.com/Kami">Tomaz Muraus&lt;/a> and &lt;a href="https://github.com/blag">@blag&lt;/a>&lt;/em>&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>StackStorm v3.4.0 Released</title><link>https://stackstorm.github.io/stackstorm.com/2021/03/04/v3-4-0-released/</link><pubDate>Thu, 04 Mar 2021 20:21:26 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2021/03/04/v3-4-0-released/</guid><description>&lt;p>&lt;strong>Mar 4, 2021&lt;/strong>&lt;/p>
+&lt;p>_by &lt;a href="https://github.com/blag">@blag&lt;/a> and &lt;a href="https://github.com/amanda11">Amanda McGuinness&lt;/a> of &lt;a href="https://www.ammeonsolutions.com/">Ammeon Solutions&lt;/a>&lt;br>
+_&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;!-- raw HTML omitted -->It has been more than 4 months since our&lt;!-- raw HTML omitted --> previous&lt;a href="https://stackstorm.com/2020/10/22/stackstorm-v3-3-0-released/"> &lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->v3.3.0 release&lt;!-- raw HTML omitted -->&lt;/a> and we’re super excited about this one!&lt;/p>
+&lt;p>After Extreme Networks &lt;a href="https://stackstorm.com/2020/05/27/extreme-networks-donates-ewc-to-linux-foundation/">Open-Sourced&lt;/a> the EWC Enterprise code last year, this was the most requested and waited release by our Community. In StackStorm v3.4.0 all these goodies have been finally integrated! Besides that, Python 2 Deprecation had happened and many other changes, fixes, and improvements were shipped in v3.4.0.&lt;/p>
+&lt;p>Let’s get into the details below.&lt;/p></description></item><item><title>StackStorm v3.3.0 Released</title><link>https://stackstorm.github.io/stackstorm.com/2020/10/22/stackstorm-v3-3-0-released/</link><pubDate>Thu, 22 Oct 2020 20:04:37 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/10/22/stackstorm-v3-3-0-released/</guid><description>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;h1 id="goals">&lt;strong>Goals&lt;/strong>&lt;/h1>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>Ansible StackStorm role v2.0.0 released</title><link>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</link><pubDate>Wed, 05 Aug 2020 17:18:30 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</guid><description>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>StackStorm v3.2.0 released</title><link>https://stackstorm.github.io/stackstorm.com/2020/04/30/stackstorm-v3-2-0-released/</link><pubDate>Thu, 30 Apr 2020 17:43:02 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/04/30/stackstorm-v3-2-0-released/</guid><description>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>It happened! 🎉 After a long wait, we’re more than excited to announce the StackStorm &lt;code>v3.2.0&lt;/code> release.&lt;/p>
+&lt;p>The StackStorm project has had some turbulent times since the previous release almost one year ago. The new v3.2.0 version is the first release since the project &lt;a href="https://stackstorm.com/2019/10/07/stackstorm-joins-the-linux-foundation/">joined the Linux Foundation&lt;/a>, formed new &lt;a href="https://stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/">Governance&lt;/a>, and gathered a new team of &lt;a href="https://github.com/StackStorm/st2/blob/master/OWNERS.md">Maintainers&lt;/a>. Considering the amount of changes happened, it looks like a big restart for the project.&lt;/p>
+&lt;p>It’s awesome for StackStorm to be under new governance. But that also means everything is on the Community’s shoulders now. And while it’s harder to rely only on the community’s efforts compared to the previously dedicated team of full-time employees, these days we’re observing increased number of contributors and interest from the larger organizations to adopt StackStorm Event Driven Automation and Automated Remediation. We hope this trend continues and we are striving for a better project future and further growth, together.&lt;/p>
+&lt;p>So what’s new in StackStorm 3.2.0?&lt;br>
+This version aggregated almost one hundred changes including bugfixes, new &lt;a href="#pack-dependencies">Pack Dependencies&lt;/a>, &lt;a href="#rhel-8-centos-8-support">RHEL 8 / CentOS 8 Support&lt;/a>, Orquesta &lt;a href="#orquesta-retry">retry&lt;/a> and &lt;a href="#orquesta-re-run">re-run&lt;/a> features, &lt;a href="#chatops-refactoring">ChatOps updates&lt;/a>, &lt;a href="#chatops-immutable-parameters">Immutable parameters in Action Aliases&lt;/a>, performance improvements, and more.&lt;/p></description></item><item><title>StackStorm 3.1</title><link>https://stackstorm.github.io/stackstorm.com/2019/07/09/stackstorm-3-1/</link><pubDate>Tue, 09 Jul 2019 16:30:17 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/07/09/stackstorm-3-1/</guid><description>StackStorm v3.1 is now available. This new release is focused on stability and bug fixes.
+Update requests library to latest version (2.22.0) in requirements. Disallow “decrypt_kv” filter to be specified in the config for values that are marked as “secret: True” in the schema. Upgrade tooz library to latest stable version (1.65.0) so it uses latest version of grpcio library. Fix timeout handling in the Python runner. In some scenarios where action would time out before producing any output (stdout, stder), timeout was not correctly propagated to the user.</description></item><item><title>ST2 Exchange – A BeerTab Pack??</title><link>https://stackstorm.github.io/stackstorm.com/2019/06/20/st2-exchange-a-beertab-pack/</link><pubDate>Thu, 20 Jun 2019 20:06:56 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/06/20/st2-exchange-a-beertab-pack/</guid><description>&lt;p>&lt;em>June 20, 2019&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>StackStorm can’t pour you a beer. But now it can keep track of who owes you a beer! Read on for more info about the new &lt;a href="https://github.com/StackStorm-Exchange/stackstorm-beertab">beertab&lt;/a> pack, and other new packs &amp;amp; interesting &lt;a href="https://exchange.stackstorm.org/">StackStorm Exchange&lt;/a> updates.&lt;/p></description></item><item><title>StackStorm v3.0.1</title><link>https://stackstorm.github.io/stackstorm.com/2019/05/30/stackstorm-v3-0-1/</link><pubDate>Thu, 30 May 2019 08:00:18 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/05/30/stackstorm-v3-0-1/</guid><description>May 30, 2019
 By Tomaz Muraus
 Today we are happy to announce StackStorm v3.0.1.
 This is a first bug fix patch / patch release in the v3.0.x release series. It includes the following bug fixes and improvements:
-  Fix a bug in the remote command and script runner so it correctly uses SSH port from a SSH config
-file if ssh_runner.use_ssh_config parameter is set to True and if a custom (non-default)</description>
-    </item>
-    
-    <item>
-      <title>It’s Here: StackStorm 3.0</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/04/29/its-here-stackstorm-3-0/</link>
-      <pubDate>Mon, 29 Apr 2019 17:15:44 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/04/29/its-here-stackstorm-3-0/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;April 29, 2019&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;By Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;It’s here at last: StackStorm 3.0. This is a big release for us: Orquesta is GA, and Workflow Designer has a great new look &amp;amp; feel, massively improving usability. We’ve added Microsoft Teams support, Inquiries also goes GA, and more. Here’s all the details:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>What’s new in ST2 Exchange?</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/03/25/whats-new-in-st2-exchange/</link>
-      <pubDate>Tue, 26 Mar 2019 03:03:13 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/03/25/whats-new-in-st2-exchange/</guid>
-      <description>&lt;p&gt;&lt;em&gt;March 25, 2019&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Hey folks, been a little while since we’ve done a roundup of new &amp;amp; interesting pack updates. This time it’s Telegram, vSphere, Terraform, Napalm, Icinga2 and more. We’ve also been doing some background preparation work for Python 3. Read on for the full details.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v2.10.4</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/03/15/stackstorm-v2-10-4/</link>
-      <pubDate>Fri, 15 Mar 2019 17:17:37 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/03/15/stackstorm-v2-10-4/</guid>
-      <description>March 15, 2019
+Fix a bug in the remote command and script runner so it correctly uses SSH port from a SSH config
+file if ssh_runner.use_ssh_config parameter is set to True and if a custom (non-default)</description></item><item><title>It’s Here: StackStorm 3.0</title><link>https://stackstorm.github.io/stackstorm.com/2019/04/29/its-here-stackstorm-3-0/</link><pubDate>Mon, 29 Apr 2019 17:15:44 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/04/29/its-here-stackstorm-3-0/</guid><description>&lt;p>&lt;strong>April 29, 2019&lt;/strong>&lt;/p>
+&lt;p>&lt;em>By Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>It’s here at last: StackStorm 3.0. This is a big release for us: Orquesta is GA, and Workflow Designer has a great new look &amp;amp; feel, massively improving usability. We’ve added Microsoft Teams support, Inquiries also goes GA, and more. Here’s all the details:&lt;/p></description></item><item><title>What’s new in ST2 Exchange?</title><link>https://stackstorm.github.io/stackstorm.com/2019/03/25/whats-new-in-st2-exchange/</link><pubDate>Tue, 26 Mar 2019 03:03:13 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/03/25/whats-new-in-st2-exchange/</guid><description>&lt;p>&lt;em>March 25, 2019&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Hey folks, been a little while since we’ve done a roundup of new &amp;amp; interesting pack updates. This time it’s Telegram, vSphere, Terraform, Napalm, Icinga2 and more. We’ve also been doing some background preparation work for Python 3. Read on for the full details.&lt;/p></description></item><item><title>StackStorm v2.10.4</title><link>https://stackstorm.github.io/stackstorm.com/2019/03/15/stackstorm-v2-10-4/</link><pubDate>Fri, 15 Mar 2019 17:17:37 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/03/15/stackstorm-v2-10-4/</guid><description>March 15, 2019
 By Tomaz Muraus
 Today we are happy to announce StackStorm v2.10.4.
 This is another bug fix release in the v2.10.x release series. It includes the following bug fixes and improvements:
- Fix inadvertent regression in notifier service which would cause generic action trigger to only be dispatched for completed states even if custom states were specified using action_sensor.emit_when config option. Make sure we don’t log auth token and api key inside st2api log file if those values are provided via query parameter and not header (?</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.9.3/2.10.3</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/03/08/stackstorm-2-9-3-2-10-3/</link>
-      <pubDate>Fri, 08 Mar 2019 19:00:28 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/03/08/stackstorm-2-9-3-2-10-3/</guid>
-      <description>March 8, 2019
+Fix inadvertent regression in notifier service which would cause generic action trigger to only be dispatched for completed states even if custom states were specified using action_sensor.emit_when config option. Make sure we don’t log auth token and api key inside st2api log file if those values are provided via query parameter and not header (?</description></item><item><title>StackStorm 2.9.3/2.10.3</title><link>https://stackstorm.github.io/stackstorm.com/2019/03/08/stackstorm-2-9-3-2-10-3/</link><pubDate>Fri, 08 Mar 2019 19:00:28 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/03/08/stackstorm-2-9-3-2-10-3/</guid><description>March 8, 2019
 By Matt Stone
 In the last couple of weeks StackStorm has published back-to-back releases. 2.10.2 is a traditional patch release from StackStorm, and you’ll find some of the highlights below. 2.10.3 and 2.9.3; however, are releases to address CVE-2019-9580. I want to thank Barak Tawily and Anna Tsibulskaya: the researchers who discovered and submitted a patch for the issue.
-The issue found by Barak and Anna is an improper handling of CORS headers.</description>
-    </item>
-    
-    <item>
-      <title>2018 Year in Review &amp; 2019 StackStorm User Survey</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/01/30/2018-year-in-review-2019-stackstorm-user-survey/</link>
-      <pubDate>Wed, 30 Jan 2019 15:05:58 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/01/30/2018-year-in-review-2019-stackstorm-user-survey/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Jan 30, 2019&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By Tomaz Muraus&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;2018 is behind us and first of all we would like to thank all of our users, community members and customers for supporting us and making 2018 a successful year.&lt;/p&gt;
-&lt;p&gt;In this post we would like to have a look at the various things we have released and important milestones we have reached in 2018.&lt;/p&gt;
-&lt;p&gt;In addition to that, we would like to ask you to spare 10 minutes of your time by completing the &lt;a href=&#34;https://www.surveymonkey.com/r/st2-2019-user-survey&#34;&gt;StackStorm 2019 User Survey&lt;/a&gt;. Completing the survey will give us a better idea on how you use StackStorm. This will help us prioritize our feature development for 2019, make StackStorm better and help you become more successful.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Ansible StackStorm role v1.0.0 released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</link>
-      <pubDate>Tue, 15 Jan 2019 09:29:24 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Jan 15, 2019&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C. (@armab)&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;We’re very excited to announce that Ansible roles to deploy StackStorm have been promoted to major version &lt;code&gt;1.0.0&lt;/code&gt;!&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v2.9.2 and v2.10.1: A Security Release (CVE-2018-20345)</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/12/20/stackstorm-v2-9-2-and-v2-10-1-a-security-release/</link>
-      <pubDate>Thu, 20 Dec 2018 19:10:07 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/12/20/stackstorm-v2-9-2-and-v2-10-1-a-security-release/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Dec 20, 2018&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By Tomaz Muraus&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Today we are announcing the release of StackStorm v2.9.2 and StackStorm v2.10.1.&lt;/p&gt;
-&lt;p&gt;Those two patch releases fix a security issue which has been reported to us this week by one of our users (Alexandre Juma – thanks!).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Pre-Change Freeze: StackStorm 2.10</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/</link>
-      <pubDate>Fri, 14 Dec 2018 19:00:02 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Dec 14, 2018&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 + Python 3 packages (for test only!). Read on for full details:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Website Updates, Pack Updates</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/11/27/website-updates-pack-updates/</link>
-      <pubDate>Tue, 27 Nov 2018 22:00:47 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/11/27/website-updates-pack-updates/</guid>
-      <description>&lt;p&gt;&lt;em&gt;November 27, 2018&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;We have been doing a little tidying up around here, giving the website a small facelift. Our contributors have not rested either, with more pack updates including NetBox, PagerDuty, Atlassian Crowd and InfluxDB. Here’s the details:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.9.1 and Exchange Updates</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/10/23/stackstorm-2-9-1-and-exchange-updates/</link>
-      <pubDate>Wed, 24 Oct 2018 01:06:17 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/10/23/stackstorm-2-9-1-and-exchange-updates/</guid>
-      <description>&lt;p&gt;&lt;em&gt;October 23, 2018&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Late October already – where did the year go? Well at least part of it was spent making StackStorm better, and adding new packs and actions to the &lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt;. Read on for more details about StackStorm 2.9.1, and pack updates to ManageIQ, Jira, ServiceNow, InfluxDB, vSphere, and more:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.9: K8s, Streaming, Inquiries, Windows</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/</link>
-      <pubDate>Mon, 24 Sep 2018 17:00:12 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Sep 25, 2018&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;New Streaming &amp;amp; Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm Puppet Module goes v1.0.0 stable!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/</link>
-      <pubDate>Thu, 09 Aug 2018 16:21:54 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;August 9, 2018&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by &lt;a href=&#34;https://github.com/nmaludy&#34;&gt;Nick Maludy&lt;/a&gt; – &lt;a href=&#34;http://www.encore.tech&#34;&gt;Encore Technologies&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Ready to automatically provision and maintain StackStorm nodes in production? Then the &lt;code&gt;stackstorm-st2&lt;/code&gt; Puppet module is for you! We’re proud to announce the &lt;code&gt;v1.0.0&lt;/code&gt; stable release of &lt;a href=&#34;https://github.com/StackStorm/puppet-st2&#34;&gt;github.com/StackStorm/puppet-st2&lt;/a&gt;, the StackStorm Puppet module.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/stackstorm/puppet-st2&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Puppet is an excellent tool that allows the user to declare the desired state of their system in code. Once defined, hand over the reins to Puppet and watch as it transforms your nodes into what you’ve declared. We wanted to bring the power of declarative state to StackStorm deployments, and &lt;a href=&#34;https://github.com/StackStorm/puppet-st2&#34;&gt;puppet-st2&lt;/a&gt; is that solution.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Find StackStorm v1.0.0 on Puppet Forge, – &lt;a href=&#34;https://forge.puppet.com/stackstorm/st2&#34;&gt;https://forge.puppet.com/stackstorm/st2&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;A great deal of work has gone into the &lt;code&gt;v1.0.0&lt;/code&gt; release to ensure that &lt;a href=&#34;https://docs.stackstorm.com/latest/install/puppet.html&#34;&gt;st2 Puppet Module&lt;/a&gt; is ready to provision and manage StackStorm nodes in production environments. See January, 2018 &lt;a href=&#34;https://stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/&#34;&gt;Puppet Module to Install StackStorm – Announcing Release Candidate&lt;/a&gt;. Over the past year we’ve iterated through several pre-releases, release-candidate versions, fixed a lot of bugs, reworked the entire module structure and can now declare it stable and production ready.&lt;/p&gt;
-&lt;p&gt;There are still a lot of exciting new announcements in this release. Keep reading to find out what’s changed!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.8: UI Changes, New Workflow Engine, and More</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/</link>
-      <pubDate>Tue, 10 Jul 2018 13:14:00 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/</guid>
-      <description>&lt;h1 id=&#34;28-release-blog&#34;&gt;2.8 Release Blog&lt;/h1&gt;
-&lt;p&gt;&lt;em&gt;July 10th, 2018&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;It has been 3 months since our last &lt;!-- raw HTML omitted --&gt;confession&lt;!-- raw HTML omitted --&gt; release. That’s why there’s a &lt;em&gt;lot&lt;/em&gt; happening in this release. We are very excited to present the first public release of our new workflow engine, Orquesta. The Web UI has a new look &amp;amp; apps, and we’ve added Python 3 action support. We’ve also added metrics collection to help understand &lt;strong&gt;exactly&lt;/strong&gt; what your system is doing. Read on for more!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Patch Patch Patch: StackStorm 2.7.2</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/</link>
-      <pubDate>Wed, 16 May 2018 20:21:14 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/</guid>
-      <description>&lt;p&gt;Hey folks – StackStorm 2.7.2 has been released. We’ve fixed a bug affecting sensors, improved Jinja rendering, fixed a couple of Web UI bugs and improved the LDAP &amp;amp; RBAC handling for Enterprise users. This is a recommended update for all users. Read on for the details.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Say hello to StackStorm v2.7</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/</link>
-      <pubDate>Mon, 16 Apr 2018 23:38:38 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/</guid>
-      <description>&lt;p&gt;&lt;em&gt;April 16, 2018&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Tomaz Muraus&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>New Year, New StackStorm – v2.6 Released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/</link>
-      <pubDate>Thu, 25 Jan 2018 23:38:54 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;January 25, 2018&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;It’s a New Year, and time for a new version of StackStorm. 2.6 is available for download now. The biggest change is moving the Web UI to the &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; JS framework, but of course there’s also multiple user- and developer-friendly fixes and enhancements in the backend. Read on to hear more about what’s changed:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Puppet Module to Install StackStorm – Announcing Release Candidate</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</link>
-      <pubDate>Fri, 05 Jan 2018 17:27:00 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;January 4, 2018&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By &lt;a href=&#34;https://github.com/nmaludy&#34;&gt;Nick Maludy&lt;/a&gt; of &lt;a href=&#34;http://www.encore.tech&#34;&gt;Encore Technologies&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;So far StackStorm has multiple installation methods: deb/rpm packages, &lt;a href=&#34;https://docs.stackstorm.com/install/index.html#ref-one-line-install&#34;&gt;&lt;code&gt;curl|bash&lt;/code&gt;&lt;/a&gt; installer used for simple deployments, &lt;a href=&#34;https://github.com/stackstorm/st2-docker&#34;&gt;Docker&lt;/a&gt;, &lt;a href=&#34;https://github.com/stackstorm/ansible-st2&#34;&gt;Ansible&lt;/a&gt;, &lt;a href=&#34;https://github.com/stackstorm/chef-stackstorm&#34;&gt;Chef&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Now it’s Puppet time!&lt;/p&gt;
-&lt;p&gt;Starting in July of 2017 a major effort has been underway to modernize the Puppet module to install/deploy StackStorm. In August of 2017 &lt;code&gt;v1.0.0-beta&lt;/code&gt; was released with completely re-worked internals to support the new StackStorm &lt;code&gt;deb/rpm&lt;/code&gt; package installation method and fix a large number of bugs. Since the beta we’ve continued development of new features like supporting all 4 StackStorm OSes, Puppet 4 and 5 compatibility, ChatOps installation and configuration, modernized pack management, full integration testing in Docker containers along with a slew of Puppet best practices improvements.&lt;/p&gt;
-&lt;p&gt;Today we’re proud to announce the Release Candidate version &lt;code&gt;v1.0.0-rc&lt;/code&gt; of the &lt;a href=&#34;https://github.com/StackStorm/puppet-st2&#34;&gt;&lt;code&gt;stackstorm-st2&lt;/code&gt;&lt;/a&gt; Puppet module which is available on Forge.&lt;br&gt;
-&lt;a href=&#34;https://forge.puppet.com/stackstorm/st2&#34;&gt;&lt;br&gt;
-&lt;!-- raw HTML omitted --&gt;&lt;br&gt;
-https://forge.puppet.com/stackstorm/st2&lt;br&gt;
-&lt;/a&gt;&lt;br&gt;
-Our plan is to release &lt;code&gt;v1.0.0&lt;/code&gt; stable in the coming weeks, but in order to do this we need your help. We ask everyone who is interested in Puppet-based deployment to give the module a try and provide your feedback!&lt;/p&gt;
-&lt;p&gt;Keep reading to find out more details about what’s changed and where the project is heading.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Early Christmas: StackStorm Patch Release 2.5.1</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/</link>
-      <pubDate>Tue, 19 Dec 2017 18:10:44 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/</guid>
-      <description>&lt;p&gt;Here’s an early Christmas present for everyone: StackStorm 2.5.1 is out. Small enhancements and bugfixes, and some enhancements to Workflow Designer. Time to sneak it in before the change freeze? Or something to do on your dev system over the quiet period? Read on for details.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.5 Has Hit the Streets!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/</link>
-      <pubDate>Thu, 26 Oct 2017 22:38:33 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/</guid>
-      <description>&lt;p&gt;We are very pleased to announce that StackStorm v2.5 has shipped, including two big new features – Streaming Output, and the Inquiry Runner, aka &lt;code&gt;st2.ask&lt;/code&gt;. Read on for more details about the new features:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>What’s This? StackStorm 2.4 Already?</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/</link>
-      <pubDate>Thu, 24 Aug 2017 17:00:03 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/</guid>
-      <description>&lt;p&gt;We had said we were planning on releasing StackStorm 2.4 &lt;a href=&#34;https://stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/&#34;&gt;in September&lt;/a&gt;. Well, we changed our mind: StackStorm 2.4 has just been released. We wanted to get some of these new features out now, rather than wait. Pack UI, Workflow pause &amp;amp; resume, ChatOps fixes, and more. Read on to see what we’ve done.&lt;/p&gt;
-&lt;h2 id=&#34;web-ui&#34;&gt;Web UI:&lt;/h2&gt;
-&lt;p&gt;Ooh boy, lots of stuff has been happening here. The first feature you’ll see is the new “Packs” tab:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://stackstorm.com/wp/wp-content/uploads/2017/08/packs_tab.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.3.2: Summer of Bugfixes Continues</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/</link>
-      <pubDate>Fri, 28 Jul 2017 21:47:21 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/</guid>
-      <description>&lt;p&gt;&lt;em&gt;July 29, 2017&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The Summer of Bugfixes continues here at StackStorm. The team has put together another patch release, fixing a few annoyances, cleaning up some old bugs, and making StackStorm all-around easier to use. Read on for some of the notable changes:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.3.1: Bug Smashing</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/07/06/stackstorm-2-3-1-bug-smashing/</link>
-      <pubDate>Thu, 06 Jul 2017 20:25:14 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/07/06/stackstorm-2-3-1-bug-smashing/</guid>
-      <description>&lt;p&gt;&lt;em&gt;July 6, 2017&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Hot on the heels of &lt;a href=&#34;https://stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/&#34;&gt;StackStorm 2.3&lt;/a&gt;, we have pushed out StackStorm 2.3.1. Bugs squashed, a few useful small changes. Here’s a few of the highlights:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.3: Something for Everyone!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/</link>
-      <pubDate>Mon, 19 Jun 2017 21:30:06 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 19, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;StackStorm 2.3 is out, and there’s something in it for everyone. Big API improvements for developers, Web UI fixes for users, and RBAC &amp;amp; LDAP enhancements for Enterprise customers. Plus plenty of pack changes for everyone. Here’s the full details:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Bugs, fixes, security updates: It’s ST2 2.2.1</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/</link>
-      <pubDate>Wed, 05 Apr 2017 20:17:30 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;April 5, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;StackStorm 2.2.1 has been released, incorporating the usual array of improvements, bug fixes, and this time a BWC-specific security update. Read on for details.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.2 is up!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/02/27/stackstorm-2-2/</link>
-      <pubDate>Mon, 27 Feb 2017 20:38:58 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/02/27/stackstorm-2-2/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Feb 27, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Here’s a nice way to start your week: StackStorm 2.2 has been released! Mistral updates, Jinja in Mistral workflows, Jinja in complex objects, new &lt;code&gt;st2 login&lt;/code&gt; and &lt;code&gt;st2 whoami&lt;/code&gt; commands, security improvements and more! Our &lt;a href=&#34;https://github.com/Mierdin&#34;&gt;release master&lt;/a&gt; put in some hard work over the last few days to get this out the door. Read on for more details.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Introducing Ansible playbooks to deploy StackStorm</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</link>
-      <pubDate>Thu, 02 Feb 2017 19:16:27 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Feb 2, 2017&lt;/strong&gt; &lt;em&gt;by Eugen C. (&lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;)&lt;/em&gt;&lt;br&gt;
-&lt;a href=&#34;https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Did you know we have Ansible playbooks to deploy StackStorm?&lt;br&gt;
-It’s something we’ve been working on quietly for a while:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/StackStorm/ansible-st2&#34;&gt;github.com/StackStorm/ansible-st2&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Well, now you know!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Quick update: v2.1.1 published</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/</link>
-      <pubDate>Tue, 20 Dec 2016 17:40:03 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/</guid>
-      <description>December 20, 2016
+The issue found by Barak and Anna is an improper handling of CORS headers.</description></item><item><title>2018 Year in Review &amp; 2019 StackStorm User Survey</title><link>https://stackstorm.github.io/stackstorm.com/2019/01/30/2018-year-in-review-2019-stackstorm-user-survey/</link><pubDate>Wed, 30 Jan 2019 15:05:58 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/01/30/2018-year-in-review-2019-stackstorm-user-survey/</guid><description>&lt;p>&lt;strong>Jan 30, 2019&lt;/strong>&lt;br>
+&lt;em>By Tomaz Muraus&lt;/em>&lt;/p>
+&lt;p>2018 is behind us and first of all we would like to thank all of our users, community members and customers for supporting us and making 2018 a successful year.&lt;/p>
+&lt;p>In this post we would like to have a look at the various things we have released and important milestones we have reached in 2018.&lt;/p>
+&lt;p>In addition to that, we would like to ask you to spare 10 minutes of your time by completing the &lt;a href="https://www.surveymonkey.com/r/st2-2019-user-survey">StackStorm 2019 User Survey&lt;/a>. Completing the survey will give us a better idea on how you use StackStorm. This will help us prioritize our feature development for 2019, make StackStorm better and help you become more successful.&lt;/p></description></item><item><title>Ansible StackStorm role v1.0.0 released</title><link>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</link><pubDate>Tue, 15 Jan 2019 09:29:24 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</guid><description>&lt;p>&lt;strong>Jan 15, 2019&lt;/strong>&lt;br>
+&lt;em>By &lt;a href="https://github.com/armab">Eugen C. (@armab)&lt;/a>&lt;/em>&lt;/p>
+&lt;p>We’re very excited to announce that Ansible roles to deploy StackStorm have been promoted to major version &lt;code>1.0.0&lt;/code>!&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>StackStorm v2.9.2 and v2.10.1: A Security Release (CVE-2018-20345)</title><link>https://stackstorm.github.io/stackstorm.com/2018/12/20/stackstorm-v2-9-2-and-v2-10-1-a-security-release/</link><pubDate>Thu, 20 Dec 2018 19:10:07 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/12/20/stackstorm-v2-9-2-and-v2-10-1-a-security-release/</guid><description>&lt;p>&lt;strong>Dec 20, 2018&lt;/strong>&lt;br>
+&lt;em>By Tomaz Muraus&lt;/em>&lt;/p>
+&lt;p>Today we are announcing the release of StackStorm v2.9.2 and StackStorm v2.10.1.&lt;/p>
+&lt;p>Those two patch releases fix a security issue which has been reported to us this week by one of our users (Alexandre Juma – thanks!).&lt;/p></description></item><item><title>Pre-Change Freeze: StackStorm 2.10</title><link>https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/</link><pubDate>Fri, 14 Dec 2018 19:00:02 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/12/14/pre-change-freeze-stackstorm-2-10/</guid><description>&lt;p>&lt;strong>Dec 14, 2018&lt;/strong>&lt;br>
+&lt;em>By Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Thought you could wind down for the change freeze? Sorry, we’ve got one last thing for you to do: Upgrade StackStorm to 2.10! Orquesta is now ready for almost all workflow use-cases. We’ve also done a big update to our ChatOps internals, and we have early-access Ubuntu 18 + Python 3 packages (for test only!). Read on for full details:&lt;/p></description></item><item><title>Website Updates, Pack Updates</title><link>https://stackstorm.github.io/stackstorm.com/2018/11/27/website-updates-pack-updates/</link><pubDate>Tue, 27 Nov 2018 22:00:47 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/11/27/website-updates-pack-updates/</guid><description>&lt;p>&lt;em>November 27, 2018&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>We have been doing a little tidying up around here, giving the website a small facelift. Our contributors have not rested either, with more pack updates including NetBox, PagerDuty, Atlassian Crowd and InfluxDB. Here’s the details:&lt;/p></description></item><item><title>StackStorm 2.9.1 and Exchange Updates</title><link>https://stackstorm.github.io/stackstorm.com/2018/10/23/stackstorm-2-9-1-and-exchange-updates/</link><pubDate>Wed, 24 Oct 2018 01:06:17 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/10/23/stackstorm-2-9-1-and-exchange-updates/</guid><description>&lt;p>&lt;em>October 23, 2018&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Late October already – where did the year go? Well at least part of it was spent making StackStorm better, and adding new packs and actions to the &lt;a href="https://exchange.stackstorm.org/">StackStorm Exchange&lt;/a>. Read on for more details about StackStorm 2.9.1, and pack updates to ManageIQ, Jira, ServiceNow, InfluxDB, vSphere, and more:&lt;/p></description></item><item><title>StackStorm 2.9: K8s, Streaming, Inquiries, Windows</title><link>https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/</link><pubDate>Mon, 24 Sep 2018 17:00:12 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/</guid><description>&lt;p>&lt;strong>Sep 25, 2018&lt;/strong>&lt;br>
+&lt;em>By Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>New Streaming &amp;amp; Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:&lt;/p></description></item><item><title>StackStorm Puppet Module goes v1.0.0 stable!</title><link>https://stackstorm.github.io/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/</link><pubDate>Thu, 09 Aug 2018 16:21:54 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/</guid><description>&lt;p>&lt;strong>August 9, 2018&lt;/strong>&lt;br>
+&lt;em>by &lt;a href="https://github.com/nmaludy">Nick Maludy&lt;/a> – &lt;a href="http://www.encore.tech">Encore Technologies&lt;/a>&lt;/em>&lt;/p>
+&lt;p>Ready to automatically provision and maintain StackStorm nodes in production? Then the &lt;code>stackstorm-st2&lt;/code> Puppet module is for you! We’re proud to announce the &lt;code>v1.0.0&lt;/code> stable release of &lt;a href="https://github.com/StackStorm/puppet-st2">github.com/StackStorm/puppet-st2&lt;/a>, the StackStorm Puppet module.&lt;/p>
+&lt;p>&lt;a href="https://github.com/stackstorm/puppet-st2">&lt;!-- raw HTML omitted -->&lt;/a>&lt;/p>
+&lt;p>Puppet is an excellent tool that allows the user to declare the desired state of their system in code. Once defined, hand over the reins to Puppet and watch as it transforms your nodes into what you’ve declared. We wanted to bring the power of declarative state to StackStorm deployments, and &lt;a href="https://github.com/StackStorm/puppet-st2">puppet-st2&lt;/a> is that solution.&lt;/p>
+&lt;blockquote>
+&lt;p>Find StackStorm v1.0.0 on Puppet Forge, – &lt;a href="https://forge.puppet.com/stackstorm/st2">https://forge.puppet.com/stackstorm/st2&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;p>A great deal of work has gone into the &lt;code>v1.0.0&lt;/code> release to ensure that &lt;a href="https://docs.stackstorm.com/latest/install/puppet.html">st2 Puppet Module&lt;/a> is ready to provision and manage StackStorm nodes in production environments. See January, 2018 &lt;a href="https://stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/">Puppet Module to Install StackStorm – Announcing Release Candidate&lt;/a>. Over the past year we’ve iterated through several pre-releases, release-candidate versions, fixed a lot of bugs, reworked the entire module structure and can now declare it stable and production ready.&lt;/p>
+&lt;p>There are still a lot of exciting new announcements in this release. Keep reading to find out what’s changed!&lt;/p></description></item><item><title>StackStorm 2.8: UI Changes, New Workflow Engine, and More</title><link>https://stackstorm.github.io/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/</link><pubDate>Tue, 10 Jul 2018 13:14:00 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/</guid><description>&lt;h1 id="28-release-blog">2.8 Release Blog&lt;/h1>
+&lt;p>&lt;em>July 10th, 2018&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>It has been 3 months since our last &lt;!-- raw HTML omitted -->confession&lt;!-- raw HTML omitted --> release. That’s why there’s a &lt;em>lot&lt;/em> happening in this release. We are very excited to present the first public release of our new workflow engine, Orquesta. The Web UI has a new look &amp;amp; apps, and we’ve added Python 3 action support. We’ve also added metrics collection to help understand &lt;strong>exactly&lt;/strong> what your system is doing. Read on for more!&lt;/p></description></item><item><title>Patch Patch Patch: StackStorm 2.7.2</title><link>https://stackstorm.github.io/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/</link><pubDate>Wed, 16 May 2018 20:21:14 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/</guid><description>&lt;p>Hey folks – StackStorm 2.7.2 has been released. We’ve fixed a bug affecting sensors, improved Jinja rendering, fixed a couple of Web UI bugs and improved the LDAP &amp;amp; RBAC handling for Enterprise users. This is a recommended update for all users. Read on for the details.&lt;/p></description></item><item><title>Say hello to StackStorm v2.7</title><link>https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/</link><pubDate>Mon, 16 Apr 2018 23:38:38 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/</guid><description>&lt;p>&lt;em>April 16, 2018&lt;/em>&lt;br>
+&lt;em>by Tomaz Muraus&lt;/em>&lt;/p>
+&lt;p>Spring is here and with that we are happy to announce a new StackStorm release: v2.7. This release includes various new features, improvements and bug-fixes. The biggest change you’ll notice is improved Mistral performance. Read on for more details on this, and everything else we’ve done:&lt;/p></description></item><item><title>New Year, New StackStorm – v2.6 Released</title><link>https://stackstorm.github.io/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/</link><pubDate>Thu, 25 Jan 2018 23:38:54 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/</guid><description>&lt;p>&lt;strong>January 25, 2018&lt;/strong>&lt;/p>
+&lt;p>It’s a New Year, and time for a new version of StackStorm. 2.6 is available for download now. The biggest change is moving the Web UI to the &lt;a href="https://reactjs.org/">React&lt;/a> JS framework, but of course there’s also multiple user- and developer-friendly fixes and enhancements in the backend. Read on to hear more about what’s changed:&lt;/p></description></item><item><title>Puppet Module to Install StackStorm – Announcing Release Candidate</title><link>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</link><pubDate>Fri, 05 Jan 2018 17:27:00 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</guid><description>&lt;p>&lt;strong>January 4, 2018&lt;/strong>&lt;br>
+&lt;em>By &lt;a href="https://github.com/nmaludy">Nick Maludy&lt;/a> of &lt;a href="http://www.encore.tech">Encore Technologies&lt;/a>&lt;/em>&lt;/p>
+&lt;p>So far StackStorm has multiple installation methods: deb/rpm packages, &lt;a href="https://docs.stackstorm.com/install/index.html#ref-one-line-install">&lt;code>curl|bash&lt;/code>&lt;/a> installer used for simple deployments, &lt;a href="https://github.com/stackstorm/st2-docker">Docker&lt;/a>, &lt;a href="https://github.com/stackstorm/ansible-st2">Ansible&lt;/a>, &lt;a href="https://github.com/stackstorm/chef-stackstorm">Chef&lt;/a>.&lt;/p>
+&lt;p>Now it’s Puppet time!&lt;/p>
+&lt;p>Starting in July of 2017 a major effort has been underway to modernize the Puppet module to install/deploy StackStorm. In August of 2017 &lt;code>v1.0.0-beta&lt;/code> was released with completely re-worked internals to support the new StackStorm &lt;code>deb/rpm&lt;/code> package installation method and fix a large number of bugs. Since the beta we’ve continued development of new features like supporting all 4 StackStorm OSes, Puppet 4 and 5 compatibility, ChatOps installation and configuration, modernized pack management, full integration testing in Docker containers along with a slew of Puppet best practices improvements.&lt;/p>
+&lt;p>Today we’re proud to announce the Release Candidate version &lt;code>v1.0.0-rc&lt;/code> of the &lt;a href="https://github.com/StackStorm/puppet-st2">&lt;code>stackstorm-st2&lt;/code>&lt;/a> Puppet module which is available on Forge.&lt;br>
+&lt;a href="https://forge.puppet.com/stackstorm/st2">&lt;br>
+&lt;!-- raw HTML omitted -->&lt;br>
+https://forge.puppet.com/stackstorm/st2&lt;br>
+&lt;/a>&lt;br>
+Our plan is to release &lt;code>v1.0.0&lt;/code> stable in the coming weeks, but in order to do this we need your help. We ask everyone who is interested in Puppet-based deployment to give the module a try and provide your feedback!&lt;/p>
+&lt;p>Keep reading to find out more details about what’s changed and where the project is heading.&lt;/p></description></item><item><title>Early Christmas: StackStorm Patch Release 2.5.1</title><link>https://stackstorm.github.io/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/</link><pubDate>Tue, 19 Dec 2017 18:10:44 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/</guid><description>&lt;p>Here’s an early Christmas present for everyone: StackStorm 2.5.1 is out. Small enhancements and bugfixes, and some enhancements to Workflow Designer. Time to sneak it in before the change freeze? Or something to do on your dev system over the quiet period? Read on for details.&lt;/p></description></item><item><title>StackStorm 2.5 Has Hit the Streets!</title><link>https://stackstorm.github.io/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/</link><pubDate>Thu, 26 Oct 2017 22:38:33 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/</guid><description>&lt;p>We are very pleased to announce that StackStorm v2.5 has shipped, including two big new features – Streaming Output, and the Inquiry Runner, aka &lt;code>st2.ask&lt;/code>. Read on for more details about the new features:&lt;/p></description></item><item><title>What’s This? StackStorm 2.4 Already?</title><link>https://stackstorm.github.io/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/</link><pubDate>Thu, 24 Aug 2017 17:00:03 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/</guid><description>&lt;p>We had said we were planning on releasing StackStorm 2.4 &lt;a href="https://stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/">in September&lt;/a>. Well, we changed our mind: StackStorm 2.4 has just been released. We wanted to get some of these new features out now, rather than wait. Pack UI, Workflow pause &amp;amp; resume, ChatOps fixes, and more. Read on to see what we’ve done.&lt;/p>
+&lt;h2 id="web-ui">Web UI:&lt;/h2>
+&lt;p>Ooh boy, lots of stuff has been happening here. The first feature you’ll see is the new “Packs” tab:&lt;/p>
+&lt;p>&lt;a href="https://stackstorm.com/wp/wp-content/uploads/2017/08/packs_tab.png">&lt;!-- raw HTML omitted -->&lt;/a>&lt;/p></description></item><item><title>StackStorm 2.3.2: Summer of Bugfixes Continues</title><link>https://stackstorm.github.io/stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/</link><pubDate>Fri, 28 Jul 2017 21:47:21 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/07/28/stackstorm-2-3-2-summer-bugfixes-continues/</guid><description>&lt;p>&lt;em>July 29, 2017&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>The Summer of Bugfixes continues here at StackStorm. The team has put together another patch release, fixing a few annoyances, cleaning up some old bugs, and making StackStorm all-around easier to use. Read on for some of the notable changes:&lt;/p></description></item><item><title>StackStorm 2.3.1: Bug Smashing</title><link>https://stackstorm.github.io/stackstorm.com/2017/07/06/stackstorm-2-3-1-bug-smashing/</link><pubDate>Thu, 06 Jul 2017 20:25:14 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/07/06/stackstorm-2-3-1-bug-smashing/</guid><description>&lt;p>&lt;em>July 6, 2017&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Hot on the heels of &lt;a href="https://stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/">StackStorm 2.3&lt;/a>, we have pushed out StackStorm 2.3.1. Bugs squashed, a few useful small changes. Here’s a few of the highlights:&lt;/p></description></item><item><title>StackStorm 2.3: Something for Everyone!</title><link>https://stackstorm.github.io/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/</link><pubDate>Mon, 19 Jun 2017 21:30:06 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/</guid><description>&lt;p>&lt;strong>June 19, 2017&lt;/strong>&lt;br>
+&lt;em>By Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>StackStorm 2.3 is out, and there’s something in it for everyone. Big API improvements for developers, Web UI fixes for users, and RBAC &amp;amp; LDAP enhancements for Enterprise customers. Plus plenty of pack changes for everyone. Here’s the full details:&lt;/p></description></item><item><title>Bugs, fixes, security updates: It’s ST2 2.2.1</title><link>https://stackstorm.github.io/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/</link><pubDate>Wed, 05 Apr 2017 20:17:30 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/</guid><description>&lt;p>&lt;strong>April 5, 2017&lt;/strong>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>StackStorm 2.2.1 has been released, incorporating the usual array of improvements, bug fixes, and this time a BWC-specific security update. Read on for details.&lt;/p></description></item><item><title>StackStorm 2.2 is up!</title><link>https://stackstorm.github.io/stackstorm.com/2017/02/27/stackstorm-2-2/</link><pubDate>Mon, 27 Feb 2017 20:38:58 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/02/27/stackstorm-2-2/</guid><description>&lt;p>&lt;strong>Feb 27, 2017&lt;/strong>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Here’s a nice way to start your week: StackStorm 2.2 has been released! Mistral updates, Jinja in Mistral workflows, Jinja in complex objects, new &lt;code>st2 login&lt;/code> and &lt;code>st2 whoami&lt;/code> commands, security improvements and more! Our &lt;a href="https://github.com/Mierdin">release master&lt;/a> put in some hard work over the last few days to get this out the door. Read on for more details.&lt;/p></description></item><item><title>Introducing Ansible playbooks to deploy StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</link><pubDate>Thu, 02 Feb 2017 19:16:27 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</guid><description>&lt;p>&lt;strong>Feb 2, 2017&lt;/strong> &lt;em>by Eugen C. (&lt;!-- raw HTML omitted -->@armab&lt;!-- raw HTML omitted -->)&lt;/em>&lt;br>
+&lt;a href="https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/">&lt;!-- raw HTML omitted -->&lt;/a>&lt;/p>
+&lt;p>Did you know we have Ansible playbooks to deploy StackStorm?&lt;br>
+It’s something we’ve been working on quietly for a while:&lt;/p>
+&lt;p>&lt;a href="https://github.com/StackStorm/ansible-st2">github.com/StackStorm/ansible-st2&lt;/a>&lt;/p>
+&lt;p>Well, now you know!&lt;/p></description></item><item><title>Quick update: v2.1.1 published</title><link>https://stackstorm.github.io/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/</link><pubDate>Tue, 20 Dec 2016 17:40:03 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/</guid><description>December 20, 2016
 by Lindsay Hill
 Just in case you missed it, we published StackStorm v2.1.1 late last week. This is a minor update, on top of the major changes to pack management we made with 2.1.
 There’s a few small bugfixes and enhancements:
- core.http now supports HTTP basic auth and digest authentication. Local action runner supports unicode parameter keys and values. Improved error handling and more user-friendly messages for packs commands and APIs.</description>
-    </item>
-    
-    <item>
-      <title>2.1 is here! New Pack Management and More!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/12/06/2-1-new-pack-management/</link>
-      <pubDate>Tue, 06 Dec 2016 18:05:58 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/12/06/2-1-new-pack-management/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;December 6, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Ta-da! It’s here! StackStorm version 2.1 has been released, and there are some big changes. So big that we started wondering if we should have called this release version 3.0. Pack management has had a &lt;em&gt;lot&lt;/em&gt; of work done, and we think you’ll be pleased with the results. Plus good news for those patiently waiting for Ubuntu 16.04LTS support!&lt;/p&gt;
-&lt;h2 id=&#34;packs-packs-packs8230its-mostly-all-about-packs&#34;&gt;Packs Packs Packs…it’s (mostly) all about Packs&lt;/h2&gt;
-&lt;p&gt;The big theme for this release is Pack Management. We’ve upgraded, enhanced, overhauled &amp;amp; refitted pack management, and we’re very pleased to introduce the &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;StackStorm Exchange&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>2.1 is Coming to Town: Check the New Pack Management</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/11/29/2-1-headsup/</link>
-      <pubDate>Wed, 30 Nov 2016 02:27:05 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/29/2-1-headsup/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;by Dmitri Zimine and st2 team&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;Nov 29, 2016&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Dear stormers and friends!&lt;/p&gt;
-&lt;p&gt;We are almost ready with a new and quite exciting platform release. This is a big release and we are really looking forward to it, and you should, too – just check out &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;exchange.stackstorm.org&lt;/a&gt; to get excited about what is coming. As usual, you will soon see an announcement, a blog describing the highlights of what we’ve done, and a back-story on how and why we did it.&lt;/p&gt;
-&lt;p&gt;This, however, is an unusual “head’s up”. The changes around pack management we are introducing in 2.1 are so substantial that it’s fair to give you time to review the new features, read the &lt;a href=&#34;https://docs.stackstorm.com/latest/upgrade_notes.html#st2-in-development&#34;&gt;changelog&lt;/a&gt;, and adjust your private packs or automation around StackStorm if needed. We’re inviting you to contribute – EASILY – by trying out the new functionality and sharing feedback, or helping us catch last-minute bugs.&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;https://docs.stackstorm.com/latest/reference/packmgmt.html&#34;&gt;transition notes are drafted here&lt;/a&gt;. The full list of changes is &lt;a href=&#34;https://docs.stackstorm.com/latest/upgrade_notes.html#st2-in-development&#34;&gt;in the change log&lt;/a&gt;. Please help us improve the docs wherever you find them unclear, confusing or imprecise – we are actively testing as we write this.&lt;/p&gt;
-&lt;p&gt;The biggest change is introducing &lt;a href=&#34;https://github.com/StackStorm-Exchange/&#34;&gt;StackStorm Exchange&lt;/a&gt;. All integration packs from st2contrib, as well as other packs scattered around, are being moved under &lt;a href=&#34;https://github.com/StackStorm-Exchange/&#34;&gt;StackStorm Exchange&lt;/a&gt;. Once the transfer is complete, you will be submitting your new packs as PRs against &lt;a href=&#34;https://github.com/StackStorm-Exchange/exchange-incubator&#34;&gt;StackStorm-Exchange/exchange-incubator&lt;/a&gt; repo, as described in &lt;a href=&#34;https://github.com/StackStorm-Exchange/exchange-incubator/README.md&#34;&gt;README.md&lt;/a&gt;. Making features and fixes on existing community packs will be much easier now that each pack is in it’s own GitHub repo.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Minor update: v2.0.1</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/09/30/minor-update-v2-0-1/</link>
-      <pubDate>Fri, 30 Sep 2016 21:48:56 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/09/30/minor-update-v2-0-1/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Sep 30, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Hey folks, StackStorm v2.0.1 has been released, with a few small fixes and enhancements. We’ve also had some great code contributions recently, with a new integration for &lt;a href=&#34;https://www.datadoghq.com/&#34;&gt;Datadog&lt;/a&gt;, and improvements to our Github and Nagios packs.&lt;/p&gt;
-&lt;p&gt;Read on for details, plus a few hints on what we’re up to next.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm Enterprise is Back!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/09/01/stackstorm-enterprise-back/</link>
-      <pubDate>Thu, 01 Sep 2016 19:15:29 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/09/01/stackstorm-enterprise-back/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;September 1, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;StackStorm Enterprise is back, and it’s now &lt;strong&gt;Brocade Workflow Composer&lt;/strong&gt;. We’ve just shipped version 2.0. The platform has had a look &amp;amp; feel update, the usual round of bugfixes and enhancements, and we’re introducing “Network Automation Suites” for our networking friends. More on those in a minute.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;We know that you’ve been asking about the future of StackStorm, where the project is going, when you can buy StackStorm Enterprise again, etc. Well, today we should be able to answer all of those questions.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v1.6.0 is here</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/08/10/stackstorm-v1-6-0/</link>
-      <pubDate>Wed, 10 Aug 2016 08:28:59 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/08/10/stackstorm-v1-6-0/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;August 10, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By Tomaz Muraus&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;A good month after &lt;a href=&#34;https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/&#34;&gt;releasing StackStorm v1.5.0&lt;/a&gt; we are happy to announce the release of StackStorm v1.6.0.&lt;/p&gt;
-&lt;p&gt;This release includes various new features and improvements described below.&lt;/p&gt;
-&lt;h2 id=&#34;concurrency-policy-improvements&#34;&gt;Concurrency policy improvements&lt;/h2&gt;
-&lt;p&gt;We have listened to &lt;a href=&#34;https://github.com/StackStorm/st2/issues/2794&#34;&gt;feedback from our users&lt;/a&gt; and updated &lt;a href=&#34;https://docs.stackstorm.com/latest/policies.html#concurrency&#34;&gt;action concurrency policies&lt;/a&gt; to allow action execution to be canceled instead of just delayed when a concurrency threshold is reached.&lt;/p&gt;
-&lt;p&gt;This feature comes handy in situations where multiple users request the same action, but the action is already running because of the first request.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v1.5 is alive!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/06/27/stackstorm-v1-5-alive/</link>
-      <pubDate>Mon, 27 Jun 2016 22:55:51 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/06/27/stackstorm-v1-5-alive/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 27, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;StackStorm v1.5.0&lt;/strong&gt; has been released! More features, more improvements, and more bugfixes (sorry about those). Read on to hear about the changes, or fire up &lt;code&gt;apt&lt;/code&gt;/&lt;code&gt;yum&lt;/code&gt; and upgrade!&lt;/p&gt;
-&lt;h2 id=&#34;cli-completion&#34;&gt;CLI Completion!&lt;/h2&gt;
-&lt;p&gt;Spend a lot of your time using the &lt;code&gt;st2&lt;/code&gt; CLI? You’ll love this change: We’ve added CLI auto-completion to the &lt;code&gt;st2&lt;/code&gt; command. Type &lt;code&gt;st2&lt;/code&gt; then hit tab twice. You’ll get a list of all available arguments. This works multiple levels deep. Very handy when you can’t quite remember the right syntax:&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;Simple, but cool.&lt;/p&gt;
-&lt;h2 id=&#34;datastore-secrets-and-user-scoping&#34;&gt;Datastore Secrets and User-Scoping&lt;/h2&gt;
-&lt;p&gt;The StackStorm datastore service allows you to store common parameters and their values for reuse within sensors, actions and rules. Prior to v1.5, these were available to all users. Now you can scope variables to a specific user, and you can control who can read or write into those variables. By default, variables are stored in the &lt;code&gt;system&lt;/code&gt; scope, but you can scope it to a specific user by adding &lt;code&gt;--scope=user&lt;/code&gt;, e.g.:&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;st2 key set date_cmd &amp;quot;date -u&amp;quot; --scope=user&lt;/code&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm v1.4 is out</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/04/20/stackstorm-v1-4/</link>
-      <pubDate>Thu, 21 Apr 2016 01:55:07 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/04/20/stackstorm-v1-4/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;April 20, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Patrick Hoolboom&lt;/em&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;div&amp;gt;
-  &amp;lt;p paraid=&amp;quot;1471666196&amp;quot; paraeid=&amp;quot;{cb84a6f8-745a-49e3-9550-f97a2c2f0626}{11}&amp;quot;&amp;gt;
-    &amp;lt;b&amp;gt;&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;Packages are the new way forward&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;span&amp;gt; &amp;lt;/span&amp;gt;
-  &amp;lt;/p&amp;gt;
+core.http now supports HTTP basic auth and digest authentication. Local action runner supports unicode parameter keys and values. Improved error handling and more user-friendly messages for packs commands and APIs.</description></item><item><title>2.1 is here! New Pack Management and More!</title><link>https://stackstorm.github.io/stackstorm.com/2016/12/06/2-1-new-pack-management/</link><pubDate>Tue, 06 Dec 2016 18:05:58 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/12/06/2-1-new-pack-management/</guid><description>&lt;p>&lt;strong>December 6, 2016&lt;/strong>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Ta-da! It’s here! StackStorm version 2.1 has been released, and there are some big changes. So big that we started wondering if we should have called this release version 3.0. Pack management has had a &lt;em>lot&lt;/em> of work done, and we think you’ll be pleased with the results. Plus good news for those patiently waiting for Ubuntu 16.04LTS support!&lt;/p>
+&lt;h2 id="packs-packs-packs8230its-mostly-all-about-packs">Packs Packs Packs…it’s (mostly) all about Packs&lt;/h2>
+&lt;p>The big theme for this release is Pack Management. We’ve upgraded, enhanced, overhauled &amp;amp; refitted pack management, and we’re very pleased to introduce the &lt;a href="https://exchange.stackstorm.org">StackStorm Exchange&lt;/a>&lt;/p>
+&lt;p>&lt;a href="https://exchange.stackstorm.org/">&lt;!-- raw HTML omitted -->&lt;/a>&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>2.1 is Coming to Town: Check the New Pack Management</title><link>https://stackstorm.github.io/stackstorm.com/2016/11/29/2-1-headsup/</link><pubDate>Wed, 30 Nov 2016 02:27:05 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/11/29/2-1-headsup/</guid><description>&lt;p>&lt;strong>by Dmitri Zimine and st2 team&lt;/strong>&lt;br>
+&lt;em>Nov 29, 2016&lt;/em>&lt;/p>
+&lt;p>Dear stormers and friends!&lt;/p>
+&lt;p>We are almost ready with a new and quite exciting platform release. This is a big release and we are really looking forward to it, and you should, too – just check out &lt;a href="https://exchange.stackstorm.org">exchange.stackstorm.org&lt;/a> to get excited about what is coming. As usual, you will soon see an announcement, a blog describing the highlights of what we’ve done, and a back-story on how and why we did it.&lt;/p>
+&lt;p>This, however, is an unusual “head’s up”. The changes around pack management we are introducing in 2.1 are so substantial that it’s fair to give you time to review the new features, read the &lt;a href="https://docs.stackstorm.com/latest/upgrade_notes.html#st2-in-development">changelog&lt;/a>, and adjust your private packs or automation around StackStorm if needed. We’re inviting you to contribute – EASILY – by trying out the new functionality and sharing feedback, or helping us catch last-minute bugs.&lt;/p>
+&lt;p>The &lt;a href="https://docs.stackstorm.com/latest/reference/packmgmt.html">transition notes are drafted here&lt;/a>. The full list of changes is &lt;a href="https://docs.stackstorm.com/latest/upgrade_notes.html#st2-in-development">in the change log&lt;/a>. Please help us improve the docs wherever you find them unclear, confusing or imprecise – we are actively testing as we write this.&lt;/p>
+&lt;p>The biggest change is introducing &lt;a href="https://github.com/StackStorm-Exchange/">StackStorm Exchange&lt;/a>. All integration packs from st2contrib, as well as other packs scattered around, are being moved under &lt;a href="https://github.com/StackStorm-Exchange/">StackStorm Exchange&lt;/a>. Once the transfer is complete, you will be submitting your new packs as PRs against &lt;a href="https://github.com/StackStorm-Exchange/exchange-incubator">StackStorm-Exchange/exchange-incubator&lt;/a> repo, as described in &lt;a href="https://github.com/StackStorm-Exchange/exchange-incubator/README.md">README.md&lt;/a>. Making features and fixes on existing community packs will be much easier now that each pack is in it’s own GitHub repo.&lt;/p>
+&lt;p>&lt;a href="https://exchange.stackstorm.org/">&lt;!-- raw HTML omitted -->&lt;/a>&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>Minor update: v2.0.1</title><link>https://stackstorm.github.io/stackstorm.com/2016/09/30/minor-update-v2-0-1/</link><pubDate>Fri, 30 Sep 2016 21:48:56 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/09/30/minor-update-v2-0-1/</guid><description>&lt;p>&lt;strong>Sep 30, 2016&lt;/strong>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Hey folks, StackStorm v2.0.1 has been released, with a few small fixes and enhancements. We’ve also had some great code contributions recently, with a new integration for &lt;a href="https://www.datadoghq.com/">Datadog&lt;/a>, and improvements to our Github and Nagios packs.&lt;/p>
+&lt;p>Read on for details, plus a few hints on what we’re up to next.&lt;/p></description></item><item><title>StackStorm Enterprise is Back!</title><link>https://stackstorm.github.io/stackstorm.com/2016/09/01/stackstorm-enterprise-back/</link><pubDate>Thu, 01 Sep 2016 19:15:29 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/09/01/stackstorm-enterprise-back/</guid><description>&lt;p>&lt;strong>September 1, 2016&lt;/strong>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>StackStorm Enterprise is back, and it’s now &lt;strong>Brocade Workflow Composer&lt;/strong>. We’ve just shipped version 2.0. The platform has had a look &amp;amp; feel update, the usual round of bugfixes and enhancements, and we’re introducing “Network Automation Suites” for our networking friends. More on those in a minute.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>We know that you’ve been asking about the future of StackStorm, where the project is going, when you can buy StackStorm Enterprise again, etc. Well, today we should be able to answer all of those questions.&lt;/p></description></item><item><title>StackStorm v1.6.0 is here</title><link>https://stackstorm.github.io/stackstorm.com/2016/08/10/stackstorm-v1-6-0/</link><pubDate>Wed, 10 Aug 2016 08:28:59 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/08/10/stackstorm-v1-6-0/</guid><description>&lt;p>&lt;strong>August 10, 2016&lt;/strong>&lt;br>
+&lt;em>By Tomaz Muraus&lt;/em>&lt;/p>
+&lt;p>A good month after &lt;a href="https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/">releasing StackStorm v1.5.0&lt;/a> we are happy to announce the release of StackStorm v1.6.0.&lt;/p>
+&lt;p>This release includes various new features and improvements described below.&lt;/p>
+&lt;h2 id="concurrency-policy-improvements">Concurrency policy improvements&lt;/h2>
+&lt;p>We have listened to &lt;a href="https://github.com/StackStorm/st2/issues/2794">feedback from our users&lt;/a> and updated &lt;a href="https://docs.stackstorm.com/latest/policies.html#concurrency">action concurrency policies&lt;/a> to allow action execution to be canceled instead of just delayed when a concurrency threshold is reached.&lt;/p>
+&lt;p>This feature comes handy in situations where multiple users request the same action, but the action is already running because of the first request.&lt;/p></description></item><item><title>StackStorm v1.5 is alive!</title><link>https://stackstorm.github.io/stackstorm.com/2016/06/27/stackstorm-v1-5-alive/</link><pubDate>Mon, 27 Jun 2016 22:55:51 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/06/27/stackstorm-v1-5-alive/</guid><description>&lt;p>&lt;strong>June 27, 2016&lt;/strong>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>&lt;strong>StackStorm v1.5.0&lt;/strong> has been released! More features, more improvements, and more bugfixes (sorry about those). Read on to hear about the changes, or fire up &lt;code>apt&lt;/code>/&lt;code>yum&lt;/code> and upgrade!&lt;/p>
+&lt;h2 id="cli-completion">CLI Completion!&lt;/h2>
+&lt;p>Spend a lot of your time using the &lt;code>st2&lt;/code> CLI? You’ll love this change: We’ve added CLI auto-completion to the &lt;code>st2&lt;/code> command. Type &lt;code>st2&lt;/code> then hit tab twice. You’ll get a list of all available arguments. This works multiple levels deep. Very handy when you can’t quite remember the right syntax:&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>Simple, but cool.&lt;/p>
+&lt;h2 id="datastore-secrets-and-user-scoping">Datastore Secrets and User-Scoping&lt;/h2>
+&lt;p>The StackStorm datastore service allows you to store common parameters and their values for reuse within sensors, actions and rules. Prior to v1.5, these were available to all users. Now you can scope variables to a specific user, and you can control who can read or write into those variables. By default, variables are stored in the &lt;code>system&lt;/code> scope, but you can scope it to a specific user by adding &lt;code>--scope=user&lt;/code>, e.g.:&lt;/p>
+&lt;p>&lt;code>st2 key set date_cmd &amp;quot;date -u&amp;quot; --scope=user&lt;/code>&lt;/p></description></item><item><title>StackStorm v1.4 is out</title><link>https://stackstorm.github.io/stackstorm.com/2016/04/20/stackstorm-v1-4/</link><pubDate>Thu, 21 Apr 2016 01:55:07 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/04/20/stackstorm-v1-4/</guid><description>&lt;p>&lt;strong>April 20, 2016&lt;/strong>&lt;br>
+&lt;em>by Patrick Hoolboom&lt;/em>&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;pre>&lt;code>&amp;lt;div&amp;gt;
+&amp;lt;p paraid=&amp;quot;1471666196&amp;quot; paraeid=&amp;quot;{cb84a6f8-745a-49e3-9550-f97a2c2f0626}{11}&amp;quot;&amp;gt;
+&amp;lt;b&amp;gt;&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;Packages are the new way forward&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;span&amp;gt; &amp;lt;/span&amp;gt;
+&amp;lt;/p&amp;gt;
 &amp;lt;/div&amp;gt;
-
 &amp;lt;div&amp;gt;
-  &amp;lt;p paraid=&amp;quot;91866301&amp;quot; paraeid=&amp;quot;{cb84a6f8-745a-49e3-9550-f97a2c2f0626}{115}&amp;quot;&amp;gt;
-    &amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;Have you heard yet that we are now shipping packages i.e. debs and rpms for all our supported platform? We did debut these in beta form with v1.3.2 and are now ready to fully cut-over to installing &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;StackStorm&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt; with standard packages. We are so excited by this that we will be publishing some more blogs about this topic very soon!&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt; &amp;lt;/span&amp;gt;
-  &amp;lt;/p&amp;gt;
+&amp;lt;p paraid=&amp;quot;91866301&amp;quot; paraeid=&amp;quot;{cb84a6f8-745a-49e3-9550-f97a2c2f0626}{115}&amp;quot;&amp;gt;
+&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;Have you heard yet that we are now shipping packages i.e. debs and rpms for all our supported platform? We did debut these in beta form with v1.3.2 and are now ready to fully cut-over to installing &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;StackStorm&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt; with standard packages. We are so excited by this that we will be publishing some more blogs about this topic very soon!&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt; &amp;lt;/span&amp;gt;
+&amp;lt;/p&amp;gt;
 &amp;lt;/div&amp;gt;
-
 &amp;lt;div&amp;gt;
-  &amp;lt;p paraid=&amp;quot;223105043&amp;quot; paraeid=&amp;quot;{6d476b0c-8451-4783-bd9a-9cb1e1a13786}{87}&amp;quot;&amp;gt;
-    &amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;Head on over to &amp;lt;a href=&amp;quot;https://docs.stackstorm.com/install/index.html&amp;quot;&amp;gt;install docs&amp;lt;/a&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;and check out the new install options.&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt; &amp;lt;/span&amp;gt;
-  &amp;lt;/p&amp;gt;
-  
-  &amp;lt;p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</description>
-    </item>
-    
-    <item>
-      <title>Clone of StackStorm v3.4.1 – Security fix</title>
-      <link>https://stackstorm.github.io/stackstorm.com/?p=9569/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/?p=9569/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Mar 16, 2021&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;by &lt;a href=&#34;https://www.github.com/Kami&#34;&gt;Tomaz Muraus&lt;/a&gt; and &lt;a href=&#34;https://github.com/blag&#34;&gt;@blag&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+&amp;lt;p paraid=&amp;quot;223105043&amp;quot; paraeid=&amp;quot;{6d476b0c-8451-4783-bd9a-9cb1e1a13786}{87}&amp;quot;&amp;gt;
+&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;Head on over to &amp;lt;a href=&amp;quot;https://docs.stackstorm.com/install/index.html&amp;quot;&amp;gt;install docs&amp;lt;/a&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span xml:lang=&amp;quot;EN-US&amp;quot;&amp;gt;&amp;lt;span&amp;gt;and check out the new install options.&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span&amp;gt; &amp;lt;/span&amp;gt;
+&amp;lt;/p&amp;gt;
+&amp;lt;p&amp;gt;
+&lt;/code>&lt;/pre></description></item></channel></rss>

@@ -1,48 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>updates on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/updates/</link>
-    <description>Recent content in updates on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 30 Nov 2020 19:49:13 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/updates/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>StackStorm project updates: Autumn 2020</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/11/30/stackstorm-project-updates-autumn-2020/</link>
-      <pubDate>Mon, 30 Nov 2020 19:49:13 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/11/30/stackstorm-project-updates-autumn-2020/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Nov 30, 2020&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Eugen Cusmaunsa (&lt;a href=&#34;https://github.com/armab&#34;&gt;@armab&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Hello Automation folks!&lt;br&gt;
-We would like to quickly update StackStorm community about the project progress, releases, plans and roadmap. Here is the overview.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Python 2 Deprecation Plan: Say goodbye to python 2</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</link>
-      <pubDate>Sun, 15 Nov 2020 21:02:54 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Nov 16, 2020&lt;/strong&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Ansible StackStorm role v2.0.0 released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</link>
-      <pubDate>Wed, 05 Aug 2020 17:18:30 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>updates on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/updates/</link><description>Recent content in updates on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 30 Nov 2020 19:49:13 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/updates/index.xml" rel="self" type="application/rss+xml"/><item><title>StackStorm project updates: Autumn 2020</title><link>https://stackstorm.github.io/stackstorm.com/2020/11/30/stackstorm-project-updates-autumn-2020/</link><pubDate>Mon, 30 Nov 2020 19:49:13 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/11/30/stackstorm-project-updates-autumn-2020/</guid><description>&lt;p>&lt;strong>Nov 30, 2020&lt;/strong>&lt;br>
+&lt;em>by Eugen Cusmaunsa (&lt;a href="https://github.com/armab">@armab&lt;/a>)&lt;/em>&lt;/p>
+&lt;p>Hello Automation folks!&lt;br>
+We would like to quickly update StackStorm community about the project progress, releases, plans and roadmap. Here is the overview.&lt;/p></description></item><item><title>Python 2 Deprecation Plan: Say goodbye to python 2</title><link>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</link><pubDate>Sun, 15 Nov 2020 21:02:54 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</guid><description>&lt;p>&lt;strong>Nov 16, 2020&lt;/strong>&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>Ansible StackStorm role v2.0.0 released</title><link>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</link><pubDate>Wed, 05 Aug 2020 17:18:30 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</guid><description>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

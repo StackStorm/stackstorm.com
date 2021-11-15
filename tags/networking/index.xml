@@ -1,75 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>networking on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/networking/</link>
-    <description>Recent content in networking on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 03 May 2018 17:00:21 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/networking/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Simplified Network Performance Tests with PerfSonar and SLX</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</link>
-      <pubDate>Thu, 03 May 2018 17:00:21 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</guid>
-      <description>&lt;p&gt;&lt;em&gt;May 3, 2018&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.perfsonar.net/&#34;&gt;PerfSonar&lt;/a&gt; is a super handy toolkit for measuring network performance between any two points. Combine this with the Guest VM built into the &lt;a href=&#34;https://www.extremenetworks.com/product/slx-9850-router/&#34;&gt;Extreme SLX series of switches,&lt;/a&gt; and you can easily run performance tests between any two points on your network, measuring performance, latency, jitter, MTU, path taken, etc. Combine that with StackStorm, and you can easily run those tests from Slack. No need to even login to a switch.&lt;/p&gt;
-&lt;h2 id=&#34;demo-network-performance-tests-via-slack&#34;&gt;Demo: Network Performance Tests via Slack&lt;/h2&gt;
-&lt;p&gt;Check out the video here. From Slack, we can trigger different tests between any two switches – &lt;a href=&#34;https://en.wikipedia.org/wiki/Iperf&#34;&gt;performance&lt;/a&gt;, &lt;a href=&#34;http://software.internet2.edu/owamp/&#34;&gt;one-way latency measurement&lt;/a&gt;, or &lt;a href=&#34;https://linux.die.net/man/8/tracepath&#34;&gt;trace the path&lt;/a&gt;, showing the path MTU. The results are then shown in Slack:&lt;/p&gt;
-&lt;p&gt;Read on for more about how to set this up.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Simple Packet Captures with SLX and CloudShark</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</link>
-      <pubDate>Fri, 27 Apr 2018 03:54:32 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</guid>
-      <description>&lt;p&gt;&lt;em&gt;April 27, 2018&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Packet Captures are a necessary evil when you need to prove network innocence. But they’re tedious to configure, collect &amp;amp; analyze. What if you could simplify the setup, collection and viewing? That’s what we’ve done here, combining StackStorm, Extreme Insight Architecture, &lt;a href=&#34;https://www.cloudshark.org&#34;&gt;CloudShark&lt;/a&gt;, and of course Slack.&lt;/p&gt;
-&lt;h2 id=&#34;demo-running-packet-captures-from-slack&#34;&gt;Demo: Running Packet Captures from Slack&lt;/h2&gt;
-&lt;p&gt;Check out the video here – we show entering some commands in Slack, which triggers a packet capture on multiple switches. The PCAPs are automatically uploaded to CloudShark, so we can view the packets in our browser:&lt;/p&gt;
-&lt;p&gt;Read on for more about how to set this up.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Event Driven Auto-Remediation with the Elastic Stack</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</link>
-      <pubDate>Fri, 13 Jan 2017 02:30:10 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Jan 12, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Recently we explained how to use &lt;a href=&#34;https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&#34;&gt;&lt;strong&gt;Syslog with Splunk &amp;amp; StackStorm&lt;/strong&gt;&lt;/a&gt; to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – &lt;a href=&#34;https://www.elastic.co/webinars/introduction-elk-stack&#34;&gt;&lt;strong&gt;Elastic Stack&lt;/strong&gt;&lt;/a&gt; (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same &lt;a href=&#34;https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&#34;&gt;use case as before&lt;/a&gt; and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Auto-Remediation with StackStorm &amp; Splunk</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</link>
-      <pubDate>Fri, 21 Oct 2016 20:13:26 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Oct 21, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.splunk.com&#34;&gt;&lt;strong&gt;Splunk&lt;/strong&gt;&lt;/a&gt; is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;!&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Network Automation with StackStorm and Docker</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/</link>
-      <pubDate>Thu, 19 May 2016 14:31:55 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;May 24, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Matthew Stone&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;What is StackStorm going to do with network automation? Ever since we joined Brocade, it’s been everyone’s question, and we have been hand-waving some answers. But the talk walks, code talks: let’s show something really working. Today’s example is on Docker network automation, where StackStorm makes physical networking follow Docker containers as they get created.&lt;/p&gt;
-&lt;p&gt;Millennial kids should watch my &lt;a href=&#34;https://www.youtube.com/watch?v=P9G71Ow6GUs&#34;&gt;video with detailed explanations on StackStorm’s YouTube channel&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;True hackers might jump straight to &lt;a href=&#34;https://github.com/StackStorm/dockernetwork-vdx-demo&#34;&gt;automation code on GitHub&lt;/a&gt; to see how it is built and try it out on your StackStorm instance.&lt;/p&gt;
-&lt;p&gt;Or, just read on.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>networking on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/networking/</link><description>Recent content in networking on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 03 May 2018 17:00:21 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/networking/index.xml" rel="self" type="application/rss+xml"/><item><title>Simplified Network Performance Tests with PerfSonar and SLX</title><link>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</link><pubDate>Thu, 03 May 2018 17:00:21 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</guid><description>&lt;p>&lt;em>May 3, 2018&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://www.perfsonar.net/">PerfSonar&lt;/a> is a super handy toolkit for measuring network performance between any two points. Combine this with the Guest VM built into the &lt;a href="https://www.extremenetworks.com/product/slx-9850-router/">Extreme SLX series of switches,&lt;/a> and you can easily run performance tests between any two points on your network, measuring performance, latency, jitter, MTU, path taken, etc. Combine that with StackStorm, and you can easily run those tests from Slack. No need to even login to a switch.&lt;/p>
+&lt;h2 id="demo-network-performance-tests-via-slack">Demo: Network Performance Tests via Slack&lt;/h2>
+&lt;p>Check out the video here. From Slack, we can trigger different tests between any two switches – &lt;a href="https://en.wikipedia.org/wiki/Iperf">performance&lt;/a>, &lt;a href="http://software.internet2.edu/owamp/">one-way latency measurement&lt;/a>, or &lt;a href="https://linux.die.net/man/8/tracepath">trace the path&lt;/a>, showing the path MTU. The results are then shown in Slack:&lt;/p>
+&lt;p>Read on for more about how to set this up.&lt;/p></description></item><item><title>Simple Packet Captures with SLX and CloudShark</title><link>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</link><pubDate>Fri, 27 Apr 2018 03:54:32 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</guid><description>&lt;p>&lt;em>April 27, 2018&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Packet Captures are a necessary evil when you need to prove network innocence. But they’re tedious to configure, collect &amp;amp; analyze. What if you could simplify the setup, collection and viewing? That’s what we’ve done here, combining StackStorm, Extreme Insight Architecture, &lt;a href="https://www.cloudshark.org">CloudShark&lt;/a>, and of course Slack.&lt;/p>
+&lt;h2 id="demo-running-packet-captures-from-slack">Demo: Running Packet Captures from Slack&lt;/h2>
+&lt;p>Check out the video here – we show entering some commands in Slack, which triggers a packet capture on multiple switches. The PCAPs are automatically uploaded to CloudShark, so we can view the packets in our browser:&lt;/p>
+&lt;p>Read on for more about how to set this up.&lt;/p></description></item><item><title>Event Driven Auto-Remediation with the Elastic Stack</title><link>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</link><pubDate>Fri, 13 Jan 2017 02:30:10 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</guid><description>&lt;p>&lt;strong>Jan 12, 2017&lt;/strong>&lt;br>
+&lt;em>by Siddharth Krishna&lt;/em>&lt;/p>
+&lt;p>Recently we explained how to use &lt;a href="https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/">&lt;strong>Syslog with Splunk &amp;amp; StackStorm&lt;/strong>&lt;/a> to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – &lt;a href="https://www.elastic.co/webinars/introduction-elk-stack">&lt;strong>Elastic Stack&lt;/strong>&lt;/a> (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same &lt;a href="https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/">use case as before&lt;/a> and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using &lt;strong>StackStorm&lt;/strong>.&lt;/p></description></item><item><title>Auto-Remediation with StackStorm &amp; Splunk</title><link>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</link><pubDate>Fri, 21 Oct 2016 20:13:26 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</guid><description>&lt;p>&lt;strong>Oct 21, 2016&lt;/strong>&lt;br>
+&lt;em>by Siddharth Krishna&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://www.splunk.com">&lt;strong>Splunk&lt;/strong>&lt;/a> is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using &lt;strong>StackStorm&lt;/strong>!&lt;/p></description></item><item><title>Network Automation with StackStorm and Docker</title><link>https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/</link><pubDate>Thu, 19 May 2016 14:31:55 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/</guid><description>&lt;p>&lt;strong>May 24, 2016&lt;/strong>&lt;br>
+&lt;em>by Matthew Stone&lt;/em>&lt;/p>
+&lt;p>What is StackStorm going to do with network automation? Ever since we joined Brocade, it’s been everyone’s question, and we have been hand-waving some answers. But the talk walks, code talks: let’s show something really working. Today’s example is on Docker network automation, where StackStorm makes physical networking follow Docker containers as they get created.&lt;/p>
+&lt;p>Millennial kids should watch my &lt;a href="https://www.youtube.com/watch?v=P9G71Ow6GUs">video with detailed explanations on StackStorm’s YouTube channel&lt;/a>.&lt;/p>
+&lt;p>True hackers might jump straight to &lt;a href="https://github.com/StackStorm/dockernetwork-vdx-demo">automation code on GitHub&lt;/a> to see how it is built and try it out on your StackStorm instance.&lt;/p>
+&lt;p>Or, just read on.&lt;/p></description></item></channel></rss>

@@ -1,184 +1,94 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Auto-Remediation with StackStorm &amp; Splunk | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Oct 21, 2016
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Auto-Remediation with StackStorm & Splunk | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Oct 21, 2016
 by Siddharth Krishna
 Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Auto-Remediation with StackStorm &amp; Splunk" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Auto-Remediation with StackStorm & Splunk">
 <meta property="og:description" content="Oct 21, 2016
 by Siddharth Krishna
-Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2016-10-21T20:13:26+00:00" />
-<meta property="article:modified_time" content="2016-10-21T20:13:26+00:00" />
-
-<meta itemprop="name" content="Auto-Remediation with StackStorm &amp; Splunk">
-<meta itemprop="description" content="Oct 21, 2016
+Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2016-10-21T20:13:26+00:00">
+<meta property="article:modified_time" content="2016-10-21T20:13:26+00:00">
+<meta itemprop=name content="Auto-Remediation with StackStorm & Splunk">
+<meta itemprop=description content="Oct 21, 2016
 by Siddharth Krishna
-Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!"><meta itemprop="datePublished" content="2016-10-21T20:13:26+00:00" />
-<meta itemprop="dateModified" content="2016-10-21T20:13:26+00:00" />
-<meta itemprop="wordCount" content="4241">
-<meta itemprop="keywords" content="Auto-remediation,chatops,networking,Splunk,syslog,tutorials,workflows," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Auto-Remediation with StackStorm &amp; Splunk"/>
-<meta name="twitter:description" content="Oct 21, 2016
+Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!"><meta itemprop=datePublished content="2016-10-21T20:13:26+00:00">
+<meta itemprop=dateModified content="2016-10-21T20:13:26+00:00">
+<meta itemprop=wordCount content="4241">
+<meta itemprop=keywords content="Auto-remediation,chatops,networking,Splunk,syslog,tutorials,workflows,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Auto-Remediation with StackStorm & Splunk">
+<meta name=twitter:description content="Oct 21, 2016
 by Siddharth Krishna
-Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&amp;text=Auto-Remediation%20with%20StackStorm%20&amp;%20Splunk" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&amp;title=Auto-Remediation%20with%20StackStorm%20&amp;%20Splunk" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Auto-Remediation with StackStorm &amp; Splunk</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2016-10-21T20:13:26Z">October 21, 2016</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Oct 21, 2016</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&text=Auto-Remediation%20with%20StackStorm%20&%20Splunk" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&title=Auto-Remediation%20with%20StackStorm%20&%20Splunk" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Auto-Remediation with StackStorm & Splunk</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2016-10-21T20:13:26Z>October 21, 2016</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Oct 21, 2016</strong><br>
 <em>by Siddharth Krishna</em></p>
-<p><a href="https://www.splunk.com"><strong>Splunk</strong></a> is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using <strong>StackStorm</strong>!</p>
-<h2 id="syslog-as-an-event-source">Syslog as an event source</h2>
+<p><a href=https://www.splunk.com><strong>Splunk</strong></a> is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using <strong>StackStorm</strong>!</p>
+<h2 id=syslog-as-an-event-source>Syslog as an event source</h2>
 <p><strong>Syslog</strong> for events and errors from the network devices can be tapped to trigger troubleshooting and auto-remediation actions on those devices. For example, if a ‘link down’ event occurs, the syslog message can be used to auto-trigger an action that would log into the device and try to bring the interface back up. In parallel, an IT ticket can also be auto-created with the relevant interface details. Notification of the event and the automated workflow can optionally be sent to a Slack channel (ChatOps).</p>
 <p>One option is to have StackStorm itself act as the syslog server and run a sensor that polls the log file to match specific log strings. This method, although workable, has its performance limitations, and it doesn’t give us a nice tool for searching historical logs. Instead we can use something like Splunk, which is a log aggregation and analysis system. Splunk includes alert functionality – we can filter syslog messages, extract relevant fields, and trigger actions such as making a webhook request to StackStorm.</p>
 <p>Here’s how to configure an auto-remediation workflow using Brocade VDX switches, Splunk and StackStorm:</p>
 <blockquote>
 <p>NB this guide assumes that you have a working StackStorm/BWC system, and a Splunk server.</p>
 </blockquote>
-<h2 id="vdx-configuration">VDX Configuration</h2>
+<h2 id=vdx-configuration>VDX Configuration</h2>
 <p>Configure all VDX switches to send syslog messages to the Splunk server:</p>
-<p><code>logging syslog-server &lt;splunk-ip-address&gt; use-vrf mgmt-vrf</code></p>
-<h2 id="setting-up-splunk">Setting up Splunk</h2>
-<p>We’re using the default Splunk <a href="http://docs.splunk.com/Documentation/Splunk/6.1.7/Overview/Searchingandreporting">Search &amp; Reporting</a> App here. You could also use the <a href="https://splunkbase.splunk.com/app/1909/">Brocade Splunk App</a>.</p>
-<!-- raw HTML omitted -->
+<p><code>logging syslog-server &lt;splunk-ip-address> use-vrf mgmt-vrf</code></p>
+<h2 id=setting-up-splunk>Setting up Splunk</h2>
+<p>We’re using the default Splunk <a href=http://docs.splunk.com/Documentation/Splunk/6.1.7/Overview/Searchingandreporting>Search & Reporting</a> App here. You could also use the <a href=https://splunkbase.splunk.com/app/1909/>Brocade Splunk App</a>.</p>
 <p>If your server does not currently accept syslog input, add it by going to:</p>
-<p><em>Settings -&gt; Data -&gt; Data Inputs -&gt; UDP -&gt; New</em></p>
+<p><em>Settings -> Data -> Data Inputs -> UDP -> New</em></p>
 <p>Input UDP port 514 (default syslog port) and Source Type as ‘syslog’</p>
-<p>Refer <a href="http://docs.splunk.com/Documentation/Splunk/6.5.0/Data/Configureyourinputs">here</a> for more on configuring data inputs on Splunk.</p>
+<p>Refer <a href=http://docs.splunk.com/Documentation/Splunk/6.5.0/Data/Configureyourinputs>here</a> for more on configuring data inputs on Splunk.</p>
 <p>Splunk should now start displaying live syslog events from the switches in its search result.</p>
-<p><em>Search -&gt; Data Summary -&gt; Search Type: syslog</em></p>
-<!-- raw HTML omitted -->
+<p><em>Search -> Data Summary -> Search Type: syslog</em></p>
 <p>Use the output of <code>show logging raslog</code> on a switch to identify an event or error of interest from its log string. In this case, we want to dynamically detect and act upon a link flap for which we need to tap syslog</p>
 <p><code>[NSM-1003], 48201, SW/0 | Active | DCE, INFO, LEAF2,  Interface TenGigabitEthernet 102/0/48 is link down.</code></p>
-<!-- raw HTML omitted -->
 <pre><code>            &lt;td id=&quot;file-vdx_raslog_output-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               LEAF2# show logging raslog reverse count 10
             &lt;/td&gt;
@@ -274,19 +184,15 @@ Splunk is a great tool for collecting and analyzing log data. StackStorm is a gr
   &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/vdx_raslog_output&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-vdx_raslog_output&quot;&gt;vdx_raslog_output&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
 <p>On splunk, create a search criteria to filter out the event. Here, we use the following:</p>
 <p><code>sourcetype=syslog NSM-1003 process=raslogd | fields + host, interface, syslog_text</code></p>
-<!-- raw HTML omitted -->
 <p>Stricter search criteria are recommended for greater filter accuracy. Once your search pattern is set up correctly, save it as a Splunk <em>Alert</em> with alert type as “Real-time” in order to capture the event live.</p>
-<p><em>Save As -&gt; Alert | Alert-type: Real-time, Trigger alert when: Per-Result</em></p>
-<!-- raw HTML omitted -->
+<p><em>Save As -> Alert | Alert-type: Real-time, Trigger alert when: Per-Result</em></p>
 <p>Splunk provides multiple options for Trigger Actions – Run a script, Send an Email, <em>Webhook</em>. You can run a script that makes a cURL call to StackStorm webhook URL or, for simplicity, use Splunk’s webhook option. StackStorm’s custom webhook URL is:</p>
 <p><code>https://{STACK_STORM_HOSTNAME}/api/v1/webhooks/splunk_link_flap?st2-api-key=XXXXXXXXXXXXXXXXXXXXXXXX</code></p>
-<p>For successful action execution, relevant fields or parameters need to be correctly extracted from the event log message and passed via the webhook call to StackStorm. For example, to be able to auto-remediate a ‘link down’ event i.e. do a “shut; not shut” on the switch, the switch’s IP address and an interface name are must. Splunk’s field extraction capability is useful in auto-generating regexp to pull out the field values from the log string. These “field:value” pairs are then passed in the webhook JSON payload. More on field extractions can be found <a href="http://docs.splunk.com/Documentation/Splunk/6.4.3/Knowledge/ExtractfieldsinteractivelywithIFX">here</a>.</p>
-<!-- raw HTML omitted -->
-<h2 id="stackstormbwc-configuration">StackStorm/BWC Configuration</h2>
-<p>A <a href="https://bwc-docs.brocade.com/webhooks.html#registering-a-custom-webhook">custom webhook</a> rule mapping the webhook trigger to the action workflow is created within StackStorm/BWC.</p>
+<p>For successful action execution, relevant fields or parameters need to be correctly extracted from the event log message and passed via the webhook call to StackStorm. For example, to be able to auto-remediate a ‘link down’ event i.e. do a “shut; not shut” on the switch, the switch’s IP address and an interface name are must. Splunk’s field extraction capability is useful in auto-generating regexp to pull out the field values from the log string. These “field:value” pairs are then passed in the webhook JSON payload. More on field extractions can be found <a href=http://docs.splunk.com/Documentation/Splunk/6.4.3/Knowledge/ExtractfieldsinteractivelywithIFX>here</a>.</p>
+<h2 id=stackstormbwc-configuration>StackStorm/BWC Configuration</h2>
+<p>A <a href=https://bwc-docs.brocade.com/webhooks.html#registering-a-custom-webhook>custom webhook</a> rule mapping the webhook trigger to the action workflow is created within StackStorm/BWC.</p>
 <p>The custom webhook rule for ‘link flap’ defines the following:</p>
 <ul>
 <li>Webhook trigger URL: “splunk_link_flap”, complete webhook URL to be configured on Splunk is “https://bwc/api/v1/webhooks/splunk_link_flap”</li>
@@ -295,7 +201,6 @@ Splunk is a great tool for collecting and analyzing log data. StackStorm is a gr
 <li>Host: IP Address of the switch/device</li>
 <li>Interface: Interface that went down</li>
 </ul>
-<!-- raw HTML omitted -->
 <pre><code>            &lt;td id=&quot;file-rule_list-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               brocade@bwc-2:~$ st2 rule list --pack=st2-demos
             &lt;/td&gt;
@@ -373,10 +278,8 @@ Splunk is a great tool for collecting and analyzing log data. StackStorm is a gr
   &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/rule_list&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-rule_list&quot;&gt;rule_list&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<h3 id="rule-definition">Rule Definition:</h3>
+<h3 id=rule-definition>Rule Definition:</h3>
 <p>splunk_link_flap.yaml</p>
-<!-- raw HTML omitted -->
 <pre><code>            &lt;td id=&quot;file-splunk_link_flap-yaml-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               ---
             &lt;/td&gt;
@@ -532,9 +435,7 @@ Splunk is a great tool for collecting and analyzing log data. StackStorm is a gr
   &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/splunk_link_flap.yaml&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-splunk_link_flap-yaml&quot;&gt;splunk_link_flap.yaml&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<h3 id="rule-details">Rule Details:</h3>
-<!-- raw HTML omitted -->
+<h3 id=rule-details>Rule Details:</h3>
 <pre><code>            &lt;td id=&quot;file-rule_get-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               brocade@bwc-2:~$ st2 rule get st2-demos.splunk_link_flap_webhook_rule
             &lt;/td&gt;
@@ -828,9 +729,7 @@ Splunk is a great tool for collecting and analyzing log data. StackStorm is a gr
   &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/rule_get&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-rule_get&quot;&gt;rule_get&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
 <p>When the ‘link down’ syslog is detected by Splunk, and the webhook to StackStorm called, the trigger instance payload contains the values for the various Splunk fields and parameters. These include the host IP address and the interface name (as per configured field extractions) along with other standard ones such as search link, search ID, raw log message etc. See this example below:</p>
-<!-- raw HTML omitted -->
 <pre><code>            &lt;td id=&quot;file-trigger_instance_get-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               brocade@bwc-2:~$ st2 trigger-instance get 57fcd76500483912504332d3
             &lt;/td&gt;
@@ -1358,10 +1257,8 @@ Splunk is a great tool for collecting and analyzing log data. StackStorm is a gr
   &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/trigger_instance_get&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-trigger_instance_get&quot;&gt;trigger_instance_get&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
 <p>These field values can now be directly accessed from the StackStorm webhook rule using <code>{{trigger.body.result.xxx}}</code> e.g. <code>{{trigger.body.result.host}}</code>.</p>
 <p>Upon successful enforcement, the rule executes the auto-remediation workflow with execution ID as shown below:</p>
-<!-- raw HTML omitted -->
 <pre><code>            &lt;td id=&quot;file-rule_enforcement_get-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               brocade@bwc-2:~$ st2 rule-enforcement get 57fcd76500483912504332d7
             &lt;/td&gt;
@@ -1466,7 +1363,6 @@ Splunk is a great tool for collecting and analyzing log data. StackStorm is a gr
   &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/rule_enforcement_get&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-rule_enforcement_get&quot;&gt;rule_enforcement_get&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
 <p>In this example, the workflow for link flap remediation does the following:</p>
 <ol>
 <li>Notify “link down” event on Slack with the Host IP address and Interface name</li>
@@ -1475,7 +1371,6 @@ Splunk is a great tool for collecting and analyzing log data. StackStorm is a gr
 <li>Pull interface details <code>show interface detail</code> from the switch and post the output to Slack</li>
 <li>Create a Zendesk IT ticket for the event occurrence and attach relevant logs</li>
 </ol>
-<!-- raw HTML omitted -->
 <pre><code>            &lt;td id=&quot;file-execution_get-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
               brocade@bwc-2:~$ st2 execution get 57fcd76500483912504332d6
             &lt;/td&gt;
@@ -1696,148 +1591,97 @@ Splunk is a great tool for collecting and analyzing log data. StackStorm is a gr
   &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/execution_get&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-execution_get&quot;&gt;execution_get&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-<!-- raw HTML omitted -->
-<h2 id="slack-channel">Slack Channel</h2>
-<!-- raw HTML omitted -->
-<p>All code examples used here are available in the <a href="https://github.com/StackStorm/st2_demos">StackStorm st2_demos repo on GitHub</a>.</p>
+<h2 id=slack-channel>Slack Channel</h2>
+<p>All code examples used here are available in the <a href=https://github.com/StackStorm/st2_demos>StackStorm st2_demos repo on GitHub</a>.</p>
 <p>This is just one example of a syslog-driven auto-remediation workflow. Workflows can be custom-built with actions and integrations for your environment. Use Jira instead of Zendesk? No problem! Quickly modify the workflow to use Jira instead! Use Hipchat? No problem, modify your <code>st2chatops2</code> setup to use that! Easy.</p>
-<p>What are you doing with event-driven remediation with StackStorm? Jump into our <a href="https://stackstorm.com/community-signup">community</a> and let us know!</p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/auto-remediation" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Auto-remediation</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/chatops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/networking" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">networking</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/splunk" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Splunk</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/syslog" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">syslog</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/tutorials" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorials</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/workflows" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">workflows</a>
-   </li>
-  
+<p>What are you doing with event-driven remediation with StackStorm? Jump into our <a href=https://stackstorm.com/community-signup>community</a> and let us know!</p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/auto-remediation class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Auto-remediation</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/chatops class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/networking class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">networking</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/splunk class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Splunk</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/syslog class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">syslog</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/tutorials class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorials</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/workflows class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">workflows</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/10/13/auto-remediation-meetup-stories-demos-netflix-mirantis/">Auto-Remediation Meetup: Stories &amp; Demos by Netflix and Mirantis</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/">OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/09/20/troubleshoot_a_rule/">How to Troubleshoot a Rule</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/">Summary – Brocade Workflow Composer at NFD 12</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/?p=5809/">StackStorm &#43; Ansible: Summer Update</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/06/06/a-brief-history-of-chatops/">A brief history of ChatOps (at StackStorm)</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/">Network Automation with StackStorm and Docker</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/04/11/brocade-acquisition-faq/">Brocade Acquisition FAQ</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/">Cisco Spark integration for StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/">Automation Happy Hour #12 – ChatOps Patterns</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/02/25/history-of-chatops/">The Brief History of ChatOps at StackStorm (and How We Got Here)</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/">Improvements to ChatOps Pack Development User Story in ST2 1.4dev</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/">Stackstorm: from Nagios integration to Openstack automation</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/">Chatops Pitfalls and Tips</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/">StackStorm 1.2.0: the new ChatOps</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2016/10/13/auto-remediation-meetup-stories-demos-netflix-mirantis/>Auto-Remediation Meetup: Stories & Demos by Netflix and Mirantis</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/>OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/09/20/troubleshoot_a_rule/>How to Troubleshoot a Rule</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/>Summary – Brocade Workflow Composer at NFD 12</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/06/06/a-brief-history-of-chatops/>A brief history of ChatOps (at StackStorm)</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/>Network Automation with StackStorm and Docker</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/04/11/brocade-acquisition-faq/>Brocade Acquisition FAQ</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/>Cisco Spark integration for StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/>Automation Happy Hour #12 – ChatOps Patterns</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/02/25/history-of-chatops/>The Brief History of ChatOps at StackStorm (and How We Got Here)</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/>Improvements to ChatOps Pack Development User Story in ST2 1.4dev</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/>Stackstorm: from Nagios integration to Openstack automation</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/>Chatops Pitfalls and Tips</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/>StackStorm 1.2.0: the new ChatOps</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/12/02/getting-started-with-auto-remediation/>Auto-Remediation: Getting Started</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

@@ -1,240 +1,135 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Stackstorm: from Nagios integration to Openstack automation | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="January 07, 2016
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Stackstorm: from Nagios integration to Openstack automation | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="January 07, 2016
 by Igor Cherkaev aka eMptywee
 Recently I’ve been playing around Stackstorm – a platform for integration and automation of day-to-day tasks, monitoring events, existing scripts and deployment tools.
 I am going to explain how easy it is to wrap your daily tasks into Stackstorm actions and workflows and how to provide a simple way of execution for complex tasks.
 I’ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn’t seem like a good idea. That being said, I’d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it’d be more practical and easier to read and understand.
 Nagios
-Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0&#43; installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &lt;www.stackstorm.com&gt; and &lt;www.nagios.org&gt; (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.
+Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to <www.stackstorm.com> and <www.nagios.org> (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.
 First of all, I was happy to find an existing Nagios integration pack on StackStorm community repo, but my joy ended really quickly as I found it not working. Secondly, this StackStorm tutorial helped me to get started.">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Stackstorm: from Nagios integration to Openstack automation" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Stackstorm: from Nagios integration to Openstack automation">
 <meta property="og:description" content="January 07, 2016
 by Igor Cherkaev aka eMptywee
 Recently I’ve been playing around Stackstorm – a platform for integration and automation of day-to-day tasks, monitoring events, existing scripts and deployment tools.
 I am going to explain how easy it is to wrap your daily tasks into Stackstorm actions and workflows and how to provide a simple way of execution for complex tasks.
 I’ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn’t seem like a good idea. That being said, I’d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it’d be more practical and easier to read and understand.
 Nagios
-Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0&#43; installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &lt;www.stackstorm.com&gt; and &lt;www.nagios.org&gt; (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.
-First of all, I was happy to find an existing Nagios integration pack on StackStorm community repo, but my joy ended really quickly as I found it not working. Secondly, this StackStorm tutorial helped me to get started." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2016-01-07T01:17:26+00:00" />
-<meta property="article:modified_time" content="2016-01-07T01:17:26+00:00" />
-
-<meta itemprop="name" content="Stackstorm: from Nagios integration to Openstack automation">
-<meta itemprop="description" content="January 07, 2016
+Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to <www.stackstorm.com> and <www.nagios.org> (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.
+First of all, I was happy to find an existing Nagios integration pack on StackStorm community repo, but my joy ended really quickly as I found it not working. Secondly, this StackStorm tutorial helped me to get started.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2016-01-07T01:17:26+00:00">
+<meta property="article:modified_time" content="2016-01-07T01:17:26+00:00">
+<meta itemprop=name content="Stackstorm: from Nagios integration to Openstack automation">
+<meta itemprop=description content="January 07, 2016
 by Igor Cherkaev aka eMptywee
 Recently I’ve been playing around Stackstorm – a platform for integration and automation of day-to-day tasks, monitoring events, existing scripts and deployment tools.
 I am going to explain how easy it is to wrap your daily tasks into Stackstorm actions and workflows and how to provide a simple way of execution for complex tasks.
 I’ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn’t seem like a good idea. That being said, I’d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it’d be more practical and easier to read and understand.
 Nagios
-Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0&#43; installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &lt;www.stackstorm.com&gt; and &lt;www.nagios.org&gt; (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.
-First of all, I was happy to find an existing Nagios integration pack on StackStorm community repo, but my joy ended really quickly as I found it not working. Secondly, this StackStorm tutorial helped me to get started."><meta itemprop="datePublished" content="2016-01-07T01:17:26+00:00" />
-<meta itemprop="dateModified" content="2016-01-07T01:17:26+00:00" />
-<meta itemprop="wordCount" content="2263">
-<meta itemprop="keywords" content="chatops,nagios," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Stackstorm: from Nagios integration to Openstack automation"/>
-<meta name="twitter:description" content="January 07, 2016
+Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to <www.stackstorm.com> and <www.nagios.org> (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.
+First of all, I was happy to find an existing Nagios integration pack on StackStorm community repo, but my joy ended really quickly as I found it not working. Secondly, this StackStorm tutorial helped me to get started."><meta itemprop=datePublished content="2016-01-07T01:17:26+00:00">
+<meta itemprop=dateModified content="2016-01-07T01:17:26+00:00">
+<meta itemprop=wordCount content="2263">
+<meta itemprop=keywords content="chatops,nagios,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Stackstorm: from Nagios integration to Openstack automation">
+<meta name=twitter:description content="January 07, 2016
 by Igor Cherkaev aka eMptywee
 Recently I’ve been playing around Stackstorm – a platform for integration and automation of day-to-day tasks, monitoring events, existing scripts and deployment tools.
 I am going to explain how easy it is to wrap your daily tasks into Stackstorm actions and workflows and how to provide a simple way of execution for complex tasks.
 I’ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn’t seem like a good idea. That being said, I’d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it’d be more practical and easier to read and understand.
 Nagios
-Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0&#43; installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &lt;www.stackstorm.com&gt; and &lt;www.nagios.org&gt; (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.
-First of all, I was happy to find an existing Nagios integration pack on StackStorm community repo, but my joy ended really quickly as I found it not working. Secondly, this StackStorm tutorial helped me to get started."/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to <www.stackstorm.com> and <www.nagios.org> (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.
+First of all, I was happy to find an existing Nagios integration pack on StackStorm community repo, but my joy ended really quickly as I found it not working. Secondly, this StackStorm tutorial helped me to get started.">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/&amp;text=Stackstorm:%20from%20Nagios%20integration%20to%20Openstack%20automation" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/&amp;title=Stackstorm:%20from%20Nagios%20integration%20to%20Openstack%20automation" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Stackstorm: from Nagios integration to Openstack automation</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              Dmitri Zimine
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2016-01-07T01:17:26Z">January 7, 2016</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>January 07, 2016</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/&text=Stackstorm:%20from%20Nagios%20integration%20to%20Openstack%20automation" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/&title=Stackstorm:%20from%20Nagios%20integration%20to%20Openstack%20automation" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Stackstorm: from Nagios integration to Openstack automation</h1>
+<p class=tracked>
+By <strong>
+Dmitri Zimine
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2016-01-07T01:17:26Z>January 7, 2016</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>January 07, 2016</strong><br>
 <em>by Igor Cherkaev aka eMptywee</em></p>
 <p>Recently I’ve been playing around Stackstorm – a platform for integration and automation of day-to-day tasks, monitoring events, existing scripts and deployment tools.</p>
 <p>I am going to explain how easy it is to wrap your daily tasks into Stackstorm actions and workflows and how to provide a simple way of execution for complex tasks.</p>
 <p>I’ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn’t seem like a good idea. That being said, I’d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it’d be more practical and easier to read and understand.</p>
-<h2 id="nagios">Nagios</h2>
-<p>Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &lt;www.stackstorm.com&gt; and &lt;www.nagios.org&gt; (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.</p>
-<p>First of all, I was happy to find an existing Nagios integration pack <a href="https://github.com/StackStorm-Exchange/stackstorm-nagios">on StackStorm community repo</a>, but my joy ended really quickly as I found it not working. Secondly, <a href="https://stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/">this StackStorm tutorial</a> helped me to get started.</p>
-<p>Although it talks about sensu and victorops (monitoring and paging tools), you can easily apply the logic to Nagios. With the help from Stackstorm support team (they are really cool guys and they reside on Slack, see <a href="https://stackstorm.com/community">https://stackstorm.com/community</a> for details) I was able to patch the st2 service handler python script to make it work (see diff here <a href="https://www.diffchecker.com/vzsiskbg">https://www.diffchecker.com/vzsiskbg</a>). Don’t worry, later I’ll post a link to the github repository with all the files you need.</p>
-<p>Also, don’t forget to apply for a trial <a href="https://stackstorm.com/product/#enterprise">Enterprise Stackstorm edition</a>! You will get a very cool Flow Visual Editor that will let you create really nice workflows with a drag of your mouse! I highly recommend to at least try it. It won’t hurt, I promise.</p>
-<h2 id="deploying-the-pack">Deploying the pack</h2>
-<p>Let’s go ahead and deploy our example nagios pack (the repository itself is located at <a href="https://github.com/emptywee/e_nagios)">https://github.com/emptywee/e_nagios)</a>:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<h2 id=nagios>Nagios</h2>
+<p>Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &lt;www.stackstorm.com> and &lt;www.nagios.org> (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.</p>
+<p>First of all, I was happy to find an existing Nagios integration pack <a href=https://github.com/StackStorm-Exchange/stackstorm-nagios>on StackStorm community repo</a>, but my joy ended really quickly as I found it not working. Secondly, <a href=https://stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/>this StackStorm tutorial</a> helped me to get started.</p>
+<p>Although it talks about sensu and victorops (monitoring and paging tools), you can easily apply the logic to Nagios. With the help from Stackstorm support team (they are really cool guys and they reside on Slack, see <a href=https://stackstorm.com/community>https://stackstorm.com/community</a> for details) I was able to patch the st2 service handler python script to make it work (see diff here <a href=https://www.diffchecker.com/vzsiskbg>https://www.diffchecker.com/vzsiskbg</a>). Don’t worry, later I’ll post a link to the github repository with all the files you need.</p>
+<p>Also, don’t forget to apply for a trial <a href=https://stackstorm.com/product/#enterprise>Enterprise Stackstorm edition</a>! You will get a very cool Flow Visual Editor that will let you create really nice workflows with a drag of your mouse! I highly recommend to at least try it. It won’t hurt, I promise.</p>
+<h2 id=deploying-the-pack>Deploying the pack</h2>
+<p>Let’s go ahead and deploy our example nagios pack (the repository itself is located at <a href=https://github.com/emptywee/e_nagios)>https://github.com/emptywee/e_nagios)</a>:</p>
 <p>Don’t worry if you see that re-loading rules throw some exceptions due to non-existing triggers. It’s all right at this point of time. The trigger will be created once you run the st2 service handler script from the nagios server (assuming that it can easily connect to your stackstorm server over ports 9100 and 9101 and the username-password pair is correct, and the latest stackstorm version supports accessing auth and API endpoints on 443 port as well, but I haven’t tried this approach yet). But this shouldn’t happen since we have all rules disabled by default in the pack. Let’s go ahead and enable <code>nagios_service_chat.yaml</code> rule. Simply edit it with your favorite editor in /opt/stackstorm/packs/e_nagios/rules/ and switch <code>enabled</code> to <code>true</code>.</p>
-<h2 id="adjusting-rules">Adjusting rules</h2>
+<h2 id=adjusting-rules>Adjusting rules</h2>
 <p>Let’s take a brief look at the rule itself (<code>nagios_service_chat.yaml</code>):</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p><code>trigger:</code> – is the trigger name that will make this rule fire up the action when certain criteria are met. In our case here we will post a message to our chatops (be it Slack, Lets-chat, HipChat or any other that is supported by Hubot). Plugging in chatops has become a simple task since v1.2.0 of Stackstorm has been released. So make sure you have chatops up and running to fully utilize all features, comfort, flexibility, and other bells and whistles of Stackstorm platform.</p>
 <p><code>criteria:</code> – with only AND logic so far you can specify when exactly you’d like the action to be executed. In this example we want the bot to report to chatops whenever any service or host changes its state into HARD state (usually after 3 consecutive checks with the same result).</p>
 <p><code>action:</code> – what should be executed when the criteria are met. In our case here we will just post a message to the specific channel. If you are using Slack, the channel should be more readable and meaningful name. Don’t hesitate to alter it to your needs.</p>
 <p>Don’t forget to reload the rules:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>There’s another way to temporary enable rules:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>But it will get disabled back after the next reload of the rules unless you modify respective YAML file with the rule definition (so-called meta-data).</p>
-<h2 id="setting-up-nagios">Setting up Nagios</h2>
+<h2 id=setting-up-nagios>Setting up Nagios</h2>
 <p>If you take a look at the st2 service handler script, you may notice that it is you who decides what to pass from Nagios to Stackstorm rules. Because it’s up to you to put anything you want into the payload that the script will send to Stackstorm. All these <code>trigger.service</code>, <code>trigger.msg</code> and alike are just parts of a payload that is formed on the Nagios host. With tens and hundreds of macros available in Nagios you may choose those that fit your needs. Here’s a link to the standard Nagios macros:<br>
-<a href="https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macrolist.html">https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macrolist.html</a></p>
+<a href=https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macrolist.html>https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/3/en/macrolist.html</a></p>
 <p>Here’s what you should do on the Nagios host. First of all, you need to upload <code>st2service_handler.py</code> script and <code>st2service_handler.conf</code> to the Nagios host and place them somewhere you like, make sure that Nagios can execute the script from that location. Make the script executable. Secondly, you need to define a check command with macros you found in the link just above. In my case I uploaded the script into the <code>/opt/nagios/libexec/</code> directory and have Nagios with NRPE setup, so I define it in the master <code>nrpe.cfg</code> file:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Then apply this command to <code>global_service_event_handler</code> in <code>nagios.cfg</code>:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>That is it! We are almost done with the Nagios part. A good thing would be running the command manually as the nagios user:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>This will register a trigger. After that you can safely reload rules that rely on the <code>e_nagios.service_state_change</code> trigger. Also, running it manually will let you test your rules and actions without actually forcing Nagios to generate real alerts. That is a good thing, isn’t it?</p>
 <p>So, in short, we are basically filling in our own payload and passing it from Nagios to Stackstorm. Just make sure that <code>st2service_handler.py</code> script has all the fields defined and in the correct order if you are about to add or remove Nagios macros from the event command.</p>
 <p>The relevant part about it in <code>st2service_handler.py</code> is:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>The order is defined by the array index of <code>args</code> passed to the main function. This is very important.</p>
-<h2 id="verifying-in-chatops">Verifying in chatops</h2>
+<h2 id=verifying-in-chatops>Verifying in chatops</h2>
 <p>Best way to verify it’s working is run the command manually from the Nagios host. You should see your bot reporting to the channel as it’s set in the rule.</p>
-<p><img src="http://1.bp.blogspot.com/-HvUZN4pt-YY/Vo2pWgw5-aI/AAAAAAAAfPU/cBLKCh8IbbM/s1600/image001.png" alt="bot reports Nagios alerts" title="Bot reports Nagios alerts in the chatops"></p>
+<p><img src=http://1.bp.blogspot.com/-HvUZN4pt-YY/Vo2pWgw5-aI/AAAAAAAAfPU/cBLKCh8IbbM/s1600/image001.png alt="bot reports Nagios alerts" title="Bot reports Nagios alerts in the chatops"></p>
 <p>Simple, eh? Now with what we have achieved so far, we can move forward and enhance our alert handling service.</p>
-<h2 id="enhancing-alert-handling">Enhancing alert handling</h2>
+<h2 id=enhancing-alert-handling>Enhancing alert handling</h2>
 <p>Although it’s very exciting to receive alerts in the chat room, it doesn’t make you much happier than you already are, and it certainly doesn’t relieve you from manually going and checking what exactly triggered the alert and take remedial actions.</p>
 <p>Your use-case and real world scenarios might be slightly different, but a disk space auto-remediation is a common task that everyone runs into during their day-to-day operations. You don’t really want to be awaken by a call early in the morning just to log in remotely and clean up some log files that filled up the whole disk. So it makes a really good example to deal with.</p>
 <p>That’s where the <code>nagios_service_disk.yaml</code> rule comes handy. Let’s take a look at it:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Pretty similar to the one above that just posts messages to the chat room, right? Don’t forget to enable it, as it comes disabled by default. Although we utilize the same trigger, criteria here are slightly different. We are matching service description to a certain regex pattern, and we explicitly matching hard state of the alert, and catching state ID greater than zero (since in Nagios 0 means RECOVERY, 1 – WARNING, 2 – CRITICAL). We do not want to automatically fire an action on recovery alerts, right? At least in this case. One thing is also important here, and I once spent a lot of time figuring out why my rule didn’t work properly. The thing is that <strong>you really should wrap your patterns in double-quotes</strong> when you define your criteria. Even if it’s an integer (see <code>trigger.state_id</code> criterion as an example).</p>
 <p>That being said, once we receive an alert with the matching criteria Stackstorm will execute the defined action and do some magic with the parameters we are passing to that action. Namely, the action is called <code>e_nagios.remediate_disk_workflow</code> and is defined under actions/ directory of the pack. We also pass hostname that triggered the alert and stripping <code>Disk</code> part out of the service description, leaving only the directory of the mounted partition itself (assuming that disk monitoring service has appropriate service description defined in the Nagios config, don’t hesitate to adjust to your own environment here). Yes, Stackstorm supports Jinja2 filters in the rules definition when you pass parameters to actions!</p>
-<h2 id="disk-space-remediation-action">Disk Space Remediation Action</h2>
+<h2 id=disk-space-remediation-action>Disk Space Remediation Action</h2>
 <p>It’s time to design our auto-remediation action! Here’s how it looks (and it does really look nice) in the Visual Flow tool that comes in the Enterprise Stackstorm edition:</p>
-<p><img src="http://4.bp.blogspot.com/-8_vreXYrnDo/Vo2pjte-vII/AAAAAAAAfPc/mp33ENEpUxY/s1600/image003.png" alt="Visual Flow workflow design" title="Visual Flow workflow design tool"></p>
+<p><img src=http://4.bp.blogspot.com/-8_vreXYrnDo/Vo2pjte-vII/AAAAAAAAfPc/mp33ENEpUxY/s1600/image003.png alt="Visual Flow workflow design" title="Visual Flow workflow design tool"></p>
 <p>The workflow itself is pretty simple and consists of the following steps:</p>
 <ol>
 <li>Report in the chatops that we received the task to check the disk space;</li>
@@ -250,104 +145,60 @@ First of all, I was happy to find an existing Nagios integration pack on StackSt
 <li>disk_remediate</li>
 </ol>
 <p>The meta-data for the <code>check_dir_size</code> action is defined in YAML and looks like this:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Three things to pay attention to: <code>entry_point</code>, <code>parameters</code> and <code>runner_type</code>. Since it’s a <code>remote-shell-script</code> runner, there’s an implied parameter <code>hosts</code> that this action will require (see <a href="https://docs.stackstorm.com/runners.html#remote-script-runner-remote-shell-script">https://docs.stackstorm.com/runners.html</a> for details, for instance in case you need to provide password authentication). <code>entry_point</code> points to the script name that should reside in the same directory. <code>parameters</code> declares all parameters that will be passed to the script, their types and other options. As a homework you may want to transform the alert level (Warning or Critical) coming from Nagios into threshold level for the script. But it should be done in the workflow that is depicted earlier when we talked about the Visual Flow instrument.<br>
+<p>Three things to pay attention to: <code>entry_point</code>, <code>parameters</code> and <code>runner_type</code>. Since it’s a <code>remote-shell-script</code> runner, there’s an implied parameter <code>hosts</code> that this action will require (see <a href=https://docs.stackstorm.com/runners.html#remote-script-runner-remote-shell-script>https://docs.stackstorm.com/runners.html</a> for details, for instance in case you need to provide password authentication). <code>entry_point</code> points to the script name that should reside in the same directory. <code>parameters</code> declares all parameters that will be passed to the script, their types and other options. As a homework you may want to transform the alert level (Warning or Critical) coming from Nagios into threshold level for the script. But it should be done in the workflow that is depicted earlier when we talked about the Visual Flow instrument.<br>
 And the most interesting action is the <code>disk_remediate</code> action. Let’s take a look at the meta-data of the action:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Basically it looks very similar to the first one. And here’s where your imagination comes forward. The dummy auto-remediation script may look something like this:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>Who writes in Perl nowadays you’d ask? I don’t know. Some old farts like me, probably. But you may go ahead and use your favorite Bash, Python or Ruby. All that matters is that it should be executable remotely on the host, where the disk issue is appeared and reported by Nagios. You may want to compress logs, upload them, move them, just delete them, enable compression in logrotate configuration or even try to extend logical volumes if you have some spare space left when such need arises. It’s completely up to you what to do. I have disabled JSON output in the dummy script since JSON module is not installed by default on the Linux distributions. In general it’s a good idea to produce outcome in JSON format, since it then can be easily adopted and published by actions in a workflow.</p>
 <p>And in the end the whole workflow after you put everything together will look like (which is also shown on the picture in the beginning of the chapter, but in Visual Flow representation):</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>As I mentioned earlier we can actually pass how critical the alert was (was it just a warning or the situation is critical) and act accordingly by altering the threshold or telling our script to be more aggressive.</p>
 <p>At last, let’s look at the workflow’s metadata, as it contains parameters that tie it to the rule we started from:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
 <p>For example, we can define an array in the metadata with threshold levels for critical and warning alerts and use it to pass different numbers to disk check scripts later in the workflow. Think about it on your own and try to implement.</p>
 <p>Hope that helps to get your started with auto-remediation and guard your sleep at night. There are a few other rules in the pack worth looking at, e.g. triggering actions on “proc” and “load” Nagios service alerts. That being said, you may want to restart processes when Nagios reports them down.</p>
 <p>We will talk about Stackstorm and Openstack integration in the next series of my posts.</p>
 <hr>
-<p><em>This guest post is originally posted at <a href="https://emptywee.blogspot.com/2016/01/part-i-stackstorm-from-nagios.html">https://emptywee.blogspot.com</a></em></p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/chatops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/nagios" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">nagios</a>
-   </li>
-  
+<p><em>This guest post is originally posted at <a href=https://emptywee.blogspot.com/2016/01/part-i-stackstorm-from-nagios.html>https://emptywee.blogspot.com</a></em></p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/chatops class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/nagios class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">nagios</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/">Chatops Pitfalls and Tips</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/">StackStorm 1.2.0: the new ChatOps</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/">Ansible and ChatOps. Get started 🚀</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/12/ahh03-chatops-notifications/">AHH #03 – ChatOps &amp; Notifications</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/">StackStorm – Automated Troubleshooting</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/>Chatops Pitfalls and Tips</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/>StackStorm 1.2.0: the new ChatOps</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/>Ansible and ChatOps. Get started 🚀</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/12/ahh03-chatops-notifications/>AHH #03 – ChatOps & Notifications</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/>StackStorm – Automated Troubleshooting</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

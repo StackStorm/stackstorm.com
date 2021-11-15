@@ -1,214 +1,123 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>StackStorm Exchange goes Serverless | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Run StackStorm Exchange actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>StackStorm Exchange goes Serverless | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Run StackStorm Exchange actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.
 December 14, 2017
 by Dmitri Zimine
-StackStorm Exchange is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500&#43; actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.
+StackStorm Exchange is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.
 
 But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying StackStorm may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their great library of reusable connectors? Why can’t YOU grab something ready-to-use?
 Now you can! Run StackStorm Exchange actions as lambda functions. Without StackStorm. Serverless and Stormless.
 
 Consider a detailed tutorial “Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange” to really get your hands dirty and try this out for real.
 ">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="StackStorm Exchange goes Serverless" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="StackStorm Exchange goes Serverless">
 <meta property="og:description" content="Run StackStorm Exchange actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.
 December 14, 2017
 by Dmitri Zimine
-StackStorm Exchange is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500&#43; actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.
+StackStorm Exchange is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.
 
 But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying StackStorm may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their great library of reusable connectors? Why can’t YOU grab something ready-to-use?
 Now you can! Run StackStorm Exchange actions as lambda functions. Without StackStorm. Serverless and Stormless.
 
 Consider a detailed tutorial “Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange” to really get your hands dirty and try this out for real.
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2017-12-14T09:00:10+00:00" />
-<meta property="article:modified_time" content="2017-12-14T09:00:10+00:00" />
-
-<meta itemprop="name" content="StackStorm Exchange goes Serverless">
-<meta itemprop="description" content="Run StackStorm Exchange actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2017-12-14T09:00:10+00:00">
+<meta property="article:modified_time" content="2017-12-14T09:00:10+00:00">
+<meta itemprop=name content="StackStorm Exchange goes Serverless">
+<meta itemprop=description content="Run StackStorm Exchange actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.
 December 14, 2017
 by Dmitri Zimine
-StackStorm Exchange is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500&#43; actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.
+StackStorm Exchange is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.
 
 But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying StackStorm may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their great library of reusable connectors? Why can’t YOU grab something ready-to-use?
 Now you can! Run StackStorm Exchange actions as lambda functions. Without StackStorm. Serverless and Stormless.
 
 Consider a detailed tutorial “Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange” to really get your hands dirty and try this out for real.
-"><meta itemprop="datePublished" content="2017-12-14T09:00:10+00:00" />
-<meta itemprop="dateModified" content="2017-12-14T09:00:10+00:00" />
-<meta itemprop="wordCount" content="970">
-<meta itemprop="keywords" content="Community,exchange,serverless," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="StackStorm Exchange goes Serverless"/>
-<meta name="twitter:description" content="Run StackStorm Exchange actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.
+"><meta itemprop=datePublished content="2017-12-14T09:00:10+00:00">
+<meta itemprop=dateModified content="2017-12-14T09:00:10+00:00">
+<meta itemprop=wordCount content="970">
+<meta itemprop=keywords content="Community,exchange,serverless,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="StackStorm Exchange goes Serverless">
+<meta name=twitter:description content="Run StackStorm Exchange actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.
 December 14, 2017
 by Dmitri Zimine
-StackStorm Exchange is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500&#43; actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.
+StackStorm Exchange is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.
 
 But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying StackStorm may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their great library of reusable connectors? Why can’t YOU grab something ready-to-use?
 Now you can! Run StackStorm Exchange actions as lambda functions. Without StackStorm. Serverless and Stormless.
 
 Consider a detailed tutorial “Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange” to really get your hands dirty and try this out for real.
-"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/&amp;text=StackStorm%20Exchange%20goes%20Serverless" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/&amp;title=StackStorm%20Exchange%20goes%20Serverless" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">StackStorm Exchange goes Serverless</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              Dmitri Zimine
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2017-12-14T09:00:10Z">December 14, 2017</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Run <a href="https://exchange.stackstorm.org/">StackStorm Exchange</a> actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.</p>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/&text=StackStorm%20Exchange%20goes%20Serverless" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/&title=StackStorm%20Exchange%20goes%20Serverless" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">StackStorm Exchange goes Serverless</h1>
+<p class=tracked>
+By <strong>
+Dmitri Zimine
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2017-12-14T09:00:10Z>December 14, 2017</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>Run <a href=https://exchange.stackstorm.org/>StackStorm Exchange</a> actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.</p>
 <p><em>December 14, 2017</em><br>
-<em>by <a href="https://twitter.com/dzimine">Dmitri Zimine</a></em></p>
-<p><a href="https://exchange.stackstorm.org/">StackStorm Exchange</a> is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.</p>
-<!-- raw HTML omitted -->
-<p>But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying <a href="https://stackstorm.com/">StackStorm</a> may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their <a href="https://docs.microsoft.com/en-us/azure/connectors/apis-list#popular-connectors">great library of reusable connectors</a>? Why can’t YOU grab something ready-to-use?</p>
+<em>by <a href=https://twitter.com/dzimine>Dmitri Zimine</a></em></p>
+<p><a href=https://exchange.stackstorm.org/>StackStorm Exchange</a> is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.</p>
+<p>But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying <a href=https://stackstorm.com/>StackStorm</a> may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their <a href=https://docs.microsoft.com/en-us/azure/connectors/apis-list#popular-connectors>great library of reusable connectors</a>? Why can’t YOU grab something ready-to-use?</p>
 <p>Now you can! Run StackStorm Exchange actions as lambda functions. Without StackStorm. <strong>Serverless and Stormless.</strong></p>
 <blockquote>
-<p>Consider a detailed tutorial <a href="https://medium.com/@dzimine/tutorial-building-a-community-on-boarding-app-with-serverless-stepfunctions-and-stackstorm-b2f7cf2cc419">“Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange”</a> to really get your hands dirty and try this out for real.</p>
+<p>Consider a detailed tutorial <a href=https://medium.com/@dzimine/tutorial-building-a-community-on-boarding-app-with-serverless-stepfunctions-and-stackstorm-b2f7cf2cc419>“Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange”</a> to really get your hands dirty and try this out for real.</p>
 </blockquote>
-<p>You’ll need AWS account and <a href="https://serverless.com/framework/">Serverless Framework</a> – the most popular serverless framework (errr… I struggle with this sentence but yes, they called it “Serverless Framework”, so watch Caps to tell apart a buzzword from the framework). If you’ve gone serverless (buzzword) you’re likely using Serverless (framework) already. If you haven’t picked one yet, <a href="https://serverless.com/framework/">Serverless</a> is a safe choice.</p>
+<p>You’ll need AWS account and <a href=https://serverless.com/framework/>Serverless Framework</a> – the most popular serverless framework (errr… I struggle with this sentence but yes, they called it “Serverless Framework”, so watch Caps to tell apart a buzzword from the framework). If you’ve gone serverless (buzzword) you’re likely using Serverless (framework) already. If you haven’t picked one yet, <a href=https://serverless.com/framework/>Serverless</a> is a safe choice.</p>
 <p>The framework is a CLI toolkit for deploying and operating serverless architectures, with a pitch line – drums… – “Focus on your application, not your infrastructure”. You write your functions as JavaScript, Python, Java, or Go, and point to them in a <code>serverless.yml</code> file. The framework does all the infrastructure work to forklift your functions to the cloud, and offers convenient CLI tools that make serverless development workflow fast and enjoyable.</p>
-<p>With our new <a href="https://github.com/StackStorm/serverless-plugin-stackstorm">serverless-plugin-stackstorm</a>, you can just point to an action from any integration pack available on StackStorm Exchange. Like this:</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>Under the hood, the plugin pulls the integration pack from <a href="https://exchange.stackstorm.org/">StackStorm Exchange</a>, builds a python bundle, deploys it on AWS and turn the action to Lambda, mapping the input and output as desired. Don’t be scared when you see a Docker container spinning up: we use it for a build environment to make sure the lambdas will be binary compatible no matter what OS you’re using in development.</p>
-<p>For detailed instructions see the <a href="https://github.com/StackStorm/serverless-plugin-stackstorm">plugin’s README.md</a>. For some technical highlights, read on.<br>
-Or jump straight to playing with it – and if you like the idea, please give it a star! <!-- raw HTML omitted -->Star<!-- raw HTML omitted --></p>
+<p>With our new <a href=https://github.com/StackStorm/serverless-plugin-stackstorm>serverless-plugin-stackstorm</a>, you can just point to an action from any integration pack available on StackStorm Exchange. Like this:</p>
+<p>Under the hood, the plugin pulls the integration pack from <a href=https://exchange.stackstorm.org/>StackStorm Exchange</a>, builds a python bundle, deploys it on AWS and turn the action to Lambda, mapping the input and output as desired. Don’t be scared when you see a Docker container spinning up: we use it for a build environment to make sure the lambdas will be binary compatible no matter what OS you’re using in development.</p>
+<p>For detailed instructions see the <a href=https://github.com/StackStorm/serverless-plugin-stackstorm>plugin’s README.md</a>. For some technical highlights, read on.<br>
+Or jump straight to playing with it – and if you like the idea, please give it a star! Star</p>
 <hr>
-<h4 id="q-do-i-need-to-run-stackstorm-to-use-it">Q: Do I need to run StackStorm to use it?</h4>
-<p>No. It’s Stormless. We reuse StackStorm action-runner runtime to execute actions on AWS Lambda, but it’s already part of the plugin and you don’t have to care. If you are curious about StackStorm – <a href="https://github.com/StackStorm/st2-docker">grab the StackStorm Docker container</a> and play with it. It will help if you want to build packs and contribute to StackStorm Exchange, but it’s not required.</p>
-<h4 id="q-can-i-still-write-a-function-myself">Q: Can I still write a function myself?</h4>
+<h4 id=q-do-i-need-to-run-stackstorm-to-use-it>Q: Do I need to run StackStorm to use it?</h4>
+<p>No. It’s Stormless. We reuse StackStorm action-runner runtime to execute actions on AWS Lambda, but it’s already part of the plugin and you don’t have to care. If you are curious about StackStorm – <a href=https://github.com/StackStorm/st2-docker>grab the StackStorm Docker container</a> and play with it. It will help if you want to build packs and contribute to StackStorm Exchange, but it’s not required.</p>
+<h4 id=q-can-i-still-write-a-function-myself>Q: Can I still write a function myself?</h4>
 <p>Yes, you can and you sure will. The business logic goes to your code, and repeatable plumbing comes from reusable integration packs. On this token: once you write something that might be reusable by community, post it up to Exchange for good Open Source karma. We also send nice stickers, mugs and T-shirts!</p>
-<h4 id="q-how-do-i-know-what-the-action-parameters-are">Q: How do I know what the action parameters are?</h4>
+<h4 id=q-how-do-i-know-what-the-action-parameters-are>Q: How do I know what the action parameters are?</h4>
 <p>Use the <code>info –action</code>. Like this:</p>
 <p><code>sls stackstorm info --action slack.post_message</code></p>
-<!-- raw HTML omitted -->
-<h4 id="q-but-what-if-my-event-payload-doesnt-match-action-parameters">Q: But what if my event payload doesn’t match action parameters?</h4>
+<h4 id=q-but-what-if-my-event-payload-doesnt-match-action-parameters>Q: But what if my event payload doesn’t match action parameters?</h4>
 <p>We offer transformation with Jinja syntax to transform the payload to action input: look at the example below. Notice that you can also do this to transform the action output to your desirable shape.</p>
 <pre><code># serverless.yml
 ...
@@ -234,7 +143,7 @@ functions:
                     state: &quot;{{ output.state }}&quot;
                     full_output: &quot;{{ output }}&quot;
 </code></pre>
-<h4 id="q-can-i-debug-and-run-stackstorm-exchange-functions-locally">Q: Can I debug and run StackStorm exchange functions locally?</h4>
+<h4 id=q-can-i-debug-and-run-stackstorm-exchange-functions-locally>Q: Can I debug and run StackStorm exchange functions locally?</h4>
 <p>Yes you can:</p>
 <pre><code>sls stackstorm docker run --function get_issue \
 --verbose \
@@ -243,110 +152,70 @@ functions:
 </code></pre>
 <p>Note the <code>--passthrough</code> option that let you omit action body invocation – this comes in handy when testing or debugging the parameter transformation.</p>
 <p>And <code>--verbose</code> will output the details on the input and output transformations:</p>
-<!-- raw HTML omitted -->
 <p>One nugget here: you’ll notice syntax that is different from classic <code>serverless invoke local</code>. We run locally in a Docker container for better compatibility with actual AWS Lambda execution environment.</p>
-<h4 id="q-is-this-the-only-nugget-what-else-should-i-be-aware-of">Q: Is this the only nugget? What else should I be aware of?</h4>
-<p>The plugin is hot off the press: we are still improving UX, refining syntax and CLI, speeding up builds and local experience. But once the function is deployed, it’s just your standard AWS Lambda, and as rock-solid as any Lambda. And if you see something – say something: <a href="https://github.com/StackStorm/serverless-plugin-stackstorm/issues">file bugs</a>, share irritations, propose improvements. PRs are the most welcome!</p>
+<h4 id=q-is-this-the-only-nugget-what-else-should-i-be-aware-of>Q: Is this the only nugget? What else should I be aware of?</h4>
+<p>The plugin is hot off the press: we are still improving UX, refining syntax and CLI, speeding up builds and local experience. But once the function is deployed, it’s just your standard AWS Lambda, and as rock-solid as any Lambda. And if you see something – say something: <a href=https://github.com/StackStorm/serverless-plugin-stackstorm/issues>file bugs</a>, share irritations, propose improvements. PRs are the most welcome!</p>
 <hr>
-<p>We are also happy to share that we are bringing Serverless community developers to <a href="https://exchange.stackstorm.org/">StackStorm Exchange</a> as reviewers and co-owners. Both communities – <a href="https://stackstorm.com/#community">StackStorm</a> and <a href="https://serverless.com/">Serverless</a> – will greatly benefit from a growing catalog of reusable functions for your projects, 100% Open Source.</p>
-<p>Let’s rock! Ping us on <a href="stackstorm-community.slack.com">StackStorm Slack</a> (signup <a href="https://stackstorm.com/community-signup">here</a>) or <a href="https://gitter.im/serverless/serverless">Serverless Gitter</a>, or on Twitter <a href="https://twitter.com/Stack_Storm">@Stack_Storm</a> &amp; <a href="https://twitter.com/goserverless">@goserverless</a> with your feedback.</p>
-<!-- raw HTML omitted --><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/community" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Community</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/exchange" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">exchange</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/serverless" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">serverless</a>
-   </li>
-  
+<p>We are also happy to share that we are bringing Serverless community developers to <a href=https://exchange.stackstorm.org/>StackStorm Exchange</a> as reviewers and co-owners. Both communities – <a href=https://stackstorm.com/#community>StackStorm</a> and <a href=https://serverless.com/>Serverless</a> – will greatly benefit from a growing catalog of reusable functions for your projects, 100% Open Source.</p>
+<p>Let’s rock! Ping us on <a href=stackstorm-community.slack.com>StackStorm Slack</a> (signup <a href=https://stackstorm.com/community-signup>here</a>) or <a href=https://gitter.im/serverless/serverless>Serverless Gitter</a>, or on Twitter <a href=https://twitter.com/Stack_Storm>@Stack_Storm</a> & <a href=https://twitter.com/goserverless>@goserverless</a> with your feedback.</p>
+<ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/community class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Community</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/exchange class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">exchange</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/serverless class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">serverless</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/12/01/november-pack-roundup/">November Pack Roundup</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/11/01/october-pack-updates/">October Pack Updates</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/09/04/august-pack-updates/">August Pack Updates</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/07/31/july-exchange-update/">July Exchange Update</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/">Serverless’ Event Gateway explained for StackStorm users</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/09/30/september-pack-updates-usability/">September Pack Updates: Usability</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/">StackStorm Centralized Logging with Graylog</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/">StackStorm Exchange: The New Pack Management</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/07/06/best-thing-stackstorm-community/">The Best thing about StackStorm? The Community</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2017/12/01/november-pack-roundup/>November Pack Roundup</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/11/01/october-pack-updates/>October Pack Updates</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/09/04/august-pack-updates/>August Pack Updates</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/07/31/july-exchange-update/>July Exchange Update</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/>Serverless’ Event Gateway explained for StackStorm users</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/09/30/september-pack-updates-usability/>September Pack Updates: Usability</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/>StackStorm Centralized Logging with Graylog</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/>StackStorm Exchange: The New Pack Management</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/07/06/best-thing-stackstorm-community/>The Best thing about StackStorm? The Community</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

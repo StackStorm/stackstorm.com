@@ -1,30 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Salt on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/salt/</link>
-    <description>Recent content in Salt on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2015 21:13:25 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/salt/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Weekly Update: Salt &amp; VictorOps Packs</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/04/24/weekly-update-salt-victorops-packs/</link>
-      <pubDate>Fri, 24 Apr 2015 21:13:25 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/04/24/weekly-update-salt-victorops-packs/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;April 24, 2015&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;by Manas Kelshikar&lt;/em&gt;&lt;/p&gt;
-&lt;h6 id=&#34;community&#34;&gt;COMMUNITY&lt;/h6&gt;
-&lt;p&gt;We merged some awesome new packs to our main community repo, &lt;!-- raw HTML omitted --&gt;StackStorm Exchange&lt;!-- raw HTML omitted --&gt;, and continued making changes to others:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Salt:&lt;/strong&gt; Run salt actions via StackStorm! Now StackStorm workflows can be spun up around Salt actions and mixed with actions from other packs for all your infrastructure needs. Looking forward to what the community spins around this integration! Shoutout to &lt;!-- raw HTML omitted --&gt;jcockhren&lt;!-- raw HTML omitted --&gt; and &lt;!-- raw HTML omitted --&gt;SophicWare&lt;!-- raw HTML omitted --&gt; for this awesome contribution.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;VictorOps:&lt;/strong&gt; Launch incident, acknowledge incidents and recover from incidents in VictorOps. Next up, spin up some Event Driven Automation magic to automatically tackle incidents.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;WebPageTest:&lt;/strong&gt; Test domains using WebPageTest.org services. Credit to &lt;!-- raw HTML omitted --&gt;Linuturk&lt;!-- raw HTML omitted --&gt; on this one.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Linux:&lt;/strong&gt; New iostat action to see the I/O stats of system storage.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Lots of changes are appearing in &lt;!-- raw HTML omitted --&gt;st2incubator&lt;!-- raw HTML omitted --&gt; in preparation for an upcoming release.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Salt on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/salt/</link><description>Recent content in Salt on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 24 Apr 2015 21:13:25 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/salt/index.xml" rel="self" type="application/rss+xml"/><item><title>Weekly Update: Salt &amp; VictorOps Packs</title><link>https://stackstorm.github.io/stackstorm.com/2015/04/24/weekly-update-salt-victorops-packs/</link><pubDate>Fri, 24 Apr 2015 21:13:25 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/04/24/weekly-update-salt-victorops-packs/</guid><description>&lt;p>&lt;strong>April 24, 2015&lt;/strong>&lt;/p>
+&lt;p>&lt;em>by Manas Kelshikar&lt;/em>&lt;/p>
+&lt;h6 id="community">COMMUNITY&lt;/h6>
+&lt;p>We merged some awesome new packs to our main community repo, &lt;!-- raw HTML omitted -->StackStorm Exchange&lt;!-- raw HTML omitted -->, and continued making changes to others:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Salt:&lt;/strong> Run salt actions via StackStorm! Now StackStorm workflows can be spun up around Salt actions and mixed with actions from other packs for all your infrastructure needs. Looking forward to what the community spins around this integration! Shoutout to &lt;!-- raw HTML omitted -->jcockhren&lt;!-- raw HTML omitted --> and &lt;!-- raw HTML omitted -->SophicWare&lt;!-- raw HTML omitted --> for this awesome contribution.&lt;/li>
+&lt;li>&lt;strong>VictorOps:&lt;/strong> Launch incident, acknowledge incidents and recover from incidents in VictorOps. Next up, spin up some Event Driven Automation magic to automatically tackle incidents.&lt;/li>
+&lt;li>&lt;strong>WebPageTest:&lt;/strong> Test domains using WebPageTest.org services. Credit to &lt;!-- raw HTML omitted -->Linuturk&lt;!-- raw HTML omitted --> on this one.&lt;/li>
+&lt;li>&lt;strong>Linux:&lt;/strong> New iostat action to see the I/O stats of system storage.&lt;/li>
+&lt;/ul>
+&lt;p>Lots of changes are appearing in &lt;!-- raw HTML omitted -->st2incubator&lt;!-- raw HTML omitted --> in preparation for an upcoming release.&lt;/p></description></item></channel></rss>

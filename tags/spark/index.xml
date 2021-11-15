@@ -1,31 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>spark on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/spark/</link>
-    <description>Recent content in spark on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 23 Mar 2016 04:01:31 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/spark/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Cisco Spark integration for StackStorm</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</link>
-      <pubDate>Wed, 23 Mar 2016 04:01:31 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;March 22, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by &lt;!-- raw HTML omitted --&gt;Anthony Shaw&lt;!-- raw HTML omitted --&gt; of Dimension Data&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.&lt;br&gt;
-This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.&lt;/p&gt;
-&lt;h2 id=&#34;what-is-cisco-spark&#34;&gt;What is Cisco Spark?&lt;/h2&gt;
-&lt;p&gt;Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.&lt;/p&gt;
-&lt;h2 id=&#34;what-is-stackstorm&#34;&gt;What is StackStorm?&lt;/h2&gt;
-&lt;p&gt;StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.&lt;/p&gt;
-&lt;h2 id=&#34;configuring-cisco-spark&#34;&gt;Configuring Cisco Spark&lt;/h2&gt;
-&lt;p&gt;If you don’t already have a Cisco Spark account, you can sign up at &lt;a href=&#34;https://www.ciscospark.com/&#34;&gt;www.ciscospark.com&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Once you have signed up, go to &lt;a href=&#34;https://developer.ciscospark.com/&#34;&gt;developer.ciscospark.com&lt;/a&gt; and sign in, then you should be able to generate a key&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://s8.postimg.org/dnq0660g5/developer_key.png&#34; alt=&#34;&#34;&gt;  &lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>spark on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/spark/</link><description>Recent content in spark on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 23 Mar 2016 04:01:31 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/spark/index.xml" rel="self" type="application/rss+xml"/><item><title>Cisco Spark integration for StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</link><pubDate>Wed, 23 Mar 2016 04:01:31 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</guid><description>&lt;p>&lt;strong>March 22, 2016&lt;/strong>&lt;br>
+&lt;em>by &lt;!-- raw HTML omitted -->Anthony Shaw&lt;!-- raw HTML omitted --> of Dimension Data&lt;/em>&lt;/p>
+&lt;p>I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.&lt;br>
+This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.&lt;/p>
+&lt;h2 id="what-is-cisco-spark">What is Cisco Spark?&lt;/h2>
+&lt;p>Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.&lt;/p>
+&lt;h2 id="what-is-stackstorm">What is StackStorm?&lt;/h2>
+&lt;p>StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.&lt;/p>
+&lt;h2 id="configuring-cisco-spark">Configuring Cisco Spark&lt;/h2>
+&lt;p>If you don’t already have a Cisco Spark account, you can sign up at &lt;a href="https://www.ciscospark.com/">www.ciscospark.com&lt;/a>.&lt;/p>
+&lt;p>Once you have signed up, go to &lt;a href="https://developer.ciscospark.com/">developer.ciscospark.com&lt;/a> and sign in, then you should be able to generate a key&lt;/p>
+&lt;p>&lt;img src="http://s8.postimg.org/dnq0660g5/developer_key.png" alt="">  &lt;/p></description></item></channel></rss>

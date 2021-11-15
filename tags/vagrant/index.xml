@@ -1,39 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>vagrant on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/vagrant/</link>
-    <description>Recent content in vagrant on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 21 May 2018 05:00:11 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/vagrant/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Announcing StackStorm Vagrant &amp; OVA</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/05/20/announcing-stackstorm-vagrant-ova/</link>
-      <pubDate>Mon, 21 May 2018 05:00:11 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/05/20/announcing-stackstorm-vagrant-ova/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;May 21, 2018&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By &lt;a href=&#34;https://github.com/warrenvw&#34;&gt;Warren Van Winckel&lt;/a&gt; and &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C.&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://docs.stackstorm.com/install/vagrant.html&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;We’re glad to announce that StackStorm Vagrant box and Community OVA are available for general use and included as installation method in &lt;a href=&#34;https://docs.stackstorm.com/install/vagrant.html&#34;&gt;StackStorm Docs&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Ansible and ChatOps. Get started 🚀</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</link>
-      <pubDate>Wed, 24 Jun 2015 20:16:09 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 25, 2015&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;(Updated: February 21, 2017)&lt;!-- raw HTML omitted --&gt;&lt;br&gt;
-&lt;em&gt;Contribution by Integration Developer &lt;!-- raw HTML omitted --&gt;Eugen C.&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/HWN8T78.png&#34; alt=&#34;Ansible and ChatOps with StackStorm event-driven automation platform, Slack, Hubot&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;what-is-chatops&#34;&gt;What is ChatOps?&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ChatOps brings the context of work you are already doing into the conversations you are already having. &lt;!-- raw HTML omitted --&gt;@jfryman&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;ChatOps is still a fresh and uncommon thing in the DevOps world, where work is brought into a shared chat room. You can run commands directly from chat and everyone in the chatroom can see the history of work being done, do the same, interact with each other and even learn. The information and process is owned by the entire team which brings a lot of benefits.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>vagrant on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/vagrant/</link><description>Recent content in vagrant on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 21 May 2018 05:00:11 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/vagrant/index.xml" rel="self" type="application/rss+xml"/><item><title>Announcing StackStorm Vagrant &amp; OVA</title><link>https://stackstorm.github.io/stackstorm.com/2018/05/20/announcing-stackstorm-vagrant-ova/</link><pubDate>Mon, 21 May 2018 05:00:11 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/05/20/announcing-stackstorm-vagrant-ova/</guid><description>&lt;p>&lt;strong>May 21, 2018&lt;/strong>&lt;br>
+&lt;em>By &lt;a href="https://github.com/warrenvw">Warren Van Winckel&lt;/a> and &lt;a href="https://github.com/armab">Eugen C.&lt;/a>&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://docs.stackstorm.com/install/vagrant.html">&lt;!-- raw HTML omitted -->&lt;/a>&lt;/p>
+&lt;p>We’re glad to announce that StackStorm Vagrant box and Community OVA are available for general use and included as installation method in &lt;a href="https://docs.stackstorm.com/install/vagrant.html">StackStorm Docs&lt;/a>.&lt;/p></description></item><item><title>Ansible and ChatOps. Get started 🚀</title><link>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</link><pubDate>Wed, 24 Jun 2015 20:16:09 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</guid><description>&lt;p>&lt;strong>June 25, 2015&lt;/strong> &lt;!-- raw HTML omitted -->(Updated: February 21, 2017)&lt;!-- raw HTML omitted -->&lt;br>
+&lt;em>Contribution by Integration Developer &lt;!-- raw HTML omitted -->Eugen C.&lt;!-- raw HTML omitted -->&lt;/em>&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/HWN8T78.png" alt="Ansible and ChatOps with StackStorm event-driven automation platform, Slack, Hubot">&lt;/p>
+&lt;h2 id="what-is-chatops">What is ChatOps?&lt;/h2>
+&lt;blockquote>
+&lt;p>ChatOps brings the context of work you are already doing into the conversations you are already having. &lt;!-- raw HTML omitted -->@jfryman&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;/blockquote>
+&lt;p>ChatOps is still a fresh and uncommon thing in the DevOps world, where work is brought into a shared chat room. You can run commands directly from chat and everyone in the chatroom can see the history of work being done, do the same, interact with each other and even learn. The information and process is owned by the entire team which brings a lot of benefits.&lt;/p></description></item></channel></rss>

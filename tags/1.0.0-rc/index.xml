@@ -1,31 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>1.0.0-rc on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/1.0.0-rc/</link>
-    <description>Recent content in 1.0.0-rc on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jan 2018 17:27:00 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/1.0.0-rc/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Puppet Module to Install StackStorm – Announcing Release Candidate</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</link>
-      <pubDate>Fri, 05 Jan 2018 17:27:00 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;January 4, 2018&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By &lt;a href=&#34;https://github.com/nmaludy&#34;&gt;Nick Maludy&lt;/a&gt; of &lt;a href=&#34;http://www.encore.tech&#34;&gt;Encore Technologies&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;So far StackStorm has multiple installation methods: deb/rpm packages, &lt;a href=&#34;https://docs.stackstorm.com/install/index.html#ref-one-line-install&#34;&gt;&lt;code&gt;curl|bash&lt;/code&gt;&lt;/a&gt; installer used for simple deployments, &lt;a href=&#34;https://github.com/stackstorm/st2-docker&#34;&gt;Docker&lt;/a&gt;, &lt;a href=&#34;https://github.com/stackstorm/ansible-st2&#34;&gt;Ansible&lt;/a&gt;, &lt;a href=&#34;https://github.com/stackstorm/chef-stackstorm&#34;&gt;Chef&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Now it’s Puppet time!&lt;/p&gt;
-&lt;p&gt;Starting in July of 2017 a major effort has been underway to modernize the Puppet module to install/deploy StackStorm. In August of 2017 &lt;code&gt;v1.0.0-beta&lt;/code&gt; was released with completely re-worked internals to support the new StackStorm &lt;code&gt;deb/rpm&lt;/code&gt; package installation method and fix a large number of bugs. Since the beta we’ve continued development of new features like supporting all 4 StackStorm OSes, Puppet 4 and 5 compatibility, ChatOps installation and configuration, modernized pack management, full integration testing in Docker containers along with a slew of Puppet best practices improvements.&lt;/p&gt;
-&lt;p&gt;Today we’re proud to announce the Release Candidate version &lt;code&gt;v1.0.0-rc&lt;/code&gt; of the &lt;a href=&#34;https://github.com/StackStorm/puppet-st2&#34;&gt;&lt;code&gt;stackstorm-st2&lt;/code&gt;&lt;/a&gt; Puppet module which is available on Forge.&lt;br&gt;
-&lt;a href=&#34;https://forge.puppet.com/stackstorm/st2&#34;&gt;&lt;br&gt;
-&lt;!-- raw HTML omitted --&gt;&lt;br&gt;
-https://forge.puppet.com/stackstorm/st2&lt;br&gt;
-&lt;/a&gt;&lt;br&gt;
-Our plan is to release &lt;code&gt;v1.0.0&lt;/code&gt; stable in the coming weeks, but in order to do this we need your help. We ask everyone who is interested in Puppet-based deployment to give the module a try and provide your feedback!&lt;/p&gt;
-&lt;p&gt;Keep reading to find out more details about what’s changed and where the project is heading.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>1.0.0-rc on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/1.0.0-rc/</link><description>Recent content in 1.0.0-rc on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 05 Jan 2018 17:27:00 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/1.0.0-rc/index.xml" rel="self" type="application/rss+xml"/><item><title>Puppet Module to Install StackStorm – Announcing Release Candidate</title><link>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</link><pubDate>Fri, 05 Jan 2018 17:27:00 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</guid><description>&lt;p>&lt;strong>January 4, 2018&lt;/strong>&lt;br>
+&lt;em>By &lt;a href="https://github.com/nmaludy">Nick Maludy&lt;/a> of &lt;a href="http://www.encore.tech">Encore Technologies&lt;/a>&lt;/em>&lt;/p>
+&lt;p>So far StackStorm has multiple installation methods: deb/rpm packages, &lt;a href="https://docs.stackstorm.com/install/index.html#ref-one-line-install">&lt;code>curl|bash&lt;/code>&lt;/a> installer used for simple deployments, &lt;a href="https://github.com/stackstorm/st2-docker">Docker&lt;/a>, &lt;a href="https://github.com/stackstorm/ansible-st2">Ansible&lt;/a>, &lt;a href="https://github.com/stackstorm/chef-stackstorm">Chef&lt;/a>.&lt;/p>
+&lt;p>Now it’s Puppet time!&lt;/p>
+&lt;p>Starting in July of 2017 a major effort has been underway to modernize the Puppet module to install/deploy StackStorm. In August of 2017 &lt;code>v1.0.0-beta&lt;/code> was released with completely re-worked internals to support the new StackStorm &lt;code>deb/rpm&lt;/code> package installation method and fix a large number of bugs. Since the beta we’ve continued development of new features like supporting all 4 StackStorm OSes, Puppet 4 and 5 compatibility, ChatOps installation and configuration, modernized pack management, full integration testing in Docker containers along with a slew of Puppet best practices improvements.&lt;/p>
+&lt;p>Today we’re proud to announce the Release Candidate version &lt;code>v1.0.0-rc&lt;/code> of the &lt;a href="https://github.com/StackStorm/puppet-st2">&lt;code>stackstorm-st2&lt;/code>&lt;/a> Puppet module which is available on Forge.&lt;br>
+&lt;a href="https://forge.puppet.com/stackstorm/st2">&lt;br>
+&lt;!-- raw HTML omitted -->&lt;br>
+https://forge.puppet.com/stackstorm/st2&lt;br>
+&lt;/a>&lt;br>
+Our plan is to release &lt;code>v1.0.0&lt;/code> stable in the coming weeks, but in order to do this we need your help. We ask everyone who is interested in Puppet-based deployment to give the module a try and provide your feedback!&lt;/p>
+&lt;p>Keep reading to find out more details about what’s changed and where the project is heading.&lt;/p></description></item></channel></rss>

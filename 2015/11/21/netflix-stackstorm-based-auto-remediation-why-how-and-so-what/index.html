@@ -1,261 +1,140 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>Netflix: StackStorm-based Auto-Remediation – Why, How, and So What | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Lessons from this week’s Event Driven Automation Meet-up
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>Netflix: StackStorm-based Auto-Remediation – Why, How, and So What | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Lessons from this week’s Event Driven Automation Meet-up
 November 21, 2015
 by Evan Powell
 This week two excellent engineers at Netflix spoke at the Event Driven Automation meet-up which Netflix hosted.  It was great to see old friends and thought leaders from Cisco, Facebook, LinkedIn and elsewhere. This blog summarizes Netflix’s presentation. 
 My quick summary is that it was the best presentation I’ve seen that combines both solid reasoning about why to move towards auto-remediation as well as information about how to do so.
 Before we get to all that substance, however, I should admit that my favorite moment of the evening was probably when they explained why Netflix calls auto-remediation based on StackStorm “Winston.” Remember Mr Wolf?
 ">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="Netflix: StackStorm-based Auto-Remediation – Why, How, and So What" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="Netflix: StackStorm-based Auto-Remediation – Why, How, and So What">
 <meta property="og:description" content="Lessons from this week’s Event Driven Automation Meet-up
 November 21, 2015
 by Evan Powell
 This week two excellent engineers at Netflix spoke at the Event Driven Automation meet-up which Netflix hosted.  It was great to see old friends and thought leaders from Cisco, Facebook, LinkedIn and elsewhere. This blog summarizes Netflix’s presentation. 
 My quick summary is that it was the best presentation I’ve seen that combines both solid reasoning about why to move towards auto-remediation as well as information about how to do so.
 Before we get to all that substance, however, I should admit that my favorite moment of the evening was probably when they explained why Netflix calls auto-remediation based on StackStorm “Winston.” Remember Mr Wolf?
-" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/11/21/netflix-stackstorm-based-auto-remediation-why-how-and-so-what/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2015-11-21T21:18:41+00:00" />
-<meta property="article:modified_time" content="2015-11-21T21:18:41+00:00" />
-
-<meta itemprop="name" content="Netflix: StackStorm-based Auto-Remediation – Why, How, and So What">
-<meta itemprop="description" content="Lessons from this week’s Event Driven Automation Meet-up
+">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/11/21/netflix-stackstorm-based-auto-remediation-why-how-and-so-what/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2015-11-21T21:18:41+00:00">
+<meta property="article:modified_time" content="2015-11-21T21:18:41+00:00">
+<meta itemprop=name content="Netflix: StackStorm-based Auto-Remediation – Why, How, and So What">
+<meta itemprop=description content="Lessons from this week’s Event Driven Automation Meet-up
 November 21, 2015
 by Evan Powell
 This week two excellent engineers at Netflix spoke at the Event Driven Automation meet-up which Netflix hosted.  It was great to see old friends and thought leaders from Cisco, Facebook, LinkedIn and elsewhere. This blog summarizes Netflix’s presentation. 
 My quick summary is that it was the best presentation I’ve seen that combines both solid reasoning about why to move towards auto-remediation as well as information about how to do so.
 Before we get to all that substance, however, I should admit that my favorite moment of the evening was probably when they explained why Netflix calls auto-remediation based on StackStorm “Winston.” Remember Mr Wolf?
-"><meta itemprop="datePublished" content="2015-11-21T21:18:41+00:00" />
-<meta itemprop="dateModified" content="2015-11-21T21:18:41+00:00" />
-<meta itemprop="wordCount" content="1312">
-<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Netflix: StackStorm-based Auto-Remediation – Why, How, and So What"/>
-<meta name="twitter:description" content="Lessons from this week’s Event Driven Automation Meet-up
+"><meta itemprop=datePublished content="2015-11-21T21:18:41+00:00">
+<meta itemprop=dateModified content="2015-11-21T21:18:41+00:00">
+<meta itemprop=wordCount content="1312">
+<meta itemprop=keywords content><meta name=twitter:card content="summary">
+<meta name=twitter:title content="Netflix: StackStorm-based Auto-Remediation – Why, How, and So What">
+<meta name=twitter:description content="Lessons from this week’s Event Driven Automation Meet-up
 November 21, 2015
 by Evan Powell
 This week two excellent engineers at Netflix spoke at the Event Driven Automation meet-up which Netflix hosted.  It was great to see old friends and thought leaders from Cisco, Facebook, LinkedIn and elsewhere. This blog summarizes Netflix’s presentation. 
 My quick summary is that it was the best presentation I’ve seen that combines both solid reasoning about why to move towards auto-remediation as well as information about how to do so.
 Before we get to all that substance, however, I should admit that my favorite moment of the evening was probably when they explained why Netflix calls auto-remediation based on StackStorm “Winston.” Remember Mr Wolf?
-"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/11/21/netflix-stackstorm-based-auto-remediation-why-how-and-so-what/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/11/21/netflix-stackstorm-based-auto-remediation-why-how-and-so-what/&amp;text=Netflix:%20StackStorm-based%20Auto-Remediation%20%e2%80%93%20Why,%20How,%20and%20So%20What" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/11/21/netflix-stackstorm-based-auto-remediation-why-how-and-so-what/&amp;title=Netflix:%20StackStorm-based%20Auto-Remediation%20%e2%80%93%20Why,%20How,%20and%20So%20What" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">Netflix: StackStorm-based Auto-Remediation – Why, How, and So What</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2015-11-21T21:18:41Z">November 21, 2015</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h4 id="_lessons-from-this-week8217s-event-driven-automation-meet-up_"><em>Lessons from this week’s Event Driven Automation Meet-up</em></h4>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/11/21/netflix-stackstorm-based-auto-remediation-why-how-and-so-what/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/11/21/netflix-stackstorm-based-auto-remediation-why-how-and-so-what/&text=Netflix:%20StackStorm-based%20Auto-Remediation%20%e2%80%93%20Why,%20How,%20and%20So%20What" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2015/11/21/netflix-stackstorm-based-auto-remediation-why-how-and-so-what/&title=Netflix:%20StackStorm-based%20Auto-Remediation%20%e2%80%93%20Why,%20How,%20and%20So%20What" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">Netflix: StackStorm-based Auto-Remediation – Why, How, and So What</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2015-11-21T21:18:41Z>November 21, 2015</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h4 id=_lessons-from-this-week8217s-event-driven-automation-meet-up_><em>Lessons from this week’s Event Driven Automation Meet-up</em></h4>
 <p><strong>November 21, 2015</strong><br>
 <em>by Evan Powell</em></p>
-<p><!-- raw HTML omitted -->This week two excellent engineers at Netflix spoke at the <!-- raw HTML omitted --><!-- raw HTML omitted --><!-- raw HTML omitted -->Event Driven Automation meet-up<!-- raw HTML omitted --><!-- raw HTML omitted --> <!-- raw HTML omitted -->which Netflix hosted.  It was great to see old friends and thought leaders from Cisco, Facebook, LinkedIn and elsewhere. <!-- raw HTML omitted --><!-- raw HTML omitted -->This blog summarizes Netflix’s presentation. <!-- raw HTML omitted --></p>
+<p>This week two excellent engineers at Netflix spoke at the Event Driven Automation meet-up which Netflix hosted.  It was great to see old friends and thought leaders from Cisco, Facebook, LinkedIn and elsewhere. This blog summarizes Netflix’s presentation. </p>
 <p><strong>My quick summary is that it was the best presentation I’ve seen that combines both solid reasoning about</strong> <strong><em>why</em></strong> <strong>to move towards auto-remediation as well as information about</strong> <strong><em>how</em></strong> <strong>to do so.</strong></p>
-<p><!-- raw HTML omitted -->Before we get to all that substance, however, I should admit that my favorite moment of the evening was probably when they explained why Netflix calls auto-remediation based on StackStorm “Winston.” Remember Mr Wolf?<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->The entire video (of the meet-up that is, not Pulp Fiction) will be posted on the Event Driven Automation meet-up soon.  I highly recommend it and I’ll try to remember to cross link here when it is posted.  [note here it is: <!-- raw HTML omitted -->https://www.youtube.com/watch?v=ln8MhCJGC-g&amp;feature=youtu.be<!-- raw HTML omitted --> ]  As mentioned below, an upcoming Automation Happy Hour will dig into Netflix’s Winston as well.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->After introductions of our speakers Sayli and JS we got down to business<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->JS kicked off the discussion by talking about the great AWS reboot of last year; you may remember that Amazon discovered a Xen vulnerability and over a particular weekend they rebooted basically the entire fleet.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->While this caused considerable stress at Netflix it did not cause downtime to their Cassandra fleet thanks in large part to the existing remediation plus of course the resiliency of Cassandra.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->However, JS explained that their experience – and the massive scaling they are undertaking at Netflix – helped motivate the teams at Netflix to pay attention to what worked and what was not working so well with the existing remediation.<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->In short, the pre-existing remediation still far too often left the engineer on call and dealing with 2am pages.  <!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->Incidentally – we’ve seen this pattern before.  While Jenkins has some workflow capabilities one is really stretching its capabilities to use it in this way.<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->As they explained, the result is team burn-out and more:<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->Looking at the human workflow – how alerts are handled absent an effective auto-remediation flow – makes it clear why this is.<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->As you can see – it takes at least 30 minutes to solve the problem and during that time a number of sometimes intricate manual tasks are performed under duress, at 2am.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->Netflix dwelled on a photo of a physical runbook at the event.  It was a binder maybe 7-10 inches thick.  Imagine trying to search through that at 2am.  And yet that’s – or the digital equivalent – is often what occurs without automated remediation.<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->Their experience led them towards a handful of seemingly simple requirements:<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->When I first say this slide, my gut sort of clenched as I thought: “oh noos, we have become PaaS!”  It turns out that they meant more that they wanted to emulate the approach taken by Facebook and Linkedin and elsewhere – the remediation itself should be extensible and run as a service, so that other groups could consume it.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->The automation using building blocks is itself worthy of a blog.  Actually, if you scan our blog you’ll see that theme woven into a number of blogs already.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->I’m leaving out a number of slides of course just to give a summary.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->At this point the talk turned to a brief view of the technologies and then to outcomes.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->Once they started using StackStorm, they were able to change the process.  Note that they call their remediation solution Winston, which is excellent both because as mentioned a) <!-- raw HTML omitted --><br>
-<!-- raw HTML omitted --> <!-- raw HTML omitted -->and b) because by naming their StackStorm based remediation something other than StackStorm they recognize the work they and other users do to adapt StackStorm to their environment.  Suffice it to say we perceive and appreciate the real engineering Netflix has done to help StackStorm mature and deliver value.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->These days, instead of waiting for pages, they use their Winston to solve an ever increasing percentage of issues before they distract and disrupt the humans.  They used the following illustration to show the event flow these days (note that the doggie has a pager by its head – so paging is still possible :)).  <!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->Sayli emphasized that when pages do happen they happen with “assisted diagnosis” already performed.  So when you get paged you already have what we tend to call facilitated troubleshooting performed.  Hence the stuff you do every time a condition of type X is reported is already done and you hopefully can use your pattern matching skills to take those results and quickly identify and then fix (maybe again with Winston / StackStorm’s help) the issue.   <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->Being engineers they didn’t stop at that level, of course.  They went into the underlying architecture a bit.  As you can see they leverage StackStorm to pull events out of the SQS based queue via which their monitoring, called Atlas, announces events. StackStorm then matches on those events, determines what course of action to take, and then executes on that course of action. And all components scale horizontally and vertically.<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->This point caused some real excitement in the audience.  There were a number of questions about “who watches the watcher” and “why remediate when you can just do it right the first time.”  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->Regarding the first question, JS claimed that so far they’ve been unable to overrun StackStorm with events.  Even so, they err on the side of flagging StackStorm events as high priority (such as StackStorm starting to peg a CPU) since conceivably that event could be the sign that the dam is leaking water.  They have thought about using StackStorm itself to remediate StackStorm – a pattern we’ve seen elsewhere – however have not yet implemented it.<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->Regarding the question about “why not do it right the first time” they said yes, sure.  Of course, as Vinay Shah, an engineering leader said at the Meet-up:<!-- raw HTML omitted -->** **</p>
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted -->And as I’ve pointed out before, we have 158 and counting monitoring projects.  Shit happens people, deal with it!<!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->Having said that, one benefit of auto remediation is you can start to enable developers to themselves think not just about how to <!-- raw HTML omitted -->test<!-- raw HTML omitted --> their systems (aka test driven development) but how to <!-- raw HTML omitted -->remediate<!-- raw HTML omitted --> them.  Why would they take on this perspective – well, at Netflix and many other places these days the developers have pagers.  This dynamic is a huge motivation for developers to embrace StackStorm and remediation platforms more generally.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->This summary is just the skeleton of what was to me the best overall presentation I’ve seen of the why, how and so what of auto-remediation.  As is always the case in these meet-ups, the conversations in the aisle over burritos and beers was fascinating and invaluable.  It was great to catch up with folks like Shane Gibson and to meet face to face some of the team at Pleexi for example. <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted -->Hopefully this has whetted your appetite.  Good news, in addition to the upcoming posting of the video you can also join StackStorm’s Happy Hour on December 1st.  Sayli and JS will join StackStorm’s Patrick Hoolboom and James Fryman to dig in deeper into Winston and StackStorm.  Please come armed with questions.  <!-- raw HTML omitted --></p>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted -->Register here for that Happy Hour:<!-- raw HTML omitted -->   <!-- raw HTML omitted --><a href="http://www.stackstorm.com/register/"><!-- raw HTML omitted -->www.stackstorm.com/register/<!-- raw HTML omitted --></a></p>
-<p><!-- raw HTML omitted -->Last but not least, if you want to take a look at StackStorm, head to <!-- raw HTML omitted --><a href="http://www.stackstorm.com"><!-- raw HTML omitted -->StackStorm.com <!-- raw HTML omitted --></a><!-- raw HTML omitted -->and grab either the Community Edition or the Enterprise Edition.  Both editions are based on the same code – Enterprise Edition has some capabilities, including Flow, that help especially enterprises get value out of StackStorm.  You can also see an example of Cassandra auto-remediation in a tutorial blog format – complete with a snazzy Flow gif – <!-- raw HTML omitted --><a href="https://stackstorm.com/2015/09/22/auto-remediating-bad-hosts-in-cassandra-cluster-with-stackstorm/"><!-- raw HTML omitted -->here<!-- raw HTML omitted --></a><!-- raw HTML omitted -->.  <!-- raw HTML omitted --></p>
-<p><a href="http://stackstorm.com/wp/wp-content/uploads/2015/11/remediation-cassandra.gif"><!-- raw HTML omitted --></a></p>
-<p><!-- raw HTML omitted -->Finally – many thanks to <!-- raw HTML omitted --><a href="https://twitter.com/jsjeannotte"><!-- raw HTML omitted -->JS<!-- raw HTML omitted --></a> <!-- raw HTML omitted -->and <!-- raw HTML omitted --><a href="https://twitter.com/HikerTechy"><!-- raw HTML omitted -->Sayli <!-- raw HTML omitted --></a><!-- raw HTML omitted -->and Vinay and <!-- raw HTML omitted --><a href="https://twitter.com/niralfasi"><!-- raw HTML omitted -->Nir<!-- raw HTML omitted --></a> <!-- raw HTML omitted -->and of course <!-- raw HTML omitted --><a href="https://twitter.com/chriskalan"><!-- raw HTML omitted -->Christos<!-- raw HTML omitted --></a> <!-- raw HTML omitted -->and the rest of the team at Netflix.  Giving back to the overall community by hosting the <!-- raw HTML omitted --><a href="http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/"><!-- raw HTML omitted -->meet-up<!-- raw HTML omitted --></a> <!-- raw HTML omitted -->was truly good of you :).<!-- raw HTML omitted --></p><ul class="pa0">
-  
+<p>Before we get to all that substance, however, I should admit that my favorite moment of the evening was probably when they explained why Netflix calls auto-remediation based on StackStorm “Winston.” Remember Mr Wolf?</p>
+<p>The entire video (of the meet-up that is, not Pulp Fiction) will be posted on the Event Driven Automation meet-up soon.  I highly recommend it and I’ll try to remember to cross link here when it is posted.  [note here it is: https://www.youtube.com/watch?v=ln8MhCJGC-g&feature=youtu.be ]  As mentioned below, an upcoming Automation Happy Hour will dig into Netflix’s Winston as well.  </p>
+<p>After introductions of our speakers Sayli and JS we got down to business</p>
+<p>JS kicked off the discussion by talking about the great AWS reboot of last year; you may remember that Amazon discovered a Xen vulnerability and over a particular weekend they rebooted basically the entire fleet.  </p>
+<p>While this caused considerable stress at Netflix it did not cause downtime to their Cassandra fleet thanks in large part to the existing remediation plus of course the resiliency of Cassandra.  </p>
+<p>However, JS explained that their experience – and the massive scaling they are undertaking at Netflix – helped motivate the teams at Netflix to pay attention to what worked and what was not working so well with the existing remediation.</p>
+<p>In short, the pre-existing remediation still far too often left the engineer on call and dealing with 2am pages.  </p>
+<p>Incidentally – we’ve seen this pattern before.  While Jenkins has some workflow capabilities one is really stretching its capabilities to use it in this way.</p>
+<p>As they explained, the result is team burn-out and more:</p>
+<p>Looking at the human workflow – how alerts are handled absent an effective auto-remediation flow – makes it clear why this is.</p>
+<p>As you can see – it takes at least 30 minutes to solve the problem and during that time a number of sometimes intricate manual tasks are performed under duress, at 2am.  </p>
+<p>Netflix dwelled on a photo of a physical runbook at the event.  It was a binder maybe 7-10 inches thick.  Imagine trying to search through that at 2am.  And yet that’s – or the digital equivalent – is often what occurs without automated remediation.</p>
+<p>Their experience led them towards a handful of seemingly simple requirements:</p>
+<p>When I first say this slide, my gut sort of clenched as I thought: “oh noos, we have become PaaS!”  It turns out that they meant more that they wanted to emulate the approach taken by Facebook and Linkedin and elsewhere – the remediation itself should be extensible and run as a service, so that other groups could consume it.  </p>
+<p>The automation using building blocks is itself worthy of a blog.  Actually, if you scan our blog you’ll see that theme woven into a number of blogs already.  </p>
+<p>I’m leaving out a number of slides of course just to give a summary.  </p>
+<p>At this point the talk turned to a brief view of the technologies and then to outcomes.  </p>
+<p>Once they started using StackStorm, they were able to change the process.  Note that they call their remediation solution Winston, which is excellent both because as mentioned a) <br> and b) because by naming their StackStorm based remediation something other than StackStorm they recognize the work they and other users do to adapt StackStorm to their environment.  Suffice it to say we perceive and appreciate the real engineering Netflix has done to help StackStorm mature and deliver value.  </p>
+<p>These days, instead of waiting for pages, they use their Winston to solve an ever increasing percentage of issues before they distract and disrupt the humans.  They used the following illustration to show the event flow these days (note that the doggie has a pager by its head – so paging is still possible :)).  </p>
+<p>Sayli emphasized that when pages do happen they happen with “assisted diagnosis” already performed.  So when you get paged you already have what we tend to call facilitated troubleshooting performed.  Hence the stuff you do every time a condition of type X is reported is already done and you hopefully can use your pattern matching skills to take those results and quickly identify and then fix (maybe again with Winston / StackStorm’s help) the issue.   </p>
+<p>Being engineers they didn’t stop at that level, of course.  They went into the underlying architecture a bit.  As you can see they leverage StackStorm to pull events out of the SQS based queue via which their monitoring, called Atlas, announces events. StackStorm then matches on those events, determines what course of action to take, and then executes on that course of action. And all components scale horizontally and vertically.</p>
+<p>This point caused some real excitement in the audience.  There were a number of questions about “who watches the watcher” and “why remediate when you can just do it right the first time.”  </p>
+<p>Regarding the first question, JS claimed that so far they’ve been unable to overrun StackStorm with events.  Even so, they err on the side of flagging StackStorm events as high priority (such as StackStorm starting to peg a CPU) since conceivably that event could be the sign that the dam is leaking water.  They have thought about using StackStorm itself to remediate StackStorm – a pattern we’ve seen elsewhere – however have not yet implemented it.</p>
+<p>Regarding the question about “why not do it right the first time” they said yes, sure.  Of course, as Vinay Shah, an engineering leader said at the Meet-up:** **</p>
+<p>And as I’ve pointed out before, we have 158 and counting monitoring projects.  Shit happens people, deal with it!</p>
+<p>Having said that, one benefit of auto remediation is you can start to enable developers to themselves think not just about how to test their systems (aka test driven development) but how to remediate them.  Why would they take on this perspective – well, at Netflix and many other places these days the developers have pagers.  This dynamic is a huge motivation for developers to embrace StackStorm and remediation platforms more generally.  </p>
+<p>This summary is just the skeleton of what was to me the best overall presentation I’ve seen of the why, how and so what of auto-remediation.  As is always the case in these meet-ups, the conversations in the aisle over burritos and beers was fascinating and invaluable.  It was great to catch up with folks like Shane Gibson and to meet face to face some of the team at Pleexi for example. </p>
+<p>Hopefully this has whetted your appetite.  Good news, in addition to the upcoming posting of the video you can also join StackStorm’s Happy Hour on December 1st.  Sayli and JS will join StackStorm’s Patrick Hoolboom and James Fryman to dig in deeper into Winston and StackStorm.  Please come armed with questions.  </p>
+<p>Register here for that Happy Hour:   <a href=http://www.stackstorm.com/register/>www.stackstorm.com/register/</a></p>
+<p>Last but not least, if you want to take a look at StackStorm, head to <a href=http://www.stackstorm.com>StackStorm.com </a>and grab either the Community Edition or the Enterprise Edition.  Both editions are based on the same code – Enterprise Edition has some capabilities, including Flow, that help especially enterprises get value out of StackStorm.  You can also see an example of Cassandra auto-remediation in a tutorial blog format – complete with a snazzy Flow gif – <a href=https://stackstorm.com/2015/09/22/auto-remediating-bad-hosts-in-cassandra-cluster-with-stackstorm/>here</a>.  </p>
+<p><a href=http://stackstorm.com/wp/wp-content/uploads/2015/11/remediation-cassandra.gif></a></p>
+<p>Finally – many thanks to <a href=https://twitter.com/jsjeannotte>JS</a> and <a href=https://twitter.com/HikerTechy>Sayli </a>and Vinay and <a href=https://twitter.com/niralfasi>Nir</a> and of course <a href=https://twitter.com/chriskalan>Christos</a> and the rest of the team at Netflix.  Giving back to the overall community by hosting the <a href=http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/>meet-up</a> was truly good of you :).</p><ul class=pa0>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-</aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
-  </div>
+</div>
+<aside class="w-30-l mt6-l">
+</aside>
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
+</div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

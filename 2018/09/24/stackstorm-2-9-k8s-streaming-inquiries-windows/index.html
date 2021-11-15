@@ -1,177 +1,90 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>StackStorm 2.9: K8s, Streaming, Inquiries, Windows | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="Sep 25, 2018
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>StackStorm 2.9: K8s, Streaming, Inquiries, Windows | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="Sep 25, 2018
 By Lindsay Hill
-New Streaming &amp; Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="StackStorm 2.9: K8s, Streaming, Inquiries, Windows" />
+New Streaming & Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:">
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="StackStorm 2.9: K8s, Streaming, Inquiries, Windows">
 <meta property="og:description" content="Sep 25, 2018
 By Lindsay Hill
-New Streaming &amp; Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-09-24T17:00:12+00:00" />
-<meta property="article:modified_time" content="2018-09-24T17:00:12+00:00" />
-
-<meta itemprop="name" content="StackStorm 2.9: K8s, Streaming, Inquiries, Windows">
-<meta itemprop="description" content="Sep 25, 2018
+New Streaming & Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2018-09-24T17:00:12+00:00">
+<meta property="article:modified_time" content="2018-09-24T17:00:12+00:00">
+<meta itemprop=name content="StackStorm 2.9: K8s, Streaming, Inquiries, Windows">
+<meta itemprop=description content="Sep 25, 2018
 By Lindsay Hill
-New Streaming &amp; Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:"><meta itemprop="datePublished" content="2018-09-24T17:00:12+00:00" />
-<meta itemprop="dateModified" content="2018-09-24T17:00:12+00:00" />
-<meta itemprop="wordCount" content="988">
-<meta itemprop="keywords" content="release,release announcement," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="StackStorm 2.9: K8s, Streaming, Inquiries, Windows"/>
-<meta name="twitter:description" content="Sep 25, 2018
+New Streaming & Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:"><meta itemprop=datePublished content="2018-09-24T17:00:12+00:00">
+<meta itemprop=dateModified content="2018-09-24T17:00:12+00:00">
+<meta itemprop=wordCount content="988">
+<meta itemprop=keywords content="release,release announcement,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="StackStorm 2.9: K8s, Streaming, Inquiries, Windows">
+<meta name=twitter:description content="Sep 25, 2018
 By Lindsay Hill
-New Streaming &amp; Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:"/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+New Streaming & Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/&amp;text=StackStorm%202.9:%20K8s,%20Streaming,%20Inquiries,%20Windows" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/&amp;title=StackStorm%202.9:%20K8s,%20Streaming,%20Inquiries,%20Windows" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">StackStorm 2.9: K8s, Streaming, Inquiries, Windows</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2018-09-24T17:00:12Z">September 24, 2018</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Sep 25, 2018</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/&text=StackStorm%202.9:%20K8s,%20Streaming,%20Inquiries,%20Windows" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/&title=StackStorm%202.9:%20K8s,%20Streaming,%20Inquiries,%20Windows" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">StackStorm 2.9: K8s, Streaming, Inquiries, Windows</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2018-09-24T17:00:12Z>September 24, 2018</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Sep 25, 2018</strong><br>
 <em>By Lindsay Hill</em></p>
-<p>New Streaming &amp; Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:</p>
-<h2 id="web-ui-8211-streaming-output-inquiries">Web UI – Streaming Output, Inquiries</h2>
-<p>In StackStorm 2.5 we added support for <a href="https://stackstorm.com/2017/11/07/new-stackstorm-2-5-real-time-action-output-streaming/">real-time streaming output</a> for long-running actions. But it only worked via CLI or API. We’ve made it a lot easier: you can see it in the Web UI!</p>
+<p>New Streaming & Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:</p>
+<h2 id=web-ui-8211-streaming-output-inquiries>Web UI – Streaming Output, Inquiries</h2>
+<p>In StackStorm 2.5 we added support for <a href=https://stackstorm.com/2017/11/07/new-stackstorm-2-5-real-time-action-output-streaming/>real-time streaming output</a> for long-running actions. But it only worked via CLI or API. We’ve made it a lot easier: you can see it in the Web UI!</p>
 <p>Here’s how to use it:</p>
 <p>First launch a long-running command that produces output:</p>
-<p><code>st2 run core.local cmd=&quot;i=0;while [[ $i -lt 10 ]]; do echo $(date); i=$[$i+1];sleep 10; done&quot; timeout=220</code></p>
+<p><code>st2 run core.local cmd="i=0;while [[ $i -lt 10 ]]; do echo $(date); i=$[$i+1];sleep 10; done" timeout=220</code></p>
 <p>Not very exciting, but that will display the date every 10s.</p>
 <p>Then go to the History tab in the Web UI, and find your action. Click on that, and look at the right-hand side:</p>
-<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/09/live_output.png"><!-- raw HTML omitted --></a></p>
+<p><a href=https://stackstorm.com/wp/wp-content/uploads/2018/09/live_output.png></a></p>
 <p>See that new “check live output” link? Click on that, and you’ll see this:</p>
-<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/09/example_live_output.png"><!-- raw HTML omitted --></a></p>
+<p><a href=https://stackstorm.com/wp/wp-content/uploads/2018/09/example_live_output.png></a></p>
 <p>That will keep updating until the action finishes.</p>
 <p>Nifty eh?</p>
-<p>In 2.5 we also added <a href="https://stackstorm.com/2017/10/31/new-stackstorm-2-5-inquiries/">Inquiries</a>, but again, it was only available via CLI and API. Now check out the new “Inquiries” tab in the Web UI:</p>
-<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/09/empty_inquiries.png"><!-- raw HTML omitted --></a></p>
+<p>In 2.5 we also added <a href=https://stackstorm.com/2017/10/31/new-stackstorm-2-5-inquiries/>Inquiries</a>, but again, it was only available via CLI and API. Now check out the new “Inquiries” tab in the Web UI:</p>
+<p><a href=https://stackstorm.com/wp/wp-content/uploads/2018/09/empty_inquiries.png></a></p>
 <p>No open inquiries at the moment, so let’s kick something off.</p>
-<p>We’ll use the <a href="https://github.com/StackStorm/st2/blob/master/contrib/examples/actions/workflows/orquesta-ask-basic.yaml">orquesta-ask-basic</a> example from the Examples pack:</p>
+<p>We’ll use the <a href=https://github.com/StackStorm/st2/blob/master/contrib/examples/actions/workflows/orquesta-ask-basic.yaml>orquesta-ask-basic</a> example from the Examples pack:</p>
 <pre><code>vagrant@st2vagrant:~$ st2 run examples.orquesta-ask-basic
 .
 id: 5ba5a7c1179d9b089903695b
@@ -193,169 +106,124 @@ result:
 vagrant@st2vagrant:~$
 </code></pre>
 <p>Now go back to our Inquiries UI:</p>
-<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/09/pending_inquiry-1.png"><!-- raw HTML omitted --></a></p>
+<p><a href=https://stackstorm.com/wp/wp-content/uploads/2018/09/pending_inquiry-1.png></a></p>
 <p>We can see a “Pending” Inquiry. Click on “Approved”, and then “Respond”</p>
 <p>We can see successful inquiries under “Succeeded”</p>
-<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/09/succeeded.png"><!-- raw HTML omitted --></a></p>
+<p><a href=https://stackstorm.com/wp/wp-content/uploads/2018/09/succeeded.png></a></p>
 <p>This should make it much easier to use Inquiries. We’ve also fixed a few long-standing bugs related to workflows getting stuck in Pausing state.</p>
-<h2 id="delorchestradel-orquesta-second-beta"><!-- raw HTML omitted -->Orchestra<!-- raw HTML omitted --> Orquesta Second Beta</h2>
-<p>Our new workflow engine took a holiday in Spain, and now wishes to be known as “<a href="http://www.spanishdict.com/translate/orquesta">Orquesta</a>.” All documentation has been updated to reflect the new name. If you have been trying it out, and used <code>runner_type: orchestra</code>, this will still work.</p>
+<h2 id=delorchestradel-orquesta-second-beta>Orchestra Orquesta Second Beta</h2>
+<p>Our new workflow engine took a holiday in Spain, and now wishes to be known as “<a href=http://www.spanishdict.com/translate/orquesta>Orquesta</a>.” All documentation has been updated to reflect the new name. If you have been trying it out, and used <code>runner_type: orchestra</code>, this will still work.</p>
 <p>This is the second public beta for Orquesta. This release includes bugfixes and features. Some highlights include:</p>
 <ul>
 <li>Inquiry support</li>
-<li>Ported YAQL functions &amp; Jinja filters to Orquesta, and added <code>|</code> support.</li>
+<li>Ported YAQL functions & Jinja filters to Orquesta, and added <code>|</code> support.</li>
 <li>API for Workflow inspection</li>
 <li>Bug fixes – duplicate task execution, looping tasks pointing to wrong context.</li>
 </ul>
 <p>We’re now busy working on more bugfixes and features as we head to our GA release in 3.0, later this year.</p>
-<h2 id="stackstorm-enterprise-in-ha-mode-on-kubernetes">StackStorm Enterprise in HA mode on Kubernetes</h2>
-<p>Keen to run StackStorm on Kubernetes? So are we! We’ve published beta <a href="https://docs.stackstorm.com/latest/install/ewc_ha.html">docs</a>, containers and Helm Chart for running StackStorm Enterprise in HA mode on Kubernetes. Try it out for yourself, and watch out for an upcoming blog post explaining this in much more detail.</p>
+<h2 id=stackstorm-enterprise-in-ha-mode-on-kubernetes>StackStorm Enterprise in HA mode on Kubernetes</h2>
+<p>Keen to run StackStorm on Kubernetes? So are we! We’ve published beta <a href=https://docs.stackstorm.com/latest/install/ewc_ha.html>docs</a>, containers and Helm Chart for running StackStorm Enterprise in HA mode on Kubernetes. Try it out for yourself, and watch out for an upcoming blog post explaining this in much more detail.</p>
 <p>This is beta right now, but will go stable later this year. We’ll also be releasing configurations for running the Community version of StackStorm.</p>
-<h2 id="windows-runners">Windows Runners</h2>
-<p>Our good friend <a href="http://www.encore.tech">Nick Maludy</a> has contributed new Windows runners. These are based on <a href="https://github.com/diyan/pywinrm">PyWinRM</a>, which is better supported than the old <code>winexe</code>-based runners.</p>
+<h2 id=windows-runners>Windows Runners</h2>
+<p>Our good friend <a href=http://www.encore.tech>Nick Maludy</a> has contributed new Windows runners. These are based on <a href=https://github.com/diyan/pywinrm>PyWinRM</a>, which is better supported than the old <code>winexe</code>-based runners.</p>
 <p>The new runners are <code>winrm-cmd</code>, <code>winrm-ps</code> and <code>winrm-ps-script</code>. The <code>winrm-cmd</code> runner executes Command Prompt commands remotely on Windows hosts using the WinRM protocol. The <code>winrm-ps-cmd</code> and <code>winrm-ps-script</code> runners execute PowerShell commands and scripts on remote Windows hosts using the WinRM protocol.</p>
 <p>There’s also new <code>core</code> actions: <code>core.winrm_cmd</code> and <code>core.winrm_ps_cmd</code>.</p>
 <p>The legacy Windows runners are now considered deprecated. They will be removed in StackStorm 3.1.</p>
-<h2 id="improved-metrics-support">Improved Metrics Support</h2>
+<h2 id=improved-metrics-support>Improved Metrics Support</h2>
 <p>StackStorm v2.8.0 introduced support for metrics which provide operator with a detailed visibility (performance and health) into StackStorm deployment. This release builds on that functionality and adds many more metrics and related improvements.</p>
 <p>With all those metrics in place, operators now have a very good and detailed visibility into a StackStorm deployment.</p>
-<p>For information on how to configure this feature and list of the available metrics, please refer to <a href="https://docs.stackstorm.com/latest/reference/metrics.html">the documentation</a></p>
-<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/09/Screenshot-from-2018-09-24-11-19-12.png"><!-- raw HTML omitted --></a></p>
-<!-- raw HTML omitted -->
-<h2 id="ability-to-easily-inject-triggers-into-the-system-from-workflows">Ability to Easily Inject Triggers Into the System From Workflows</h2>
+<p>For information on how to configure this feature and list of the available metrics, please refer to <a href=https://docs.stackstorm.com/latest/reference/metrics.html>the documentation</a></p>
+<p><a href=https://stackstorm.com/wp/wp-content/uploads/2018/09/Screenshot-from-2018-09-24-11-19-12.png></a></p>
+<h2 id=ability-to-easily-inject-triggers-into-the-system-from-workflows>Ability to Easily Inject Triggers Into the System From Workflows</h2>
 <p>This release includes new <code>core.inject_trigger</code> action which allows user to easily inject arbitrary trigger into the system. Most common use case includes injecting trigger into the system inside a workflow.</p>
-<p>Before this change, injecting a trigger into the system from a workflow was far from trivial and meant utilizing <a href="https://forum.stackstorm.com/t/is-there-a-way-to-trigger-event-in-workflow-like-inquiry-and-consume-it-in-rules/199/2">core.http action and POSTing a trigger to the webhook or other more complex approach</a>.</p>
-<h2 id="miscellaneous-changes--fixes">Miscellaneous Changes &amp; Fixes</h2>
+<p>Before this change, injecting a trigger into the system from a workflow was far from trivial and meant utilizing <a href=https://forum.stackstorm.com/t/is-there-a-way-to-trigger-event-in-workflow-like-inquiry-and-consume-it-in-rules/199/2>core.http action and POSTing a trigger to the webhook or other more complex approach</a>.</p>
+<h2 id=miscellaneous-changes--fixes>Miscellaneous Changes & Fixes</h2>
 <p>Lots happening here – this is just a few interesting items:</p>
 <ul>
 <li>API filtering – we’ve added more controls around filtering what gets returned with API calls. We’ve also made some speed improvements. We’re working hard to improve the UI and API performance. Watch out for lots more here.</li>
 <li>Saving pack configs from the Web UI works once again.</li>
-<li>We fixed a bug with Python 3 actions with certain Python 3 versions &amp; distros.</li>
+<li>We fixed a bug with Python 3 actions with certain Python 3 versions & distros.</li>
 <li>We’ve upgraded <code>mongoengine</code> and <code>pymongo</code>, which will let us support Mongo 3.6 in future.</li>
 <li>You can now emit actiontrigger instances at more stages of an action’s lifecycle, not just when it completes. Handy if you want to set up notification rules for specific actions.</li>
-<li>The <a href="https://docs.stackstorm.com/cloudslang.html">CloudSlang</a> runner is now deprecated. It will be removed from StackStorm 3.1. It will be available separately for users who wish to continue using it, but it will no longer be tested or supported by the StackStorm team.</li>
+<li>The <a href=https://docs.stackstorm.com/cloudslang.html>CloudSlang</a> runner is now deprecated. It will be removed from StackStorm 3.1. It will be available separately for users who wish to continue using it, but it will no longer be tested or supported by the StackStorm team.</li>
 </ul>
-<p>More details in the <a href="https://docs.stackstorm.com/changelog.html">changelog</a>.</p>
-<h2 id="install-time">Install Time</h2>
-<p>Packages are available in our apt and yum repos. Follow the standard instructions to <a href="https://docs.stackstorm.com/install/index.html">install</a>, or upgrade following the <a href="https://docs.stackstorm.com/install/upgrades.html#general-upgrade-procedure">General Upgrade Procedure</a>.</p>
+<p>More details in the <a href=https://docs.stackstorm.com/changelog.html>changelog</a>.</p>
+<h2 id=install-time>Install Time</h2>
+<p>Packages are available in our apt and yum repos. Follow the standard instructions to <a href=https://docs.stackstorm.com/install/index.html>install</a>, or upgrade following the <a href=https://docs.stackstorm.com/install/upgrades.html#general-upgrade-procedure>General Upgrade Procedure</a>.</p>
 <p>You know the drill by now: backup first.</p>
-<p>And as always, thanks to everyone who contributed.</p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/release" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/release-announcement" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release announcement</a>
-   </li>
-  
+<p>And as always, thanks to everyone who contributed.</p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/release class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/release-announcement class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release announcement</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/">StackStorm 2.8: UI Changes, New Workflow Engine, and More</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/">Patch Patch Patch: StackStorm 2.7.2</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/">Early Christmas: StackStorm Patch Release 2.5.1</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/">Quick update: v2.1.1 published</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/12/06/2-1-new-pack-management/">2.1 is here! New Pack Management and More!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/11/29/2-1-headsup/">2.1 is Coming to Town: Check the New Pack Management</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/09/01/stackstorm-enterprise-back/">StackStorm Enterprise is Back!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/08/10/stackstorm-v1-6-0/">StackStorm v1.6.0 is here</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2016/04/20/stackstorm-v1-4/">StackStorm v1.4 is out</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/?p=9569/">Clone of StackStorm v3.4.1 – Security fix</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/">StackStorm Puppet Module goes v1.0.0 stable!</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/">Say hello to StackStorm v2.7</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/">New Year, New StackStorm – v2.6 Released</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/">Puppet Module to Install StackStorm – Announcing Release Candidate</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/">StackStorm 2.5 Has Hit the Streets!</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/>StackStorm 2.8: UI Changes, New Workflow Engine, and More</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/>Patch Patch Patch: StackStorm 2.7.2</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/>Early Christmas: StackStorm Patch Release 2.5.1</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/>Quick update: v2.1.1 published</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/12/06/2-1-new-pack-management/>2.1 is here! New Pack Management and More!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/11/29/2-1-headsup/>2.1 is Coming to Town: Check the New Pack Management</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/09/01/stackstorm-enterprise-back/>StackStorm Enterprise is Back!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/08/10/stackstorm-v1-6-0/>StackStorm v1.6.0 is here</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2016/04/20/stackstorm-v1-4/>StackStorm v1.4 is out</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/>StackStorm Puppet Module goes v1.0.0 stable!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/>Say hello to StackStorm v2.7</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/>New Year, New StackStorm – v2.6 Released</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/>Puppet Module to Install StackStorm – Announcing Release Candidate</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/>StackStorm 2.5 Has Hit the Streets!</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2017/09/18/quick-one-st2-2-4-1-released/>Quick One: ST2 2.4.1 is Released</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>

@@ -1,60 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>news on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/news/</link>
-    <description>Recent content in news on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 30 Nov 2020 19:49:13 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/news/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>StackStorm project updates: Autumn 2020</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/11/30/stackstorm-project-updates-autumn-2020/</link>
-      <pubDate>Mon, 30 Nov 2020 19:49:13 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/11/30/stackstorm-project-updates-autumn-2020/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Nov 30, 2020&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Eugen Cusmaunsa (&lt;a href=&#34;https://github.com/armab&#34;&gt;@armab&lt;/a&gt;)&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Hello Automation folks!&lt;br&gt;
-We would like to quickly update StackStorm community about the project progress, releases, plans and roadmap. Here is the overview.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Sponsoring StackStorm</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/06/12/sponsoring-stackstorm/</link>
-      <pubDate>Fri, 12 Jun 2020 19:15:33 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/06/12/sponsoring-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Jun 12, 2020&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by &lt;a href=&#34;https://github.com/StackStorm/st2/blob/master/OWNERS.md&#34;&gt;StackStorm Team&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://stackstorm.com/wp/wp-content/uploads/2020/06/CommunityBridge_Funding-header.gif&#34; alt=&#34;Sponsoring StackStorm at Community Brdige&#34;&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm Project Governance and Maintainers Update</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/</link>
-      <pubDate>Thu, 20 Feb 2020 13:40:23 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/</guid>
-      <description>&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Feb 20, 2020&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;em&gt;By &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen Cusmaunsa (@armab)&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;As you may heard before, &lt;!-- raw HTML omitted --&gt;StackStorm has joined the Linux Foundation&lt;!-- raw HTML omitted --&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Today we’re happy to update our Open Source Community with the news that first seeding StackStorm Technical Steering Committee (TSC) under the Linux Foundation was formed and ready to rock!&lt;/p&gt;
-&lt;p&gt;See &lt;a href=&#34;https://github.com/StackStorm/st2/blob/master/OWNERS.md&#34;&gt;OWNERS.md&lt;/a&gt; and &lt;a href=&#34;https://github.com/StackStorm/st2/blob/master/GOVERNANCE.md&#34;&gt;GOVERNANCE.md&lt;/a&gt; for more details, which you can find under the project Github repository &lt;a href=&#34;https://github.com/StackStorm/st2&#34;&gt;stackstorm/st2&lt;/a&gt;. We’re back to git as a single source of truth. From now on adding new members or proposing a change to the project governance is a matter of opening a Pull Request, – check out &lt;a href=&#34;https://github.com/StackStorm/st2/pull/4856&#34;&gt;#4856 PR&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Dmitri says “good bye”</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/06/06/dmitri-says-good-bye/</link>
-      <pubDate>Thu, 06 Jun 2019 15:48:21 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/06/06/dmitri-says-good-bye/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>news on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/news/</link><description>Recent content in news on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 30 Nov 2020 19:49:13 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/news/index.xml" rel="self" type="application/rss+xml"/><item><title>StackStorm project updates: Autumn 2020</title><link>https://stackstorm.github.io/stackstorm.com/2020/11/30/stackstorm-project-updates-autumn-2020/</link><pubDate>Mon, 30 Nov 2020 19:49:13 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/11/30/stackstorm-project-updates-autumn-2020/</guid><description>&lt;p>&lt;strong>Nov 30, 2020&lt;/strong>&lt;br>
+&lt;em>by Eugen Cusmaunsa (&lt;a href="https://github.com/armab">@armab&lt;/a>)&lt;/em>&lt;/p>
+&lt;p>Hello Automation folks!&lt;br>
+We would like to quickly update StackStorm community about the project progress, releases, plans and roadmap. Here is the overview.&lt;/p></description></item><item><title>Sponsoring StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/2020/06/12/sponsoring-stackstorm/</link><pubDate>Fri, 12 Jun 2020 19:15:33 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/06/12/sponsoring-stackstorm/</guid><description>&lt;p>&lt;strong>Jun 12, 2020&lt;/strong>&lt;br>
+&lt;em>by &lt;a href="https://github.com/StackStorm/st2/blob/master/OWNERS.md">StackStorm Team&lt;/a>&lt;/em>&lt;/p>
+&lt;p>&lt;img src="https://stackstorm.com/wp/wp-content/uploads/2020/06/CommunityBridge_Funding-header.gif" alt="Sponsoring StackStorm at Community Brdige">&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>StackStorm Project Governance and Maintainers Update</title><link>https://stackstorm.github.io/stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/</link><pubDate>Thu, 20 Feb 2020 13:40:23 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/</guid><description>&lt;p>&lt;!-- raw HTML omitted -->Feb 20, 2020&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;em>By &lt;a href="https://github.com/armab">Eugen Cusmaunsa (@armab)&lt;/a>&lt;/em>&lt;/p>
+&lt;blockquote>
+&lt;p>As you may heard before, &lt;!-- raw HTML omitted -->StackStorm has joined the Linux Foundation&lt;!-- raw HTML omitted -->.&lt;/p>
+&lt;/blockquote>
+&lt;p>Today we’re happy to update our Open Source Community with the news that first seeding StackStorm Technical Steering Committee (TSC) under the Linux Foundation was formed and ready to rock!&lt;/p>
+&lt;p>See &lt;a href="https://github.com/StackStorm/st2/blob/master/OWNERS.md">OWNERS.md&lt;/a> and &lt;a href="https://github.com/StackStorm/st2/blob/master/GOVERNANCE.md">GOVERNANCE.md&lt;/a> for more details, which you can find under the project Github repository &lt;a href="https://github.com/StackStorm/st2">stackstorm/st2&lt;/a>. We’re back to git as a single source of truth. From now on adding new members or proposing a change to the project governance is a matter of opening a Pull Request, – check out &lt;a href="https://github.com/StackStorm/st2/pull/4856">#4856 PR&lt;/a>.&lt;/p></description></item><item><title>Dmitri says “good bye”</title><link>https://stackstorm.github.io/stackstorm.com/2019/06/06/dmitri-says-good-bye/</link><pubDate>Thu, 06 Jun 2019 15:48:21 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/06/06/dmitri-says-good-bye/</guid><description>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

@@ -1,22 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>ML on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/ml/</link>
-    <description>Recent content in ML on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 12 Jun 2019 08:33:43 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/ml/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Machine Learning driven Closed Loop Automation</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/06/12/machine-learning-driven-closed-loop-automation/</link>
-      <pubDate>Wed, 12 Jun 2019 08:33:43 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/06/12/machine-learning-driven-closed-loop-automation/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 12, 2019&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By Benoit Lourdelet&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The agility at which the business can respond to real-life situations is proportional to the level of digitization that has been implemented in the business. For a business to nimble and agile, it is imperative that all the processes be delivered as a digital service that can be provisioned, monitored and remediated by an automation logic at the core of the business. The automation logic should follow the &lt;a href=&#34;https://www.hitachi.com/rd/portal/glossary/m/mape_loop.html&#34;&gt;Monitor, Assess, Plan and Execute (MAPE) loop&lt;/a&gt; methodology to provide a complete closed-loop automation system for the digital business. Click below to see a video demonstrating using StackStorm with Machine Learning to do this.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ML on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/ml/</link><description>Recent content in ML on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 12 Jun 2019 08:33:43 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/ml/index.xml" rel="self" type="application/rss+xml"/><item><title>Machine Learning driven Closed Loop Automation</title><link>https://stackstorm.github.io/stackstorm.com/2019/06/12/machine-learning-driven-closed-loop-automation/</link><pubDate>Wed, 12 Jun 2019 08:33:43 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/06/12/machine-learning-driven-closed-loop-automation/</guid><description>&lt;p>&lt;strong>June 12, 2019&lt;/strong>&lt;br>
+&lt;em>By Benoit Lourdelet&lt;/em>&lt;/p>
+&lt;p>The agility at which the business can respond to real-life situations is proportional to the level of digitization that has been implemented in the business. For a business to nimble and agile, it is imperative that all the processes be delivered as a digital service that can be provisioned, monitored and remediated by an automation logic at the core of the business. The automation logic should follow the &lt;a href="https://www.hitachi.com/rd/portal/glossary/m/mape_loop.html">Monitor, Assess, Plan and Execute (MAPE) loop&lt;/a> methodology to provide a complete closed-loop automation system for the digital business. Click below to see a video demonstrating using StackStorm with Machine Learning to do this.&lt;/p></description></item></channel></rss>

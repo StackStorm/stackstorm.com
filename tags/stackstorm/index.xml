@@ -1,325 +1,90 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/stackstorm/</link>
-    <description>Recent content on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 16 May 2018 20:21:14 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/stackstorm/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Patch Patch Patch: StackStorm 2.7.2</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/</link>
-      <pubDate>Wed, 16 May 2018 20:21:14 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/</guid>
-      <description>&lt;p&gt;Hey folks – StackStorm 2.7.2 has been released. We’ve fixed a bug affecting sensors, improved Jinja rendering, fixed a couple of Web UI bugs and improved the LDAP &amp;amp; RBAC handling for Enterprise users. This is a recommended update for all users. Read on for the details.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Simplified Network Performance Tests with PerfSonar and SLX</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</link>
-      <pubDate>Thu, 03 May 2018 17:00:21 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</guid>
-      <description>&lt;p&gt;&lt;em&gt;May 3, 2018&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.perfsonar.net/&#34;&gt;PerfSonar&lt;/a&gt; is a super handy toolkit for measuring network performance between any two points. Combine this with the Guest VM built into the &lt;a href=&#34;https://www.extremenetworks.com/product/slx-9850-router/&#34;&gt;Extreme SLX series of switches,&lt;/a&gt; and you can easily run performance tests between any two points on your network, measuring performance, latency, jitter, MTU, path taken, etc. Combine that with StackStorm, and you can easily run those tests from Slack. No need to even login to a switch.&lt;/p&gt;
-&lt;h2 id=&#34;demo-network-performance-tests-via-slack&#34;&gt;Demo: Network Performance Tests via Slack&lt;/h2&gt;
-&lt;p&gt;Check out the video here. From Slack, we can trigger different tests between any two switches – &lt;a href=&#34;https://en.wikipedia.org/wiki/Iperf&#34;&gt;performance&lt;/a&gt;, &lt;a href=&#34;http://software.internet2.edu/owamp/&#34;&gt;one-way latency measurement&lt;/a&gt;, or &lt;a href=&#34;https://linux.die.net/man/8/tracepath&#34;&gt;trace the path&lt;/a&gt;, showing the path MTU. The results are then shown in Slack:&lt;/p&gt;
-&lt;p&gt;Read on for more about how to set this up.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Simple Packet Captures with SLX and CloudShark</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</link>
-      <pubDate>Fri, 27 Apr 2018 03:54:32 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</guid>
-      <description>&lt;p&gt;&lt;em&gt;April 27, 2018&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Packet Captures are a necessary evil when you need to prove network innocence. But they’re tedious to configure, collect &amp;amp; analyze. What if you could simplify the setup, collection and viewing? That’s what we’ve done here, combining StackStorm, Extreme Insight Architecture, &lt;a href=&#34;https://www.cloudshark.org&#34;&gt;CloudShark&lt;/a&gt;, and of course Slack.&lt;/p&gt;
-&lt;h2 id=&#34;demo-running-packet-captures-from-slack&#34;&gt;Demo: Running Packet Captures from Slack&lt;/h2&gt;
-&lt;p&gt;Check out the video here – we show entering some commands in Slack, which triggers a packet capture on multiple switches. The PCAPs are automatically uploaded to CloudShark, so we can view the packets in our browser:&lt;/p&gt;
-&lt;p&gt;Read on for more about how to set this up.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>New Year, New StackStorm – v2.6 Released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/</link>
-      <pubDate>Thu, 25 Jan 2018 23:38:54 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;January 25, 2018&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;It’s a New Year, and time for a new version of StackStorm. 2.6 is available for download now. The biggest change is moving the Web UI to the &lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; JS framework, but of course there’s also multiple user- and developer-friendly fixes and enhancements in the backend. Read on to hear more about what’s changed:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Early Christmas: StackStorm Patch Release 2.5.1</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/</link>
-      <pubDate>Tue, 19 Dec 2017 18:10:44 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/</guid>
-      <description>&lt;p&gt;Here’s an early Christmas present for everyone: StackStorm 2.5.1 is out. Small enhancements and bugfixes, and some enhancements to Workflow Designer. Time to sneak it in before the change freeze? Or something to do on your dev system over the quiet period? Read on for details.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm goes to Extreme</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/11/03/stackstorm_goes_extreme/</link>
-      <pubDate>Fri, 03 Nov 2017 19:57:29 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/11/03/stackstorm_goes_extreme/</guid>
-      <description>&lt;p&gt;&lt;em&gt;November 2, 2017&lt;/em&gt;&lt;br&gt;
-&lt;em&gt;by &lt;a href=&#34;https://twitter.com/dzimine&#34;&gt;Dmitri Zimine&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;As of this week StackStorm is officially a part of Extreme Networks. We’ve changed hands 3 times in 18 months. We’ve survived 365 days of uncertainty. It’s over now. The future is certain and bright, more good stuff is coming soon. Seriously, it’s all good.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.5 Has Hit the Streets!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/</link>
-      <pubDate>Thu, 26 Oct 2017 22:38:33 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/</guid>
-      <description>&lt;p&gt;We are very pleased to announce that StackStorm v2.5 has shipped, including two big new features – Streaming Output, and the Inquiry Runner, aka &lt;code&gt;st2.ask&lt;/code&gt;. Read on for more details about the new features:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.3: Something for Everyone!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/</link>
-      <pubDate>Mon, 19 Jun 2017 21:30:06 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 19, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;By Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;StackStorm 2.3 is out, and there’s something in it for everyone. Big API improvements for developers, Web UI fixes for users, and RBAC &amp;amp; LDAP enhancements for Enterprise customers. Plus plenty of pack changes for everyone. Here’s the full details:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm at OpenStack Summit Boston 2017</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</link>
-      <pubDate>Thu, 04 May 2017 19:29:51 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</guid>
-      <description>The world runs on open infrastructure. At the OpenStack Summit, you’ll learn about the mix of open technologies building the modern infrastructure stack, including OpenStack, Kubernetes, Docker, network automation and more. From integrating legacy applications, to self-healing clouds, robotics and network automation the StackStorm open source event driven automation platform provides DevOps teams a powerful, flexible, and reliable solution to take your cloud to the next level. Be sure to stop by the StackStorm booth to meet the StackStorm team, and learn how you can integrate the StackStorm event driven automation platform with your OpenStack cloud</description>
-    </item>
-    
-    <item>
-      <title>Official StackStorm Docker Image is Here!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/04/21/official-stackstorm-docker-image-here/</link>
-      <pubDate>Fri, 21 Apr 2017 19:28:58 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/04/21/official-stackstorm-docker-image-here/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Bugs, fixes, security updates: It’s ST2 2.2.1</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/</link>
-      <pubDate>Wed, 05 Apr 2017 20:17:30 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;April 5, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;StackStorm 2.2.1 has been released, incorporating the usual array of improvements, bug fixes, and this time a BWC-specific security update. Read on for details.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm 2.2 is up!</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/02/27/stackstorm-2-2/</link>
-      <pubDate>Mon, 27 Feb 2017 20:38:58 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/02/27/stackstorm-2-2/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Feb 27, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Here’s a nice way to start your week: StackStorm 2.2 has been released! Mistral updates, Jinja in Mistral workflows, Jinja in complex objects, new &lt;code&gt;st2 login&lt;/code&gt; and &lt;code&gt;st2 whoami&lt;/code&gt; commands, security improvements and more! Our &lt;a href=&#34;https://github.com/Mierdin&#34;&gt;release master&lt;/a&gt; put in some hard work over the last few days to get this out the door. Read on for more details.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm Exchange: The New Pack Management</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/</link>
-      <pubDate>Tue, 31 Jan 2017 20:36:28 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Jan 30, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Edward Medvedev&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Warning: this post describes a long set of important changes. It is enormous in size and full of cheesy puns, feelings, and heart emojis. You might prefer to &lt;a href=&#34;docs.stackstorm.com/packs.html&#34;&gt;read the documentation&lt;/a&gt; if that is not what you are into. Otherwise, grab a favorite caffeinated drink of your choice and let’s begin!&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;A little while ago we &lt;a href=&#34;https://stackstorm.com/2016/12/06/2-1-new-pack-management/&#34;&gt;rolled out StackStorm 2.1&lt;/a&gt;, a release focused on one primary theme: integration packs.&lt;/p&gt;
-&lt;p&gt;StackStorm pack management infrastructure is evolving with the demand. As the number of integration packs grows, we want to provide means for faster and easier deployment, make pack development more productive, and encourage collaboration. There are dozens of changes making it happen—both in our internal infrastructure and the StackStorm core—and we are excited and hopeful that through better experience with integration packs, working with StackStorm will become even more efficient, easy, and fun.&lt;/p&gt;
-&lt;p&gt;As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Innovation at Dimension Data: Accelerating Innovation and Digital Transformation with StackStorm Event Driven Automation</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/</link>
-      <pubDate>Tue, 24 Jan 2017 16:36:44 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Jan 24, 2017&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Dana Christensen&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id=&#34;part-1-of-3&#34;&gt;Part 1 of 3&lt;/h2&gt;
-&lt;p&gt;At DevOps Enterprise Summit 2016, DevOps leaders like Target, American Airlines, Disney, and Quicken Loans spoke of the importance of managing/optimizing operations, addressing technical debt, eliminating silos, collaboration, and the importance of open source and community to drive innovation. I was especially struck by &lt;!-- raw HTML omitted --&gt;Jason Cox of Disney&lt;!-- raw HTML omitted --&gt;, who stressed the importance of “creating a culture of courage” where teams are encouraged to be curious, to experiment, explore and embrace change across process, roles, and technology-all for the purpose of enabling meaningful work.&lt;/p&gt;
-&lt;p&gt;It turns out that these themes are being talked about not only by these large Enterprise DevOps leaders. These themes are being repeated in conversations around the globe with IT leaders who are looking to leverage DevOps practices to successfully drive innovation and digital transformation.&lt;/p&gt;
-&lt;p&gt;Anthony Shaw, Group Director of Innovation and Technical Talent at &lt;!-- raw HTML omitted --&gt;Dimension Data&lt;!-- raw HTML omitted --&gt; has seen this first hand. Anthony not only leads innovation efforts within Dimension Data-but he also travels the world speaking with customers about their business priorities, their Digital Transformation goals, and how the innovative use of technology, organizational structure, community, and transforming day to day operational practices can accelerate their Digital Transformation journey.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Genomics Sequencing, StackStorm, and Reading the Source Code of Biology</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/</link>
-      <pubDate>Tue, 15 Nov 2016 19:26:11 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;By Dana Christensen&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;Nov 15, 2016&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The DevOps movement is focused on leading transformational change and driving innovation. At the recent DevOps Enterprise Summit in San Francisco, many of the leaders in the field spoke of driving change through a culture focused on collaboration, community, co-creation, curiosity, continual learning, designing for joy, and meaningful work. I have been impressed with the passion and conviction that leaders in the DevOps movement speak about and emphasize these key principles.. Through determination and focus, living out these key values, and recognizing that everyone has a role to play—we will be able to truly unlock the power of technology to address the many complex global challenges we face today.&lt;/p&gt;
-&lt;p&gt;An excellent example of leveraging DevOps and technology to address complex global challenges is found in the field of Genomics Research. Through focus on the values spoken about by DevOps thought leaders and innovation at the speed of community—Science, Universities, Government, and Business, powered by advances in IT, are able to join forces to develop and evolve techniques that allow for the reading of the source code of biology—something that is incredibly complex and in parts extremely optimized. Through this important work, we are just beginning to unlock the secrets and miraculous mysteries to life on earth as we know it.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Unleash the power of IoT with Event-Driven Automation (ST2 &amp; BWC @ SuperComputing16)</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/11/14/iot-event-driven-automation-supercomputing16/</link>
-      <pubDate>Mon, 14 Nov 2016 19:09:21 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/14/iot-event-driven-automation-supercomputing16/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;By Chip Copper, PhD;&lt;/strong&gt; Principal Technology Evangelist, Brocade&lt;br&gt;
-&lt;em&gt;Nov 14, 2016&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;The pattern is the same: “I can’t because we don’t…”, “But we are also…”, “Can I …”, and finally “How do I get it?”&lt;/p&gt;
-&lt;p&gt;We’re demonstrating Brocade Workflow Composer (BWC), powered by &lt;a href=&#34;http://stackstorm.com&#34;&gt;StackStorm&lt;/a&gt;, at &lt;a href=&#34;http://www.brocade.com/en/about-us/events/sc16.html&#34;&gt;SuperComputing16&lt;/a&gt; in Salt Lake City. When you stop by booth 1131, we will give you a token of our appreciation. It’s an NodeMCU microcontroller. It’s pretty cool – WiFi built in, ARM microcontroller, lots of GPIO pins, and it can easily be programmed using the freely-available Arduino IDE. It gets you into the world of IoT quickly and easily, and it’s a lot of fun! Bonus!&lt;/p&gt;
-&lt;p&gt;But there is a catch – you have to watch a demo to get it.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Summary – Brocade Workflow Composer at NFD 12</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/</link>
-      <pubDate>Wed, 24 Aug 2016 02:11:59 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;August 23, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Yousuf Hasan&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;We had a great afternoon with the &lt;a href=&#34;http://techfieldday.com/event/nfd12&#34;&gt;NFD&lt;/a&gt; team as we walked them through our vision, design principles and demos of the Brocade Workflow Composer. We had productive discussions and got good, candid feedback. Caffeine and sugar kept everyone’s critical abilities to the max. There’s 4 separate video sessions…here’s what happened:&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Two weeks in Brocade: “from team of 10 to 4,000!”</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/04/11/two-weeks-brocade/</link>
-      <pubDate>Tue, 12 Apr 2016 05:41:26 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/04/11/two-weeks-brocade/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;April 12, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Dmitri Zimine&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Big change can be daunting. For us – from working in a tiny startup to a big Fortune 500 corporation. For you – from dealing with a tiny startup, to dealing with a big Fortune 500 company.&lt;/p&gt;
-&lt;p&gt;Those of you who invested your effort (and money!) in stackstorm have been understandably concerned of our future. We spent time reaching out to our customers and large users. We are still catching up with explaining the transition, and adding answers to new questions as they come up; &lt;a href=&#34;https://stackstorm.com/2016/04/11/brocade-acquisition-faq/&#34;&gt;check out FAQ&lt;/a&gt; and if there’s something you care to ask, please ask. Here, I’ll reflect on the first 14 days at Brocade, report our status to our dear OpenSource community, and share my first impressions and observations.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Brocade Acquisition FAQ</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</link>
-      <pubDate>Mon, 11 Apr 2016 09:37:39 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</guid>
-      <description>&lt;h2 id=&#34;directions-and-roadmap&#34;&gt;Directions and Roadmap&lt;/h2&gt;
-&lt;p&gt;**Q: What will happen with StackStorm open-source project?&lt;br&gt;
-**&lt;br&gt;
-&lt;strong&gt;A: No change:&lt;/strong&gt; StackStorm automation platform will continue to be actively developed, and stays open-source under Apache 2.0. StackStorm Community product remains available as a free download.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>StackStorm joining Brocade</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/03/29/stackstorm-joining-brocade/</link>
-      <pubDate>Tue, 29 Mar 2016 16:39:49 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/03/29/stackstorm-joining-brocade/</guid>
-      <description>We’re excited to let you know that StackStorm has joined Brocade!
-As you probably know, Brocade (NASDAQ: BRCD) is a leader in networking, with solutions spanning software networking, network fabrics, switching, routing, storage area networking and more. StackStorm is joining Brocade to help accelerate the company’s efforts to bring DevOps style scalable open source automation to Brocade’s networking solutions. Under Brocade, the StackStorm technology will be extended to networking and new integrations will be developed for automation across IT domains such as storage, compute, and security.</description>
-    </item>
-    
-    <item>
-      <title>The Brief History of ChatOps at StackStorm (and How We Got Here)</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/02/25/history-of-chatops/</link>
-      <pubDate>Fri, 26 Feb 2016 02:19:14 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/25/history-of-chatops/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;February 25, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Evan Powell&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;These days ChatOps has become all the rage. In this blog I’ll talk a little bit about how we came to be here – in a leading position when it comes to ChatOps adoption for operations. And I’ll point you to some resources from users and our own engineers to learn more.&lt;/p&gt;
-&lt;p&gt;The history lesson will be brief, I promise.&lt;/p&gt;
-&lt;p&gt;We started StackStorm after observing that existing solutions in the devops universe were generally point solutions, often evolved from scripts and other projects that DevOps engineers wrote to make their own lives easier. And that’s a great way to build a solution that appeals at least to those types of users for those specific use cases.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;What we saw was that while there were leaders within certain segments amongst those tools, there was no clearly adopted pattern for the wiring that tied all these tools together. Moreover, with our backgrounds in enterprises we knew that wiring together extremely heterogeneous environments is always a challenge. The enterprise is more a brownfield than a greenfield.&lt;/p&gt;
-&lt;p&gt;A quick shout out to teams at Facebook and at WebEx Spark and all those other early interviewees that taught us so much about event driven automation. And if you want to join a non commercial Bay Area meet-up about the subject and hear speakers from organizations like Facebook and LinkedIn and Netflix, please join here:&lt;br&gt;
-&lt;!-- raw HTML omitted --&gt;&lt;a href=&#34;http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/&#34;&gt;http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/&lt;/a&gt;&lt;!-- raw HTML omitted --&gt; &lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Improvements to ChatOps Pack Development User Story in ST2 1.4dev</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</link>
-      <pubDate>Mon, 15 Feb 2016 22:34:17 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;February 15, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by &lt;!-- raw HTML omitted --&gt;Jon Middleton&lt;!-- raw HTML omitted --&gt;, Optimisation Project Lead @ Pulsant Limited&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;In the post &lt;!-- raw HTML omitted --&gt;StackStorm QuickTip: ChatOps your pack dev workflow&lt;!-- raw HTML omitted --&gt; James Fryman gave a ChatOPS alias recipe to reduce the friction for deploying packs and then in the &lt;em&gt;Random Thoughts&lt;/em&gt; section asked:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;This action is tied directly to the &lt;code&gt;packs.install&lt;/code&gt;. What about a workflow? Seems like that would be a better way to structure this.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;This resonated with me as I had already started working on an internal pack that did just that, as I thought attempting to deploy a pack via an alias (and action) contained within the same pack would be madness (or just lead to interesting race conditions). In the last week, our &lt;em&gt;Pull Request&lt;/em&gt; has been merged, documentation has been included in st2docs (&lt;a href=&#34;https://docs.stackstorm.com/latest/chatops/pack_deploy.html&#34;&gt;link&lt;/a&gt;) for a workflow that fulfils the above random thought and should be released with 1.4.&lt;/p&gt;
-&lt;p&gt;So introducing &lt;code&gt;packs.deploy&lt;/code&gt;, an action written in Mistral to handle the mapping of names for Git repositories to the information required to carry out the &lt;code&gt;packs.install&lt;/code&gt; action.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/</link>
-      <pubDate>Thu, 26 Nov 2015 21:08:07 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;November 26, 2015&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Anthony Shaw of &lt;a href=&#34;http://www.dimensiondata.com&#34;&gt;Dimension Data&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;This tutorial will show you how to leverage the power of the StackStorm API to expose your fantastic new workflows built using the Flow (available to Enterprise Edition uses) by &lt;a href=&#34;https://stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/&#34;&gt;following one of the blogs&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;In our fictional scenario, we have built 2 complex workflows.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Engage Tractor Beam, this workflow deploys some virtual machines to cloud, uses Hubot to notify the staff and then Puppet to drive the tractor beam.&lt;/li&gt;
-&lt;li&gt;Open/Close loading bay doors, this workflow takes the desired state of the doors to drive another workflow.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;We want to provide our technical operations team with a really simple UI where they can just click these buttons and we hide the magic behind the scenes.&lt;/p&gt;
-&lt;h2 id=&#34;starting-off&#34;&gt;Starting off&lt;/h2&gt;
-&lt;p&gt;First off, this is a tutorial for ASP.NET 4.5, MVC 5 and WebAPI 2.0, the latest Microsoft Web Development toolkit.&lt;/p&gt;
-&lt;p&gt;If you want to use another stack, you can follow the patterns here to repeat in another language.&lt;/p&gt;
-&lt;p&gt;Opening up Visual Studio (here I am using 2013, 2015 would also work), select the ASP.NET Web Application template&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;When prompted, pick out the Single Page Application option, this will install a whole smorgasbord of web-development tools.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>AHH #07 – Unpacking the Gloriousness of StackStorm 1.1 &amp; StackStorm Enterprise</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/11/15/ahh-07-unpacking-the-gloriousness-of-stackstorm-1-1-stackstorm-enterprise/</link>
-      <pubDate>Mon, 16 Nov 2015 04:04:12 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/11/15/ahh-07-unpacking-the-gloriousness-of-stackstorm-1-1-stackstorm-enterprise/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>OctopusDeploy Integration with StackStorm</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</link>
-      <pubDate>Thu, 01 Oct 2015 15:02:25 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;October 1, 2015&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;Guest post by &lt;a href=&#34;https://twitter.com/anthonypjshaw&#34;&gt;Anthony Shaw&lt;/a&gt;, Head of Innovation, ITaaS at &lt;a href=&#34;http://dimensiondata.com&#34;&gt;Dimension Data&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;This blog post will take you through the &lt;a href=&#34;https://github.com/StackStorm-Exchange/stackstorm-octopusdeploy&#34;&gt;integration pack for OctopusDeploy&lt;/a&gt; and give you some example actions and rules to integrate with other packs.&lt;/p&gt;
-&lt;h2 id=&#34;what-is-octopusdeploy&#34;&gt;What is OctopusDeploy?&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;http://www.octopusdeploy.com&#34;&gt;Octopus Deploy&lt;/a&gt; is an automated deployment tool for .NET and Windows environments. It has gained significant popularity amongst the .NET development community for it’s ease of use and integration into the Microsoft development ecosystem. OctopusDeploy enables users to automate deployment of applications, packages and tools to Windows environments.&lt;/p&gt;
-&lt;h2 id=&#34;why-integrate-octopusdeploy-into-stackstorm&#34;&gt;Why integrate OctopusDeploy into StackStorm?&lt;/h2&gt;
-&lt;p&gt;Octopus Deploy provides a rich system for Windows application deployments, but this is typically part of a wider DevOps process. Unlike StackStorm, it does not support closed-loop monitoring, remediation or infrastructure configuration and building, it does not integrate into configuration management tools (nor claim to). If you want to integrate OctopusDeploy from another tool, as part of a DevOps or environment tool you could&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/stackstorm/</link><description>Recent content on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 16 May 2018 20:21:14 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/stackstorm/index.xml" rel="self" type="application/rss+xml"/><item><title>Patch Patch Patch: StackStorm 2.7.2</title><link>https://stackstorm.github.io/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/</link><pubDate>Wed, 16 May 2018 20:21:14 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/</guid><description>&lt;p>Hey folks – StackStorm 2.7.2 has been released. We’ve fixed a bug affecting sensors, improved Jinja rendering, fixed a couple of Web UI bugs and improved the LDAP &amp;amp; RBAC handling for Enterprise users. This is a recommended update for all users. Read on for the details.&lt;/p></description></item><item><title>Simplified Network Performance Tests with PerfSonar and SLX</title><link>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</link><pubDate>Thu, 03 May 2018 17:00:21 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</guid><description>&lt;p>&lt;em>May 3, 2018&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>&lt;a href="https://www.perfsonar.net/">PerfSonar&lt;/a> is a super handy toolkit for measuring network performance between any two points. Combine this with the Guest VM built into the &lt;a href="https://www.extremenetworks.com/product/slx-9850-router/">Extreme SLX series of switches,&lt;/a> and you can easily run performance tests between any two points on your network, measuring performance, latency, jitter, MTU, path taken, etc. Combine that with StackStorm, and you can easily run those tests from Slack. No need to even login to a switch.&lt;/p>
+&lt;h2 id="demo-network-performance-tests-via-slack">Demo: Network Performance Tests via Slack&lt;/h2>
+&lt;p>Check out the video here. From Slack, we can trigger different tests between any two switches – &lt;a href="https://en.wikipedia.org/wiki/Iperf">performance&lt;/a>, &lt;a href="http://software.internet2.edu/owamp/">one-way latency measurement&lt;/a>, or &lt;a href="https://linux.die.net/man/8/tracepath">trace the path&lt;/a>, showing the path MTU. The results are then shown in Slack:&lt;/p>
+&lt;p>Read on for more about how to set this up.&lt;/p></description></item><item><title>Simple Packet Captures with SLX and CloudShark</title><link>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</link><pubDate>Fri, 27 Apr 2018 03:54:32 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</guid><description>&lt;p>&lt;em>April 27, 2018&lt;/em>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Packet Captures are a necessary evil when you need to prove network innocence. But they’re tedious to configure, collect &amp;amp; analyze. What if you could simplify the setup, collection and viewing? That’s what we’ve done here, combining StackStorm, Extreme Insight Architecture, &lt;a href="https://www.cloudshark.org">CloudShark&lt;/a>, and of course Slack.&lt;/p>
+&lt;h2 id="demo-running-packet-captures-from-slack">Demo: Running Packet Captures from Slack&lt;/h2>
+&lt;p>Check out the video here – we show entering some commands in Slack, which triggers a packet capture on multiple switches. The PCAPs are automatically uploaded to CloudShark, so we can view the packets in our browser:&lt;/p>
+&lt;p>Read on for more about how to set this up.&lt;/p></description></item><item><title>New Year, New StackStorm – v2.6 Released</title><link>https://stackstorm.github.io/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/</link><pubDate>Thu, 25 Jan 2018 23:38:54 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/</guid><description>&lt;p>&lt;strong>January 25, 2018&lt;/strong>&lt;/p>
+&lt;p>It’s a New Year, and time for a new version of StackStorm. 2.6 is available for download now. The biggest change is moving the Web UI to the &lt;a href="https://reactjs.org/">React&lt;/a> JS framework, but of course there’s also multiple user- and developer-friendly fixes and enhancements in the backend. Read on to hear more about what’s changed:&lt;/p></description></item><item><title>Early Christmas: StackStorm Patch Release 2.5.1</title><link>https://stackstorm.github.io/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/</link><pubDate>Tue, 19 Dec 2017 18:10:44 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/</guid><description>&lt;p>Here’s an early Christmas present for everyone: StackStorm 2.5.1 is out. Small enhancements and bugfixes, and some enhancements to Workflow Designer. Time to sneak it in before the change freeze? Or something to do on your dev system over the quiet period? Read on for details.&lt;/p></description></item><item><title>StackStorm goes to Extreme</title><link>https://stackstorm.github.io/stackstorm.com/2017/11/03/stackstorm_goes_extreme/</link><pubDate>Fri, 03 Nov 2017 19:57:29 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/11/03/stackstorm_goes_extreme/</guid><description>&lt;p>&lt;em>November 2, 2017&lt;/em>&lt;br>
+&lt;em>by &lt;a href="https://twitter.com/dzimine">Dmitri Zimine&lt;/a>&lt;/em>&lt;/p>
+&lt;p>As of this week StackStorm is officially a part of Extreme Networks. We’ve changed hands 3 times in 18 months. We’ve survived 365 days of uncertainty. It’s over now. The future is certain and bright, more good stuff is coming soon. Seriously, it’s all good.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>StackStorm 2.5 Has Hit the Streets!</title><link>https://stackstorm.github.io/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/</link><pubDate>Thu, 26 Oct 2017 22:38:33 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/</guid><description>&lt;p>We are very pleased to announce that StackStorm v2.5 has shipped, including two big new features – Streaming Output, and the Inquiry Runner, aka &lt;code>st2.ask&lt;/code>. Read on for more details about the new features:&lt;/p></description></item><item><title>StackStorm 2.3: Something for Everyone!</title><link>https://stackstorm.github.io/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/</link><pubDate>Mon, 19 Jun 2017 21:30:06 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/06/19/stackstorm-2-3-something-everyone/</guid><description>&lt;p>&lt;strong>June 19, 2017&lt;/strong>&lt;br>
+&lt;em>By Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>StackStorm 2.3 is out, and there’s something in it for everyone. Big API improvements for developers, Web UI fixes for users, and RBAC &amp;amp; LDAP enhancements for Enterprise customers. Plus plenty of pack changes for everyone. Here’s the full details:&lt;/p></description></item><item><title>StackStorm at OpenStack Summit Boston 2017</title><link>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</link><pubDate>Thu, 04 May 2017 19:29:51 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</guid><description>The world runs on open infrastructure. At the OpenStack Summit, you’ll learn about the mix of open technologies building the modern infrastructure stack, including OpenStack, Kubernetes, Docker, network automation and more. From integrating legacy applications, to self-healing clouds, robotics and network automation the StackStorm open source event driven automation platform provides DevOps teams a powerful, flexible, and reliable solution to take your cloud to the next level. Be sure to stop by the StackStorm booth to meet the StackStorm team, and learn how you can integrate the StackStorm event driven automation platform with your OpenStack cloud</description></item><item><title>Official StackStorm Docker Image is Here!</title><link>https://stackstorm.github.io/stackstorm.com/2017/04/21/official-stackstorm-docker-image-here/</link><pubDate>Fri, 21 Apr 2017 19:28:58 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/04/21/official-stackstorm-docker-image-here/</guid><description>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>Bugs, fixes, security updates: It’s ST2 2.2.1</title><link>https://stackstorm.github.io/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/</link><pubDate>Wed, 05 Apr 2017 20:17:30 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/04/05/bugs-fixes-security-updates-st2-2-2-1/</guid><description>&lt;p>&lt;strong>April 5, 2017&lt;/strong>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>StackStorm 2.2.1 has been released, incorporating the usual array of improvements, bug fixes, and this time a BWC-specific security update. Read on for details.&lt;/p></description></item><item><title>StackStorm 2.2 is up!</title><link>https://stackstorm.github.io/stackstorm.com/2017/02/27/stackstorm-2-2/</link><pubDate>Mon, 27 Feb 2017 20:38:58 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/02/27/stackstorm-2-2/</guid><description>&lt;p>&lt;strong>Feb 27, 2017&lt;/strong>&lt;br>
+&lt;em>by Lindsay Hill&lt;/em>&lt;/p>
+&lt;p>Here’s a nice way to start your week: StackStorm 2.2 has been released! Mistral updates, Jinja in Mistral workflows, Jinja in complex objects, new &lt;code>st2 login&lt;/code> and &lt;code>st2 whoami&lt;/code> commands, security improvements and more! Our &lt;a href="https://github.com/Mierdin">release master&lt;/a> put in some hard work over the last few days to get this out the door. Read on for more details.&lt;/p></description></item><item><title>StackStorm Exchange: The New Pack Management</title><link>https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/</link><pubDate>Tue, 31 Jan 2017 20:36:28 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/</guid><description>&lt;p>&lt;strong>Jan 30, 2017&lt;/strong>&lt;br>
+&lt;em>by Edward Medvedev&lt;/em>&lt;/p>
+&lt;p>&lt;em>Warning: this post describes a long set of important changes. It is enormous in size and full of cheesy puns, feelings, and heart emojis. You might prefer to &lt;a href="docs.stackstorm.com/packs.html">read the documentation&lt;/a> if that is not what you are into. Otherwise, grab a favorite caffeinated drink of your choice and let’s begin!&lt;/em>&lt;/p>
+&lt;p>A little while ago we &lt;a href="https://stackstorm.com/2016/12/06/2-1-new-pack-management/">rolled out StackStorm 2.1&lt;/a>, a release focused on one primary theme: integration packs.&lt;/p>
+&lt;p>StackStorm pack management infrastructure is evolving with the demand. As the number of integration packs grows, we want to provide means for faster and easier deployment, make pack development more productive, and encourage collaboration. There are dozens of changes making it happen—both in our internal infrastructure and the StackStorm core—and we are excited and hopeful that through better experience with integration packs, working with StackStorm will become even more efficient, easy, and fun.&lt;/p>
+&lt;p>As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell.&lt;/p></description></item><item><title>Innovation at Dimension Data: Accelerating Innovation and Digital Transformation with StackStorm Event Driven Automation</title><link>https://stackstorm.github.io/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/</link><pubDate>Tue, 24 Jan 2017 16:36:44 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/</guid><description>&lt;p>&lt;strong>Jan 24, 2017&lt;/strong>&lt;br>
+&lt;em>by Dana Christensen&lt;/em>&lt;/p>
+&lt;h2 id="part-1-of-3">Part 1 of 3&lt;/h2>
+&lt;p>At DevOps Enterprise Summit 2016, DevOps leaders like Target, American Airlines, Disney, and Quicken Loans spoke of the importance of managing/optimizing operations, addressing technical debt, eliminating silos, collaboration, and the importance of open source and community to drive innovation. I was especially struck by &lt;!-- raw HTML omitted -->Jason Cox of Disney&lt;!-- raw HTML omitted -->, who stressed the importance of “creating a culture of courage” where teams are encouraged to be curious, to experiment, explore and embrace change across process, roles, and technology-all for the purpose of enabling meaningful work.&lt;/p>
+&lt;p>It turns out that these themes are being talked about not only by these large Enterprise DevOps leaders. These themes are being repeated in conversations around the globe with IT leaders who are looking to leverage DevOps practices to successfully drive innovation and digital transformation.&lt;/p>
+&lt;p>Anthony Shaw, Group Director of Innovation and Technical Talent at &lt;!-- raw HTML omitted -->Dimension Data&lt;!-- raw HTML omitted --> has seen this first hand. Anthony not only leads innovation efforts within Dimension Data-but he also travels the world speaking with customers about their business priorities, their Digital Transformation goals, and how the innovative use of technology, organizational structure, community, and transforming day to day operational practices can accelerate their Digital Transformation journey.&lt;/p></description></item><item><title>Genomics Sequencing, StackStorm, and Reading the Source Code of Biology</title><link>https://stackstorm.github.io/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/</link><pubDate>Tue, 15 Nov 2016 19:26:11 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/</guid><description>&lt;p>&lt;strong>By Dana Christensen&lt;/strong>&lt;br>
+&lt;em>Nov 15, 2016&lt;/em>&lt;/p>
+&lt;p>The DevOps movement is focused on leading transformational change and driving innovation. At the recent DevOps Enterprise Summit in San Francisco, many of the leaders in the field spoke of driving change through a culture focused on collaboration, community, co-creation, curiosity, continual learning, designing for joy, and meaningful work. I have been impressed with the passion and conviction that leaders in the DevOps movement speak about and emphasize these key principles.. Through determination and focus, living out these key values, and recognizing that everyone has a role to play—we will be able to truly unlock the power of technology to address the many complex global challenges we face today.&lt;/p>
+&lt;p>An excellent example of leveraging DevOps and technology to address complex global challenges is found in the field of Genomics Research. Through focus on the values spoken about by DevOps thought leaders and innovation at the speed of community—Science, Universities, Government, and Business, powered by advances in IT, are able to join forces to develop and evolve techniques that allow for the reading of the source code of biology—something that is incredibly complex and in parts extremely optimized. Through this important work, we are just beginning to unlock the secrets and miraculous mysteries to life on earth as we know it.&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>Unleash the power of IoT with Event-Driven Automation (ST2 &amp; BWC @ SuperComputing16)</title><link>https://stackstorm.github.io/stackstorm.com/2016/11/14/iot-event-driven-automation-supercomputing16/</link><pubDate>Mon, 14 Nov 2016 19:09:21 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/11/14/iot-event-driven-automation-supercomputing16/</guid><description>&lt;p>&lt;strong>By Chip Copper, PhD;&lt;/strong> Principal Technology Evangelist, Brocade&lt;br>
+&lt;em>Nov 14, 2016&lt;/em>&lt;/p>
+&lt;p>The pattern is the same: “I can’t because we don’t…”, “But we are also…”, “Can I …”, and finally “How do I get it?”&lt;/p>
+&lt;p>We’re demonstrating Brocade Workflow Composer (BWC), powered by &lt;a href="http://stackstorm.com">StackStorm&lt;/a>, at &lt;a href="http://www.brocade.com/en/about-us/events/sc16.html">SuperComputing16&lt;/a> in Salt Lake City. When you stop by booth 1131, we will give you a token of our appreciation. It’s an NodeMCU microcontroller. It’s pretty cool – WiFi built in, ARM microcontroller, lots of GPIO pins, and it can easily be programmed using the freely-available Arduino IDE. It gets you into the world of IoT quickly and easily, and it’s a lot of fun! Bonus!&lt;/p>
+&lt;p>But there is a catch – you have to watch a demo to get it.&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>Summary – Brocade Workflow Composer at NFD 12</title><link>https://stackstorm.github.io/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/</link><pubDate>Wed, 24 Aug 2016 02:11:59 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/</guid><description>&lt;p>&lt;strong>August 23, 2016&lt;/strong>&lt;br>
+&lt;em>by Yousuf Hasan&lt;/em>&lt;/p>
+&lt;p>We had a great afternoon with the &lt;a href="http://techfieldday.com/event/nfd12">NFD&lt;/a> team as we walked them through our vision, design principles and demos of the Brocade Workflow Composer. We had productive discussions and got good, candid feedback. Caffeine and sugar kept everyone’s critical abilities to the max. There’s 4 separate video sessions…here’s what happened:&lt;/p></description></item><item><title>Two weeks in Brocade: “from team of 10 to 4,000!”</title><link>https://stackstorm.github.io/stackstorm.com/2016/04/11/two-weeks-brocade/</link><pubDate>Tue, 12 Apr 2016 05:41:26 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/04/11/two-weeks-brocade/</guid><description>&lt;p>&lt;strong>April 12, 2016&lt;/strong>&lt;br>
+&lt;em>by Dmitri Zimine&lt;/em>&lt;/p>
+&lt;p>Big change can be daunting. For us – from working in a tiny startup to a big Fortune 500 corporation. For you – from dealing with a tiny startup, to dealing with a big Fortune 500 company.&lt;/p>
+&lt;p>Those of you who invested your effort (and money!) in stackstorm have been understandably concerned of our future. We spent time reaching out to our customers and large users. We are still catching up with explaining the transition, and adding answers to new questions as they come up; &lt;a href="https://stackstorm.com/2016/04/11/brocade-acquisition-faq/">check out FAQ&lt;/a> and if there’s something you care to ask, please ask. Here, I’ll reflect on the first 14 days at Brocade, report our status to our dear OpenSource community, and share my first impressions and observations.&lt;/p></description></item><item><title>Brocade Acquisition FAQ</title><link>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</link><pubDate>Mon, 11 Apr 2016 09:37:39 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/04/11/brocade-acquisition-faq/</guid><description>&lt;h2 id="directions-and-roadmap">Directions and Roadmap&lt;/h2>
+&lt;p>**Q: What will happen with StackStorm open-source project?&lt;br>
+**&lt;br>
+&lt;strong>A: No change:&lt;/strong> StackStorm automation platform will continue to be actively developed, and stays open-source under Apache 2.0. StackStorm Community product remains available as a free download.&lt;/p></description></item><item><title>StackStorm joining Brocade</title><link>https://stackstorm.github.io/stackstorm.com/2016/03/29/stackstorm-joining-brocade/</link><pubDate>Tue, 29 Mar 2016 16:39:49 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/03/29/stackstorm-joining-brocade/</guid><description>We’re excited to let you know that StackStorm has joined Brocade!
+As you probably know, Brocade (NASDAQ: BRCD) is a leader in networking, with solutions spanning software networking, network fabrics, switching, routing, storage area networking and more. StackStorm is joining Brocade to help accelerate the company’s efforts to bring DevOps style scalable open source automation to Brocade’s networking solutions. Under Brocade, the StackStorm technology will be extended to networking and new integrations will be developed for automation across IT domains such as storage, compute, and security.</description></item><item><title>The Brief History of ChatOps at StackStorm (and How We Got Here)</title><link>https://stackstorm.github.io/stackstorm.com/2016/02/25/history-of-chatops/</link><pubDate>Fri, 26 Feb 2016 02:19:14 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/02/25/history-of-chatops/</guid><description>&lt;p>&lt;strong>February 25, 2016&lt;/strong>&lt;br>
+&lt;em>by Evan Powell&lt;/em>&lt;/p>
+&lt;p>These days ChatOps has become all the rage. In this blog I’ll talk a little bit about how we came to be here – in a leading position when it comes to ChatOps adoption for operations. And I’ll point you to some resources from users and our own engineers to learn more.&lt;/p>
+&lt;p>The history lesson will be brief, I promise.&lt;/p>
+&lt;p>We started StackStorm after observing that existing solutions in the devops universe were generally point solutions, often evolved from scripts and other projects that DevOps engineers wrote to make their own lives easier. And that’s a great way to build a solution that appeals at least to those types of users for those specific use cases.&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>What we saw was that while there were leaders within certain segments amongst those tools, there was no clearly adopted pattern for the wiring that tied all these tools together. Moreover, with our backgrounds in enterprises we knew that wiring together extremely heterogeneous environments is always a challenge. The enterprise is more a brownfield than a greenfield.&lt;/p>
+&lt;p>A quick shout out to teams at Facebook and at WebEx Spark and all those other early interviewees that taught us so much about event driven automation. And if you want to join a non commercial Bay Area meet-up about the subject and hear speakers from organizations like Facebook and LinkedIn and Netflix, please join here:&lt;br>
+&lt;!-- raw HTML omitted -->&lt;a href="http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/">http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/&lt;/a>&lt;!-- raw HTML omitted --> &lt;/p></description></item><item><title>Improvements to ChatOps Pack Development User Story in ST2 1.4dev</title><link>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</link><pubDate>Mon, 15 Feb 2016 22:34:17 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</guid><description>&lt;p>&lt;strong>February 15, 2016&lt;/strong>&lt;br>
+&lt;em>by &lt;!-- raw HTML omitted -->Jon Middleton&lt;!-- raw HTML omitted -->, Optimisation Project Lead @ Pulsant Limited&lt;/em>&lt;/p>
+&lt;p>In the post &lt;!-- raw HTML omitted -->StackStorm QuickTip: ChatOps your pack dev workflow&lt;!-- raw HTML omitted --> James Fryman gave a ChatOPS alias recipe to reduce the friction for deploying packs and then in the &lt;em>Random Thoughts&lt;/em> section asked:&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;em>This action is tied directly to the &lt;code>packs.install&lt;/code>. What about a workflow? Seems like that would be a better way to structure this.&lt;/em>&lt;/p>
+&lt;/blockquote>
+&lt;p>This resonated with me as I had already started working on an internal pack that did just that, as I thought attempting to deploy a pack via an alias (and action) contained within the same pack would be madness (or just lead to interesting race conditions). In the last week, our &lt;em>Pull Request&lt;/em> has been merged, documentation has been included in st2docs (&lt;a href="https://docs.stackstorm.com/latest/chatops/pack_deploy.html">link&lt;/a>) for a workflow that fulfils the above random thought and should be released with 1.4.&lt;/p>
+&lt;p>So introducing &lt;code>packs.deploy&lt;/code>, an action written in Mistral to handle the mapping of names for Git repositories to the information required to carry out the &lt;code>packs.install&lt;/code> action.&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)</title><link>https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/</link><pubDate>Thu, 26 Nov 2015 21:08:07 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/</guid><description>&lt;p>&lt;strong>November 26, 2015&lt;/strong>&lt;br>
+&lt;em>by Anthony Shaw of &lt;a href="http://www.dimensiondata.com">Dimension Data&lt;/a>&lt;/em>&lt;/p>
+&lt;p>This tutorial will show you how to leverage the power of the StackStorm API to expose your fantastic new workflows built using the Flow (available to Enterprise Edition uses) by &lt;a href="https://stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/">following one of the blogs&lt;/a>.&lt;/p>
+&lt;p>In our fictional scenario, we have built 2 complex workflows.&lt;/p>
+&lt;ol>
+&lt;li>Engage Tractor Beam, this workflow deploys some virtual machines to cloud, uses Hubot to notify the staff and then Puppet to drive the tractor beam.&lt;/li>
+&lt;li>Open/Close loading bay doors, this workflow takes the desired state of the doors to drive another workflow.&lt;/li>
+&lt;/ol>
+&lt;p>We want to provide our technical operations team with a really simple UI where they can just click these buttons and we hide the magic behind the scenes.&lt;/p>
+&lt;h2 id="starting-off">Starting off&lt;/h2>
+&lt;p>First off, this is a tutorial for ASP.NET 4.5, MVC 5 and WebAPI 2.0, the latest Microsoft Web Development toolkit.&lt;/p>
+&lt;p>If you want to use another stack, you can follow the patterns here to repeat in another language.&lt;/p>
+&lt;p>Opening up Visual Studio (here I am using 2013, 2015 would also work), select the ASP.NET Web Application template&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;p>&lt;!-- raw HTML omitted -->When prompted, pick out the Single Page Application option, this will install a whole smorgasbord of web-development tools.&lt;!-- raw HTML omitted -->&lt;/p></description></item><item><title>AHH #07 – Unpacking the Gloriousness of StackStorm 1.1 &amp; StackStorm Enterprise</title><link>https://stackstorm.github.io/stackstorm.com/2015/11/15/ahh-07-unpacking-the-gloriousness-of-stackstorm-1-1-stackstorm-enterprise/</link><pubDate>Mon, 16 Nov 2015 04:04:12 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/11/15/ahh-07-unpacking-the-gloriousness-of-stackstorm-1-1-stackstorm-enterprise/</guid><description/></item><item><title>OctopusDeploy Integration with StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</link><pubDate>Thu, 01 Oct 2015 15:02:25 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</guid><description>&lt;p>&lt;strong>October 1, 2015&lt;/strong>&lt;br>
+&lt;em>Guest post by &lt;a href="https://twitter.com/anthonypjshaw">Anthony Shaw&lt;/a>, Head of Innovation, ITaaS at &lt;a href="http://dimensiondata.com">Dimension Data&lt;/a>&lt;/em>&lt;/p>
+&lt;p>This blog post will take you through the &lt;a href="https://github.com/StackStorm-Exchange/stackstorm-octopusdeploy">integration pack for OctopusDeploy&lt;/a> and give you some example actions and rules to integrate with other packs.&lt;/p>
+&lt;h2 id="what-is-octopusdeploy">What is OctopusDeploy?&lt;/h2>
+&lt;p>&lt;a href="http://www.octopusdeploy.com">Octopus Deploy&lt;/a> is an automated deployment tool for .NET and Windows environments. It has gained significant popularity amongst the .NET development community for it’s ease of use and integration into the Microsoft development ecosystem. OctopusDeploy enables users to automate deployment of applications, packages and tools to Windows environments.&lt;/p>
+&lt;h2 id="why-integrate-octopusdeploy-into-stackstorm">Why integrate OctopusDeploy into StackStorm?&lt;/h2>
+&lt;p>Octopus Deploy provides a rich system for Windows application deployments, but this is typically part of a wider DevOps process. Unlike StackStorm, it does not support closed-loop monitoring, remediation or infrastructure configuration and building, it does not integrate into configuration management tools (nor claim to). If you want to integrate OctopusDeploy from another tool, as part of a DevOps or environment tool you could&lt;/p></description></item></channel></rss>

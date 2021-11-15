@@ -1,25 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>members on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/members/</link>
-    <description>Recent content in members on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 20 Feb 2020 13:40:23 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/members/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>StackStorm Project Governance and Maintainers Update</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/</link>
-      <pubDate>Thu, 20 Feb 2020 13:40:23 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/</guid>
-      <description>&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Feb 20, 2020&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;em&gt;By &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen Cusmaunsa (@armab)&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;As you may heard before, &lt;!-- raw HTML omitted --&gt;StackStorm has joined the Linux Foundation&lt;!-- raw HTML omitted --&gt;.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Today we’re happy to update our Open Source Community with the news that first seeding StackStorm Technical Steering Committee (TSC) under the Linux Foundation was formed and ready to rock!&lt;/p&gt;
-&lt;p&gt;See &lt;a href=&#34;https://github.com/StackStorm/st2/blob/master/OWNERS.md&#34;&gt;OWNERS.md&lt;/a&gt; and &lt;a href=&#34;https://github.com/StackStorm/st2/blob/master/GOVERNANCE.md&#34;&gt;GOVERNANCE.md&lt;/a&gt; for more details, which you can find under the project Github repository &lt;a href=&#34;https://github.com/StackStorm/st2&#34;&gt;stackstorm/st2&lt;/a&gt;. We’re back to git as a single source of truth. From now on adding new members or proposing a change to the project governance is a matter of opening a Pull Request, – check out &lt;a href=&#34;https://github.com/StackStorm/st2/pull/4856&#34;&gt;#4856 PR&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>members on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/members/</link><description>Recent content in members on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2020 13:40:23 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/members/index.xml" rel="self" type="application/rss+xml"/><item><title>StackStorm Project Governance and Maintainers Update</title><link>https://stackstorm.github.io/stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/</link><pubDate>Thu, 20 Feb 2020 13:40:23 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/02/20/stackstorm-governance-and-maintainers/</guid><description>&lt;p>&lt;!-- raw HTML omitted -->Feb 20, 2020&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;em>By &lt;a href="https://github.com/armab">Eugen Cusmaunsa (@armab)&lt;/a>&lt;/em>&lt;/p>
+&lt;blockquote>
+&lt;p>As you may heard before, &lt;!-- raw HTML omitted -->StackStorm has joined the Linux Foundation&lt;!-- raw HTML omitted -->.&lt;/p>
+&lt;/blockquote>
+&lt;p>Today we’re happy to update our Open Source Community with the news that first seeding StackStorm Technical Steering Committee (TSC) under the Linux Foundation was formed and ready to rock!&lt;/p>
+&lt;p>See &lt;a href="https://github.com/StackStorm/st2/blob/master/OWNERS.md">OWNERS.md&lt;/a> and &lt;a href="https://github.com/StackStorm/st2/blob/master/GOVERNANCE.md">GOVERNANCE.md&lt;/a> for more details, which you can find under the project Github repository &lt;a href="https://github.com/StackStorm/st2">stackstorm/st2&lt;/a>. We’re back to git as a single source of truth. From now on adding new members or proposing a change to the project governance is a matter of opening a Pull Request, – check out &lt;a href="https://github.com/StackStorm/st2/pull/4856">#4856 PR&lt;/a>.&lt;/p></description></item></channel></rss>

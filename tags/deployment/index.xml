@@ -1,49 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>deployment on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/deployment/</link>
-    <description>Recent content in deployment on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 15 Nov 2020 21:02:54 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/deployment/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Python 2 Deprecation Plan: Say goodbye to python 2</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</link>
-      <pubDate>Sun, 15 Nov 2020 21:02:54 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Nov 16, 2020&lt;/strong&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Ansible StackStorm role v2.0.0 released</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</link>
-      <pubDate>Wed, 05 Aug 2020 17:18:30 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</guid>
-      <description>&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>Ansible playbooks to deploy StackStorm: BWC, ChatOps and more</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</link>
-      <pubDate>Mon, 15 May 2017 19:19:14 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;May 15, 2017&lt;/strong&gt; &lt;em&gt;by Eugen C. (&lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;)&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
-&lt;p&gt;As you may know, previously we &lt;a href=&#34;https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&#34;&gt;announced&lt;/a&gt; availability of Ansible production-friendly playbooks to install &amp;amp; configure StackStorm for cases when our demo &lt;code&gt;bash&lt;/code&gt; installer wasn’t sufficient.&lt;/p&gt;
-&lt;p&gt;With the new release &lt;a href=&#34;https://github.com/StackStorm/ansible-st2&#34;&gt;github.com/StackStorm/ansible-st2&lt;/a&gt; &lt;code&gt;v0.7.0&lt;/code&gt; you can do even more!&lt;/p&gt;
-&lt;p&gt;This version includes new &lt;code&gt;bwc&lt;/code&gt; and &lt;code&gt;st2chatops&lt;/code&gt; roles, features like passing settings to &lt;code&gt;st2.conf&lt;/code&gt;, enhancements to use custom SSL certificate for &lt;code&gt;st2web&lt;/code&gt;, more documentation use-cases, some breaking changes and of course, bug fixes.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>deployment on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/deployment/</link><description>Recent content in deployment on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 15 Nov 2020 21:02:54 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/deployment/index.xml" rel="self" type="application/rss+xml"/><item><title>Python 2 Deprecation Plan: Say goodbye to python 2</title><link>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</link><pubDate>Sun, 15 Nov 2020 21:02:54 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/11/15/python-2-deprecation-plan-say-goodbye-to-python-2/</guid><description>&lt;p>&lt;strong>Nov 16, 2020&lt;/strong>&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>Ansible StackStorm role v2.0.0 released</title><link>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</link><pubDate>Wed, 05 Aug 2020 17:18:30 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</guid><description>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item><item><title>Ansible playbooks to deploy StackStorm: BWC, ChatOps and more</title><link>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</link><pubDate>Mon, 15 May 2017 19:19:14 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</guid><description>&lt;p>&lt;strong>May 15, 2017&lt;/strong> &lt;em>by Eugen C. (&lt;!-- raw HTML omitted -->@armab&lt;!-- raw HTML omitted -->)&lt;/em>&lt;/p>
+&lt;p>&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>As you may know, previously we &lt;a href="https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/">announced&lt;/a> availability of Ansible production-friendly playbooks to install &amp;amp; configure StackStorm for cases when our demo &lt;code>bash&lt;/code> installer wasn’t sufficient.&lt;/p>
+&lt;p>With the new release &lt;a href="https://github.com/StackStorm/ansible-st2">github.com/StackStorm/ansible-st2&lt;/a> &lt;code>v0.7.0&lt;/code> you can do even more!&lt;/p>
+&lt;p>This version includes new &lt;code>bwc&lt;/code> and &lt;code>st2chatops&lt;/code> roles, features like passing settings to &lt;code>st2.conf&lt;/code>, enhancements to use custom SSL certificate for &lt;code>st2web&lt;/code>, more documentation use-cases, some breaking changes and of course, bug fixes.&lt;/p></description></item></channel></rss>

@@ -1,40 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>nagios on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/nagios/</link>
-    <description>Recent content in nagios on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 27 Oct 2016 18:58:59 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/nagios/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Auto-Remediation for Real: Self-Healing Clouds and Auto-Remediation as a Service</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</link>
-      <pubDate>Thu, 27 Oct 2016 18:58:59 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Oct 27, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Dana Christensen&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;What do companies like eBay, VMware, Facebook, Netflix, Mirantis, Verizon, Infosys, Cisco, Dell, LinkedIn, and Apple have in common?&lt;/p&gt;
-&lt;p&gt;They all attended the &lt;!-- raw HTML omitted --&gt;Auto-Remediation and Event-Driven Automation MeetUp&lt;!-- raw HTML omitted --&gt; on Oct. 20th hosted by the StackStorm team at Brocade in San Jose.&lt;/p&gt;
-&lt;p&gt;The topic for the evening was “Remediation For Real” and both Mirantis and Netflix provided excellent overviews and demonstrations of how auto-remediation is helping to address business issues and increase their engineers’ productivity (and sleeptime!).&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Stackstorm: from Nagios integration to Openstack automation</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/</link>
-      <pubDate>Thu, 07 Jan 2016 01:17:26 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;January 07, 2016&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by Igor Cherkaev aka eMptywee&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Recently I’ve been playing around Stackstorm – a platform for integration and automation of day-to-day tasks, monitoring events, existing scripts and deployment tools.&lt;/p&gt;
-&lt;p&gt;I am going to explain how easy it is to wrap your daily tasks into Stackstorm actions and workflows and how to provide a simple way of execution for complex tasks.&lt;/p&gt;
-&lt;p&gt;I’ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn’t seem like a good idea. That being said, I’d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it’d be more practical and easier to read and understand.&lt;/p&gt;
-&lt;h2 id=&#34;nagios&#34;&gt;Nagios&lt;/h2&gt;
-&lt;p&gt;Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &amp;lt;www.stackstorm.com&amp;gt; and &amp;lt;www.nagios.org&amp;gt; (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.&lt;/p&gt;
-&lt;p&gt;First of all, I was happy to find an existing Nagios integration pack &lt;a href=&#34;https://github.com/StackStorm-Exchange/stackstorm-nagios&#34;&gt;on StackStorm community repo&lt;/a&gt;, but my joy ended really quickly as I found it not working. Secondly, &lt;a href=&#34;https://stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/&#34;&gt;this StackStorm tutorial&lt;/a&gt; helped me to get started.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nagios on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/nagios/</link><description>Recent content in nagios on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 27 Oct 2016 18:58:59 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/nagios/index.xml" rel="self" type="application/rss+xml"/><item><title>Auto-Remediation for Real: Self-Healing Clouds and Auto-Remediation as a Service</title><link>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</link><pubDate>Thu, 27 Oct 2016 18:58:59 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</guid><description>&lt;p>&lt;strong>Oct 27, 2016&lt;/strong>&lt;br>
+&lt;em>by Dana Christensen&lt;/em>&lt;/p>
+&lt;p>What do companies like eBay, VMware, Facebook, Netflix, Mirantis, Verizon, Infosys, Cisco, Dell, LinkedIn, and Apple have in common?&lt;/p>
+&lt;p>They all attended the &lt;!-- raw HTML omitted -->Auto-Remediation and Event-Driven Automation MeetUp&lt;!-- raw HTML omitted --> on Oct. 20th hosted by the StackStorm team at Brocade in San Jose.&lt;/p>
+&lt;p>The topic for the evening was “Remediation For Real” and both Mirantis and Netflix provided excellent overviews and demonstrations of how auto-remediation is helping to address business issues and increase their engineers’ productivity (and sleeptime!).&lt;/p></description></item><item><title>Stackstorm: from Nagios integration to Openstack automation</title><link>https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/</link><pubDate>Thu, 07 Jan 2016 01:17:26 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/</guid><description>&lt;p>&lt;strong>January 07, 2016&lt;/strong>&lt;br>
+&lt;em>by Igor Cherkaev aka eMptywee&lt;/em>&lt;/p>
+&lt;p>Recently I’ve been playing around Stackstorm – a platform for integration and automation of day-to-day tasks, monitoring events, existing scripts and deployment tools.&lt;/p>
+&lt;p>I am going to explain how easy it is to wrap your daily tasks into Stackstorm actions and workflows and how to provide a simple way of execution for complex tasks.&lt;/p>
+&lt;p>I’ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn’t seem like a good idea. That being said, I’d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it’d be more practical and easier to read and understand.&lt;/p>
+&lt;h2 id="nagios">Nagios&lt;/h2>
+&lt;p>Let’s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there’s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to &amp;lt;www.stackstorm.com&amp;gt; and &amp;lt;www.nagios.org&amp;gt; (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.&lt;/p>
+&lt;p>First of all, I was happy to find an existing Nagios integration pack &lt;a href="https://github.com/StackStorm-Exchange/stackstorm-nagios">on StackStorm community repo&lt;/a>, but my joy ended really quickly as I found it not working. Secondly, &lt;a href="https://stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/">this StackStorm tutorial&lt;/a> helped me to get started.&lt;/p></description></item></channel></rss>

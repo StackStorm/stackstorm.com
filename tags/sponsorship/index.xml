@@ -1,24 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>sponsorship on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/sponsorship/</link>
-    <description>Recent content in sponsorship on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2020 19:15:33 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/sponsorship/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Sponsoring StackStorm</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2020/06/12/sponsoring-stackstorm/</link>
-      <pubDate>Fri, 12 Jun 2020 19:15:33 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2020/06/12/sponsoring-stackstorm/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Jun 12, 2020&lt;/strong&gt;&lt;br&gt;
-&lt;em&gt;by &lt;a href=&#34;https://github.com/StackStorm/st2/blob/master/OWNERS.md&#34;&gt;StackStorm Team&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://stackstorm.com/wp/wp-content/uploads/2020/06/CommunityBridge_Funding-header.gif&#34; alt=&#34;Sponsoring StackStorm at Community Brdige&#34;&gt;&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sponsorship on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/sponsorship/</link><description>Recent content in sponsorship on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 12 Jun 2020 19:15:33 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/sponsorship/index.xml" rel="self" type="application/rss+xml"/><item><title>Sponsoring StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/2020/06/12/sponsoring-stackstorm/</link><pubDate>Fri, 12 Jun 2020 19:15:33 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2020/06/12/sponsoring-stackstorm/</guid><description>&lt;p>&lt;strong>Jun 12, 2020&lt;/strong>&lt;br>
+&lt;em>by &lt;a href="https://github.com/StackStorm/st2/blob/master/OWNERS.md">StackStorm Team&lt;/a>&lt;/em>&lt;/p>
+&lt;p>&lt;img src="https://stackstorm.com/wp/wp-content/uploads/2020/06/CommunityBridge_Funding-header.gif" alt="Sponsoring StackStorm at Community Brdige">&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

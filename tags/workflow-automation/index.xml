@@ -1,38 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>workflow automation on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/workflow-automation/</link>
-    <description>Recent content in workflow automation on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Tue, 18 Jun 2019 16:00:40 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/workflow-automation/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Running Orquesta Serverless</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2019/06/18/running-orquesta-serverless/</link>
-      <pubDate>Tue, 18 Jun 2019 16:00:40 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2019/06/18/running-orquesta-serverless/</guid>
-      <description>&lt;p&gt;6/18/2019 by &lt;a href=&#34;https://github.com/m4dcoder&#34;&gt;m4dcoder&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Orquesta is the new workflow engine in StackStorm. If you are on the fence choosing which workflow services to use from AWS, Azure, or GCP and you are thinking that this post is too long to read, then just skip ahead and run StackStorm.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-    <item>
-      <title>OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</link>
-      <pubDate>Thu, 13 Oct 2016 02:50:08 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</guid>
-      <description>&lt;h3 id=&#34;stackstorm-at-openstack-summit-highlights&#34;&gt;StackStorm at OpenStack Summit Highlights:&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Booth: B34 (You’ll find us in the Brocade Booth)&lt;/li&gt;
-&lt;li&gt;&lt;!-- raw HTML omitted --&gt;StackStorm Theater Presentation&lt;!-- raw HTML omitted --&gt;: StackStorm and OpenStack: Two Practical Cases for Event Driven Automation; Wed 26 11:20am-11:45am, &lt;!-- raw HTML omitted --&gt;P0 – Marketplace Theater&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;Mirantis Session: &lt;!-- raw HTML omitted --&gt;Sleep Better at Night: OpenStack Cloud Auto­-Healing&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
-&lt;li&gt;Design Summit: Mistral Working Sessions&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>workflow automation on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/workflow-automation/</link><description>Recent content in workflow automation on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 18 Jun 2019 16:00:40 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/workflow-automation/index.xml" rel="self" type="application/rss+xml"/><item><title>Running Orquesta Serverless</title><link>https://stackstorm.github.io/stackstorm.com/2019/06/18/running-orquesta-serverless/</link><pubDate>Tue, 18 Jun 2019 16:00:40 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2019/06/18/running-orquesta-serverless/</guid><description>&lt;p>6/18/2019 by &lt;a href="https://github.com/m4dcoder">m4dcoder&lt;/a>&lt;/p>
+&lt;p>Orquesta is the new workflow engine in StackStorm. If you are on the fence choosing which workflow services to use from AWS, Azure, or GCP and you are thinking that this post is too long to read, then just skip ahead and run StackStorm.&lt;/p>
+&lt;!-- raw HTML omitted --></description></item><item><title>OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</title><link>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</link><pubDate>Thu, 13 Oct 2016 02:50:08 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</guid><description>&lt;h3 id="stackstorm-at-openstack-summit-highlights">StackStorm at OpenStack Summit Highlights:&lt;/h3>
+&lt;ul>
+&lt;li>Booth: B34 (You’ll find us in the Brocade Booth)&lt;/li>
+&lt;li>&lt;!-- raw HTML omitted -->StackStorm Theater Presentation&lt;!-- raw HTML omitted -->: StackStorm and OpenStack: Two Practical Cases for Event Driven Automation; Wed 26 11:20am-11:45am, &lt;!-- raw HTML omitted -->P0 – Marketplace Theater&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>Mirantis Session: &lt;!-- raw HTML omitted -->Sleep Better at Night: OpenStack Cloud Auto­-Healing&lt;!-- raw HTML omitted -->&lt;/li>
+&lt;li>Design Summit: Mistral Working Sessions&lt;/li>
+&lt;/ul>
+&lt;!-- raw HTML omitted --></description></item></channel></rss>

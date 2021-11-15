@@ -1,25 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>configuration on StackStorm</title>
-    <link>https://stackstorm.github.io/stackstorm.com/tags/configuration/</link>
-    <description>Recent content in configuration on StackStorm</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 30 Jun 2016 15:35:33 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/configuration/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Improved pack configuration, user scoped datastore items and secure secrets store</title>
-      <link>https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/</link>
-      <pubDate>Thu, 30 Jun 2016 15:35:33 +0000</pubDate>
-      
-      <guid>https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;June 30, 2016&lt;/strong&gt;&lt;br&gt;
-By Tomaz Muraus&lt;/p&gt;
-&lt;p&gt;The last couple of months, since the &lt;a href=&#34;https://stackstorm.com/2016/03/29/stackstorm-joining-brocade/&#34;&gt;Brocade acquisition&lt;/a&gt;, have been pretty busy for us here at StackStorm. We have been getting to know our new friends at Brocade, learning the typical networking use-cases and figuring out how we can use StackStorm to automate them and bring all the DevOps and data-center automation goodness to the networking space, while keeping StackStorm a generic DevOps automation platform.&lt;/p&gt;
-&lt;p&gt;As always, we have continued to support our users and the community. We also haven’t been slacking with the StackStorm feature development and improvements. We have worked hard to bring you two new releases in the last 2 months – &lt;a href=&#34;https://stackstorm.com/2016/04/20/stackstorm-v1-4/&#34;&gt;StackStorm v1.4&lt;/a&gt; and &lt;a href=&#34;https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/&#34;&gt;StackStorm v1.5&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;StackStorm v1.5 which has been released just recently includes many new features and improvements so if you haven’t already, I would encourage you to go &lt;a href=&#34;https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/&#34;&gt;check it out&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Today I will talk about the one of the major new features in StackStorm v1.5 which has been &lt;a href=&#34;https://github.com/StackStorm/st2/issues/2542&#34;&gt;discussed and requested many times in the past&lt;/a&gt; already. That is improved pack configuration.&lt;/p&gt;</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>configuration on StackStorm</title><link>https://stackstorm.github.io/stackstorm.com/tags/configuration/</link><description>Recent content in configuration on StackStorm</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 30 Jun 2016 15:35:33 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/configuration/index.xml" rel="self" type="application/rss+xml"/><item><title>Improved pack configuration, user scoped datastore items and secure secrets store</title><link>https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/</link><pubDate>Thu, 30 Jun 2016 15:35:33 +0000</pubDate><guid>https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/</guid><description>&lt;p>&lt;strong>June 30, 2016&lt;/strong>&lt;br>
+By Tomaz Muraus&lt;/p>
+&lt;p>The last couple of months, since the &lt;a href="https://stackstorm.com/2016/03/29/stackstorm-joining-brocade/">Brocade acquisition&lt;/a>, have been pretty busy for us here at StackStorm. We have been getting to know our new friends at Brocade, learning the typical networking use-cases and figuring out how we can use StackStorm to automate them and bring all the DevOps and data-center automation goodness to the networking space, while keeping StackStorm a generic DevOps automation platform.&lt;/p>
+&lt;p>As always, we have continued to support our users and the community. We also haven’t been slacking with the StackStorm feature development and improvements. We have worked hard to bring you two new releases in the last 2 months – &lt;a href="https://stackstorm.com/2016/04/20/stackstorm-v1-4/">StackStorm v1.4&lt;/a> and &lt;a href="https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/">StackStorm v1.5&lt;/a>.&lt;/p>
+&lt;p>StackStorm v1.5 which has been released just recently includes many new features and improvements so if you haven’t already, I would encourage you to go &lt;a href="https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/">check it out&lt;/a>.&lt;/p>
+&lt;p>Today I will talk about the one of the major new features in StackStorm v1.5 which has been &lt;a href="https://github.com/StackStorm/st2/issues/2542">discussed and requested many times in the past&lt;/a> already. That is improved pack configuration.&lt;/p></description></item></channel></rss>

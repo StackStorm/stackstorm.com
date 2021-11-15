@@ -1,182 +1,95 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    
-    <title>StackStorm 1.2.0: the new ChatOps | StackStorm</title>
-    <meta name="viewport" content="width=device-width,minimum-scale=1">
-    <meta name="description" content="December 8, 2015
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>StackStorm 1.2.0: the new ChatOps | StackStorm</title>
+<meta name=viewport content="width=device-width,minimum-scale=1">
+<meta name=description content="December 8, 2015
 by Edward Medvedev
 ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the DevOps Next Steps talk by James Fryman, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the ChatOps at GitHub talk by Jesse Newland.
 Today, we’re all excited to introduce — as a part of our 1.2.0 release — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.">
-    <meta name="generator" content="Hugo 0.89.2" />
-    
-    
-      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
-    
-
-    
-<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
-
-
-
-
-    
-      
-
-    
-
-    
-    
-    <meta property="og:title" content="StackStorm 1.2.0: the new ChatOps" />
+<meta name=generator content="Hugo 0.89.2">
+<meta name=ROBOTS content="NOINDEX, NOFOLLOW">
+<link rel=stylesheet href=/stackstorm.com/ananke/css/main.min.css>
+<meta property="og:title" content="StackStorm 1.2.0: the new ChatOps">
 <meta property="og:description" content="December 8, 2015
 by Edward Medvedev
 ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the DevOps Next Steps talk by James Fryman, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the ChatOps at GitHub talk by Jesse Newland.
-Today, we’re all excited to introduce — as a part of our 1.2.0 release — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2015-12-08T15:07:00+00:00" />
-<meta property="article:modified_time" content="2015-12-08T15:07:00+00:00" />
-
-<meta itemprop="name" content="StackStorm 1.2.0: the new ChatOps">
-<meta itemprop="description" content="December 8, 2015
+Today, we’re all excited to introduce — as a part of our 1.2.0 release — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2015-12-08T15:07:00+00:00">
+<meta property="article:modified_time" content="2015-12-08T15:07:00+00:00">
+<meta itemprop=name content="StackStorm 1.2.0: the new ChatOps">
+<meta itemprop=description content="December 8, 2015
 by Edward Medvedev
 ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the DevOps Next Steps talk by James Fryman, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the ChatOps at GitHub talk by Jesse Newland.
-Today, we’re all excited to introduce — as a part of our 1.2.0 release — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever."><meta itemprop="datePublished" content="2015-12-08T15:07:00+00:00" />
-<meta itemprop="dateModified" content="2015-12-08T15:07:00+00:00" />
-<meta itemprop="wordCount" content="1493">
-<meta itemprop="keywords" content="chatops,devops,slack,tutorial," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="StackStorm 1.2.0: the new ChatOps"/>
-<meta name="twitter:description" content="December 8, 2015
+Today, we’re all excited to introduce — as a part of our 1.2.0 release — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever."><meta itemprop=datePublished content="2015-12-08T15:07:00+00:00">
+<meta itemprop=dateModified content="2015-12-08T15:07:00+00:00">
+<meta itemprop=wordCount content="1493">
+<meta itemprop=keywords content="chatops,devops,slack,tutorial,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="StackStorm 1.2.0: the new ChatOps">
+<meta name=twitter:description content="December 8, 2015
 by Edward Medvedev
 ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the DevOps Next Steps talk by James Fryman, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the ChatOps at GitHub talk by Jesse Newland.
-Today, we’re all excited to introduce — as a part of our 1.2.0 release — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever."/>
-
-	
-  </head>
-
-  <body class="ma0 avenir bg-near-white">
-
-    
-   
-  
-
-  <header>
-    <div class="bg-black">
-      <nav class="pv3 ph3 ph4-ns" role="navigation">
-  <div class="flex-l justify-between items-center center">
-    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
-      
-        StackStorm
-      
-    </a>
-    <div class="flex-l items-center">
-      
-
-      
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-  </div>
+Today, we’re all excited to introduce — as a part of our 1.2.0 release — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.">
+</head>
+<body class="ma0 avenir bg-near-white">
+<header>
+<div class=bg-black>
+<nav class="pv3 ph3 ph4-ns" role=navigation>
+<div class="flex-l justify-between items-center center">
+<a href=/stackstorm.com/ class="f3 fw2 hover-white no-underline white-90 dib">
+StackStorm
+</a>
+<div class="flex-l items-center">
+</div>
+</div>
 </nav>
-
-    </div>
-  </header>
-
-
-
-    <main class="pb7" role="main">
-      
-  
-  <article class="flex-l flex-wrap justify-between mw8 center ph3">
-    <header class="mt4 w-100">
-      <aside class="instapaper_ignoref b helvetica tracked">
-          
-        POSTS
-      </aside>
-      
-
-
-
-
-  <div id="sharing" class="mt3">
-
-    
-    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/" class="facebook no-underline" aria-label="share on Facebook">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
-
-    </a>
-
-    
-    
-    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/&amp;text=StackStorm%201.2.0:%20the%20new%20ChatOps" class="twitter no-underline" aria-label="share on Twitter">
-      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
-
-    </a>
-
-    
-    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/&amp;title=StackStorm%201.2.0:%20the%20new%20ChatOps" class="linkedin no-underline" aria-label="share on LinkedIn">
-      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
-</svg>
-
-    </a>
-  </div>
-
-
-      <h1 class="f1 athelas mt3 mb1">StackStorm 1.2.0: the new ChatOps</h1>
-      
-      <p class="tracked">
-          By <strong>
-          
-              st2admin
-          
-          </strong>
-      </p>
-      
-      
-      
-      <time class="f6 mv4 dib tracked" datetime="2015-12-08T15:07:00Z">December 8, 2015</time>
-      
-
-      
-      
-    </header>
-    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>December 8, 2015</strong><br>
+</div>
+</header>
+<main class=pb7 role=main>
+<article class="flex-l flex-wrap justify-between mw8 center ph3">
+<header class="mt4 w-100">
+<aside class="instapaper_ignoref b helvetica tracked">
+POSTS
+</aside>
+<div id=sharing class=mt3>
+<a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/" class="facebook no-underline" aria-label="share on Facebook"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765 50.32h6.744V33.998h4.499l.596-5.624h-5.095l.007-2.816c0-1.466.14-2.253 2.244-2.253h2.812V17.68h-4.5c-5.405.0-7.307 2.729-7.307 7.317v3.377h-3.369v5.625h3.369V50.32zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd"/></svg>
+</a>
+<a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/&text=StackStorm%201.2.0:%20the%20new%20ChatOps" class="twitter no-underline" aria-label="share on Twitter"><svg height="32" style="enable-background:new 0 0 67 67" viewBox="0 0 67 67" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167 22.283c-2.619.953-4.274 3.411-4.086 6.101l.063 1.038-1.048-.127c-3.813-.487-7.145-2.139-9.974-4.915l-1.383-1.377-.356 1.017c-.754 2.267-.272 4.661 1.299 6.271.838.89.649 1.017-.796.487-.503-.169-.943-.296-.985-.233-.146.149.356 2.076.754 2.839.545 1.06 1.655 2.097 2.871 2.712l1.027.487-1.215.021c-1.173.0-1.215.021-1.089.467.419 1.377 2.074 2.839 3.918 3.475l1.299.444-1.131.678c-1.676.976-3.646 1.526-5.616 1.568C19.775 43.256 19 43.341 19 43.405c0 .211 2.557 1.397 4.044 1.864 4.463 1.377 9.765.783 13.746-1.568 2.829-1.673 5.657-5 6.978-8.221.713-1.716 1.425-4.851 1.425-6.354.0-.975.063-1.102 1.236-2.267.692-.678 1.341-1.419 1.467-1.631.21-.403.188-.403-.88-.043-1.781.636-2.033.551-1.152-.402.649-.678 1.425-1.907 1.425-2.267.0-.063-.314.042-.671.233-.377.212-1.215.53-1.844.72l-1.131.361-1.027-.7c-.566-.381-1.361-.805-1.781-.932C39.766 21.902 38.131 21.944 37.167 22.283zM33 64C16.432 64 3 50.569 3 34S16.432 4 33 4s30 13.431 30 30S49.568 64 33 64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/&title=StackStorm%201.2.0:%20the%20new%20ChatOps" class="linkedin no-underline" aria-label="share on LinkedIn"><svg height="32" style="enable-background:new 0 0 65 65" viewBox="0 0 65 65" width="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M50.837 48.137V36.425c0-6.275-3.35-9.195-7.816-9.195-3.604.0-5.219 1.983-6.119 3.374V27.71h-6.79c.09 1.917.0 20.427.0 20.427h6.79V36.729c0-.609.044-1.219.224-1.655.49-1.22 1.607-2.483 3.482-2.483 2.458.0 3.44 1.873 3.44 4.618v10.929H50.837zM22.959 24.922c2.367.0 3.842-1.57 3.842-3.531-.044-2.003-1.475-3.528-3.797-3.528s-3.841 1.524-3.841 3.528c0 1.961 1.474 3.531 3.753 3.531H22.959zM34 64C17.432 64 4 50.568 4 34 4 17.431 17.432 4 34 4s30 13.431 30 30c0 16.568-13.432 30-30 30zM26.354 48.137V27.71h-6.789v20.427h6.789z" style="fill-rule:evenodd;clip-rule:evenodd;fill:"/></svg>
+</a>
+</div>
+<h1 class="f1 athelas mt3 mb1">StackStorm 1.2.0: the new ChatOps</h1>
+<p class=tracked>
+By <strong>
+st2admin
+</strong>
+</p>
+<time class="f6 mv4 dib tracked" datetime=2015-12-08T15:07:00Z>December 8, 2015</time>
+</header>
+<div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>December 8, 2015</strong><br>
 <em>by Edward Medvedev</em></p>
-<p>ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the <a href="https://www.youtube.com/watch?v=37LmuHToYjQ">DevOps Next Steps talk</a> by <a href="https://github.com/jfryman">James Fryman</a>, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the <a href="http://www.youtube.com/watch?v=NST3u-GjjFw">ChatOps at GitHub talk</a> by Jesse Newland.</p>
-<p>Today, we’re all excited to introduce — as a part of our <a href="https://github.com/StackStorm/st2/releases/tag/v1.2.0">1.2.0 release</a> — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.</p>
+<p>ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the <a href="https://www.youtube.com/watch?v=37LmuHToYjQ">DevOps Next Steps talk</a> by <a href=https://github.com/jfryman>James Fryman</a>, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the <a href="http://www.youtube.com/watch?v=NST3u-GjjFw">ChatOps at GitHub talk</a> by Jesse Newland.</p>
+<p>Today, we’re all excited to introduce — as a part of our <a href=https://github.com/StackStorm/st2/releases/tag/v1.2.0>1.2.0 release</a> — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.</p>
 <p>This release is about control. No matter if you use StackStorm for a small personal project or a huge server farm, you want to have full control over what’s happening, and ChatOps is no exception. Now you can have a bot that’s truly yours: flexible and fully customizable, behaving exactly the way you want.</p>
 <p>Want to have minimalistic and concise status messages? No problem.</p>
 <p>Want to give the bot a little bit of character? You got it.</p>
-<p>Want to name her Princess Bubblegum, eventually fall in love and heep her in your Ice Kingdom all to yourself? That’s awfully specific, but <!-- raw HTML omitted -->we still got you covered<!-- raw HTML omitted --> you shouldn’t do it, because princesses should be happy and free.</p>
+<p>Want to name her Princess Bubblegum, eventually fall in love and heep her in your Ice Kingdom all to yourself? That’s awfully specific, but we still got you covered you shouldn’t do it, because princesses should be happy and free.</p>
 <p>Instead, why don’t you name it Ancient Psychic Tandem War Elephant, make it respond to every query using psychic powers and anxiously shoot lasers out of its trunks every time @FinnTheHuman suddenly goes offline?</p>
-<p><img src="http://i.imgur.com/AECYh7b.gif" alt=""></p>
-<p>If you need a full list of changes, see our <a href="https://docs.stackstorm.com/changelog.html#december-07-2015">release notes</a> and stay tuned for a more detailed post explaining all the new features; for the new ChatOps explanation-plus-tutorial, read on!</p>
+<p><img src=http://i.imgur.com/AECYh7b.gif alt></p>
+<p>If you need a full list of changes, see our <a href=https://docs.stackstorm.com/changelog.html#december-07-2015>release notes</a> and stay tuned for a more detailed post explaining all the new features; for the new ChatOps explanation-plus-tutorial, read on!</p>
 <p> </p>
-<h3 id="1-under-the-hood">1. Under the hood</h3>
+<h3 id=1-under-the-hood>1. Under the hood</h3>
 <p>Our engineers have been working relentlessly to improve key parts of the ChatOps deployment and make it more stable, maintainable, flexible and robust:</p>
 <ul>
 <li>
-<p>Hubot-stackstorm script now utilizes <code>st2client.js</code> (StackStorm client library), and <strong>EventStream API</strong> for stability and ease of use.<!-- raw HTML omitted --></p>
+<p>Hubot-stackstorm script now utilizes <code>st2client.js</code> (StackStorm client library), and <strong>EventStream API</strong> for stability and ease of use.</p>
 </li>
 <li>
-<p>We’ve placed Hubot into a <strong><a href="https://hub.docker.com/r/stackstorm/hubot/">Docker container</a></strong>, so CentOS 6/7 and RHEL6/7 are now fully supported, and deployment got faster and easier.</p>
+<p>We’ve placed Hubot into a <strong><a href=https://hub.docker.com/r/stackstorm/hubot/>Docker container</a></strong>, so CentOS 6/7 and RHEL6/7 are now fully supported, and deployment got faster and easier.</p>
 </li>
 <li>
 <p><strong>Alias parser</strong> has been completely rewritten to allow more flexibility in regard to special characters, multi-word and multi-line matching.</p>
@@ -188,13 +101,13 @@ Today, we’re all excited to introduce — as a part of our 1.2.0 release — a
 <p>The old <code>hubot</code> pack is deprecated and replaced by the <strong>new <code>chatops</code> pack</strong>. To show ChatOps some more love, this pack is now a part of StackStorm core.</p>
 </li>
 <li>
-<p>Various <strong>stability fixes</strong> have been introduced to fix bugs and issues reported by our amazing <a href="https://stackstorm.com/community-signup">Slack community</a>.</p>
+<p>Various <strong>stability fixes</strong> have been introduced to fix bugs and issues reported by our amazing <a href=https://stackstorm.com/community-signup>Slack community</a>.</p>
 </li>
 </ul>
 <p> </p>
-<h3 id="2-acknowledgement-options">2. Acknowledgement options</h3>
+<h3 id=2-acknowledgement-options>2. Acknowledgement options</h3>
 <p>Every time you issue a command, Hubot acknowledges it with a random message and your execution ID, as well as a link to StackStorm page:</p>
-<p><img src="http://i.imgur.com/RRbwmcP.png" alt=""></p>
+<p><img src=http://i.imgur.com/RRbwmcP.png alt></p>
 <p>Most of the time this default is sensible, and the StackStorm link is a great way to know more about your action and get additional context. However, sometimes you may find yourself in a situation where it would make sense to modify the message.</p>
 <p>What if you just want something different? Maybe you want to strip the IDs and links so that people without StackStorm access won’t be confused, or you just want to provide your own message, or your action doesn’t take much time and an acknowledgement seems like an overkill. Luckily, <code>ack</code> property is now available in aliases, allowing to configure the message or disable it.</p>
 <p>Specify a format line in your alias definition:</p>
@@ -207,42 +120,42 @@ Today, we’re all excited to introduce — as a part of our 1.2.0 release — a
   append_url: false
 </code></pre>
 <p>And if you want to insert execution ID in the format string, just use <code>{{ execution.id }}</code>. Simple as that!</p>
-<p><img src="http://i.imgur.com/7K6uLVF.png" alt=""></p>
+<p><img src=http://i.imgur.com/7K6uLVF.png alt></p>
 <p>You can also turn the message off with <code>enabled</code> property.</p>
 <pre><code>ack:
   enabled: false
 </code></pre>
 <p> </p>
-<h3 id="3-result-options">3. Result options</h3>
+<h3 id=3-result-options>3. Result options</h3>
 <p>Polly is happy:</p>
-<p><img src="http://i.imgur.com/vSm3mxj.png" alt=""></p>
+<p><img src=http://i.imgur.com/vSm3mxj.png alt></p>
 <p>But that’s a lot of information for such a small action, isn’t it? Let’s change it to something simple! Same as with <code>ack</code>, you can also format <code>result</code> if you want to strip the metadata or adjust the template in any other way.</p>
 <pre><code>result:
   format: &quot;Your action is done! {{ execution.result.result }}&quot;
 </code></pre>
-<p><img src="http://i.imgur.com/KKQMYpS.png" alt=""></p>
+<p><img src=http://i.imgur.com/KKQMYpS.png alt></p>
 <p>Much better now. And in a rare case you’d like to disable the result output altogether, you can use the <code>enabled</code> property here as well.</p>
 <p><strong>Slack-only protip</strong>: Slack uses attachments to format the result message. While we found attachments to be the best way to handle very long messages, sometimes you want part of your message — or all of it — in plaintext. Use <code>{~}</code> as a delimiter to do that.</p>
 <p>That’s what <code>your action is done! {~} {{ execution.result.result }}</code> will look like:</p>
-<p><img src="http://i.imgur.com/WIc7p5W.png" alt=""></p>
+<p><img src=http://i.imgur.com/WIc7p5W.png alt></p>
 <p>Putting the delimiter at the end (<code>your action is done! {{ execution.result.result }}{~}</code>) will output everything in plaintext:</p>
-<p><img src="http://i.imgur.com/G6JxdkL.png" alt=""></p>
+<p><img src=http://i.imgur.com/G6JxdkL.png alt></p>
 <p> </p>
-<h3 id="4-context-and-jinja-support">4. Context and Jinja support</h3>
+<h3 id=4-context-and-jinja-support>4. Context and Jinja support</h3>
 <p>While <code>{{ execution.id }}</code> and <code>{{ execution.result.result }}</code> are the most common variables you’re going to need in your aliases, it’s not everything you can use by far.</p>
-<p>Context in <code>ack</code> messages includes <code>execution</code> and <code>actionalias</code>, which in turn has action information in <code>actionalias.action</code>. Example: <a href="https://gist.github.com/emedvedev/aa006be3f438d492acbc">ack.js</a>.</p>
-<p>Context in <code>result</code> messages is wider: it includes execution status and result, as well as stdout and stderr. Example: <a href="https://gist.github.com/emedvedev/62a50ea9c5b00449ce7b">result.js</a>.</p>
-<p>And here’s more good news: format strings use <a href="http://jinja.pocoo.org">Jinja</a> to render templates, so you can use filters and conditionals, too.</p>
+<p>Context in <code>ack</code> messages includes <code>execution</code> and <code>actionalias</code>, which in turn has action information in <code>actionalias.action</code>. Example: <a href=https://gist.github.com/emedvedev/aa006be3f438d492acbc>ack.js</a>.</p>
+<p>Context in <code>result</code> messages is wider: it includes execution status and result, as well as stdout and stderr. Example: <a href=https://gist.github.com/emedvedev/62a50ea9c5b00449ce7b>result.js</a>.</p>
+<p>And here’s more good news: format strings use <a href=http://jinja.pocoo.org>Jinja</a> to render templates, so you can use filters and conditionals, too.</p>
 <pre><code>ack:
   format: &quot;Executing `{{ actionalias.ref }}`, your ID is {{ execution.id[:2] }}..{{ execution.id[-2:] }}&quot;
 result:
   format: &quot;{{ execution.result.result | truncate(47, True) }}&quot;
 </code></pre>
-<p><img src="http://i.imgur.com/TV6IdIL.png" alt=""></p>
-<p>ChatOps pack has a <a href="https://github.com/StackStorm/st2/blob/master/contrib/chatops/actions/templates/default.j2">neat example</a> of all the things you can do with Jinja. If you never used it before, it may look like super-wizard-class hackery, but you probably won’t need a template that complex, so don’t worry! When in doubt, look for answers in <a href="http://jinja.pocoo.org/docs/">Jinja docs</a>.</p>
-<h3 id="5-extended-command-parser">5. Extended command parser</h3>
+<p><img src=http://i.imgur.com/TV6IdIL.png alt></p>
+<p>ChatOps pack has a <a href=https://github.com/StackStorm/st2/blob/master/contrib/chatops/actions/templates/default.j2>neat example</a> of all the things you can do with Jinja. If you never used it before, it may look like super-wizard-class hackery, but you probably won’t need a template that complex, so don’t worry! When in doubt, look for answers in <a href=http://jinja.pocoo.org/docs/>Jinja docs</a>.</p>
+<h3 id=5-extended-command-parser>5. Extended command parser</h3>
 <p>Whoa, what’s that? Is it a bird? Is it a plane? It’s our new alias parser! While maintaining full backwards compatibility, the new parser for commands is more flexible and supports complex patterns. Here’s a few things you couldn’t do before:</p>
-<h4 id="optional-arguments-everywhere-not-just-the-end-of-the-alias"><strong>Optional arguments everywhere, not just the end of the alias</strong></h4>
+<h4 id=optional-arguments-everywhere-not-just-the-end-of-the-alias><strong>Optional arguments everywhere, not just the end of the alias</strong></h4>
 <p>ChatOps aliases support optional arguments and arbitrary parameters at the end of the string, but starting with 1.2.0 you can specify default values for every argument no matter its position.</p>
 <p><strong>Before:</strong></p>
 <pre><code>send a letter {{ content }} {{ protocol=smtp }} {{ addressee=hubot@example.com }}
@@ -250,8 +163,8 @@ result:
 <p><strong>Now:</strong></p>
 <pre><code>{{ protocol=&quot;smtp&quot; }} send {{ addressee=&quot;hubot@example.com&quot; }} a letter: {{ content }}
 </code></pre>
-<p><img src="http://i.imgur.com/TAgD0XA.png" alt=""></p>
-<h4 id="multi-word-and-multi-line-matching"><strong>Multi-word and multi-line matching</strong></h4>
+<p><img src=http://i.imgur.com/TAgD0XA.png alt></p>
+<h4 id=multi-word-and-multi-line-matching><strong>Multi-word and multi-line matching</strong></h4>
 <p>If you wanted to pass multiple words as a ChatOps command argument, you had to enclose the match in quotes and use no more than one line. Starting today, lose the quotes and pass long and even multi-line arguments as much as you want. Finally you can make your bot read wonderful poetry!</p>
 <pre><code>read out loud: {{ chapter }}
 </code></pre>
@@ -260,8 +173,8 @@ result:
 read out loud: &quot;multiple words with quotes, but just one line&quot;
 </code></pre>
 <p><strong>Now</strong>:</p>
-<p><img src="http://i.imgur.com/h35KC0q.png" alt=""></p>
-<h4 id="fun-with-regular-expressions"><strong>Fun with regular expressions</strong></h4>
+<p><img src=http://i.imgur.com/h35KC0q.png alt></p>
+<h4 id=fun-with-regular-expressions><strong>Fun with regular expressions</strong></h4>
 <p>Now for the most powerful feature: the new parser is regex-based, and you’re free to unleash the dark powers of regular expressions onto your aliases. This might be a good time to add some character to your bot!</p>
 <p><strong>Before</strong>:</p>
 <pre><code>get my {{ thing }}
@@ -270,11 +183,11 @@ read out loud: &quot;multiple words with quotes, but just one line&quot;
 <pre><code>(get|accio|fetch|beam)( (a|my|the))? {{ thing }}(,? (right now|immediately|up))?[!.]?
 </code></pre>
 <p>This alias will match <code>accio slippers</code> as well as <code>fetch the tennis ball, right now!</code>:</p>
-<p><img src="http://i.imgur.com/jqtMniL.png" alt=""></p>
+<p><img src=http://i.imgur.com/jqtMniL.png alt></p>
 <p> </p>
-<h3 id="6-help-representations">6. Help representations</h3>
+<h3 id=6-help-representations>6. Help representations</h3>
 <p>Now, let’s assume that you actually came up with something like <code>(get|accio|fetch|beam)( (a|my|the))? {{ thing }}(,? (right now|immediately|up))?[!.]?</code> in your production deployment. Here’s what Hubot help would look like:</p>
-<p><img src="http://i.imgur.com/xfQI6bw.png" alt=""></p>
+<p><img src=http://i.imgur.com/xfQI6bw.png alt></p>
 <p>What will happen when people see it? Will your boss give you a raise for being such a smart guy? Will your coworkers go insane trying to comprehend all this? Will you burn at the stake for doing some dark computer magic? We’ll never know, because now you can explicitly <strong>specify a help entry</strong> for every format string!</p>
 <pre><code>formats:
   - display: &quot;get {{ thing }}&quot;
@@ -290,134 +203,88 @@ read out loud: &quot;multiple words with quotes, but just one line&quot;
   - &quot;get {{ thing }} from {{ location }} at {{ time }}&quot;
 </code></pre>
 <p>Now the masterfully crafted regex is still working, but stays hidden from public view:</p>
-<p><img src="https://i.imgur.com/LtTrFCY.png" alt=""></p>
+<p><img src=https://i.imgur.com/LtTrFCY.png alt></p>
 <hr>
-<p>All good things come to an end, and so does this feature list. Hope you liked it! Go crazy with all that new ChatOps goodness, and don’t forget to tell us about your awesome bots and integration scenarios in our <a href="https://stackstorm.com/community-signup">Slack community</a> or by <a href="mailto:support@stackstorm.com">e-mail</a>. Love. ❤️</p>
-<p><em>— Ed</em></p><ul class="pa0">
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/chatops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/devops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">devops</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/slack" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">slack</a>
-   </li>
-  
-   <li class="list">
-     <a href="/stackstorm.com/tags/tutorial" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorial</a>
-   </li>
-  
+<p>All good things come to an end, and so does this feature list. Hope you liked it! Go crazy with all that new ChatOps goodness, and don’t forget to tell us about your awesome bots and integration scenarios in our <a href=https://stackstorm.com/community-signup>Slack community</a> or by <a href=mailto:support@stackstorm.com>e-mail</a>. Love. ❤️</p>
+<p><em>— Ed</em></p><ul class=pa0>
+<li class=list>
+<a href=/stackstorm.com/tags/chatops class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/devops class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">devops</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/slack class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">slack</a>
+</li>
+<li class=list>
+<a href=/stackstorm.com/tags/tutorial class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorial</a>
+</li>
 </ul>
 <div class="mt6 instapaper_ignoref">
-      
-      
-      </div>
-    </div>
-
-    <aside class="w-30-l mt6-l">
-
-
-
-
-  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
-    <p class="f5 b mb3">Related</p>
-    <ul class="pa0 list">
-	   
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/">Ansible and ChatOps. Get started 🚀</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/">Managing AWS Instance Lifecycle With StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/">Auto-remediation by example: handling out-of-disk-space.</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/09/15/java-action/">Turning Java App Into StackStorm Action</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/07/29/getting-started-with-stackstorm-and-saltstack/">Getting Started With StackStorm and SaltStack</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/07/08/automating-with-mistral-workflow/">Automated Troubleshooting With StackStorm and Mistral</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/26/ahh04-typeform-to-slack-auto-invite/">AHH #04 – Typeform to Slack Auto-Invite</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/12/ahh03-chatops-notifications/">AHH #03 – ChatOps &amp; Notifications</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/06/12/integrating-chatops-with-stackstorm/">Integrating ChatOps With StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/">On Beginning Software Delivery Acceleration</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/04/20/actions-of-all-flavors-in-stackstorm/">Actions Of All Flavors In StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/">Rapid Integration Development With StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/">Monitor Twitter And Fire Automations Based On Twitter Keywords Using StackStorm</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/">StackStorm – Automated Troubleshooting</a>
-        </li>
-	    
-	     <li  class="mb2">
-          <a href="/stackstorm.com/2014/08/11/devopsdays-presentation-devops-greatest-shift-industry/">DevOpsDays Presentation: Why DevOps Is The Greatest Shift In The IT Industry</a>
-        </li>
-	    
-    </ul>
 </div>
-
+</div>
+<aside class="w-30-l mt6-l">
+<div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+<p class="f5 b mb3">Related</p>
+<ul class="pa0 list">
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/>Ansible and ChatOps. Get started 🚀</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/>Managing AWS Instance Lifecycle With StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/>Auto-remediation by example: handling out-of-disk-space.</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/09/15/java-action/>Turning Java App Into StackStorm Action</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/07/29/getting-started-with-stackstorm-and-saltstack/>Getting Started With StackStorm and SaltStack</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/07/08/automating-with-mistral-workflow/>Automated Troubleshooting With StackStorm and Mistral</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/26/ahh04-typeform-to-slack-auto-invite/>AHH #04 – Typeform to Slack Auto-Invite</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/12/ahh03-chatops-notifications/>AHH #03 – ChatOps & Notifications</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/06/12/integrating-chatops-with-stackstorm/>Integrating ChatOps With StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/05/20/on-beginning-software-delivery-acceleration/>On Beginning Software Delivery Acceleration</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/04/20/actions-of-all-flavors-in-stackstorm/>Actions Of All Flavors In StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/>Rapid Integration Development With StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/>Monitor Twitter And Fire Automations Based On Twitter Keywords Using StackStorm</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/>StackStorm – Automated Troubleshooting</a>
+</li>
+<li class=mb2>
+<a href=/stackstorm.com/2014/08/11/devopsdays-presentation-devops-greatest-shift-industry/>DevOpsDays Presentation: Why DevOps Is The Greatest Shift In The IT Industry</a>
+</li>
+</ul>
+</div>
 </aside>
-
-  </article>
-
-    </main>
-    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
-  <div class="flex justify-between">
-  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
-    &copy;  StackStorm 2021 
-  </a>
-    <div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</article>
+</main>
+<footer class="bg-black bottom-0 w-100 pa3" role=contentinfo>
+<div class="flex justify-between">
+<a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href=https://stackstorm.github.io/stackstorm.com>
+&copy; StackStorm 2021
+</a>
+<div>
 </div>
-  </div>
+</div>
 </footer>
-
-  </body>
+</body>
 </html>
