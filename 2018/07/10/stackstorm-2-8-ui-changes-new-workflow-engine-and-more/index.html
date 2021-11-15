@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>StackStorm 2.8: UI Changes, New Workflow Engine, and More | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="2.8 Release Blog
+July 10th, 2018
+by Lindsay Hill
+It has been 3 months since our last confession release. That’s why there’s a lot happening in this release. We are very excited to present the first public release of our new workflow engine, Orquesta. The Web UI has a new look &amp; apps, and we’ve added Python 3 action support. We’ve also added metrics collection to help understand exactly what your system is doing. Read on for more!">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="StackStorm 2.8: UI Changes, New Workflow Engine, and More" />
+<meta property="og:description" content="2.8 Release Blog
+July 10th, 2018
+by Lindsay Hill
+It has been 3 months since our last confession release. That’s why there’s a lot happening in this release. We are very excited to present the first public release of our new workflow engine, Orquesta. The Web UI has a new look &amp; apps, and we’ve added Python 3 action support. We’ve also added metrics collection to help understand exactly what your system is doing. Read on for more!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2018-07-10T13:14:00+00:00" />
+<meta property="article:modified_time" content="2018-07-10T13:14:00+00:00" />
+
+<meta itemprop="name" content="StackStorm 2.8: UI Changes, New Workflow Engine, and More">
+<meta itemprop="description" content="2.8 Release Blog
+July 10th, 2018
+by Lindsay Hill
+It has been 3 months since our last confession release. That’s why there’s a lot happening in this release. We are very excited to present the first public release of our new workflow engine, Orquesta. The Web UI has a new look &amp; apps, and we’ve added Python 3 action support. We’ve also added metrics collection to help understand exactly what your system is doing. Read on for more!"><meta itemprop="datePublished" content="2018-07-10T13:14:00+00:00" />
+<meta itemprop="dateModified" content="2018-07-10T13:14:00+00:00" />
+<meta itemprop="wordCount" content="1852">
+<meta itemprop="keywords" content="release,release announcement," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="StackStorm 2.8: UI Changes, New Workflow Engine, and More"/>
+<meta name="twitter:description" content="2.8 Release Blog
+July 10th, 2018
+by Lindsay Hill
+It has been 3 months since our last confession release. That’s why there’s a lot happening in this release. We are very excited to present the first public release of our new workflow engine, Orquesta. The Web UI has a new look &amp; apps, and we’ve added Python 3 action support. We’ve also added metrics collection to help understand exactly what your system is doing. Read on for more!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/&amp;text=StackStorm%202.8:%20UI%20Changes,%20New%20Workflow%20Engine,%20and%20More" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2018/07/10/stackstorm-2-8-ui-changes-new-workflow-engine-and-more/&amp;title=StackStorm%202.8:%20UI%20Changes,%20New%20Workflow%20Engine,%20and%20More" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">StackStorm 2.8: UI Changes, New Workflow Engine, and More</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2018-07-10T13:14:00Z">July 10, 2018</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><h1 id="28-release-blog">2.8 Release Blog</h1>
+<p><em>July 10th, 2018</em><br>
+<em>by Lindsay Hill</em></p>
+<p>It has been 3 months since our last <!-- raw HTML omitted -->confession<!-- raw HTML omitted --> release. That’s why there’s a <em>lot</em> happening in this release. We are very excited to present the first public release of our new workflow engine, Orquesta. The Web UI has a new look &amp; apps, and we’ve added Python 3 action support. We’ve also added metrics collection to help understand <strong>exactly</strong> what your system is doing. Read on for more!</p>
+<h2 id="new-workflow-engine-orquesta">New Workflow Engine: Orquesta</h2>
+<p>We have been busy this year writing a new Workflow engine: Orquesta. This is a new StackStorm-native workflow engine, written by the StackStorm team. We’ve taken what we’ve learned over the years working on Mistral and ActionChains, and improved upon it. We’ve then tightly integrated it with StackStorm.</p>
+<p>Why do this, and what does it mean for you? We’ve done it to provide a better, simpler experience for creating, running and debugging complex workflows. Orquesta runs as a StackStorm sub-component, and uses the same configurations, database and log locations as the rest of the StackStorm services. This makes deployment and troubleshooting simpler.</p>
+<p>We can also write a new DSL, addressing gaps, and making it easier to understand. We will be able to address all Action Chain &amp; Mistral use-cases, and more.</p>
+<p>OK, enough talk about what &amp; why: What does it look like? Here’s an example workflow definition:</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;version&lt;/span&gt;: &lt;span class=&quot;pl-c1&quot;&gt;1.0&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;description&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt; A sample workflow that demonstrates how to handle rollback and retry on error. In this example,&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt; the workflow will loop until the file /tmp/done exists. A parallel task will wait for some time&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt; before creating the file. When completed, /tmp/done will be deleted.&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt;&lt;/span&gt;&lt;span class=&quot;pl-ent&quot;&gt;vars&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-ent&quot;&gt;file&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;/tmp/&lt;% str(random(1000000, 9999999)) %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;tasks&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;init&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;core.local cmd=&quot;rm -rf &lt;% ctx().file %&gt;&quot;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;next&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-ent&quot;&gt;when&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% succeeded() %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;do&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;check, create&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;check&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;core.local&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;cmd&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt; echo 'Do something useful here.';&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt; if [ ! -e &lt;%&lt;span class=&quot;pl-s1&quot;&gt; ctx().file &lt;/span&gt;&lt;span class=&quot;pl-s1&quot;&gt;%&lt;/span&gt;&gt; ]; then exit 1; fi&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt;&lt;/span&gt; &lt;span class=&quot;pl-ent&quot;&gt;next&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L25&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;25&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC25&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-ent&quot;&gt;when&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% succeeded() %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L26&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;26&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC26&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;do&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;delete&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L27&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;27&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC27&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-ent&quot;&gt;when&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% failed() %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L28&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;28&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC28&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;do&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;rollback&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L29&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;29&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC29&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L30&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;30&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC30&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;rollback&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L31&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;31&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC31&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;core.local&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L32&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;32&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC32&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L33&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;33&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC33&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;cmd&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L34&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;34&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC34&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt; echo 'Rollback something here.';&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L35&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;35&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC35&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt; sleep 1;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L36&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;36&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC36&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-s&quot;&gt;&lt;/span&gt; &lt;span class=&quot;pl-ent&quot;&gt;next&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L37&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;37&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC37&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-ent&quot;&gt;when&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% succeeded() %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L38&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;38&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC38&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;do&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;check&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L39&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;39&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC39&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L40&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;40&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC40&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;create&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L41&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;41&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC41&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;core.local cmd=&quot;sleep 3; touch &lt;% ctx().file %&gt;&quot;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L42&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;42&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC42&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L43&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;43&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC43&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;delete&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-L44&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;44&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-orchestra-rollback-retry-yaml-LC44&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;core.local cmd=&quot;rm -f &lt;% ctx().file %&gt;&quot;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/LindsayHill/08d100374aae5508bf4ccd2571eaab10/raw/ef637fb4b53e6bce87347c2da24677229fd29851/orchestra-rollback-retry.yaml&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/LindsayHill/08d100374aae5508bf4ccd2571eaab10#file-orchestra-rollback-retry-yaml&quot;&gt;orchestra-rollback-retry.yaml&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>Pretty easy to follow, right? Written in YAML, and some of the layout &amp; constructs will be recognizable to Mistral users. As with all StackStorm actions, you’ll need to define the metadata. This is very similar to other actions, but with <code>runner_type: orquesta</code></p>
+<p>Check the <a href="https://docs.stackstorm.com/orquesta/index.html">docs</a> to learn more, and the <a href="https://github.com/StackStorm/st2/tree/master/contrib/examples/actions">examples directory</a> to see more example code.</p>
+<blockquote>
+<p>Note: Orquesta is currently in public beta. It is stable, but is not yet feature-complete. We’re going to be <a href="https://docs.stackstorm.com/orchestra/upcoming.html">adding more features</a> in the next couple of releases. We’re aiming for GA in StackStorm 3.0. Expect to see a <strong>massively</strong> improved Workflow Designer that works with Orquesta then too.</p>
+</blockquote>
+<p>Astute readers will be asking themselves: “What does this mean for Mistral and Action Chains?” In the short term, they are not going anywhere. But in the longer term, they will be deprecated. Don’t worry: There will be plenty of notice before this happens, and we’ll have tools to help convert your workflows.</p>
+<h2 id="web-ui-new-look-new-app-triggers">Web UI: New Look, New App: Triggers</h2>
+<p>In January we migrated our Web UI from <a href="https://stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/">Angular to React</a>. We kept the look and feel the same, but promised there was a reason for doing it – for future developments. The first fruits of that are now visible:</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/07/actions.png"><!-- raw HTML omitted --></a></p>
+<p>Two things you’ll notice when you login: The colors are different, and hey, what’s this “Triggers” icon here?</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/07/triggers.png"><!-- raw HTML omitted --></a></p>
+<p>This page is designed to help answer the age-old question: “Why did my rule not fire like I expected?” In earlier versions, you had to work through the <a href="https://docs.stackstorm.com/troubleshooting/rules.html">troubleshooting docs</a> to figure out what was going on, tracing trigger-instances, rules logs, etc.</p>
+<p>Now you can do this from the Web UI. Let’s take a simple example, the <a href="https://github.com/StackStorm/st2/blob/master/contrib/examples/rules/sample_rule_with_webhook.yaml">sample_rule_with_webhook</a> rule in the examples pack.</p>
+<p>This matches the webhook URL of <code>/webhooks/sample</code>, and the criteria is looking for <code>{“name”: “st2”}</code> in the body.</p>
+<p>First I’ll doing a test with <code>curl</code>:</p>
+<pre><code>lindsaysmacbook:~ lhill$ curl -X POST -H  'Connection: keep-alive' -H  'Accept-Encoding: gzip, deflate' -H  'Accept: */*' -H  'User-Agent: python-requests/2.14.2' -H  'X-Auth-Token: 8d6adce7b59c4605ac381d937d0b6e47' -k https://localhost/api/v1/webhooks/sample -H &quot;Content-Type: application/json&quot; --data '{&quot;key1&quot;: &quot;value1&quot;}'
+{
+    &quot;key1&quot;: &quot;value1&quot;
+lindsaysmacbook:~ lhill$
+</code></pre>
+<p>My rule says that it should dump the <code>{{trigger.body}}</code> contents to <code>~/st2.webhook_sample.out</code> file, but that doesn’t exist. What’s happened?</p>
+<p>Let’s check the Triggers app, under core.st2.webhook:</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/07/webhook_not_enforced.png"><!-- raw HTML omitted --></a></p>
+<p>We can see “Instance has never been enforced” – that means that we saw something match this trigger, but it didn’t result in any rule enforcement. Clearly we don’t have the right combination of trigger + criteria.</p>
+<p>Our rule criteria says this:</p>
+<pre><code>    criteria:
+        trigger.body.name:
+            pattern: &quot;st2&quot;
+            type: &quot;equals&quot;
+</code></pre>
+<p>In our body we had <code>{ “key1”: “value1”}</code>. Let’s try our curl call again:</p>
+<pre><code>lindsaysmacbook:~ lhill$ curl -X POST -H  'Connection: keep-alive' -H  'Accept-Encoding: gzip, deflate' -H  'Accept: */*' -H  'User-Agent: ython-requests/2.14.2' -H  'X-Auth-Token: 8d6adce7b59c4605ac381d937d0b6e47' -k https://localhost/api/v1/webhooks/sample -H &quot;Content-Type: application/json&quot; --data '{&quot;name&quot;: &quot;st2&quot;}'
+{
+    &quot;name&quot;: &quot;st2&quot;
+}lindsaysmacbook:~ lhill$
+</code></pre>
+<p>This looks promising:</p>
+<pre><code>root@1f25dbaeb30b:~# ls -l ~stanley/
+total 4
+-rw-r--r-- 1 stanley stanley 18 Jun 29 01:03 st2.webhook_sample.out
+root@1f25dbaeb30b:~# cat ~stanley/st2.webhook_sample.out
+{u'name': u'st2'}
+root@1f25dbaeb30b:~#
+</code></pre>
+<p>And now look at our Web UI:</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/07/webhook_enforced.png"><!-- raw HTML omitted --></a></p>
+<p>We can see the rule that matched, and the Enforcement ID.</p>
+<p>There are many other smaller changes to all aspects of the Web UI too. Layouts have been adjusted for better usability, widths changed to display more useful content, etc. Expect to see more tweaks here, and more new apps.</p>
+<p>Finally, if you have impaired color vision, you’ll appreciate this change: better visual indications of success or failure:</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2018/07/success_fail_icons.png"><!-- raw HTML omitted --></a></p>
+<h2 id="python-3-actions">Python 3 Actions</h2>
+<p>Want to use Python 3 to run StackStorm actions? Now you can! Use the <code>--python3</code> flag when running <code>st2 pack install</code>. That pack will then use <code>python3</code> when creating the virtual environment.</p>
+<blockquote>
+<p>Note: This is still an experimental, opt-in feature. It does not represent complete StackStorm support for Python 3.</p>
+</blockquote>
+<p>We <strong>are</strong> working on full Python 3 support for the whole platform. We’ve been putting in a lot of work on the backend, updating our code and tests to work with Python 3. Fingers crossed, we’ll have complete GA-ready Python 3 support for the whole platform early next year.</p>
+<h2 id="miscellaneous">Miscellaneous</h2>
+<ul>
+<li><strong>Metrics:</strong> Added metrics for collecting performance and health information about the various ST2 services and functions. Docs and blog post coming soon.</li>
+<li><strong>CLI:</strong> All CLI commands now use <code>/etc/st2/st2.conf</code> by default.</li>
+<li><strong>Jinja:</strong> New Jinja filters <code>basename</code> and <code>dirname</code></li>
+</ul>
+<p>All the rest of the gory details are in the <a href="https://docs.stackstorm.com/changelog.html">changelog</a>.</p>
+<h2 id="install-time">Install Time</h2>
+<p>Packages are available in our apt and yum repos. Follow the standard instructions to <a href="https://docs.stackstorm.com/install/index.html">install this version</a>, or upgrade following the <a href="https://docs.stackstorm.com/install/upgrades.html#general-upgrade-procedure">General Upgrade Procedure</a>.</p>
+<p>You know the drill by now: backup first.</p>
+<p>And as always, thanks to everyone who contributed in some way, with code, bugs, or even just fixing typos in our docs.</p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/release" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/release-announcement" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">release announcement</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2018/05/16/patch-patch-patch-stackstorm-2-7-2/">Patch Patch Patch: StackStorm 2.7.2</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/">Early Christmas: StackStorm Patch Release 2.5.1</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/12/20/quick-update-v2-1-1-published/">Quick update: v2.1.1 published</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/12/06/2-1-new-pack-management/">2.1 is here! New Pack Management and More!</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/11/29/2-1-headsup/">2.1 is Coming to Town: Check the New Pack Management</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/09/01/stackstorm-enterprise-back/">StackStorm Enterprise is Back!</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/08/10/stackstorm-v1-6-0/">StackStorm v1.6.0 is here</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/04/20/stackstorm-v1-4/">StackStorm v1.4 is out</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/?p=9569/">Clone of StackStorm v3.4.1 – Security fix</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2018/04/16/say-hello-to-stackstorm-v2-7-0/">Say hello to StackStorm v2.7</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/">New Year, New StackStorm – v2.6 Released</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/">Puppet Module to Install StackStorm – Announcing Release Candidate</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/">StackStorm 2.5 Has Hit the Streets!</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2017/09/18/quick-one-st2-2-4-1-released/">Quick One: ST2 2.4.1 is Released</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2017/08/24/whats-stackstorm-2-4-already/">What’s This? StackStorm 2.4 Already?</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

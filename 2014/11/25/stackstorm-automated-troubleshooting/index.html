@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>StackStorm – Automated Troubleshooting | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="November 24, 2014
+by Patrick Hoolboom
+I’ve done a couple articles about getting StackStorm set up, an introductory video, and put a fair amount of effort towards minimizing the barrier to entry for new users.  Overall, I think StackStorm was successful in providing a quick and easy way to get our system up and running but users need more than that.  Users need to see how StackStorm can help solve their specific pain points.  We needed a way to illustrate that we can provide an easy to use solution without the steep learning curve of throwing out your existing tools.  Over a series of a few blog posts we are going to go over some of the ways that we have leveraged the StackStorm platform internally and how these solutions could map to your environment.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="StackStorm – Automated Troubleshooting" />
+<meta property="og:description" content="November 24, 2014
+by Patrick Hoolboom
+I’ve done a couple articles about getting StackStorm set up, an introductory video, and put a fair amount of effort towards minimizing the barrier to entry for new users.  Overall, I think StackStorm was successful in providing a quick and easy way to get our system up and running but users need more than that.  Users need to see how StackStorm can help solve their specific pain points.  We needed a way to illustrate that we can provide an easy to use solution without the steep learning curve of throwing out your existing tools.  Over a series of a few blog posts we are going to go over some of the ways that we have leveraged the StackStorm platform internally and how these solutions could map to your environment." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2014-11-25T05:32:24+00:00" />
+<meta property="article:modified_time" content="2014-11-25T05:32:24+00:00" />
+
+<meta itemprop="name" content="StackStorm – Automated Troubleshooting">
+<meta itemprop="description" content="November 24, 2014
+by Patrick Hoolboom
+I’ve done a couple articles about getting StackStorm set up, an introductory video, and put a fair amount of effort towards minimizing the barrier to entry for new users.  Overall, I think StackStorm was successful in providing a quick and easy way to get our system up and running but users need more than that.  Users need to see how StackStorm can help solve their specific pain points.  We needed a way to illustrate that we can provide an easy to use solution without the steep learning curve of throwing out your existing tools.  Over a series of a few blog posts we are going to go over some of the ways that we have leveraged the StackStorm platform internally and how these solutions could map to your environment."><meta itemprop="datePublished" content="2014-11-25T05:32:24+00:00" />
+<meta itemprop="dateModified" content="2014-11-25T05:32:24+00:00" />
+<meta itemprop="wordCount" content="2200">
+<meta itemprop="keywords" content="chatops,sensu,troubleshooting," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="StackStorm – Automated Troubleshooting"/>
+<meta name="twitter:description" content="November 24, 2014
+by Patrick Hoolboom
+I’ve done a couple articles about getting StackStorm set up, an introductory video, and put a fair amount of effort towards minimizing the barrier to entry for new users.  Overall, I think StackStorm was successful in providing a quick and easy way to get our system up and running but users need more than that.  Users need to see how StackStorm can help solve their specific pain points.  We needed a way to illustrate that we can provide an easy to use solution without the steep learning curve of throwing out your existing tools.  Over a series of a few blog posts we are going to go over some of the ways that we have leveraged the StackStorm platform internally and how these solutions could map to your environment."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/&amp;text=StackStorm%20%e2%80%93%20Automated%20Troubleshooting" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/&amp;title=StackStorm%20%e2%80%93%20Automated%20Troubleshooting" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">StackStorm – Automated Troubleshooting</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2014-11-25T05:32:24Z">November 25, 2014</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>November 24, 2014</strong></p>
+<p><em>by Patrick Hoolboom</em></p>
+<p>I’ve done a couple articles about getting StackStorm set up, an introductory video, and put a fair amount of effort towards minimizing the barrier to entry for new users.  Overall, I think StackStorm was successful in providing a quick and easy way to get our system up and running but users need more than that.  Users need to see how StackStorm can help solve their specific pain points.  We needed a way to illustrate that we can provide an easy to use solution without the steep learning curve of throwing out your existing tools.  Over a series of a few blog posts we are going to go over some of the ways that we have leveraged the StackStorm platform internally and how these solutions could map to your environment.</p>
+<p><strong>Facilitated Troubleshooting</strong></p>
+<p>What I’d like to walk through today is a use case we refer to as Facilitated Troubleshooting.  It leverages the power of the StackStorm automation platform to provide rich context around operational incidents in a collaborative fashion.  It gives the users the info they need in an urgent situation faster, in order to help minimize time to resolution.</p>
+<p><strong>Integrating with your Monitoring</strong></p>
+<p>For this particular write up I’ll be using Sensu as my monitoring system of choice.  I’ll also be using the StackStorm CLI from StackStorm 0.5.2; the StackStorm GUI is not yet widely available.  When it is available the GUI will simplify the usage of StackStorm.</p>
+<p>It is important to note that integrating any system that has the ability to emit events/notifications should be fairly similar to this Sensu example.  To get started you need to install the sensu and linux packs on your StackStorm installation.</p>
+<p><code>st2 pack install sensu</code></p>
+<p>Once those packs are installed, you can see the actions in your action library:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now you will need to put the event handler on your Sensu server.</p>
+<p><code>curl -o /etc/sensu/handlers/st2_handler.py</code></p>
+<p><a href="https://raw.githubusercontent.com/StackStorm-Exchange/stackstorm-sensu/master/etc/st2_handler.py">[LINK]</a></p>
+<p><code>sudo chmod +x /etc/sensu/handlers/st2_handler.py</code></p>
+<p>I add the st2_handler as the default handler on my Sensu server.  This way I get all monitoring events in my environment sent to my control plane (StackStorm) to provide the best possible context for my automation.  Here is an example config file</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You can also get that handler.json file via curl with the following command:</p>
+<p><code>curl -o /etc/sensu/conf.d/handler.json</code></p>
+<p><a href="https://gist.githubusercontent.com/DoriftoShoes/3b918981d287281936fb/raw/6c5135db3d71dc2b717aaa7c3bb0144bd77200d4/handler.json">[LINK]</a></p>
+<p>The handler needs a small change made in order to point it to your StackStorm instance.  Open up the file in your favorite text editor and change line 13 to the ip address of where StackStorm is running:</p>
+<p>ST2_HOST = ‘1.2.3.4’</p>
+<p>Now that you have the event handler installed and configured you can test it.  This curl command grabs a gist of some dummy data and fires the event handler with it.</p>
+<p>curl -Ss [[LINK]][3]</p>
+<p>You should see “Sent sensu event to st2. HTTP_CODE: 202”.  This means the event was successfully sent to the StackStorm server.  If we hop on over to the StackStorm server, we can see that the new trigger type got registered in the system:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>And if we check the st2reactor.log file we will see a line like this:</p>
+<p>Nov 24 00:52:11 st2server.lab.fake.net st2reactor[3742]: INFO 140457524810288 engine [-] Found 0 rules defined for trigger event_handler</p>
+<p>Now we have the sensu actions installed in the action library, and we have our Sensu server creating StackStorm triggers on monitoring events, let’s wire these together with some rules.  Here is a basic rule that takes all Sensu events that come in to the system and sends an email with the payload of data for the event:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If you’d like you can pull this down from the follow URL:</p>
+<p>[[LINK]][4]</p>
+<p>This event illustrates how the rules engine works at its most basic level but it isn’t a very useful rule.  What we’ll do is actually create a workflow that will do some basic diagnostic work when a monitoring event comes in.  For this workflow we are going to use a high cpu load alert.  I have the check_load script from the Sensu community repo running on all my servers so I’ll be basing the rule and workflow around that alert.</p>
+<p><strong>Writing Your Workflow</strong></p>
+<p>First let’s build a workflow for troubleshooting.  I started by thinking, if I got paged about high load, what would be the first things I would do/want to know about?  I came up with the following low hanging fruit:</p>
+<ul>
+<li>Up to date load numbers (verify the alert)</li>
+<li>Any processes that are currently running (R state)</li>
+<li>Any processes in uninterruptible sleep (D state)</li>
+<li>Any network connections from the above processes</li>
+<li>Any files opened by the above processes</li>
+</ul>
+<p>One important thing to note here is that this data needs to be returned in some sort of collaborative way to not only provide this context to me but also to anyone else that may be working on the issue.  Since we heavily use ChatOps here at StackStorm and support chat integrations via what we call “storm bot”, I have chosen to use the core.stormbot_say action to post this data into our chat room.  Your actual collaboration environment may be different so you may choose to post this to a ticketing system or even email.</p>
+<p>The tasks I asked StackStorm to perform are fairly basic but it is a lot easier if the system does them for me.  Now, there are actions in the ‘linux’ StackStorm pack from the community repo that will do all of these things.  It is just a matter of writing a workflow to stitch them together.</p>
+<p>I have already written this particular diagnostic workflow, and it is included in the ‘linux’ pack, but I would like to go over the process of constructing it here.</p>
+<p>I used the built in workflow engine “action-chain” for this since it is a simple linear workflow with very little conditional logic.  For more complex workflows you’ll use our Mistral based workflow.</p>
+<p>The first thing I did is write the “chain” file, that defines all of the actions in the chain and their links (on-success or on-failure).  Here is the chain file:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This workflow simply walks through the items we addressed in the bullet points above, collects the appropriate data, and then spits it out into chat via the integrated chatops action.  Once again, you could have it spit the information out into a ticketing system or even email if you wanted.</p>
+<p>Most of this is fairly self explanatory.</p>
+<ul>
+<li>‘name’ is an arbitrary name given to that action simply for identification purposes within the context of the action-chain.</li>
+<li>‘ref’ is our standard reference to an action (&lt;PACK_NAME&gt;.&lt;ACTION_NAME&gt;)</li>
+<li>‘params’ are the parameters for that action.</li>
+<li>‘on-success’ tells the chain which action (by NAME) to do on successful completion of the step</li>
+<li>‘on-failure’ on the other hand tells the chain which action to do if it fails.</li>
+</ul>
+<p>The chain will continue until it completes an action that does not have the next step defined.</p>
+<p>The action-chain is treated as any other action in the system.  So the action-chain requires a meta-data file in order to be registered in the action library.  We simply write the meta data defining action-chain as the runner_type, point the entry point at the chain file, and fill in any parameters.  For this particular workflow the metadata file looks like this:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If you installed the ‘linux’ pack earlier all of this should already be loaded in your system.  Now let’s write a rule to tie this into a cpu load monitoring event.</p>
+<p><strong>Tying it all Together with a Rule</strong></p>
+<p>We have our incoming events now, and we have our diagnostic workflow defined in the action library.  Next we need to create a rule that will fire the diagnostic workflow on the appropriate Sensu event.  Here is a basic rule to fire the workflow on a Sensu event:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>We have got the correct trigger mapped to the action (linux.diag_loadavg) and we are using the client name from the trigger payload as the hostname (we can see in the parameters for the action that we have the namespaced template variable there trigger.client.name).  All inputs to the trigger are namespaced under the name ‘trigger’.  Since Sensu sends in JSON, it gets parsed all the way down and we have access to those keys.  In this case we are using the name field from the client section of the payload as the hostname.</p>
+<p>The problem with this rule is that it will fire on <em>every</em> Sensu event…regardless of whether it is load related or not.  We need to leverage the criteria field to narrow it down.  To determine what data is available to us, we refer to the Sensu docs to see what is given in the event payload:</p>
+<p><a href="http://sensuapp.org/docs/0.16/event_data">http://sensuapp.org/docs/0.16/event_data</a></p>
+<p>Let’s go ahead and filter on the name of the check and the output.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You can see that we have added trigger.check.name and trigger.check.output as fields to be used in the criteria section.  For these fields we need to specify the type of operator that will be used and the pattern to try and match against.  The currently supported operator types are:</p>
+<ul>
+<li>matchregex</li>
+<li>equals</li>
+<li>lt or lessthan</li>
+<li>gt or greaterthan</li>
+<li>td_lt or timediff_lt</li>
+<li>td_gt or timediff_gt</li>
+</ul>
+<p>I have chosen to to use matchregex to look for CRITICAL in the output and to make sure the name equals “check_load”.  This is a fairly good rule but it could be flappy.  We may not want to fire the diagnostic workflow until the 3rd or more failure to avoid false positives.  The other addition that I like to have is to only run it on the creation of the event.  We generally don’t need the diagnostic work done on an event resolution.  Here is my final version of the rule:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>You can save this rule in the rules folder of the sensu pack (the default location would be /opt/stackstorm/sensu/rules). Once you have the rule saved on disk, use the st2 client to register it:</p>
+<p>st2 rule create NEW_RULE_FILENAME.yaml</p>
+<p>Now check the rule list and see if it appears:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>There it is!  ‘sensu.loadavg_diag’ is our new rule.  In order to test the full rule you would need to add some load to one of your monitored servers, but we can easily run the workflow by hand and see if it completes.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now we can check the execution list and we’ll see the workflow going through the actions we defined earlier.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If we get the execution results of the workflow (linux.diag_loadavg) we can see the output from all of the actions.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Since this particular server wasn’t experiencing high load, the output isn’t all that interesting.  When this rule/workflow combination gets really interesting is during a high load event.  I went ahead and wrote a script to simulate load on one of my servers to test out the rule and workflow.  Sure enough, Sensu sent in the trigger via the handler and it started the diagnostic workflow.  The workflow collected all of the data and then posted it to a chat room on Slack as you can see below:<br>
+<!-- raw HTML omitted --></p>
+<p>This particular workflow doesn’t do a lot of manipulation of the data through either filtering or formatting.  The main purpose of it is to get a full context of what is causing the load on the machine.  There are a number of ways to “prettify” this data going forward as we improve upon this workflow.</p>
+<p>I truncated a fair amount of the lsof output as it was quite large, but you can see that the context that was I was looking for when I wrote the workflow is collected for me automatically when the appropriate monitoring event fires.  This can be tremendously helpful when it is 3am and I trying to deal with an outage…not having to remember the exact command line arguments or having a context at the EXACT moment of the event can definitely give operators a leg up in troubleshooting outages.</p>
+<p>We will dive into chatops in another article.  If you are running StackStorm supporting your chatops then keep in mind that the integration of StackStorm to your chat is bi-directional so not only would StackStorm post to your chat environment it would also listen to that environment.  Via our “storm bot” integration, any action you can take via the StackStorm CLI can also be taken from your chat environment.</p>
+<p>I know that my diagnostic workflow is pretty simple.  With actions written by networking engineering experts or a really good DBA this would be even more valuable.  The power of these diagnostic workflows really come in when you start adding domain knowledge from these various subject matter experts on your team, or even across your IT silos.  As the quality of the actions improve, the richness of the context for the troubleshooting becomes even greater.  Sharing this super rich context around an event in a collaborative fashion such as chat or bug tracking systems is tremendously helpful as is accessing it via StackStorm’s audit capabilities; that sounds like yet another possible subject for a blog post.</p>
+<p>Please let me know what you think.  What would make this kind of article more useful?  What other articles would you like to see?  Comment below or find us on our [google groups][5] or of course on IRC #stackstorm on freednode.</p>
+<p>[3]: <a href="https://gist.githubusercontent.com/DoriftoShoes/5ffe364eed55e52eca3c/raw/7e776e9c2f8f26b814e9aaaf4abfbdddf390202e/event_data.json">https://gist.githubusercontent.com/DoriftoShoes/5ffe364eed55e52eca3c/raw/7e776e9c2f8f26b814e9aaaf4abfbdddf390202e/event_data.json</a> | /etc/sensu/handlers/st2_handler.py
+[4]: <a href="https://gist.githubusercontent.com/DoriftoShoes/8d67be4cfe64b93ed2ed/raw/a332ff0b6a68e902309a72d4d52f30cc3364e0c8/sensu_event_to_email.yaml">https://gist.githubusercontent.com/DoriftoShoes/8d67be4cfe64b93ed2ed/raw/a332ff0b6a68e902309a72d4d52f30cc3364e0c8/sensu_event_to_email.yaml</a>
+[5]: <a href="https://groups.google.com/forum/#!forum/stackstorm">https://groups.google.com/forum/#!forum/stackstorm</a></p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/chatops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/sensu" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">sensu</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/troubleshooting" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">troubleshooting</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

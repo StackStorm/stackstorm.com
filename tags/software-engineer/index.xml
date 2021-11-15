@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>software engineer on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/software-engineer/</link>
+    <description>Recent content in software engineer on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Dec 2017 22:09:57 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/software-engineer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StackStorm is Hiring!</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/12/11/stackstorm-is-hiring-2017/</link>
+      <pubDate>Mon, 11 Dec 2017 22:09:57 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/12/11/stackstorm-is-hiring-2017/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;December, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by StackStorm Team&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;As you may know, StackStorm recently has found a new place at &lt;a href=&#34;https://stackstorm.com/2017/11/03/stackstorm_goes_extreme/&#34;&gt;Extreme Networks&lt;/a&gt;. With that, we’re happy to remind you that we’re hiring Engineers to help making StackStorm even better.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitorama on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/monitorama/</link>
+    <description>Recent content in Monitorama on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 22 May 2017 17:35:55 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/monitorama/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Perspectives on Optimizing Operations &amp; Learnings from Monitorama-5/24 (Por­tland, OR)</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/05/22/monitorama-portland-meetup/</link>
+      <pubDate>Mon, 22 May 2017 17:35:55 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/22/monitorama-portland-meetup/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;WHEN:&lt;/strong&gt; Wednesday, May 24, 2017&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;WHERE:&lt;/strong&gt; BridgePort Brewpub, 1313 NW Marshall St, Portland, OR&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;StackStorm is a silver sponsor of Monitorama 2017, and we- along with our great panel from LinkedIn, Sensu, and VictorOps- are looking forward to sharing with you key insights from the show–and to help you build a map for leveraging auto-remediation to optimize your operations.&lt;/p&gt;
+&lt;p&gt;Wondering how to start your automation journey and which tasks you should automate first? Or have you started to automate, and are wondering how to take your automation to the next level?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

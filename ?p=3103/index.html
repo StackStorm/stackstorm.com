@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="In order to unleash the true power of StackStorm, a good first step is to learn about actions. Actions are the cornerstone of the StackStorm system, representing what we commonly refer to as ‘lego bricks’. Actions are what allow StackStorm to compose complex workflows to drive even the most complex cases.
+Today, we will explore actions within StackStorm. By the end of this article, you’ll have a great understanding on how…">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="" />
+<meta property="og:description" content="In order to unleash the true power of StackStorm, a good first step is to learn about actions. Actions are the cornerstone of the StackStorm system, representing what we commonly refer to as ‘lego bricks’. Actions are what allow StackStorm to compose complex workflows to drive even the most complex cases.
+Today, we will explore actions within StackStorm. By the end of this article, you’ll have a great understanding on how…" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/?p=3103/" /><meta property="article:section" content="posts" />
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="In order to unleash the true power of StackStorm, a good first step is to learn about actions. Actions are the cornerstone of the StackStorm system, representing what we commonly refer to as ‘lego bricks’. Actions are what allow StackStorm to compose complex workflows to drive even the most complex cases.
+Today, we will explore actions within StackStorm. By the end of this article, you’ll have a great understanding on how…">
+
+<meta itemprop="wordCount" content="2029">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="In order to unleash the true power of StackStorm, a good first step is to learn about actions. Actions are the cornerstone of the StackStorm system, representing what we commonly refer to as ‘lego bricks’. Actions are what allow StackStorm to compose complex workflows to drive even the most complex cases.
+Today, we will explore actions within StackStorm. By the end of this article, you’ll have a great understanding on how…"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/&amp;text=" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/&amp;title=" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1"></h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>In order to unleash the true power of StackStorm, a good first step is to learn about actions. Actions are the cornerstone of the StackStorm system, representing what we commonly refer to as ‘lego bricks’. Actions are what allow StackStorm to compose complex workflows to drive even the most complex cases.</p>
+<p>Today, we will explore actions within StackStorm. By the end of this article, you’ll have a great understanding on how…</p>
+<ul>
+<li>… to understand and create action metadata files.</li>
+<li>… and when to use each of the action runner types.</li>
+<li>… to create actions that execute code in any language.</li>
+<li>… to create actions using native Python hooks.</li>
+</ul>
+<p>Ready to start your automation journey? Buckle up, and let’s dive in!</p>
+<p>NOTE: Up-to-date documentation for Actions can always be found on our docs site. Check out <a href="http://docs.stackstorm.com/actions.html">http://docs.stackstorm.com/actions.html</a> for additional information.</p>
+<h2 id="what-is-stackstorm">What is StackStorm?</h2>
+<p>Maybe this is the first time you’re hearing about StackStorm. No worries, welcome! In a nutshell, StackStorm is IFTTT for IT Operations. It responds to events from tools in your environment via Integrations, and using our Rules Engine, can orchestrate complex workflows. We’ve put together a great getting started overview that you can <a href="http://docs.stackstorm.com/overview.html">take a look</a></p>
+<h2 id="getting-setup">Getting Setup</h2>
+<p>Before you get started, it’s essential to have a solid development environment to rapidly iterate. The easiest way to get started with writing action integrations is to use our <code>st2workbench</code> development environment. Check out our (blog post)[http://stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/] that will show you all the necessary steps to get a dev environment up and running in minutes.</p>
+<h2 id="hello-world">Hello, World!</h2>
+<p>As with any programming environment, it is traditional to begin with the all-present “Hello, World!” example. We’ll use this simple command to begin our introduction to the first part of an action, the <em>action metadata</em>.</p>
+<p>Let’s begin with a completed Action Metadata file, and we’ll break it down in sections.</p>
+<pre><code># walkthrough/actions/hello_world.yaml
+---
+name: hello_world
+runner_type: &quot;run-local&quot;
+description: &quot;Example 'Hello, World!' action&quot;
+enabled: true
+parameters:
+cmd:
+default: &quot;echo Hello, World!&quot;
+</code></pre>
+<p>A metadata file has several main attributes within to be defined. Each of these sections provides a bit of information to StackStorm in terms of integration to various subsystems. Help is automatically populated based on descriptions provided in this file. The integration method for how StackStorm will execute actions in the form of <code>runners</code> is also defined here.</p>
+<p>For now, let’s create this example on your StackStorm installation and watch it work. First, create a your first pack directory, and then navigate to the <code>actions</code> directory of your new pack. Packs are created in the <code>/opt/stackstorm</code> directory.</p>
+<pre><code>$ cd /opt/stackstorm/packs
+$ sudo mkdir -p walkthrough/{actions,rules,sensors}
+$ cd walkthrough/actions
+</code></pre>
+<p>Create a new file named <code>hello_world.yaml</code> with your favorite text editor, and copy the contents of the above example into that file. Once that is done, reload StackStorm to register the new action.</p>
+<pre><code>$ sudo st2ctl reload --register-all
+</code></pre>
+<p>NOTE: This step may be unnecessary if you are using the setup instructions in the Rapid Integration blog and are using the built in Guard watcher. Guard should automatically register new actions as they are written to the filesystem.</p>
+<p>Now, run your command, and bask in the goodness that is your first action.</p>
+<pre><code>$ st2 action run walkthrough.hello_world
+</code></pre>
+<p>You should see the result of the action pop up very shortly. Something like this:</p>
+<pre><code>id: 553125c09c99384a4eaa6f9b
+status: succeeded
+result:
+{
+&quot;failed&quot;: false,
+&quot;stderr&quot;: &quot;&quot;,
+&quot;return_code&quot;: 0,
+&quot;succeeded&quot;: true,
+&quot;stdout&quot;: &quot;Hello, World!
+&quot;
+}
+</code></pre>
+<p>Huzzah! Congrats, you’ve created your first action! Great though, but what happened. Why go through the effort of creating this metadata? We’ll, let’s talk about one of the first benefits of the metadata file, documentation.</p>
+<h3 id="documentation">Documentation</h3>
+<p>Some people love documentation, others really hate it. But, the challenge is creating documentation that is both relevant because it is up-to-date and accurate. By leveraging StackStorm and leaning into the “Infrastructure as Code” paradigm, it is possible to greatly reduce the friction associated with documentation management by baking it into the actions being executed, close to the code, and contextually relevant. So, lets access this information.</p>
+<p>You can access this via the CLI:</p>
+<pre><code>root@st2express:/opt/stackstorm/packs/walkthrough/actions# st2 run walkthrough.hello_world -h
+
+Example 'Hello, World!' action
+
+Optional Parameters:
+cmd
+Default: echo Hello, World!
+
+cwd
+Working directory where the command will be executed in
+Type: string
+
+env
+Environment variables which will be available to the command(e.g.
+key1=val1,key2=val2)
+Type: object
+
+kwarg_op
+Operator to use in front of keyword args i.e. &quot;--&quot; or &quot;-&quot;.
+Type: string
+Default: --
+
+sudo
+The command will be executed with sudo.
+Type: boolean
+Default: False
+
+timeout
+Action timeout in seconds. Action will get killed if it doesn't finish
+in timeout seconds.
+Type: integer
+Default: 60
+</code></pre>
+<p>or via the Web UI:</p>
+<p><img src="https://cloud.githubusercontent.com/assets/20028/7205165/e8c4c584-e4ec-11e4-88c4-20f2e27081f5.png" alt="st2express_local_9101_webui_index_html_and_actions_of_all_flavors_in_stackstorm_ _evernote_premium_and_slack"></p>
+<p>Take note that the actions shown here are much more than we’ve defined in our metadata file. This is because each runner type has some built in attributes that can be set at runtime, or overwritten in the action metadata file. In our first example, the <code>cmd</code> attribute is actually an attribute of the <code>run-local</code> runner.</p>
+<p>What is a runner? Well, that’s a good segue, so let’s take it!</p>
+<h2 id="action-runners">Action Runners</h2>
+<p>Internal to StackStorm, we employ multiple ways to execute different types of actions. An action in StackStorm can be either a single command, or a workflow. Furthermore, actions may be run on the machine that StackStorm workers execute or they may be executed remotely on many servers. In order to account for the various contexts which an action may execute, we provide a pluggable action runner system behind actions. At a very high level, the types of runners that we support include:</p>
+<ol>
+<li><code>run-local</code> – This is the local runner. Actions are implemented as scripts. They are executed on the same hosts where StackStorm components are running.</li>
+<li><code>run-remote</code> – This is a remote runner. Actions are implemented as scripts. They run on one or more remote hosts provided by the user.</li>
+<li><code>run-python</code> – This is a Python runner. Actions are implemented as Python classes with a run method. They run locally on the same machine where StackStorm components are running.</li>
+<li><code>http-runner</code> – HTTP client which performs HTTP requests for running HTTP actions.</li>
+<li><code>action-chain</code> – This runner supports executing simple linear work-flows. For more information, please refer to the Workflows and ActionChain section of documentation.</li>
+<li><code>mistral-v1</code>, <code>mistral-v2</code> – Those runners are built on top of the Mistral OpenStack project and support executing complex work-flows. For more information, please refer to the Workflows and Mistral section of documentation.</li>
+</ol>
+<p>The full list of available runners, how they are used, and the parameters that they take can be found at <a href="http://docs.stackstorm.com/runners.html">http://docs.stackstorm.com/runners.html</a>.</p>
+<h3 id="shell-based-runners">Shell Based Runners</h3>
+<p>Now that we have created a basic action, and walked through some of the description of them, let’s do some real stuff with it and create some examples. A very common scenario is: I have this great automation script, and I want to make it available as an action. Let’s start with wrapping a shell script.</p>
+<p>Shell scripts usually come in two flavors usually. Some shell scripts take arguments in a chain after a command. Something like this:</p>
+<pre><code>$ ./my_awesome_script ~/filea.txt ~/fileb.txt
+</code></pre>
+<p>In this case, we’re not providing any data about how each parameter is being used. In this case, the order they are supplied to the script matters. We refer this to as ‘positional arguments’, and provide a way to specify which order commands are entered into an application. Here is an action metadata that shows integration with a script like this.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>In this example <code>traceroute</code> command, take note of the <code>position</code> attribute for each of the parameters. These directly correspond to the position of the argument as it is passed into the shell command to be executed as part of this action. The <code>entry_point</code> specifies where the action should look when it goes to execute a command.</p>
+<p>Source: <a href="https://github.com/StackStorm/st2/blob/master/contrib/linux/actions/traceroute.yaml">https://github.com/StackStorm/st2/blob/master/contrib/linux/actions/traceroute.yaml</a><br>
+Script: <a href="https://github.com/StackStorm/st2/blob/master/contrib/linux/actions/traceroute.sh">https://github.com/StackStorm/st2/blob/master/contrib/linux/actions/traceroute.sh</a></p>
+<p>Shell based runners can also run code in pretty much any language. In this example, I have a small ruby application that uses <code>optparse</code> to take command line input. So, I want to make sure that my metadata file takes the arguments for my Ruby application and passes them through properly. Let’s take a look at the action metadata for this ruby application.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>In this example, the <code>position</code> argument is missing. However, the Ruby application takes what we call “named parameters”. This might look on the command line like this:</p>
+<pre><code>$ ./deploy.rb --branch test --repo StackStorm/st2
+</code></pre>
+<p>Each of the parameter names as defined in the action metadata directly corresponds with the parameter of the command. For example, the <code>branch</code> parameter will pass through the <code>--branch XXX</code> with the specified argument at runtime.</p>
+<p>However, sometimes, shell commands don’t use the double-dash <code>--</code> identifier to label its parameters. In this case, there is an attribute in the action metadata that you can overwrite, and that is the <code>kwarg_op</code>parameter. For example, if your command takes only a single dash like:</p>
+<pre><code>$ ./deploy -branch test -repo StackStorm/st
+</code></pre>
+<p>Simply adjust the <code>kwarg_op</code> attribute in your action metadata like this:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Source: <a href="https://github.com/StackStorm/st2incubator/blob/master/packs/deploy/actions/pack.yaml">https://github.com/StackStorm/st2incubator/blob/master/packs/deploy/actions/pack.yaml</a><br>
+Ruby File: <a href="https://github.com/StackStorm/st2incubator/blob/master/packs/deploy/actions/pack.rb">https://github.com/StackStorm/st2incubator/blob/master/packs/deploy/actions/pack.rb</a></p>
+<h3 id="json-passing">JSON Passing</h3>
+<p>One of our favorite things to talk about is how JSON is our common language internal to StackStorm. In the context of Shell runners, this means that if I output JSON to <code>STDOUT</code> via any script, StackStorm will automatically parse that output as an object for use in workflows. Forget about worrying about passing data between different systems… output JSON and we’ll take care of the less.</p>
+<p><code>puts result.to_json</code> makes my day, everyday I use it. Write very small and focused scripts in the language you’re most comfortable with, emit JSON, and we’ll take care of all the rest. Magic!</p>
+<h3 id="templating">Templating</h3>
+<p>Action metadata also uses the Jinja templating engine behind it. We’ve been playing with a few patterns, and have come up with some creative ways to wrap existing UNIX commands into StackStorm with relative ease. For example, here is an example wrapping up the <code>apt-get</code> command in a StackStorm action.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Source: <a href="https://github.com/StackStorm/st2incubator/blob/master/packs/debian/actions/apt">https://github.com/StackStorm/st2incubator/blob/master/packs/debian/actions/apt</a>_get_install.yaml</p>
+<p>Using Jinja, it’s possible to do variable interpolation and even conditional logic as shown here.</p>
+<h3 id="python-based-runners">Python Based Runners</h3>
+<p>Python based runners are pretty awesome as well! Our entire system is written in Python on the backend, so it’s only natural that we make Python a first-class citizen when it comes to writing actions. Let’s take a look at an easy example action metadata from another one of our packs.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>At this point, nothing in the action metadata should be out of the ordinary. Instead, lets dive into the Python action itself to show the difference.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>What you see here is a very basic Python action. In our action, we import the Action runner, and create a new class with the Action parent class. From here, any of the parameters that are defined in the action metadata are automatically passed as named parameters to the <code>run</code> function. From there, you can run normal python in your action, and return values as you see fit.</p>
+<p>Take careful note of the <code>object</code> type specified in this example action metadata. This is a special schema type that allows you to pass in a raw object to the application, avoiding the need to serialize if you leverage a Python runner.</p>
+<p>Source: <a href="https://github.com/StackStorm-Exchange/stackstorm-autoscale/blob/master/actions/extract_ips.yaml">https://github.com/StackStorm-Exchange/stackstorm-autoscale/blob/master/actions/extract_ips.yaml</a><br>
+Script: <a href="https://github.com/StackStorm-Exchange/stackstorm-rackspace/blob/master/actions/create">https://github.com/StackStorm-Exchange/stackstorm-rackspace/blob/master/actions/create</a>_dns_record.py</p>
+<h2 id="more-examples">More examples!</h2>
+<p>Hopefully this is enough to get you started. If you haven’t guessed by now, writing actions is very super easy. We’re working to make a ton of these action integrations available out of the box, so if you wan to browse what you can download and get started with today, or read some code for inspiration, you can check out our pack repositories located at <a href="https://github.com/StackStorm-Exchange">https://github.com/StackStorm-Exchange</a>. We even have articles on how to contribute your code upstream to share with everyone! We’re all stronger together, and we want to make it easy to share infrastructure integrations and patterns.</p>
+<h2 id="what8217s-next">What’s next?</h2>
+<p>I hope that you’re able to use your new knowledge to create new action integrations for your use-cases. Going even further, we’d love to have you contribute any new content to our pack repositories. We have even more articles coming to help you get started with StackStorm. We’ll go over things like creating Sensors and Rules, creating your first workflows with ActionChain and Mistral, and more. Stay tuned!</p>
+<p>Until next time!</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

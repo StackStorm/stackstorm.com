@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Auto-remediation on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/auto-remediation/</link>
+    <description>Recent content in Auto-remediation on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Feb 2017 17:08:07 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/auto-remediation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Meetup: How to automate 94% incident responses: Facebook, Neptune.io, autoremediation</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/02/07/meetup-autoremediation_feb02/</link>
+      <pubDate>Tue, 07 Feb 2017 17:08:07 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/02/07/meetup-autoremediation_feb02/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Feb 06, 2017&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by Dmitri Zimine, &lt;!-- raw HTML omitted --&gt;@dzimine&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Last Thursday, we had another great meetup session on &lt;a href=&#34;https://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation&#34;&gt;Auto Remediation and Event Driven Automation&lt;/a&gt;. This time it was in San Francisco at &lt;a href=&#34;https://www.makeschool.com/&#34;&gt;Make School&lt;/a&gt;, thanks to our new sponsors &lt;!-- raw HTML omitted --&gt;Neptune.io&lt;!-- raw HTML omitted --&gt;. The drive from South Bay was totally worth it!&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Event Driven Auto-Remediation with the Elastic Stack</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</link>
+      <pubDate>Fri, 13 Jan 2017 02:30:10 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Jan 12, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Recently we explained how to use &lt;a href=&#34;https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&#34;&gt;&lt;strong&gt;Syslog with Splunk &amp;amp; StackStorm&lt;/strong&gt;&lt;/a&gt; to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – &lt;a href=&#34;https://www.elastic.co/webinars/introduction-elk-stack&#34;&gt;&lt;strong&gt;Elastic Stack&lt;/strong&gt;&lt;/a&gt; (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same &lt;a href=&#34;https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&#34;&gt;use case as before&lt;/a&gt; and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm at OpenStack Barcelona</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/11/03/stackstorm-at-openstack-barcelona/</link>
+      <pubDate>Thu, 03 Nov 2016 08:09:35 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/03/stackstorm-at-openstack-barcelona/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Nov 01, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Dmitri Zimine&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Lights flashing at the StackStorm-Brocade booth made event-driven automation feel real with the IoT demo entertaining enterprise and DevOps crowds alike. Mirantis’ talk about auto-healing Symantec OpenStack cloud with StackStorm sparkled hallway conversations about auto-remediation. Our guerrilla hacking challenge was success, unveiled that the best hackers are all co-located…(guess where, anyone?)&lt;/p&gt;
+&lt;p&gt;Read on for details.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auto-Remediation for Real: Self-Healing Clouds and Auto-Remediation as a Service</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</link>
+      <pubDate>Thu, 27 Oct 2016 18:58:59 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Oct 27, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Dana Christensen&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;What do companies like eBay, VMware, Facebook, Netflix, Mirantis, Verizon, Infosys, Cisco, Dell, LinkedIn, and Apple have in common?&lt;/p&gt;
+&lt;p&gt;They all attended the &lt;!-- raw HTML omitted --&gt;Auto-Remediation and Event-Driven Automation MeetUp&lt;!-- raw HTML omitted --&gt; on Oct. 20th hosted by the StackStorm team at Brocade in San Jose.&lt;/p&gt;
+&lt;p&gt;The topic for the evening was “Remediation For Real” and both Mirantis and Netflix provided excellent overviews and demonstrations of how auto-remediation is helping to address business issues and increase their engineers’ productivity (and sleeptime!).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auto-Remediation with StackStorm &amp; Splunk</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</link>
+      <pubDate>Fri, 21 Oct 2016 20:13:26 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Oct 21, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.splunk.com&#34;&gt;&lt;strong&gt;Splunk&lt;/strong&gt;&lt;/a&gt; is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auto-Remediation Meetup: Stories &amp; Demos by Netflix and Mirantis</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/13/auto-remediation-meetup-stories-demos-netflix-mirantis/</link>
+      <pubDate>Thu, 13 Oct 2016 16:06:42 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/13/auto-remediation-meetup-stories-demos-netflix-mirantis/</guid>
+      <description>&lt;p&gt;Hello fellow automators and welcome back to the series of meetups, now that the summer is almost gone, and we are starting up the new season.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;We got two speakers with really interesting topics:&lt;/p&gt;
+&lt;p&gt;Mirantis, who will share how they auto-remediate 1,000 node OpenStack cloud at Symantec using StackStorm platform.&lt;/p&gt;
+&lt;p&gt;Netflix, who will present (and demo!) Winston Studio – you might have &lt;!-- raw HTML omitted --&gt;read about it on Netflix tech blog&lt;!-- raw HTML omitted --&gt;, now you will hear from the source and actually see it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;WHEN:&lt;/strong&gt; Thursday, October 20, 6:30 PM – 9:00 PM&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;WHERE:&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;Theater @ Brocade&lt;!-- raw HTML omitted --&gt;, 130 Hoger Way, San Jose, CA&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</link>
+      <pubDate>Thu, 13 Oct 2016 02:50:08 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</guid>
+      <description>&lt;h3 id=&#34;stackstorm-at-openstack-summit-highlights&#34;&gt;StackStorm at OpenStack Summit Highlights:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Booth: B34 (You’ll find us in the Brocade Booth)&lt;/li&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;StackStorm Theater Presentation&lt;!-- raw HTML omitted --&gt;: StackStorm and OpenStack: Two Practical Cases for Event Driven Automation; Wed 26 11:20am-11:45am, &lt;!-- raw HTML omitted --&gt;P0 – Marketplace Theater&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Mirantis Session: &lt;!-- raw HTML omitted --&gt;Sleep Better at Night: OpenStack Cloud Auto­-Healing&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Design Summit: Mistral Working Sessions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auto-Remediation: Getting Started</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/12/02/getting-started-with-auto-remediation/</link>
+      <pubDate>Wed, 02 Dec 2015 20:04:21 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/12/02/getting-started-with-auto-remediation/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;December 2, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Patrick Hoolboom&lt;/em&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auto-remediation by example: handling out-of-disk-space.</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/</link>
+      <pubDate>Mon, 05 Oct 2015 22:59:54 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;October 5, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Dmitri Zimine, Patrick Hoolboom&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A host is running out of disk space. What follows is a routine pager panic and rush in cleaning things up, at best. At worst, downtime. It is silly, but it happens much more than most of us care to admit.&lt;/p&gt;
+&lt;p&gt;This, and many other annoying events like this can, and shall be auto-remediated. The “classic” pattern of wiring monitoring to and paging is simply not good enough, and know it when you’re paged at 3am to clean the disk on production server.&lt;/p&gt;
+&lt;p&gt;And to those of you who hard-wire their remediation scripts into Nagios/Sensu event handlers, Splunk alert scripts and NewRelic web hooks: it is plain wrong there’s a better way.&lt;/p&gt;
+&lt;p&gt;In this blog, we show how StackStorm auto-remediation platform helps you hand out-of-disk case, with step-by-step walk-through and a working automation sample to kick-start your auto-remediation.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Tutorial of the Week: Cassandra Auto-Remediation</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/</link>
+      <pubDate>Fri, 02 Oct 2015 18:06:12 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;October 2, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Evan Powell&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Let’s get right to it.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;This week we feature a tutorial that published last week.  It has to do with auto-remediating your environment.  The tutorial focuses on using StackStorm to auto-remediation Cassandra; it was published at the Cassandra Summit after all – building on &lt;!-- raw HTML omitted --&gt;Netflix’s&lt;!-- raw HTML omitted --&gt; use of StackStorm for that use case.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

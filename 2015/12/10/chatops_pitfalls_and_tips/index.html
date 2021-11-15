@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Chatops Pitfalls and Tips | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="December 11, 2015
+by Dmitri Zimine
+You are starting with ChatOps.
+You have already watched Jesse Newland, Mark Imbriaco and our own James Fryman and Evan Powell preaching it. You’ve read the links on reddit, and skimmed ChatOps blogs from PagerDuty and VictorOps. You’ve studied ChatOps for Dummies…
+Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.
+">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Chatops Pitfalls and Tips" />
+<meta property="og:description" content="December 11, 2015
+by Dmitri Zimine
+You are starting with ChatOps.
+You have already watched Jesse Newland, Mark Imbriaco and our own James Fryman and Evan Powell preaching it. You’ve read the links on reddit, and skimmed ChatOps blogs from PagerDuty and VictorOps. You’ve studied ChatOps for Dummies…
+Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-12-11T02:05:47+00:00" />
+<meta property="article:modified_time" content="2015-12-11T02:05:47+00:00" />
+
+<meta itemprop="name" content="Chatops Pitfalls and Tips">
+<meta itemprop="description" content="December 11, 2015
+by Dmitri Zimine
+You are starting with ChatOps.
+You have already watched Jesse Newland, Mark Imbriaco and our own James Fryman and Evan Powell preaching it. You’ve read the links on reddit, and skimmed ChatOps blogs from PagerDuty and VictorOps. You’ve studied ChatOps for Dummies…
+Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.
+"><meta itemprop="datePublished" content="2015-12-11T02:05:47+00:00" />
+<meta itemprop="dateModified" content="2015-12-11T02:05:47+00:00" />
+<meta itemprop="wordCount" content="2898">
+<meta itemprop="keywords" content="chatops," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Chatops Pitfalls and Tips"/>
+<meta name="twitter:description" content="December 11, 2015
+by Dmitri Zimine
+You are starting with ChatOps.
+You have already watched Jesse Newland, Mark Imbriaco and our own James Fryman and Evan Powell preaching it. You’ve read the links on reddit, and skimmed ChatOps blogs from PagerDuty and VictorOps. You’ve studied ChatOps for Dummies…
+Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.
+"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/&amp;text=Chatops%20Pitfalls%20and%20Tips" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/&amp;title=Chatops%20Pitfalls%20and%20Tips" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Chatops Pitfalls and Tips</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Dmitri Zimine
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2015-12-11T02:05:47Z">December 11, 2015</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>December 11, 2015</strong><br>
+<em>by Dmitri Zimine</em></p>
+<p>You are starting with ChatOps.</p>
+<p>You have already watched <a href="http://www.youtube.com/watch?v=NST3u-GjjFw">Jesse Newland</a>, <a href="https://www.youtube.com/watch?v=pCVvYCjvoZI">Mark Imbriaco</a> and our own <a href="https://www.youtube.com/watch?v=37LmuHToYjQ">James Fryman</a> and <a href="http://www.slideshare.net/EvanPowell/some-chat-ops-what">Evan Powell</a> preaching it. You’ve read the <a href="https://reddit.com/r/chatops">links on reddit</a>, and skimmed ChatOps blogs from <a href="https://www.pagerduty.com/blog/what-is-chatops">PagerDuty</a> and <a href="https://victorops.com/blog/getting-started-chatops-step-step-guide/">VictorOps</a>. You’ve studied <a href="https://victorops.com/chatops-for-dummies/">ChatOps for Dummies</a>…</p>
+<p>Congratulation and welcome to the journey, ChatOps is awesome way to run development and operations. I’ll spare repeating why ChatOps is good – you’ve eager to get going. I’d rather focus on few common pitfalls and misconceptions that can get you off the track.</p>
+<!-- raw HTML omitted -->
+<h3 id="tldr">TL;DR</h3>
+<p>This is a loooooong blog posts… so here are topics, jump right in if you’d like:</p>
+<ul>
+<li><a href="#1_coffee"><strong>Coffee? JS? Ruby? Python? A Fallacy of False Choice</strong></a> – the right answer is “any”, I tip my hand</li>
+<li><a href="#2_bot"><strong>Bot or Not</strong></a> – you DO need a bot, but not for the reason you think you do</li>
+<li><a href="#3_slack"><strong>Best Chat for Chatops, or Is Slack eating everything?</strong></a> – even if it does, what to do about it?</li>
+<li><a href="#4_duplex"><strong>It’s a duplex, dummy</strong></a> – how to make a bot act like a human with two-way integration</li>
+<li><a href="#5_future"><strong>Towards a smarter bot</strong></a> – wouldn’t it be cool if…</li>
+<li><a href="#6_stackstorm"><strong>Chatops, StackStorm way</strong></a> – just a short pitch at the end 🙂</li>
+</ul>
+<h1 id="a-name1_coffeeacoffee-js-ruby-python-a-fallacy-of-false-choice"><!-- raw HTML omitted --><!-- raw HTML omitted -->Coffee? JS? Ruby? Python? A Fallacy of False Choice.</h1>
+<p>One of the first things you learn about ChatOps is “Bots”. There are bots, quite a few of them. Hubot Lita, and Err are the often cited as the most popular, but there are many more. They are important, and you (tend to believe) need to think carefully about selecting your bot, because this choice defines the programming language you’ll use for ChatOps and other aspects of your implementation.</p>
+<blockquote>
+<p>“Your preference on programming languages may determine which bot you ultimately choose.”<br>
+<em>Jason Hand, ChatOps for Dummies</em></p>
+</blockquote>
+<p>There is a problem, though: this line of thinking leads to a naive implementation of ChatOps which I have seen far too often. Teams often select a bot based on a preferred language to write ChatOps commands. They then go ando implement these actions as Bot plugins. To add another command – add another CoffeeScripts (or JS, or Ruby, or Python, etc)… <strong>Warning: This is the Wrong Way.</strong></p>
+<!-- raw HTML omitted -->
+<p>Let me detail it on a concrete example: provision a VM on cloud. When ChatOps-ed, it would look something like this:</p>
+<pre><code>      &gt; user: ! help create vm 
+      &lt; bot: create vm {hostname} on { provider: aws | rackspace } 
+      &gt; user: ! create vm web001 on aws
+      &lt; bot: on it, your execution id 5636fac02aa8856cc3f102ec 
+      ... &lt; some chatter here &gt; ...
+      &lt; bot: hey @user your vm is ready: 
+             web001 (i-f99b4320) https://us-west-2...
+</code></pre>
+<p>What is under the hood? The VM creation is likely 4-7 steps calling low-level scripts (create VM, wait for <code>ssh</code> to come up, add to DNS, etc). Times N, where N is a number of providers and the steps may differ slightly. Just for one command. Do you want to place this stuff all under the Bot? And make the bot your “automation server”, your control plane? Which leads you to deal with security, availability, logging and other aspects that Lita, Hubot, Err, don’t bring out of box. Or do you consider putting these scripts somewhere else and write a coffee-script to make it ChatOpsy with the help and human-talk-like syntax? Which leads to two smoking piles of scripts, a maintenance nightmare to keep all that smoke in sync?</p>
+<p>Don’t fall into the fallacy of false choice here. The right choice is: “base Chatops on the Automation Library, expose actions to scripts with no extra code”.</p>
+<p>The Automation Library is a core Operational Pattern that states that the operations against the infrastructure comprise an automation library that can be written in any language and versioned, reviewed, and available to ops and developers with fine-grain access control on who can run what and where. This automation library becomes your control plane. As such, it must be secure, reliable and highly available not only from ChatOps but from API, CLI, and hopefully GUI.</p>
+<p>If you do use an Automation Library, you can then expose actions easily to chatops. A good solution will provide chat friendly syntax, help, and other goodies with no need for extra code on the Bot side. Bots are a part of the ChatOps solution, but they are like wheels, not the whole car, thus their choice is an internal implementation detail.</p>
+<p>We have learned that those who are doing ChatOps right, do it this way. Take GitHub: they have a library of automation scripts, some of which are exposed to Hubot, with no extra Coffee on Hubot side (<a href="https://youtu.be/NST3u-GjjFw?t=27m30s">this part of their Chatops solution</a> is not open sourced yet). Or take the devops folks from Oscar Insurance who presented <a href="https://youtu.be/zwWDQyKQDQs?t=16m00s">their impressive ChatOps solution</a> on <a href="https://de.atlassian.com/company/about/events/summit/2015/videos/enhance/chatops-automating/">Atlassian Summit</a>. Or take WebEx Spark (StackStorm user!) – they <a href="http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/events/223793392/">have spoken</a> about how they use Spark for ChatOps with StackStorm underneath as automation library and more.</p>
+<!-- raw HTML omitted -->
+<pre><code>&lt;td&gt;
+  &lt;strong&gt;Build your automation library first. Than expose some actions to Chatops. Stay in control what actions you expose and what you keep.&lt;/strong&gt;
+&lt;/td&gt;&lt;/table&gt; 
+
+&lt;h1&gt;
+  &lt;a name=&quot;2_bot&quot;&gt;&lt;/a&gt;Bot or Not
+&lt;/h1&gt;
+
+&lt;p&gt;
+  What about the other extreme? For example, take the off-the-shelf integrations from services like Slack or HipChat&amp;#8230; are you now doing ChatOps? Are 88 plugins by Slack not enough to do what I want? What about 112 HipChat integrations?
+&lt;/p&gt;
+
+&lt;p&gt;
+  No, it won’t be enough.
+&lt;/p&gt;
+
+&lt;p&gt;
+  Yes, there are great integrations and it is practical to leverage them here and there. Our team is on Slack, where we happily use Travis-CI, re:amaze, a bunch of configured email integrations. We absolutely love to &lt;code&gt;/hangout&lt;/code&gt; when we need to talk.
+&lt;/p&gt;
+
+&lt;p&gt;
+  But when it comes to a full ChatOps solution, you&amp;#8217;ll quickly find that the exact integration you need are either: 1) not there 2) not doing what you need or 3) not doing it the way I want it.
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    Not there: NewRelic and Nagios happen to be in Slack, but Sensu, Logstash and Splunk integrations are not.
+  &lt;/li&gt;
+  &lt;li&gt;
+    Not doing what you need: It&amp;#8217;s fine that Slack&amp;#8217;s Jira integration posts issues and updates. But what I really want is to create JIRA issue from my chat. It is not possible today. Even a &lt;a href=&quot;https://blog.hipchat.com/2015/04/22/assign-discuss-done-a-revamped-hipchat-jira-integration/&quot;&gt;revamped HipChat Jira integration&lt;/a&gt;&amp;#8221; is not doing it &amp;#8211; you may think they would, coming from the same company?
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+  And what can YOU do about it? Complain? File a feature request? Hack up a slash command one-off? I move that you stay in control of your integrations, on what tools are being integrated, and how exactly they are integrated. Some of the integrations, incidentally, will be custom scripts against proprietary endpoints. Supporting it natively is a stretch for Slack, HipChat, or any chat service. A bot gives you that level of control, and integrates smoothly with the Chat services.
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;
+    &amp;#8220;Some could argue that a chatbot isn’t absolutely essential to begin your journey into ChatOps. All chat clients &gt;outlined in Chapter 2 offer a wide range of third‐party integrations that can allow users to begin querying &gt;information and interacting with services without the help of a bot. It wasn’t until teams began building more &gt;complicated scripts that chatbots became an important piece of ChatOps. Nowadays, to take full advantage of &gt;ChatOps, you really need a chatbot to execute commands that are specific to your own organization’s infrastructure &gt;and environment.&amp;#8221;&lt;br /&gt; &lt;br /&gt; &lt;em&gt;Jason Hand, &amp;#8220;ChatOps for Dummies&amp;#8221;&lt;/em&gt;
+  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td style=&quot;background:#02b2e3;color:#fff;font-size:40px;width:120px;&quot;&gt;
+      Tip:
+    &lt;/td&gt;
+    
+    &lt;td&gt;
+      &lt;strong&gt;Don&amp;#8217;t limit yourself to what&amp;#8217;s out of box in your Chat platform. Own your ChatOps commands. Use a bot to expose your automation library to a chat platform.&lt;/strong&gt;
+    &lt;/td&gt;&lt;/table&gt; 
+    
+    &lt;p&gt;
+      Slack&amp;#8217;s &lt;a href=&quot;https://api.slack.com/slash-commands&quot;&gt;slash commands&lt;/a&gt; and &lt;a href=&quot;https://api.slack.com/incoming-webhooks&quot;&gt;incoming webhooks&lt;/a&gt; give a solid foundation for a custom Chatops solution, to the extent you are fine with exposing a [part of] your control plane over public REST endpoint. It by far beats a “naive approach”. And doesn’t require a bot. So, should you lock in with Slack? That brings me to my next point.
+    &lt;/p&gt;
+    
+    &lt;h1&gt;
+      &lt;a name=&quot;3_slack&quot;&gt;&lt;/a&gt;Best Chat for Chatops, or Is Slack eating everything?
+    &lt;/h1&gt;
+    
+    &lt;p&gt;
+      While on the topics of Chat platforms and services: how do you choose one? Which one should you choose and why? Should you look for a more &amp;#8220;ChatOps friendly&amp;#8221; chat if you&amp;#8217;re already using an established service? What about when you hear the claim that &amp;#8220;the XXX Chat is a true ChatOps platform&amp;#8221;, do you believe it?
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      The truth is ChatOps works with ANY chat platform, with any chat client. So the choice of a chat platform is entirely your team&amp;#8217;s choice.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      While Slack is a favorite of today with an incredible 1.7M users, history teaches us that favorites change. It was HipChat and Flowdock two years ago, Campfire 4 years, and IRC remains steady at ~300,000 users, a timeless favorite for many hardcore ops. New chat platforms grow like mushrooms after the rain, including opensource &amp;#8220;Slack alternatives&amp;#8221;: &lt;a href=&quot;http://www.mattermost.org/&quot;&gt;Mattermost&lt;/a&gt; &lt;a href=&quot;https://github.com/kandanapp/kandan&quot;&gt;kandan&lt;/a&gt; &lt;a href=&quot;https://zulip.org/&quot;&gt;Zulip&lt;/a&gt; -these are only a few that have come up on my radar recently.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      Think of a chat. Pick any. Got one? Good, now, here&amp;#8217;s a secret: there are a few teams that WILL NOT BE USING IT, for reasons beyond our reasonings or control. &amp;#8220;Must be on prem&amp;#8221; policy. A lead Architect hates non-OSS software. A team is writing their own chat. Someone took this [anti-slack debate](Debates https://news.ycombinator.com/item?id=10486541) too close to one&amp;#8217;s heart. Any of 1,000 other reasons.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+      There will always be different chats out there to choose from. It&amp;#8217;s a choice that your team should make, or likely have already made, based on the merits of the Chat itself. Chatops can live on any platform, and when it’s frictionless, and makes people’s job easier, they won’t care if it’s graphical, text, or what-so-ever. The right ChatOps solution will support the chat of your choice. It will take advantage of a given chat platform, like leverage HipChat or Slack syntax formatting, while gracefully degrading to text for IRC. That&amp;#8217;s where bots come in place: they provide an interface for a variety of chat platforms, giving a layer of abstraction and customization. That, not a programming language for commands, is the basis to pick a bot for your DIY chatops. That is how we leverage bots in StackStorm.
+    &lt;/p&gt;
+    
+    &lt;p&gt;
+    &lt;/p&gt;
+    
+    &lt;table&gt;
+      &lt;tr&gt;
+        &lt;td style=&quot;background: #02b2e3;color: #fff;font-size: 40px;width: 120px;&quot;&gt;
+          Tip:
+        &lt;/td&gt;
+        
+        &lt;td&gt;
+          &lt;strong&gt;Stay in control of what chat platform to use. It&amp;#8217;s the choice of your team. Turn away from solutions forcing their own chat on you. Use a bot, to make your ChatOps solution support a chat client you team loves today or will love tomorrow.&lt;/strong&gt;
+        &lt;/td&gt;&lt;/table&gt; 
+        
+        &lt;h1&gt;
+          &lt;a name=&quot;4_duplex&quot;&gt;&lt;/a&gt;It&amp;#8217;s a duplex, dummy
+        &lt;/h1&gt;
+        
+        &lt;p&gt;
+          How do you like a team member who only responds to requests, never says a thing or cracks a joke? Same applies to your ChatOps Bot. Just firing up the commands from the chat is not good enough; it goes in both directions: when something happens with your infrastructure, the bot should notify the chat room. With the proper two-way integrations your ChatOps will rock like GitHub&amp;#8217;s. Here is a fictional example based on watching GitHub Ops team in their devops lair in Nashville (&lt;a href=&quot;https://youtu.be/NST3u-GjjFw?t=16m38s&quot;&gt;glimpse here&lt;/a&gt;):
+        &lt;/p&gt;
+        
+        &lt;pre&gt;&lt;code&gt;      &amp;gt; bot: twitter says &quot;we are down&quot;
+  &amp;lt; user: @bot shut up twitter
+  &amp;gt; bot: twitter silenced for 15 min, get busy fixing stuff fast!
+  &amp;gt; bot: Nagios alert on web301: CRITICAL, high CPU over 95%
+  &amp;lt; user: @bot nagios ack web301 
+  &amp;lt; user: @bot graph me io,net on web301
+  &amp;gt; bot: @user Here's your graph: https://mygraph.example.net/web301?show=io,net
+  &amp;gt; other_user: looks like it's just high load. Let's add couple of nodes!
+  &amp;lt; user: @bot autoscale add 2 nodes to cluster-3
+  &amp;gt; bot: @user On it, your execution is 5636fac02aa8856cc3f102ec 
+         check the progress at https://st2.example.net/history/5636fac02aa8856cc3f102ec
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>        &lt;p&gt;
+          In this short dialog, a bot acts as a two-way relay between the infra and the chat. It reports events and responses to user&amp;#8217;s commands. Under the hood, a solution wires in various sources of events, like Nagios, NewRelic, or Twitter (true, GitHub users Twitter as a monitoring tool), and relays them to chat by some rules. A &lt;code&gt;shut up twitter&lt;/code&gt; may disable a rule for a period of time; a &lt;code&gt;nagios ack&lt;/code&gt; may call Nagios to silence an alert. Other commands call actions which do as little as forming and posting a URL, or as much as launching a full-blown mutli-step auto-scaling workflow.
+        &lt;/p&gt;
+        
+        &lt;pre&gt;&lt;code&gt;      StackStorm chatops two-way implementionation:
+
+         Infra ---&amp;gt; st2 Sensors ---&amp;gt; st2 Rules ----------&amp;gt; Chat
+         Infra &amp;lt;--- st2 Actions &amp;lt;--- st2 API   &amp;lt;-- Bot &amp;lt;-- Chat
+</code></pre>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>        &lt;p&gt;
+          Again, don&amp;#8217;t trap yourself in believing that out-of-box integrations from Slack, HipChat, or &amp;#8220;the Next Big Chat&amp;#8221;, will be enough. Not just vendor lock-in, not just lack of code to control/update/edit settings. Think about your behind-firewall logstash and graphite, or posting collectd charts when Sensu events fire. Think Your toolbox will always be ahead of the mainstream. Design for that, and stay in control of your integrations with your infra and tools.
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          There is another trap when it comes to incoming integrations: it&amp;#8217;s too easy to have it spread out all over your tool set. It&amp;#8217;s tempting to post alarm &lt;a href=&quot;https://github.com/sensu/sensu-community-plugins/blob/master/handlers/notification/slack.rb&quot;&gt;straight from Sensu handler to Slack&lt;/a&gt;. To use the stock &amp;#8220;Splunk &amp;#8211; New Relic&amp;#8221; integration. To add &amp;#8220;post to HipChat&amp;#8221; block to the end of your provisioning script. At the beginning it looks fine. &lt;strong&gt;Warning: Wrong Way.&lt;/strong&gt;
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          &lt;img loading=&quot;lazy&quot; src=&quot;http://stackstorm.com/wp/wp-content/uploads/2015/12/wrong_way-300x225.jpg&quot; alt=&quot;wrong_way&quot; width=&quot;200&quot; height=&quot;150&quot; class=&quot;aligncenter size-medium wp-image-5049&quot; srcset=&quot;https://stackstorm.com/wp/wp-content/uploads/2015/12/wrong_way-300x225.jpg 300w, https://stackstorm.com/wp/wp-content/uploads/2015/12/wrong_way.jpg 400w&quot; sizes=&quot;(max-width: 200px) 100vw, 200px&quot; /&gt;
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          This approach gets messy very fast. As fast as &lt;code&gt;n*(n-1)&lt;/code&gt;, where &lt;code&gt;n&lt;/code&gt; is how many tools used by your team. And NO, it&amp;#8217;s &lt;strong&gt;not&lt;/strong&gt; &lt;code&gt;n*(n-1)/2&lt;/code&gt;, as integrations are two way. For each integrated, you need both incoming and outgoing integration. Triggers and actions. Sensu sends alert (incoming, trigger) and Sensu silence alert (outgoing, action). Jira update ticket (action) and Jira on ticket update (trigger). Once you beyond two or three tools, it quickly spirals into unmanageable, unmaintainable spaghetti. Where is all my automation? How do I turn it off?
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          Just like a consolidated, shared library of actions, you need a shared, consolidated library of &amp;#8220;rules&amp;#8221;, defining what gets posted to chat on which events and how. And just like a library of actions, these rules better be readable, scriptable code under version control, with API, CLI and other goodies. &lt;em&gt;If this reads like a shameless plug for StackStorm, it is because our team believes in this so much that we made it we&amp;#8217;ve made it the center of our design.&lt;/em&gt;
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          Tip: Design ChatOps for two-way communications. Build a consolidated control plane for the event handlers to provide visibility and control of what events are posted to the chat.
+        &lt;/p&gt;
+        
+        &lt;h1&gt;
+          &lt;a name=&quot;5_future&quot;&gt;&lt;/a&gt; Towards a smarter bot
+        &lt;/h1&gt;
+        
+        &lt;p&gt;
+          This came up off the recent conversation with folks implementing Chatops with StackStorm. We begin to brainstorm how to make Bot act more like a human. One idea that came up is &amp;#8220;carrying the context of a conversation&amp;#8221;. That means that bot asks a question and I can just answer &amp;#8220;@bot yes&amp;#8221;, and just like a human, the bot will be smart enough to know what I am saying &amp;#8220;yes&amp;#8221; to. Or may be careful enough to ask clarification questions:
+        &lt;/p&gt;
+        
+        &lt;pre&gt;&lt;code&gt;     &amp;gt; bot: @dzimine you mean &quot;yes&quot; to &quot;should I restart web301 ? If so, say &quot;pink martini&quot;
+ &amp;gt; dzimine: @bot pink martini
+ &amp;gt; bot: ok @dzimine, on it, your execution is 5636fac02aa8856cc3f102ec
+</code></pre>
+<p>&hellip;
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<pre><code>        &lt;p&gt;
+          Another example of a smarter bot is providing two-factor command authorization, when two people should +1 an action. This comes handy on when launching some mission-critical automations. Surely it requires some workflow capabilities on the script side, but it can be done.
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          More brainstorming on smarter bot is happening on our chat, at stackstorm-community.slack.com. Please join and bring up your thoughts and ideas.
+        &lt;/p&gt;
+        
+        &lt;h1&gt;
+          &lt;a name=&quot;3_stackstorm&quot;&gt;&lt;/a&gt;Chatops, StackStorm way
+        &lt;/h1&gt;
+        
+        &lt;p&gt;
+          Time for a good StackStorm plug: we deliver an Automation Library, with turn-key ChatOps solution out of the box. We have taken these lessons, and more, and turned them into code. With StackStorm&amp;#8217;s ChatOps, you choose your chat, implement actions in the language of your choice, and use &lt;a href=&quot;https://exchange.stackstorm.org&quot;&gt;community integrations&lt;/a&gt; with dozens of devops and infra tools. StackStorm guides you to the &amp;#8220;right way&amp;#8221;: start with automation library, then turn any action to chatops commands just by giving it an alias; 2) consolidate event routing with sensors, than route any event to ChatOps just by adding a rule.
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          We think of ChatOps as not a sidekick, but an integral part of your control plane. Invest upfront, profit over time. With StackStorm, you progress from simple commands like “create Jira ticket” or “deploy VM” to more powerful ones, by combining them into workflows of many actions underneath and turning these workflow actions into chatops commands. For how it works, check out a &lt;a href=&quot;http://www.cybera.ca/news-and-events/tech-radar/stackstorm-workflows-and-chatops/&quot;&gt;journey towards Chatops from Cybera&lt;/a&gt;.
+        &lt;/p&gt;
+        
+        &lt;p&gt;
+          This week we released &lt;a href=&quot;https://stackstorm.com/2015/12/08/stackstrom-1-2-release-announcement/&quot;&gt;StackStorm 1.2&lt;/a&gt;; Chatops is a highlight of the release, with so many new things and improvements that that the blog describing them is called &lt;a href=&quot;https://stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/&quot;&gt;“The New Chatops”&lt;/a&gt;. Please check it out, &lt;a href=&quot;https://stackstorm.com/#try-now&quot;&gt;give StackStorm’s Chatops solution a try&lt;/a&gt;, &lt;a href=&quot;https://stackstorm.com/community/#comm-engage&quot;&gt;send us feedback&lt;/a&gt;, and Happy ChatOpsing!
+        &lt;/p&gt;
+</code></pre><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/chatops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/">StackStorm 1.2.0: the new ChatOps</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/">Ansible and ChatOps. Get started 🚀</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/06/12/ahh03-chatops-notifications/">AHH #03 – ChatOps &amp; Notifications</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/">StackStorm – Automated Troubleshooting</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

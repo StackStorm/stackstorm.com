@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>integrations on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/integrations/</link>
+    <description>Recent content in integrations on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Aug 2017 23:45:41 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/integrations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StackStorm Centralized Logging with Graylog</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/</link>
+      <pubDate>Tue, 22 Aug 2017 23:45:41 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;August 22, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By Nick Maludy of &lt;a href=&#34;http://www.encore.tech&#34;&gt;Encore Technologies&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Want to implement centralized logging for your StackStorm deployment? Read on to find out how to send your StackStorm logs to Graylog, and produce pretty dashboards like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackstorm.com/wp/wp-content/uploads/2017/08/dashboard.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>July Exchange Update</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/07/31/july-exchange-update/</link>
+      <pubDate>Mon, 31 Jul 2017 17:00:24 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/07/31/july-exchange-update/</guid>
+      <description>&lt;p&gt;&lt;em&gt;July 31st, 2017&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The StackStorm Exchange saw several new packs during July, along with some updates to old favorites. Read on for a roundup of interesting happenings:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>2.1 is Coming to Town: Check the New Pack Management</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/11/29/2-1-headsup/</link>
+      <pubDate>Wed, 30 Nov 2016 02:27:05 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/29/2-1-headsup/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;by Dmitri Zimine and st2 team&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Nov 29, 2016&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Dear stormers and friends!&lt;/p&gt;
+&lt;p&gt;We are almost ready with a new and quite exciting platform release. This is a big release and we are really looking forward to it, and you should, too – just check out &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;exchange.stackstorm.org&lt;/a&gt; to get excited about what is coming. As usual, you will soon see an announcement, a blog describing the highlights of what we’ve done, and a back-story on how and why we did it.&lt;/p&gt;
+&lt;p&gt;This, however, is an unusual “head’s up”. The changes around pack management we are introducing in 2.1 are so substantial that it’s fair to give you time to review the new features, read the &lt;a href=&#34;https://docs.stackstorm.com/latest/upgrade_notes.html#st2-in-development&#34;&gt;changelog&lt;/a&gt;, and adjust your private packs or automation around StackStorm if needed. We’re inviting you to contribute – EASILY – by trying out the new functionality and sharing feedback, or helping us catch last-minute bugs.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://docs.stackstorm.com/latest/reference/packmgmt.html&#34;&gt;transition notes are drafted here&lt;/a&gt;. The full list of changes is &lt;a href=&#34;https://docs.stackstorm.com/latest/upgrade_notes.html#st2-in-development&#34;&gt;in the change log&lt;/a&gt;. Please help us improve the docs wherever you find them unclear, confusing or imprecise – we are actively testing as we write this.&lt;/p&gt;
+&lt;p&gt;The biggest change is introducing &lt;a href=&#34;https://github.com/StackStorm-Exchange/&#34;&gt;StackStorm Exchange&lt;/a&gt;. All integration packs from st2contrib, as well as other packs scattered around, are being moved under &lt;a href=&#34;https://github.com/StackStorm-Exchange/&#34;&gt;StackStorm Exchange&lt;/a&gt;. Once the transfer is complete, you will be submitting your new packs as PRs against &lt;a href=&#34;https://github.com/StackStorm-Exchange/exchange-incubator&#34;&gt;StackStorm-Exchange/exchange-incubator&lt;/a&gt; repo, as described in &lt;a href=&#34;https://github.com/StackStorm-Exchange/exchange-incubator/README.md&#34;&gt;README.md&lt;/a&gt;. Making features and fixes on existing community packs will be much easier now that each pack is in it’s own GitHub repo.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>OctopusDeploy Integration with StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</link>
+      <pubDate>Thu, 01 Oct 2015 15:02:25 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;October 1, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Guest post by &lt;a href=&#34;https://twitter.com/anthonypjshaw&#34;&gt;Anthony Shaw&lt;/a&gt;, Head of Innovation, ITaaS at &lt;a href=&#34;http://dimensiondata.com&#34;&gt;Dimension Data&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This blog post will take you through the &lt;a href=&#34;https://github.com/StackStorm-Exchange/stackstorm-octopusdeploy&#34;&gt;integration pack for OctopusDeploy&lt;/a&gt; and give you some example actions and rules to integrate with other packs.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-octopusdeploy&#34;&gt;What is OctopusDeploy?&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;http://www.octopusdeploy.com&#34;&gt;Octopus Deploy&lt;/a&gt; is an automated deployment tool for .NET and Windows environments. It has gained significant popularity amongst the .NET development community for it’s ease of use and integration into the Microsoft development ecosystem. OctopusDeploy enables users to automate deployment of applications, packages and tools to Windows environments.&lt;/p&gt;
+&lt;h2 id=&#34;why-integrate-octopusdeploy-into-stackstorm&#34;&gt;Why integrate OctopusDeploy into StackStorm?&lt;/h2&gt;
+&lt;p&gt;Octopus Deploy provides a rich system for Windows application deployments, but this is typically part of a wider DevOps process. Unlike StackStorm, it does not support closed-loop monitoring, remediation or infrastructure configuration and building, it does not integrate into configuration management tools (nor claim to). If you want to integrate OctopusDeploy from another tool, as part of a DevOps or environment tool you could&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

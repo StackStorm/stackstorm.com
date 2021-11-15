@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>automation on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/automation/</link>
+    <description>Recent content in automation on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Nov 2020 12:30:06 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/automation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UK Infrastructure Automation Meetup</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2020/11/09/uk-infrastructure-automation-meetup/</link>
+      <pubDate>Mon, 09 Nov 2020 12:30:06 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2020/11/09/uk-infrastructure-automation-meetup/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Nov 9, 2020&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We’d like to inform our community about the &lt;a href=&#34;https://www.meetup.com/infra-orchestration-automation-uk/events/273795132/&#34;&gt;UK Infrastructure Automation Meetup&lt;/a&gt; that’ll take place on &lt;em&gt;Thursday, Nov 12, 06:00 PM&lt;/em&gt; &lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;GMT&lt;!-- raw HTML omitted --&gt; (10:00 AM US Pacific Time).&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;UK evening or US morning time we welcome everyone to join!&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;p style=&amp;quot;margin:5px 0;font-size:16px&amp;quot;&amp;gt;
+  Thursday, Nov 12, 2020, 6:00 PM
+&amp;lt;/p&amp;gt;
+
+&amp;lt;p style=&amp;quot;margin: 0 0 5px;&amp;quot;&amp;gt;
+  &amp;lt;span style=&amp;quot;font-size:14px&amp;quot;&amp;gt;Online event&amp;lt;/span&amp;gt;&amp;lt;br /&amp;gt;&amp;lt;span style=&amp;quot;font-size:12px;&amp;quot;&amp;gt; , &amp;lt;/span&amp;gt;
+&amp;lt;/p&amp;gt;
+
+&amp;lt;span style=&amp;quot;color:#4F8A10;font-size:16px;&amp;quot;&amp;gt;29 Members Attending&amp;lt;/span&amp;gt; 
+
+&amp;lt;div style=&amp;quot;margin:5px 0 10px&amp;quot; class=&amp;quot;mu_clearfix&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/9/7/c/0/thumb_251918848.jpeg&amp;quot; /&amp;gt;
+  &amp;lt;/div&amp;gt;
+  
+  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/1/8/9/b/thumb_280986299.jpeg&amp;quot; /&amp;gt;
+  &amp;lt;/div&amp;gt;
+  
+  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/9/7/f/a/thumb_299858906.jpeg&amp;quot; /&amp;gt;
+  &amp;lt;/div&amp;gt;
+  
+  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/2/1/d/3/thumb_263648659.jpeg&amp;quot; /&amp;gt;
+  &amp;lt;/div&amp;gt;
+  
+  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/c/4/4/3/thumb_275990243.jpeg&amp;quot; /&amp;gt;
+  &amp;lt;/div&amp;gt;
+  
+  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/9/b/e/d/thumb_277899917.jpeg&amp;quot; /&amp;gt;
+  &amp;lt;/div&amp;gt;
+  
+  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/c/c/a/6/thumb_255352390.jpeg&amp;quot; /&amp;gt;
+  &amp;lt;/div&amp;gt;
+  
+  &amp;lt;div class=&amp;quot;photo&amp;quot;&amp;gt;
+    &amp;lt;img src=&amp;quot;https://secure.meetupstatic.com/photos/member/5/2/3/3/thumb_260601043.jpeg&amp;quot; /&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+
+&amp;lt;p style=&amp;quot;line-height:16px&amp;quot;&amp;gt;
+  For the re-launch group meet in November, it will be online (naturally), so make yourself comfy for an hour and a half and bring a favourite drink! We&amp;amp;#8217;ll have guest speakers from the StackStorm community and Technical Steering Community and others. As we get closer we&amp;amp;#8217;ll add an agenda. Expect an action packed first group meet as the interests wid&amp;amp;#8230;
+&amp;lt;/p&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>June StackStorm Exchange Update</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/07/03/june-stackstorm-exchange-update/</link>
+      <pubDate>Mon, 03 Jul 2017 17:00:48 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/07/03/june-stackstorm-exchange-update/</guid>
+      <description>&lt;p&gt;&lt;em&gt;July 3, 2017&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Hey folks, just a quick roundup of happenings on the StackStorm Exchange for the month of June. New packs, updates to existing packs, and a reminder about changes to pack configuration.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Autoscaling Swarm on AWS with StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/</link>
+      <pubDate>Thu, 22 Jun 2017 08:14:50 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 22, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by &lt;a href=&#34;https://twitter.com/dzimine&#34;&gt;Dmitri Zimine&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In this blog, we show how to scale out a Docker Swarm Cluster based on container workload, so that you don’t over-provision your AWS cluster and pay for just enough instances to run your containers. Learn how we achieved this, watch the &lt;em&gt;2 min video&lt;/em&gt; to see it in action. Read the blog for details. Grab our code recipe and adjust it to your liking and use to auto-scale your Swarm on AWS.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm at OpenStack Summit Boston 2017</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</link>
+      <pubDate>Thu, 04 May 2017 19:29:51 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</guid>
+      <description>The world runs on open infrastructure. At the OpenStack Summit, you’ll learn about the mix of open technologies building the modern infrastructure stack, including OpenStack, Kubernetes, Docker, network automation and more. From integrating legacy applications, to self-healing clouds, robotics and network automation the StackStorm open source event driven automation platform provides DevOps teams a powerful, flexible, and reliable solution to take your cloud to the next level. Be sure to stop by the StackStorm booth to meet the StackStorm team, and learn how you can integrate the StackStorm event driven automation platform with your OpenStack cloud</description>
+    </item>
+    
+    <item>
+      <title>Genomics Sequencing, StackStorm, and Reading the Source Code of Biology</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/</link>
+      <pubDate>Tue, 15 Nov 2016 19:26:11 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;By Dana Christensen&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Nov 15, 2016&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The DevOps movement is focused on leading transformational change and driving innovation. At the recent DevOps Enterprise Summit in San Francisco, many of the leaders in the field spoke of driving change through a culture focused on collaboration, community, co-creation, curiosity, continual learning, designing for joy, and meaningful work. I have been impressed with the passion and conviction that leaders in the DevOps movement speak about and emphasize these key principles.. Through determination and focus, living out these key values, and recognizing that everyone has a role to play—we will be able to truly unlock the power of technology to address the many complex global challenges we face today.&lt;/p&gt;
+&lt;p&gt;An excellent example of leveraging DevOps and technology to address complex global challenges is found in the field of Genomics Research. Through focus on the values spoken about by DevOps thought leaders and innovation at the speed of community—Science, Universities, Government, and Business, powered by advances in IT, are able to join forces to develop and evolve techniques that allow for the reading of the source code of biology—something that is incredibly complex and in parts extremely optimized. Through this important work, we are just beginning to unlock the secrets and miraculous mysteries to life on earth as we know it.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Summary – Brocade Workflow Composer at NFD 12</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/</link>
+      <pubDate>Wed, 24 Aug 2016 02:11:59 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;August 23, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Yousuf Hasan&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We had a great afternoon with the &lt;a href=&#34;http://techfieldday.com/event/nfd12&#34;&gt;NFD&lt;/a&gt; team as we walked them through our vision, design principles and demos of the Brocade Workflow Composer. We had productive discussions and got good, candid feedback. Caffeine and sugar kept everyone’s critical abilities to the max. There’s 4 separate video sessions…here’s what happened:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Look Back At The Successes Of OpenStack, And Some Emerging Challenges</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/</link>
+      <pubDate>Thu, 31 Jul 2014 16:36:08 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;July 31, 2014&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by Evan Powell&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;As an entrepreneur betting heavily – in time, money, and relationships – on OpenStack, I’m biased towards its success and more than a little interested in how it is growing up. I have long believed in open infrastructure and remain convinced that OpenStack is the best chance we all have for a future of greater innovation, quality, capability, and, yes, affordability for cloud infrastructure.&lt;/p&gt;
+&lt;p&gt;I first looked at OpenStack a number of years ago when growing Nexenta and creating a market we then called the OpenStorage market, and recently took some time to look at the entire project and how far it’s come, as well as some emerging challenges.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The gap between the mainstream user and hyper scale cloud providers is growing greater by the day&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Auto-remediating bad hosts in Cassandra cluster with StackStorm | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="September 23, 2015
+by Lakshmi Kannan
+If “SLAs”, “five 9 uptime”, “pager fatigue” and “customer support” are phrases you use everyday in your work, you know by now auto-remediation is a serious use case. If you are running critical infrastructure of any kind, you may already be looking into auto-remediation, or even using it like Facebook, LinkedIn, Netflix (more on that later). The idea is that if you are running critical systems of any kind, you need to see when events happen and to act on them as fast as humanly possible. Actually, no, to improve mean time to recovery you need to respond FASTER than humanly possible.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Auto-remediating bad hosts in Cassandra cluster with StackStorm" />
+<meta property="og:description" content="September 23, 2015
+by Lakshmi Kannan
+If “SLAs”, “five 9 uptime”, “pager fatigue” and “customer support” are phrases you use everyday in your work, you know by now auto-remediation is a serious use case. If you are running critical infrastructure of any kind, you may already be looking into auto-remediation, or even using it like Facebook, LinkedIn, Netflix (more on that later). The idea is that if you are running critical systems of any kind, you need to see when events happen and to act on them as fast as humanly possible. Actually, no, to improve mean time to recovery you need to respond FASTER than humanly possible." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/09/22/auto-remediating-bad-hosts-in-cassandra-cluster-with-stackstorm/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-09-22T21:25:20+00:00" />
+<meta property="article:modified_time" content="2015-09-22T21:25:20+00:00" />
+
+<meta itemprop="name" content="Auto-remediating bad hosts in Cassandra cluster with StackStorm">
+<meta itemprop="description" content="September 23, 2015
+by Lakshmi Kannan
+If “SLAs”, “five 9 uptime”, “pager fatigue” and “customer support” are phrases you use everyday in your work, you know by now auto-remediation is a serious use case. If you are running critical infrastructure of any kind, you may already be looking into auto-remediation, or even using it like Facebook, LinkedIn, Netflix (more on that later). The idea is that if you are running critical systems of any kind, you need to see when events happen and to act on them as fast as humanly possible. Actually, no, to improve mean time to recovery you need to respond FASTER than humanly possible."><meta itemprop="datePublished" content="2015-09-22T21:25:20+00:00" />
+<meta itemprop="dateModified" content="2015-09-22T21:25:20+00:00" />
+<meta itemprop="wordCount" content="1590">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Auto-remediating bad hosts in Cassandra cluster with StackStorm"/>
+<meta name="twitter:description" content="September 23, 2015
+by Lakshmi Kannan
+If “SLAs”, “five 9 uptime”, “pager fatigue” and “customer support” are phrases you use everyday in your work, you know by now auto-remediation is a serious use case. If you are running critical infrastructure of any kind, you may already be looking into auto-remediation, or even using it like Facebook, LinkedIn, Netflix (more on that later). The idea is that if you are running critical systems of any kind, you need to see when events happen and to act on them as fast as humanly possible. Actually, no, to improve mean time to recovery you need to respond FASTER than humanly possible."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/09/22/auto-remediating-bad-hosts-in-cassandra-cluster-with-stackstorm/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/09/22/auto-remediating-bad-hosts-in-cassandra-cluster-with-stackstorm/&amp;text=Auto-remediating%20bad%20hosts%20in%20Cassandra%20cluster%20with%20StackStorm" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/09/22/auto-remediating-bad-hosts-in-cassandra-cluster-with-stackstorm/&amp;title=Auto-remediating%20bad%20hosts%20in%20Cassandra%20cluster%20with%20StackStorm" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Auto-remediating bad hosts in Cassandra cluster with StackStorm</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2015-09-22T21:25:20Z">September 22, 2015</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>September 23, 2015</strong></p>
+<p><em>by Lakshmi Kannan</em></p>
+<p><!-- raw HTML omitted -->If “SLAs”, “five 9 uptime”, “pager fatigue” and “customer support” are phrases you use everyday in your work, you know by now auto-remediation is a serious use case. If you are running critical infrastructure of any kind, you may already be looking into auto-remediation, <!-- raw HTML omitted -->or even using it like Facebook, LinkedIn, Netflix (more on that later). The idea is that if you are running critical systems of any kind, you need to see when events happen and to act on them as fast as humanly possible. Actually, no, to improve mean time to recovery you need to respond <em>FASTER</em> than humanly possible.</p>
+<p>If I start to sound like “automate everything”, that’s because I am saying that in less direct terms. As a developer and an operations person, I enjoy automation as much as anyone. StackStorm is the machine you want! I wish a system like StackStorm existed in my previous gigs so I could have just focused more on automating than worrying about inventing a platform to perform the automation. I also wish I had slept more than being woken up by the sound of pagers and phones telling me about a problem that could have been remediated by a piece of code!</p>
+<h2 id="what-are-you-going-to-show-me-this-time">What are you going to show me this time?</h2>
+<p>This post – and this automation – is inspired by one of our largest users of StackStorm for Cassandra auto-remediation – Netflix. They are speaking about how they manage Cassandra at the Cassandra Summit so you can learn more about their overall approach there and can spend quality time with them in an upcoming <a href="http://www.meetup.com/Auto-Remediation-and-Event-Driven-Automation/">meet-up</a> as well at their HQ.</p>
+<p>In this blog post, I’ll walk you through a really common problem – a bad host in a Cassandra cluster – and how you can leverage StackStorm to auto-remediate it. I have been a long time happy Cassandra user and I definitely enjoy the solid performance it provides applications. We also use it at StackStorm in our yet to be released Analytics platform. StackStorm would complement Cassandra so well by handling the operations.</p>
+<h2 id="toc_1">Cassandra host replacement – manual style!</h2>
+<p>A common problem is a host in the Cassandra ring dies and now you are running in low availability mode. Though Cassandra can deal with one node outages (depending on how you setup the cluster), you’d ideally want to replace the dead host with a new host asap. Typically, a monitoring system watches the cluster for dead nodes (nodetool status) and sends an event upstream. An alerting system then figures out if the alert needs to be a page. If so, a system like Pager Duty is then used to wake up a poor soul. I say “wake up” with confidence because I honestly can’t remember a failure that happened during regular business hours. Maybe the computers feel lonely post work hours but I digress ;). A DevOps engineer then validates that the alert is indeed positive, figures out a replacement node, spins a VM, deploys Cassandra on the box (depending on whether you use Chef or Puppet or StackStorm you have Cassandra deployed automatically) and then invokes a set of procedures to replace the node. Let’s walk through the actual steps involved in replacing a node. The steps are listed in this <a href="http://docs.datastax.com/en/cassandra/2.0/cassandra/operations/ops_replace_node_t.html">runbook</a> from our friends at Datastax. As you can see, it’s a 6 step process and it involves an engineer monitoring the system carefully to make sure things are going according to plan. This pretty much steals a few hours from an engineer’s time which could be spent on something more productive.</p>
+<h2 id="toc_2">Cassandra host replacement – StackStorm style!</h2>
+<p>StackStorm has got your back! In the StackStorm world, the node down event from the monitoring system goes to StackStorm, StackStorm then acts on the event i.e. spins up a new VM with Cassandra deployed and replaces the dead host with the new host following the runbook codified as a workflow (Infrastructure as code!). If StackStorm fails by any chance, it then relays the alert to a human who can decide what to do. The power of such a tool will save you so much pain and effort.</p>
+<h2 id="toc_3">I am in! Can I see the code now?</h2>
+<p>Yes, you can see the code. We support infrastructure as code 100%. However – you can also see the automation via our brand new FLOW.</p>
+<p><img src="https://cloud.githubusercontent.com/assets/1839421/10035629/512ee8a8-6151-11e5-9a23-4de167d58200.gif" alt="FLOW in action"></p>
+<p>Here’s that code (actually YAML – and this syntax is emerging as a defacto standard – another discussion for another time):</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="toc_4">Runbook as code</h2>
+<p>We picked a simple case where a dead node is first checked to see if it is a seed node. Seed nodes are special in Cassandra and for the purpose of simplicity, we do not handle seed node replacements. Instead, as you can see, we abort the workflow if a node is a seed node. If it is not, then we follow the steps listed in the runbook one at a time. Each step in the runbook is codified as simple actions in StackStorm and placed in appropriate packs. For a brief intro to packs, read our <a href="http://docs.stackstorm.com/packs.html">documentation</a> and check out the <a href="https://exchange.stackstorm.org">community packs</a> available. All the actions listed in the <a href="http://docs.stackstorm.com/mistral.html">mistral workflow</a> are part of <a href="https://github.com/StackStorm/st2incubator/tree/master/packs/cassandra">Cassandra pack</a></p>
+<p>As you might guess, some of the actions need to happen on remote boxes. To be precise, they need to happen on the new box being spun up. It goes without saying, StackStorm needs passwordless SSH access (via keys) to this new box. You might also notice the <code>notify</code> tasks in the workflow. They post notifications on a specified channel in <code>slack</code>. This gives you visibility into the status of the workflow as it’s being run! The point here is instead of having to have a task that notifies at each task completion, you can configure the whole workflow to notify Slack. This is one of many ways we’ve made ChatOps a first class citizen, but I digress. There is a great blog about simplifying and extending ChatOps with StackStorm <a href="https://stackstorm.com/2015/06/08/enhanced-chatops-from-stackstorm/">here</a>.</p>
+<h2 id="toc_5">Hey, so how do I run the codified runbook?</h2>
+<p>StackStorm ships with a CLI and a lovely UI in the community version. The Cassandra pack comes with a <code>nodetool</code> action that you can use to run <code>nodetool</code> actions on cluster. For example:</p>
+<!-- raw HTML omitted -->
+<p>You can also kickoff the replace host workflow manually using the CLI.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Here’s a juicy screenshot of using the UI to run the <code>nodetool</code> action.</p>
+<p><img src="https://www.evernote.com/l/ANH0lAzBOp5N5LISvvlsV-8h3j9zhKAwOUgB/image.png" alt="nodetool status via st2"></p>
+<h2 id="toc_6">Whoa! That’s cool! How do I fully automate it?</h2>
+<p>StackStorm has a concept of <a href="http://docs.stackstorm.com/rules.html">rules</a>. Rules connect triggers (external events) to actions or workflows registered with StackStorm. Triggers can simply be webhooks. For active polling of an external system and other use cases, you might want to look at <a href="http://docs.stackstorm.com/sensors.html">sensors</a>. You could setup your external monitoring system like<br>
+<a href="http://docs.stackstorm.com/resources/monitoring.html">sensu</a> or <a href="https://github.com/StackStorm-Exchange/stackstorm-newrelic">new relic</a> to post a webhook to StackStorm. Webhooks are registered by registering a rule.</p>
+<p>See the sample rule definition below.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>See how we dropped straight to the code there? Pretty cool, huh. Of course you can do the same thing via the UI that actually spells out the IF and THEN relationship in rules page.</p>
+<p><img src="https://www.evernote.com/l/ANEC499-5QRBQ4dqWpoW4-TiY7jWerd1oMAB/image.png" alt="Rules UI"></p>
+<p>The webhook complete URL is <code>https://stackstorm_host.com/v1/webhooks/cassandra/events</code>. Whenever a webhook is received, the rule engine in StackStorm validates if the <code>event_type</code> is <code>cass_node_down</code>. If yes, then it invokes the replace host workflow with the dead node’s IP address (obtained from webhook payload) and a replacement node. An example webhook that you post to the URL will look like</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>In the real world, you probably have spares available with Cassandra pre-installed. If so, then you might include an action to get a replacement from set of replacements (perhaps via a consul integration) and use that in the workflow. If you want to spin a node as part of the workflow, you can do so as shown in the workflow. This will be slower as expected. So now you have things wired up and good to go!</p>
+<h2 id="toc_7">Pretty neat! How do I write my own workflows?</h2>
+<p>If you think this is interesting, imagine remediations for all the important pieces of your environment that can benefit from a few steps being run in response to any action. Take a look at the StackStorm community for example – specifically the many packs now appearing here, and you can see for example hooks to security systems emerging. See where I’m going with that? There is a huge push now by some incredibly harassed companies and agencies to automate much more of their remediations – this time in response to security events such as unfriendly hackers.</p>
+<h2 id="toc_8">Holy cow! I want StackStorm for my org!</h2>
+<p>We’re glad to hear that. Take a look at StackStorm and maybe ask some questions on the <a href="https://stackstorm-community.slack.com">StackStorm community</a>. Use our free trial of the enterprise edition or our <a href="http://docs.stackstorm.com/install/all_in_one.html">all in one installer</a> to get started.</p>
+<p>We do support StackStorm – including the Enterprise Edition features – 24×7 in some mission critical environments. And we also are keen to get more and more users sharing their remediations as code. So jump in, the water’s perfect.</p>
+<h2 id="toc_9">Can we be friends? Not like facebook friends, real friends?</h2>
+<p>Sure, can! Check out our <a href="https://stackstorm-community.slack.com">slack community</a> where stormers and larger StackStorm community hang out and help each other! Feel free to <a href="https://stackstorm.com/community-signup">register</a>. You can also look at interesting contributions like packs, bug fixes and even new features! Perhaps you could also be motivated to open a pull request! We are also on<br>
+<a href="http://webchat.freenode.net/?channels=stackstorm">IRC</a> or email us at <a href="mailto:support@stackstorm.com">support@stackstorm.com</a>. Feel free to subscribe to our <a href="https://stackstorm.com/subscribe-to-newsletter/">newsletter</a> to get interesting updates on StackStorm!</p>
+<p> </p>
+<p> </p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Auto-Remediation with StackStorm &amp; Splunk | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Oct 21, 2016
+by Siddharth Krishna
+Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Auto-Remediation with StackStorm &amp; Splunk" />
+<meta property="og:description" content="Oct 21, 2016
+by Siddharth Krishna
+Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-10-21T20:13:26+00:00" />
+<meta property="article:modified_time" content="2016-10-21T20:13:26+00:00" />
+
+<meta itemprop="name" content="Auto-Remediation with StackStorm &amp; Splunk">
+<meta itemprop="description" content="Oct 21, 2016
+by Siddharth Krishna
+Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!"><meta itemprop="datePublished" content="2016-10-21T20:13:26+00:00" />
+<meta itemprop="dateModified" content="2016-10-21T20:13:26+00:00" />
+<meta itemprop="wordCount" content="4241">
+<meta itemprop="keywords" content="Auto-remediation,chatops,networking,Splunk,syslog,tutorials,workflows," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Auto-Remediation with StackStorm &amp; Splunk"/>
+<meta name="twitter:description" content="Oct 21, 2016
+by Siddharth Krishna
+Splunk is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using StackStorm!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&amp;text=Auto-Remediation%20with%20StackStorm%20&amp;%20Splunk" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&amp;title=Auto-Remediation%20with%20StackStorm%20&amp;%20Splunk" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Auto-Remediation with StackStorm &amp; Splunk</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2016-10-21T20:13:26Z">October 21, 2016</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Oct 21, 2016</strong><br>
+<em>by Siddharth Krishna</em></p>
+<p><a href="https://www.splunk.com"><strong>Splunk</strong></a> is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using <strong>StackStorm</strong>!</p>
+<h2 id="syslog-as-an-event-source">Syslog as an event source</h2>
+<p><strong>Syslog</strong> for events and errors from the network devices can be tapped to trigger troubleshooting and auto-remediation actions on those devices. For example, if a ‘link down’ event occurs, the syslog message can be used to auto-trigger an action that would log into the device and try to bring the interface back up. In parallel, an IT ticket can also be auto-created with the relevant interface details. Notification of the event and the automated workflow can optionally be sent to a Slack channel (ChatOps).</p>
+<p>One option is to have StackStorm itself act as the syslog server and run a sensor that polls the log file to match specific log strings. This method, although workable, has its performance limitations, and it doesn’t give us a nice tool for searching historical logs. Instead we can use something like Splunk, which is a log aggregation and analysis system. Splunk includes alert functionality – we can filter syslog messages, extract relevant fields, and trigger actions such as making a webhook request to StackStorm.</p>
+<p>Here’s how to configure an auto-remediation workflow using Brocade VDX switches, Splunk and StackStorm:</p>
+<blockquote>
+<p>NB this guide assumes that you have a working StackStorm/BWC system, and a Splunk server.</p>
+</blockquote>
+<h2 id="vdx-configuration">VDX Configuration</h2>
+<p>Configure all VDX switches to send syslog messages to the Splunk server:</p>
+<p><code>logging syslog-server &lt;splunk-ip-address&gt; use-vrf mgmt-vrf</code></p>
+<h2 id="setting-up-splunk">Setting up Splunk</h2>
+<p>We’re using the default Splunk <a href="http://docs.splunk.com/Documentation/Splunk/6.1.7/Overview/Searchingandreporting">Search &amp; Reporting</a> App here. You could also use the <a href="https://splunkbase.splunk.com/app/1909/">Brocade Splunk App</a>.</p>
+<!-- raw HTML omitted -->
+<p>If your server does not currently accept syslog input, add it by going to:</p>
+<p><em>Settings -&gt; Data -&gt; Data Inputs -&gt; UDP -&gt; New</em></p>
+<p>Input UDP port 514 (default syslog port) and Source Type as ‘syslog’</p>
+<p>Refer <a href="http://docs.splunk.com/Documentation/Splunk/6.5.0/Data/Configureyourinputs">here</a> for more on configuring data inputs on Splunk.</p>
+<p>Splunk should now start displaying live syslog events from the switches in its search result.</p>
+<p><em>Search -&gt; Data Summary -&gt; Search Type: syslog</em></p>
+<!-- raw HTML omitted -->
+<p>Use the output of <code>show logging raslog</code> on a switch to identify an event or error of interest from its log string. In this case, we want to dynamically detect and act upon a link flap for which we need to tap syslog</p>
+<p><code>[NSM-1003], 48201, SW/0 | Active | DCE, INFO, LEAF2,  Interface TenGigabitEthernet 102/0/48 is link down.</code></p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-vdx_raslog_output-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              LEAF2# show logging raslog reverse count 10
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-vdx_raslog_output-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-vdx_raslog_output-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              NOS: 7.0.1
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-vdx_raslog_output-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-vdx_raslog_output-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              2016/10/11-12:13:31, [NSM-1019], 48207, SW/0 | Active | DCE, INFO, LEAF2, Interface TenGigabitEthernet 102/0/48 is administratively up.
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-vdx_raslog_output-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-vdx_raslog_output-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              2016/10/11-12:13:27, [SEC-1203], 48206, SW/0 | Active, INFO, LEAF2, Login information: Login successful via TELNET/SSH/RSH. IP Addr: 10.254.2.86.
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-vdx_raslog_output-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-vdx_raslog_output-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              2016/10/11-12:13:27, [SEC-1206], 48205, SW/0 | Active, INFO, LEAF2, Login information: User [admin] Last Successful Login Time : Tue Oct 11 12:13:20 2016.
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-vdx_raslog_output-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-vdx_raslog_output-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              2016/10/11-12:13:23, [SEC-3022], 48204, SW/0 | Active, INFO, LEAF2, Event: logout, Status: success, Info: Successful logout by user [admin].
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-vdx_raslog_output-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-vdx_raslog_output-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              2016/10/11-12:13:20, [SEC-1203], 48203, SW/0 | Active, INFO, LEAF2, Login information: Login successful via TELNET/SSH/RSH. IP Addr: 10.254.2.86.
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-vdx_raslog_output-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-vdx_raslog_output-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              2016/10/11-12:13:20, [SEC-1206], 48202, SW/0 | Active, INFO, LEAF2, Login information: User [admin] Last Successful Login Time : Tue Oct 11 12:12:23 2016.
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-vdx_raslog_output-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-vdx_raslog_output-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              2016/10/11-12:13:16, [NSM-1003], 48201, SW/0 | Active | DCE, INFO, LEAF2, Interface TenGigabitEthernet 102/0/48 is link down.
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-vdx_raslog_output-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-vdx_raslog_output-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              2016/10/11-12:13:16, [NSM-1020], 48200, SW/0 | Active | DCE, INFO, LEAF2, Interface TenGigabitEthernet 102/0/48 is administratively down.
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/vdx_raslog_output&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-vdx_raslog_output&quot;&gt;vdx_raslog_output&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>On splunk, create a search criteria to filter out the event. Here, we use the following:</p>
+<p><code>sourcetype=syslog NSM-1003 process=raslogd | fields + host, interface, syslog_text</code></p>
+<!-- raw HTML omitted -->
+<p>Stricter search criteria are recommended for greater filter accuracy. Once your search pattern is set up correctly, save it as a Splunk <em>Alert</em> with alert type as “Real-time” in order to capture the event live.</p>
+<p><em>Save As -&gt; Alert | Alert-type: Real-time, Trigger alert when: Per-Result</em></p>
+<!-- raw HTML omitted -->
+<p>Splunk provides multiple options for Trigger Actions – Run a script, Send an Email, <em>Webhook</em>. You can run a script that makes a cURL call to StackStorm webhook URL or, for simplicity, use Splunk’s webhook option. StackStorm’s custom webhook URL is:</p>
+<p><code>https://{STACK_STORM_HOSTNAME}/api/v1/webhooks/splunk_link_flap?st2-api-key=XXXXXXXXXXXXXXXXXXXXXXXX</code></p>
+<p>For successful action execution, relevant fields or parameters need to be correctly extracted from the event log message and passed via the webhook call to StackStorm. For example, to be able to auto-remediate a ‘link down’ event i.e. do a “shut; not shut” on the switch, the switch’s IP address and an interface name are must. Splunk’s field extraction capability is useful in auto-generating regexp to pull out the field values from the log string. These “field:value” pairs are then passed in the webhook JSON payload. More on field extractions can be found <a href="http://docs.splunk.com/Documentation/Splunk/6.4.3/Knowledge/ExtractfieldsinteractivelywithIFX">here</a>.</p>
+<!-- raw HTML omitted -->
+<h2 id="stackstormbwc-configuration">StackStorm/BWC Configuration</h2>
+<p>A <a href="https://bwc-docs.brocade.com/webhooks.html#registering-a-custom-webhook">custom webhook</a> rule mapping the webhook trigger to the action workflow is created within StackStorm/BWC.</p>
+<p>The custom webhook rule for ‘link flap’ defines the following:</p>
+<ul>
+<li>Webhook trigger URL: “splunk_link_flap”, complete webhook URL to be configured on Splunk is “https://bwc/api/v1/webhooks/splunk_link_flap”</li>
+<li>Action Reference: Name of the workflow to be executed when the webhook is triggered</li>
+<li>Action Parameters (originally extracted by Splunk and passed via webhook):</li>
+<li>Host: IP Address of the switch/device</li>
+<li>Interface: Interface that went down</li>
+</ul>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-rule_list-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              brocade@bwc-2:~$ st2 rule list --pack=st2-demos
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_list-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_list-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +-----------------------------------------+-----------+--------------------------------+---------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_list-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_list-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | ref | pack | description | enabled |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_list-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_list-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +-----------------------------------------+-----------+--------------------------------+---------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_list-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_list-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | st2-demos.splunk_bgp_down_webhook_rule | st2-demos | Splunk bgp down webhook rule | True |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_list-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_list-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | st2-demos.splunk_link_flap_webhook_rule | st2-demos | Splunk link flap webhook rule | True |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_list-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_list-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | st2-demos.splunk_webhook_rule | st2-demos | splunk to chatops webhook Rule | True |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_list-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_list-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +-----------------------------------------+-----------+--------------------------------+---------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/rule_list&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-rule_list&quot;&gt;rule_list&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h3 id="rule-definition">Rule Definition:</h3>
+<p>splunk_link_flap.yaml</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-splunk_link_flap-yaml-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              ---
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;splunk_link_flap_webhook_rule&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;enabled&lt;/span&gt;: &lt;span class=&quot;pl-c1&quot;&gt;true&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;description&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Splunk link flap webhook rule&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;trigger&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;type&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;core.st2.webhook&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;parameters&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;url&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;splunk_link_flap&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;criteria&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;{}&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;ref&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;st2-demos.link_flap_remediation&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;parameters&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;host&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;{{trigger.body.result.host}}&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-splunk_link_flap-yaml-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-splunk_link_flap-yaml-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;interface&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;{{trigger.body.result.interface}}&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/splunk_link_flap.yaml&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-splunk_link_flap-yaml&quot;&gt;splunk_link_flap.yaml&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h3 id="rule-details">Rule Details:</h3>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-rule_get-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              brocade@bwc-2:~$ st2 rule get st2-demos.splunk_link_flap_webhook_rule
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +-------------+------------------------------------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | Property | Value |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +-------------+------------------------------------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | id | 57f66fcb0048394cfa1d955a |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | uid | rule:st2-demos:splunk_link_flap_webhook_rule |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | ref | st2-demos.splunk_link_flap_webhook_rule |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | pack | st2-demos |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | name | splunk_link_flap_webhook_rule |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | description | Splunk link flap webhook rule |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | enabled | True |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | action | { |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;ref&quot;: &quot;st2-demos.link_flap_remediation&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;parameters&quot;: { |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;interface&quot;: &quot;{{trigger.body.result.interface}}&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;host&quot;: &quot;{{trigger.body.result.host}}&quot; |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | } |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | } |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | criteria | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | tags | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | trigger | { |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;type&quot;: &quot;core.st2.webhook&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;ref&quot;: &quot;core.70b0b76b-5edf-47d8-bb03-19528c4fe1d2&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;parameters&quot;: { |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L25&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;25&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC25&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;url&quot;: &quot;splunk_link_flap&quot; |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L26&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;26&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC26&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | } |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L27&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;27&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC27&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | } |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L28&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;28&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC28&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | type | { |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L29&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;29&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC29&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;ref&quot;: &quot;standard&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L30&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;30&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC30&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;parameters&quot;: {} |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L31&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;31&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC31&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | } |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_get-L32&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;32&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_get-LC32&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +-------------+------------------------------------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/rule_get&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-rule_get&quot;&gt;rule_get&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>When the ‘link down’ syslog is detected by Splunk, and the webhook to StackStorm called, the trigger instance payload contains the values for the various Splunk fields and parameters. These include the host IP address and the interface name (as per configured field extractions) along with other standard ones such as search link, search ID, raw log message etc. See this example below:</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-trigger_instance_get-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              brocade@bwc-2:~$ st2 trigger-instance get 57fcd76500483912504332d3
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +-----------------+--------------------------------------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | Property | Value |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +-----------------+--------------------------------------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | id | 57fcd76500483912504332d3 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | trigger | core.70b0b76b-5edf-47d8-bb03-19528c4fe1d2 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | occurrence_time | 2016-10-11T12:13:25.078000Z |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | payload | { |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;body&quot;: { |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;results_link&quot;: &quot;http://Splunk:8000/app/search/searc |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | h?q=%7Cloadjob%20rt_scheduler__admin__search__testt_at_14757 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | 23889_25.32%20%7C%20head%201%20%7C%20tail%201&amp;earliest=0&amp;lat |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | est=now&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;app&quot;: &quot;search&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;search_name&quot;: &quot;testt&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;result&quot;: { |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;_si&quot;: &quot;&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;_confstr&quot;: |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;source::udp:514|host::10.254.4.118|syslog&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;_raw&quot;: &quot;Oct 11 05:13:24 10.254.4.118 Oct 11 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | 12:13:16 LEAF2 raslogd: [log@1588 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | value=&quot;RASLOG&quot;][timestamp@1588 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | value=&quot;2016-10-11T12:13:16.980022&quot;][msgid@1588 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | value=&quot;NSM-1003&quot;][seqnum@1588 value=&quot;48201&quot;][attr@1588 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L25&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;25&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC25&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | value=&quot; SW/0 | Active | DCE | WWN |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L26&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;26&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC26&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | 10:00:00:27:f8:c7:42:e9&quot;][severity@1588 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L27&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;27&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC27&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | value=&quot;INFO&quot;][swname@1588 value=&quot;LEAF2&quot;][arg0@1588 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L28&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;28&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC28&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | value=&quot;TenGigabitEthernet 102/0/48&quot; desc=&quot;InterfaceName&quot;] |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L29&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;29&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC29&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | BOM Interface TenGigabitEthernet 102/0/48 is link down. &quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L30&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;30&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC30&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;_time&quot;: &quot;1476188004&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L31&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;31&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC31&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;host&quot;: &quot;10.254.4.118&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L32&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;32&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC32&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;_sourcetype&quot;: &quot;syslog&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L33&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;33&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC33&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;syslog_text&quot;: &quot;Interface TenGigabitEthernet |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L34&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;34&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC34&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | 102/0/48 is link down.&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L35&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;35&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC35&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;_kv&quot;: &quot;1&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L36&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;36&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC36&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;interface&quot;: &quot;TenGigabitEthernet 102/0/48&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L37&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;37&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC37&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;_indextime&quot;: &quot;1476188004&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L38&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;38&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC38&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;_serial&quot;: &quot;33&quot; |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L39&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;39&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC39&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | }, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L40&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;40&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC40&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;sid&quot;: |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L41&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;41&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC41&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;rt_scheduler__admin__search__testt_at_1475723889_25.32&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L42&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;42&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC42&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;owner&quot;: &quot;admin&quot; |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L43&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;43&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC43&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | }, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L44&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;44&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC44&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;headers&quot;: { |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L45&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;45&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC45&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;X-Request-Id&quot;: &quot;10e3026f-9586-464b- |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L46&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;46&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC46&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | aae2-a0984fa290f1&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L47&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;47&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC47&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;Accept-Encoding&quot;: &quot;identity&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L48&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;48&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC48&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;X-Forwarded-For&quot;: &quot;10.254.3.40&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L49&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;49&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC49&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;Content-Length&quot;: &quot;1101&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L50&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;50&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC50&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;User-Agent&quot;: &quot;Splunk/D54F2F0C- |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L51&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;51&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC51&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | CD71-490F-9050-7A6C8E09328B&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L52&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;52&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC52&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;Host&quot;: &quot;bwc,bwc&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L53&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;53&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC53&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;X-Real-Ip&quot;: &quot;10.254.3.40&quot;, |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L54&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;54&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC54&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | &quot;Content-Type&quot;: &quot;application/json&quot; |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L55&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;55&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC55&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | } |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L56&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;56&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC56&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | } |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L57&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;57&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC57&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | status | processed |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-trigger_instance_get-L58&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;58&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-trigger_instance_get-LC58&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +-----------------+--------------------------------------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/trigger_instance_get&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-trigger_instance_get&quot;&gt;trigger_instance_get&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>These field values can now be directly accessed from the StackStorm webhook rule using <code>{{trigger.body.result.xxx}}</code> e.g. <code>{{trigger.body.result.host}}</code>.</p>
+<p>Upon successful enforcement, the rule executes the auto-remediation workflow with execution ID as shown below:</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-rule_enforcement_get-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              brocade@bwc-2:~$ st2 rule-enforcement get 57fcd76500483912504332d7
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +---------------------+-----------------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | Property | Value |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +---------------------+-----------------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | id | 57fcd76500483912504332d7 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | rule.ref | st2-demos.splunk_link_flap_webhook_rule |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | trigger_instance_id | 57fcd76500483912504332d3 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | execution_id | 57fcd76500483912504332d6 |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | failure_reason | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | enforced_at | 2016-10-11T12:13:25.126358Z |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-rule_enforcement_get-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-rule_enforcement_get-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +---------------------+-----------------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/rule_enforcement_get&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-rule_enforcement_get&quot;&gt;rule_enforcement_get&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>In this example, the workflow for link flap remediation does the following:</p>
+<ol>
+<li>Notify “link down” event on Slack with the Host IP address and Interface name</li>
+<li>Pull configuration details for the given interface from the switch and post it to the Slack channel</li>
+<li>Try to bring the interface back up by executing “shut; no shut” on the switch</li>
+<li>Pull interface details <code>show interface detail</code> from the switch and post the output to Slack</li>
+<li>Create a Zendesk IT ticket for the event occurrence and attach relevant logs</li>
+</ol>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-execution_get-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              brocade@bwc-2:~$ st2 execution get 57fcd76500483912504332d6
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              id: 57fcd76500483912504332d6
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              action.ref: st2-demos.link_flap_remediation
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              parameters:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              host: 10.254.4.118
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              interface: TenGigabitEthernet 102/0/48
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              status: succeeded (24s elapsed)
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              start_timestamp: 2016-10-11T12:13:25.152697Z
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              end_timestamp: 2016-10-11T12:13:49.681257Z
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +--------------------------+------------------------+-------------------------------+------------------------+-------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | id | status | task | action | start_timestamp |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +--------------------------+------------------------+-------------------------------+------------------------+-------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57fcd765004839121e5d8927 | succeeded (0s elapsed) | notify_on_slack | chatops.post_message | Tue, 11 Oct 2016 12:13:25 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57fcd766004839121e5d8929 | succeeded (5s elapsed) | show_run_interface | clicrud.ops_command | Tue, 11 Oct 2016 12:13:26 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57fcd76b004839121e5d892c | succeeded (1s elapsed) | send_show_run_interface_to_sl | chatops.post_message | Tue, 11 Oct 2016 12:13:31 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | | ack | | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57fcd76c004839121e5d892e | succeeded (1s elapsed) | bring_up_msg_to_slack | chatops.post_message | Tue, 11 Oct 2016 12:13:32 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57fcd76e004839121e5d8931 | succeeded (6s elapsed) | bring_up_link | clicrud.config_command | Tue, 11 Oct 2016 12:13:34 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57fcd775004839121e5d8933 | succeeded (4s elapsed) | show_interface_detail | clicrud.ops_command | Tue, 11 Oct 2016 12:13:41 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57fcd779004839121e5d8936 | succeeded (0s elapsed) | send_interface_details_to_sla | chatops.post_message | Tue, 11 Oct 2016 12:13:45 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | | ck | | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57fcd77a004839121e5d8938 | succeeded (3s elapsed) | create_zendesk_tkt | zendesk.create_ticket | Tue, 11 Oct 2016 12:13:46 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-execution_get-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-execution_get-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +--------------------------+------------------------+-------------------------------+------------------------+-------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc/raw/c019b5950d5be8e249830123a462bae0a8b1ae07/execution_get&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/05ad300b6454c9f920add05c93e6bfcc#file-execution_get&quot;&gt;execution_get&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h2 id="slack-channel">Slack Channel</h2>
+<!-- raw HTML omitted -->
+<p>All code examples used here are available in the <a href="https://github.com/StackStorm/st2_demos">StackStorm st2_demos repo on GitHub</a>.</p>
+<p>This is just one example of a syslog-driven auto-remediation workflow. Workflows can be custom-built with actions and integrations for your environment. Use Jira instead of Zendesk? No problem! Quickly modify the workflow to use Jira instead! Use Hipchat? No problem, modify your <code>st2chatops2</code> setup to use that! Easy.</p>
+<p>What are you doing with event-driven remediation with StackStorm? Jump into our <a href="https://stackstorm.com/community-signup">community</a> and let us know!</p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/auto-remediation" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Auto-remediation</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/chatops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/networking" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">networking</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/splunk" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Splunk</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/syslog" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">syslog</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/tutorials" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorials</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/workflows" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">workflows</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/10/13/auto-remediation-meetup-stories-demos-netflix-mirantis/">Auto-Remediation Meetup: Stories &amp; Demos by Netflix and Mirantis</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/">OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/09/20/troubleshoot_a_rule/">How to Troubleshoot a Rule</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/">Summary – Brocade Workflow Composer at NFD 12</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/?p=5809/">StackStorm &#43; Ansible: Summer Update</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/06/06/a-brief-history-of-chatops/">A brief history of ChatOps (at StackStorm)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/">Network Automation with StackStorm and Docker</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/04/11/brocade-acquisition-faq/">Brocade Acquisition FAQ</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/">Cisco Spark integration for StackStorm</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/">Automation Happy Hour #12 – ChatOps Patterns</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/02/25/history-of-chatops/">The Brief History of ChatOps at StackStorm (and How We Got Here)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/">Improvements to ChatOps Pack Development User Story in ST2 1.4dev</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/">Stackstorm: from Nagios integration to Openstack automation</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/">Chatops Pitfalls and Tips</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/">StackStorm 1.2.0: the new ChatOps</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

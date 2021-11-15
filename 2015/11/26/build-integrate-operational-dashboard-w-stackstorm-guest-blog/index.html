@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog) | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="November 26, 2015
+by Anthony Shaw of Dimension Data
+This tutorial will show you how to leverage the power of the StackStorm API to expose your fantastic new workflows built using the Flow (available to Enterprise Edition uses) by following one of the blogs.
+In our fictional scenario, we have built 2 complex workflows.
+
+Engage Tractor Beam, this workflow deploys some virtual machines to cloud, uses Hubot to notify the staff and then Puppet to drive the tractor beam.
+Open/Close loading bay doors, this workflow takes the desired state of the doors to drive another workflow.
+
+We want to provide our technical operations team with a really simple UI where they can just click these buttons and we hide the magic behind the scenes.
+Starting off
+First off, this is a tutorial for ASP.NET 4.5, MVC 5 and WebAPI 2.0, the latest Microsoft Web Development toolkit.
+If you want to use another stack, you can follow the patterns here to repeat in another language.
+Opening up Visual Studio (here I am using 2013, 2015 would also work), select the ASP.NET Web Application template
+
+When prompted, pick out the Single Page Application option, this will install a whole smorgasbord of web-development tools.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)" />
+<meta property="og:description" content="November 26, 2015
+by Anthony Shaw of Dimension Data
+This tutorial will show you how to leverage the power of the StackStorm API to expose your fantastic new workflows built using the Flow (available to Enterprise Edition uses) by following one of the blogs.
+In our fictional scenario, we have built 2 complex workflows.
+
+Engage Tractor Beam, this workflow deploys some virtual machines to cloud, uses Hubot to notify the staff and then Puppet to drive the tractor beam.
+Open/Close loading bay doors, this workflow takes the desired state of the doors to drive another workflow.
+
+We want to provide our technical operations team with a really simple UI where they can just click these buttons and we hide the magic behind the scenes.
+Starting off
+First off, this is a tutorial for ASP.NET 4.5, MVC 5 and WebAPI 2.0, the latest Microsoft Web Development toolkit.
+If you want to use another stack, you can follow the patterns here to repeat in another language.
+Opening up Visual Studio (here I am using 2013, 2015 would also work), select the ASP.NET Web Application template
+
+When prompted, pick out the Single Page Application option, this will install a whole smorgasbord of web-development tools." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-11-26T21:08:07+00:00" />
+<meta property="article:modified_time" content="2015-11-26T21:08:07+00:00" />
+
+<meta itemprop="name" content="Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)">
+<meta itemprop="description" content="November 26, 2015
+by Anthony Shaw of Dimension Data
+This tutorial will show you how to leverage the power of the StackStorm API to expose your fantastic new workflows built using the Flow (available to Enterprise Edition uses) by following one of the blogs.
+In our fictional scenario, we have built 2 complex workflows.
+
+Engage Tractor Beam, this workflow deploys some virtual machines to cloud, uses Hubot to notify the staff and then Puppet to drive the tractor beam.
+Open/Close loading bay doors, this workflow takes the desired state of the doors to drive another workflow.
+
+We want to provide our technical operations team with a really simple UI where they can just click these buttons and we hide the magic behind the scenes.
+Starting off
+First off, this is a tutorial for ASP.NET 4.5, MVC 5 and WebAPI 2.0, the latest Microsoft Web Development toolkit.
+If you want to use another stack, you can follow the patterns here to repeat in another language.
+Opening up Visual Studio (here I am using 2013, 2015 would also work), select the ASP.NET Web Application template
+
+When prompted, pick out the Single Page Application option, this will install a whole smorgasbord of web-development tools."><meta itemprop="datePublished" content="2015-11-26T21:08:07+00:00" />
+<meta itemprop="dateModified" content="2015-11-26T21:08:07+00:00" />
+<meta itemprop="wordCount" content="836">
+<meta itemprop="keywords" content="ASP.NET,StackStorm," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)"/>
+<meta name="twitter:description" content="November 26, 2015
+by Anthony Shaw of Dimension Data
+This tutorial will show you how to leverage the power of the StackStorm API to expose your fantastic new workflows built using the Flow (available to Enterprise Edition uses) by following one of the blogs.
+In our fictional scenario, we have built 2 complex workflows.
+
+Engage Tractor Beam, this workflow deploys some virtual machines to cloud, uses Hubot to notify the staff and then Puppet to drive the tractor beam.
+Open/Close loading bay doors, this workflow takes the desired state of the doors to drive another workflow.
+
+We want to provide our technical operations team with a really simple UI where they can just click these buttons and we hide the magic behind the scenes.
+Starting off
+First off, this is a tutorial for ASP.NET 4.5, MVC 5 and WebAPI 2.0, the latest Microsoft Web Development toolkit.
+If you want to use another stack, you can follow the patterns here to repeat in another language.
+Opening up Visual Studio (here I am using 2013, 2015 would also work), select the ASP.NET Web Application template
+
+When prompted, pick out the Single Page Application option, this will install a whole smorgasbord of web-development tools."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/&amp;text=Build%20or%20Integrate%20Your%20Own%20Operational%20Dashboard%20w/%20StackStorm%20%28guest%20blog%29" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/&amp;title=Build%20or%20Integrate%20Your%20Own%20Operational%20Dashboard%20w/%20StackStorm%20%28guest%20blog%29" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2015-11-26T21:08:07Z">November 26, 2015</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>November 26, 2015</strong><br>
+<em>by Anthony Shaw of <a href="http://www.dimensiondata.com">Dimension Data</a></em></p>
+<p>This tutorial will show you how to leverage the power of the StackStorm API to expose your fantastic new workflows built using the Flow (available to Enterprise Edition uses) by <a href="https://stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/">following one of the blogs</a>.</p>
+<p>In our fictional scenario, we have built 2 complex workflows.</p>
+<ol>
+<li>Engage Tractor Beam, this workflow deploys some virtual machines to cloud, uses Hubot to notify the staff and then Puppet to drive the tractor beam.</li>
+<li>Open/Close loading bay doors, this workflow takes the desired state of the doors to drive another workflow.</li>
+</ol>
+<p>We want to provide our technical operations team with a really simple UI where they can just click these buttons and we hide the magic behind the scenes.</p>
+<h2 id="starting-off">Starting off</h2>
+<p>First off, this is a tutorial for ASP.NET 4.5, MVC 5 and WebAPI 2.0, the latest Microsoft Web Development toolkit.</p>
+<p>If you want to use another stack, you can follow the patterns here to repeat in another language.</p>
+<p>Opening up Visual Studio (here I am using 2013, 2015 would also work), select the ASP.NET Web Application template</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->When prompted, pick out the Single Page Application option, this will install a whole smorgasbord of web-development tools.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>I’m not going to rely too heavily on these, but if you go ahead and press F5, it’ll present you with a login screen.</p>
+<p>Inside the project Microsoft have already installed a user database and given you a registration system, so you can sign up to your new application by filling in your details.</p>
+<p>If you want to replace this authentication mechanism with Active Directory (a more likely replacement in a large org), the provide detailed guides in the readme.</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->At the registration page, fill in some details to get yourself started with your application.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Now you’re logged in, you’re greeting with this rather useless welcome page.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="installing-stackstorm-api-client">Installing StackStorm API Client</h2>
+<p>In Visual Studio, 3rd party packages are distributed via nuget.org. I’ve been sharing a nuget package for the StackStorm API so I’ll show you in this tutorial how to use it.</p>
+<p>The package is available on <a href="https://www.nuget.org/packages/St2.Client/">nuget.org</a></p>
+<p>To install the package into your project either use the Nuget Package Manager Console</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Or using the GUI you can search for St2.Client under the nuget.org repository and click install.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<h2 id="simple-example">Simple Example</h2>
+<p><!-- raw HTML omitted -->Now we want to setup a quick API to provide a basic function, so under your controllers directory, add a new controller called ActionController (it will run our actions) <!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>Back in the StackStorm UI you will already have access to the Examples pack, under this pack you will see a complex workflow action called “examples.mistral-basic-two-tasks-with-notifications”.</p>
+<p>That is going to be our first action, since it requires no inputs and works every time.</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->In ActionController.cs let’s write some code to call that workflow as a REST API.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Now, you want to connect to the StackStorm API, so fill in these details of your server. In production you would most likely use an IoC container and inject an ISt2Client instance based on a configuration file, but I’m not going to bore you with how to do that now.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If you did you and setup a proper certificate when you installed StackStorm, set that last parameter to false.</p>
+<p>Now, create a WebAPI action method to engage the tractor beam.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Now, debug your application by pressing F5 and go to the API link at the top, you’ll see that WebAPI has documented your new method, so you know it works.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Back in Visual Studio, edit the home page contents (Views/Home/_Home.cshtml) to add a link to a function.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Now in Scripts/app/home.viewmodel.js if you edit the file and add our action to call the API.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Hit F5 then you’ll see we have our nice dashboard<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->and click that button to engage the tractor beam.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->There it goes, now let’s checkout the StackStorm UI and make sure that actually ran our workflow. In the history window you’ll see it. Check out the output and make sure it was successful.<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="complex-example">Complex Example</h2>
+<p>Let’s work on a more complex example, we have an action, “exampes.mistral-basic” that requires a parameter, <code>cmd</code>, which is the command to run.</p>
+<p>Let’s use that command to open and close our loading bay doors</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Back in the view model, call the new API methods to include a data in the POST message with the desired door state.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Then finally we’ll add our new API action controller<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Now you need to assemble the collection of parameters for the action, this is a dictionary for convenience<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Then run the action using the same function as before.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->This time, instead of just firing back the execution reference, let’s wait for it to finish.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted -->Now hit F5 and test it out. Click Open to test the function..<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p> </p>
+<!-- raw HTML omitted -->
+<p> </p>
+<p><!-- raw HTML omitted -->Check in StackStorm UI to make sure it succeeded.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p> </p>
+<p><!-- raw HTML omitted -->And if you expand the result data on the right-hand panel you can see the full result.<!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>This toolkit gives you a way of interfacing with StackStorm from .NET, if you’re using PowerShell or want to script these actions, checkout my PowerShell command library for StackStorm on <a href="https://www.powershellgallery.com/packages/St2.Client/">powershellgallery.com</a></p>
+<p>Happy hacking.</p>
+<p>p.s. StarWars is copyright of LucasFilm/Disney.</p>
+<p> </p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/asp.net" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">ASP.NET</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/stackstorm" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">StackStorm</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/11/15/ahh-07-unpacking-the-gloriousness-of-stackstorm-1-1-stackstorm-enterprise/">AHH #07 – Unpacking the Gloriousness of StackStorm 1.1 &amp; StackStorm Enterprise</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/">OctopusDeploy Integration with StackStorm</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

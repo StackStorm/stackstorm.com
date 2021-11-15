@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Uncategorized on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/categories/uncategorized/</link>
+    <description>Recent content in Uncategorized on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Jul 2018 01:38:02 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/categories/uncategorized/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How StackstormExchange Lets You Reuse Integrations With Serverless</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/07/18/how-stackstormexchange-lets-you-reuse-integrations-with-serverless/</link>
+      <pubDate>Thu, 19 Jul 2018 01:38:02 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/07/18/how-stackstormexchange-lets-you-reuse-integrations-with-serverless/</guid>
+      <description>&lt;p&gt;&lt;em&gt;&lt;!-- raw HTML omitted --&gt;﻿&lt;!-- raw HTML omitted --&gt;July 19, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Bettina Baumgart&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;There is a new trend in the cloud space: &lt;a href=&#34;https://en.wikipedia.org/wiki/Serverless_computing&#34;&gt;serverless computing.&lt;/a&gt; Serverless is eating the world. It grew out of the need to optimize resource usage and costs. Serverless means doing away with the underlying operating system so that code can just run and scale without these dependencies.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How Can You Ensure Millions of Users Never Lose Service</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/06/25/how-can-you-ensure-millions-of-users-never-lose-service/</link>
+      <pubDate>Mon, 25 Jun 2018 17:55:41 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/06/25/how-can-you-ensure-millions-of-users-never-lose-service/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://stackstorm.com/wp/wp-content/uploads/2018/06/users.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;br&gt;
+June 25, 2018&lt;br&gt;
+by Bettina Baumgart&lt;/p&gt;
+&lt;p&gt;Many enterprises are delivering services to millions of customers every day, and one of their key challenges is to make sure they are never without service. Working at such a large scale requires organizations to streamline DevOps processes so they can minimize errors, reduce the burden on Site Reliability Engineers (SREs) and get fast visibility into potential issues.&lt;/p&gt;
+&lt;p&gt;We are happy to welcome &lt;a href=&#34;https://www.bitovi.com&#34;&gt;Bitovi&lt;/a&gt; as a partner. Just recently they helped one of their clients to streamline and solve DevOps automation using Stackstorm.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=3103/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=3103/</guid>
+      <description>In order to unleash the true power of StackStorm, a good first step is to learn about actions. Actions are the cornerstone of the StackStorm system, representing what we commonly refer to as ‘lego bricks’. Actions are what allow StackStorm to compose complex workflows to drive even the most complex cases.
+Today, we will explore actions within StackStorm. By the end of this article, you’ll have a great understanding on how…</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=7485/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=7485/</guid>
+      <description>&amp;lt;p class=&amp;quot;p1&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;&amp;lt;o:p&amp;gt;&amp;amp;nbsp;&amp;lt;/o:p&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p1&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;$ &amp;lt;span class=&amp;quot;SpellE&amp;quot;&amp;gt;sls&amp;lt;/span&amp;gt; &amp;lt;span class=&amp;quot;SpellE&amp;quot;&amp;gt;stackstorm&amp;lt;/span&amp;gt; info &amp;amp;#8211;action &amp;lt;span class=&amp;quot;SpellE&amp;quot;&amp;gt;slack.post_message&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;o:p&amp;gt;&amp;lt;/o:p&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p1&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;SpellE&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;s2&amp;quot;&amp;gt;slack.post_message&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s3&amp;quot;&amp;gt;&amp;amp;#8230;&amp;amp;#8230;&amp;amp;#8230;&amp;amp;#8230;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt; Post a&amp;lt;br /&amp;gt; message to the Slack channel.&amp;lt;/span&amp;gt;&amp;lt;o:p&amp;gt;&amp;lt;/o:p&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p2&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;s4&amp;quot;&amp;gt;Parameters&amp;lt;/span&amp;gt;&amp;lt;o:p&amp;gt;&amp;lt;/o:p&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p1&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;apple-converted-space&amp;quot;&amp;gt;&amp;amp;nbsp; &amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s2&amp;quot;&amp;gt;channel&amp;lt;br /&amp;gt; [string&amp;lt;span class=&amp;quot;GramE&amp;quot;&amp;gt;]&amp;lt;span class=&amp;quot;apple-converted-space&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color:whitesmoke&amp;quot;&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s3&amp;quot;&amp;gt;&amp;amp;#8230;&amp;amp;#8230;&amp;amp;#8230;..&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt; Optional channel to post to. Note channel must contain leading #&amp;lt;/span&amp;gt;&amp;lt;o:p&amp;gt;&amp;lt;/o:p&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p1&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;apple-converted-space&amp;quot;&amp;gt;&amp;amp;nbsp; &amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;SpellE&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;s2&amp;quot;&amp;gt;disable_formatting&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s2&amp;quot;&amp;gt; [&amp;lt;span class=&amp;quot;SpellE&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;GramE&amp;quot;&amp;gt;boolean&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;GramE&amp;quot;&amp;gt;] &amp;lt;span class=&amp;quot;apple-converted-space&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color:whitesmoke&amp;quot;&amp;gt;&amp;amp;nbsp; &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;Disable formatting, don&amp;amp;#8217;t parse the message and treat it as raw text&amp;lt;/span&amp;gt;&amp;lt;o:p&amp;gt;&amp;lt;/o:p&amp;gt; &amp;lt;/p&amp;gt; &amp;lt;p class=&amp;quot;p2&amp;quot;&amp;gt; &amp;lt;span class=&amp;quot;apple-converted-space&amp;quot;&amp;gt;&amp;lt;span style=&amp;quot;color:whitesmoke&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;br /&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;SpellE&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;icon_emoji&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt; [string&amp;lt;span class=&amp;quot;GramE&amp;quot;&amp;gt;]&amp;lt;span class=&amp;quot;apple-converted-space&amp;quot;&amp;gt;&amp;amp;nbsp;&amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s5&amp;quot;&amp;gt; &amp;lt;/span&amp;gt;&amp;lt;span class=&amp;quot;s3&amp;quot;&amp;gt;&amp;amp;#8230;&amp;amp;#8230;.</description>
+    </item>
+    
+    <item>
+      <title>0.12 is released!</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=3861/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=3861/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>2021-03-25 Security Incident – WordPress Intrusion and Defacement</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=9493/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=9493/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Mar 29, 2021&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by &lt;a href=&#34;https://github.com/blag&#34;&gt;@blag&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tldr&#34;&gt;TL;DR&lt;/h2&gt;
+&lt;p&gt;The StackStorm website – stackstorm.com – was defaced at some point around March 25th. We believe that our content management system (CMS) was hacked to serve Javascript that redirected users to a server that attempted to install malware on user devices.&lt;/p&gt;
+&lt;p&gt;The TSC was alerted to this by a &lt;a href=&#34;https://forum.stackstorm.com/t/is-stackstorm-com-down-or-hacked/1620&#34;&gt;forum post&lt;/a&gt; at 19:14 UTC and also pointed out to us via Slack at 19:23 UTC, and was posted to our internal Slack channel at 19:31 UTC. Within minutes, members of the TSC were investigating the issue and jumped on a common Zoom war room. We were able to restore the entire server from a backup image created well before March 23rd, which we believe was prior to the security incident as well as take additional extra security hardening and steps to make sure this never happens in the future.&lt;/p&gt;
+&lt;p&gt;After 1.5 hours of incident acknowledgment, By 20:57 UTC we had the site is back up and running, and at this point, we believe it is secure.&lt;/p&gt;
+&lt;p&gt;At no point were the DNS settings for stackstorm.com or any other related domains changed, and we have no evidence that attackers were able to access any of the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;our DNS provider&lt;/li&gt;
+&lt;li&gt;our hosting provider or server directly (read: we believe that SSH is still secure)&lt;/li&gt;
+&lt;li&gt;our stackstorm packages, releases and versions we distribute to our community&lt;/li&gt;
+&lt;li&gt;any part of the codebase, including any GitHub.com accounts&lt;/li&gt;
+&lt;li&gt;any CI/CD accounts, workflows, build history, environment settings, or secrets&lt;/li&gt;
+&lt;li&gt;any of our internal infrastructure accounts (all of which are protected by TFA)&lt;/li&gt;
+&lt;li&gt;any part of the &lt;a href=&#34;https://forum.stackstorm.com&#34;&gt;StackStorm Forum&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;any part of the &lt;a href=&#34;https://stackstorm-community.slack.com/&#34;&gt;#stackstorm-community on Slack&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>giftest</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=2808/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=2808/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Guest user blog:</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=5208/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=5208/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Meetup: Smart OpenStack Powered Automation/Neutron Q&amp;A With James Denton</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=2903/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=2903/</guid>
+      <description>Wednesday, April 8, 2015
+6:30 – 9:00 pm
+JNK Securities Corporation, New York, NY
+Evan Powell from StackStorm will share how StackStorm can not just solve for automating remediation tasks in your cloud, but also how you can use it to do even more, followed by a Q&amp;amp;A session with James Denton, the author of the most popular OpenStack book currently published – Learning OpenStack Networking (Neutron).
+RSVP ON EVENT WEBSITE</description>
+    </item>
+    
+    <item>
+      <title>savekitten</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=6179/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=6179/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=1464/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=1464/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>StackStorm Success Stories: Anonymous Service Provider</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=2775/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=2775/</guid>
+      <description>TBD, 2015
+by Evan Powell
+Insert intro language here…
+Wireless Service Provider
+This particular user’s legal department would extract some of my various essential parts if I were to mention them by name. Nonetheless, their story is worth sharing as it echoes what many of our users are telling us.
+We are working with this service provider’s service assurance team. This team is the nervous system for their services, providing real time and historic information on performance to their customers, partners, and of course to the operations team within the service provider.</description>
+    </item>
+    
+    <item>
+      <title>Test Blog</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=379/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=379/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kebernetes on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/kebernetes/</link>
+    <description>Recent content in Kebernetes on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Feb 2016 23:08:32 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/kebernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automation Happy Hour #11 – Kubernetes Lifecycle Management of External Dependencies</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/02/12/automation-happy-hour-11-kubernetes-lifecycle-management-of-external-dependencies/</link>
+      <pubDate>Fri, 12 Feb 2016 23:08:32 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/12/automation-happy-hour-11-kubernetes-lifecycle-management-of-external-dependencies/</guid>
+      <description>Michael Ward is the Principal Systems Architect at Pearson responsible for leading technical design around enterprise Platform-as-a-Service based on Kubernetes. Prior to Pearson, Michael has spent many years in the industry in various roles including Chief of Site Reliability at Ping Identity, the Identity Security company. Take him for a beer and pick his brains on anything you like. You might even come away with something valuable. He is the speaker at the upcoming KubeCon in London and an uber-active members of the ST2 Community.</description>
+    </item>
+    
+  </channel>
+</rss>

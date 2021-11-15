@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>output schema on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/output-schema/</link>
+    <description>Recent content in output schema on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Apr 2019 01:28:58 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/output-schema/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Feature: Output Schema</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2019/04/09/new-feature-output-schema/</link>
+      <pubDate>Wed, 10 Apr 2019 01:28:58 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2019/04/09/new-feature-output-schema/</guid>
+      <description>&lt;p&gt;&lt;em&gt;April 9, 2019&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We added support for &lt;a href=&#34;https://docs.stackstorm.com/latest/actions.html#output-schema&#34;&gt;Output Schema&lt;/a&gt; in StackStorm 2.9. This feature has been “under the radar” for a while. Time to shed a little light, explain what it is, how to use it, and &lt;strong&gt;why&lt;/strong&gt; we added this feature. Read on!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

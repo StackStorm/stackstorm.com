@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sequencing Operations on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/sequencing-operations/</link>
+    <description>Recent content in Sequencing Operations on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Nov 2016 19:26:11 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/sequencing-operations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Genomics Sequencing, StackStorm, and Reading the Source Code of Biology</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/</link>
+      <pubDate>Tue, 15 Nov 2016 19:26:11 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/15/genomics-sequencing-stackstorm-reading-source-code-biology/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;By Dana Christensen&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;Nov 15, 2016&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The DevOps movement is focused on leading transformational change and driving innovation. At the recent DevOps Enterprise Summit in San Francisco, many of the leaders in the field spoke of driving change through a culture focused on collaboration, community, co-creation, curiosity, continual learning, designing for joy, and meaningful work. I have been impressed with the passion and conviction that leaders in the DevOps movement speak about and emphasize these key principles.. Through determination and focus, living out these key values, and recognizing that everyone has a role to play—we will be able to truly unlock the power of technology to address the many complex global challenges we face today.&lt;/p&gt;
+&lt;p&gt;An excellent example of leveraging DevOps and technology to address complex global challenges is found in the field of Genomics Research. Through focus on the values spoken about by DevOps thought leaders and innovation at the speed of community—Science, Universities, Government, and Business, powered by advances in IT, are able to join forces to develop and evolve techniques that allow for the reading of the source code of biology—something that is incredibly complex and in parts extremely optimized. Through this important work, we are just beginning to unlock the secrets and miraculous mysteries to life on earth as we know it.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

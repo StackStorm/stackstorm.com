@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Splunk on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/splunk/</link>
+    <description>Recent content in Splunk on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Oct 2016 20:13:26 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/splunk/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Auto-Remediation with StackStorm &amp; Splunk</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</link>
+      <pubDate>Fri, 21 Oct 2016 20:13:26 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Oct 21, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.splunk.com&#34;&gt;&lt;strong&gt;Splunk&lt;/strong&gt;&lt;/a&gt; is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

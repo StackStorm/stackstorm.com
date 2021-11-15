@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Serverless’ Event Gateway explained for StackStorm users | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="October 10, 2017
+by Dmitri Zimine
+In Part 1 of the series, I shared my excitement with two new event-driven systems introduced last month: Event Grid from Microsoft Azure and Event Gateway from Serverless.com, and posted some observations on Event Grid.
+Before we continue with Event Gateway, let’s bring the “terminology normalization” from Part 1. In the table below StackStorm terms are used as as a reference point for our blog’s regular readers, along with a short explanation of their meaning for the guests.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Serverless’ Event Gateway explained for StackStorm users" />
+<meta property="og:description" content="October 10, 2017
+by Dmitri Zimine
+In Part 1 of the series, I shared my excitement with two new event-driven systems introduced last month: Event Grid from Microsoft Azure and Event Gateway from Serverless.com, and posted some observations on Event Grid.
+Before we continue with Event Gateway, let’s bring the “terminology normalization” from Part 1. In the table below StackStorm terms are used as as a reference point for our blog’s regular readers, along with a short explanation of their meaning for the guests." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-10-10T13:52:20+00:00" />
+<meta property="article:modified_time" content="2017-10-10T13:52:20+00:00" />
+
+<meta itemprop="name" content="Serverless’ Event Gateway explained for StackStorm users">
+<meta itemprop="description" content="October 10, 2017
+by Dmitri Zimine
+In Part 1 of the series, I shared my excitement with two new event-driven systems introduced last month: Event Grid from Microsoft Azure and Event Gateway from Serverless.com, and posted some observations on Event Grid.
+Before we continue with Event Gateway, let’s bring the “terminology normalization” from Part 1. In the table below StackStorm terms are used as as a reference point for our blog’s regular readers, along with a short explanation of their meaning for the guests."><meta itemprop="datePublished" content="2017-10-10T13:52:20+00:00" />
+<meta itemprop="dateModified" content="2017-10-10T13:52:20+00:00" />
+<meta itemprop="wordCount" content="1676">
+<meta itemprop="keywords" content="event-driven automation,review,serverless," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Serverless’ Event Gateway explained for StackStorm users"/>
+<meta name="twitter:description" content="October 10, 2017
+by Dmitri Zimine
+In Part 1 of the series, I shared my excitement with two new event-driven systems introduced last month: Event Grid from Microsoft Azure and Event Gateway from Serverless.com, and posted some observations on Event Grid.
+Before we continue with Event Gateway, let’s bring the “terminology normalization” from Part 1. In the table below StackStorm terms are used as as a reference point for our blog’s regular readers, along with a short explanation of their meaning for the guests."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/&amp;text=Serverless%e2%80%99%20Event%20Gateway%20explained%20for%20StackStorm%20users" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2017/10/10/event-grid-event-gateway-explained-part2/&amp;title=Serverless%e2%80%99%20Event%20Gateway%20explained%20for%20StackStorm%20users" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Serverless’ Event Gateway explained for StackStorm users</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Dmitri Zimine
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2017-10-10T13:52:20Z">October 10, 2017</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>October 10, 2017<br>
+<em>by <!-- raw HTML omitted -->Dmitri Zimine<!-- raw HTML omitted --></em></p>
+<p>In <a href="https://stackstorm.com/2017/10/05/event-grid-event-gateway-explained-part1/">Part 1</a> of the series, I shared my excitement with two new event-driven systems introduced last month: <!-- raw HTML omitted -->Event Grid<!-- raw HTML omitted --> from Microsoft Azure and <!-- raw HTML omitted -->Event Gateway<!-- raw HTML omitted --> from <!-- raw HTML omitted -->Serverless.com<!-- raw HTML omitted -->, and posted some observations on Event Grid.</p>
+<p>Before we continue with Event Gateway, let’s bring the “terminology normalization” from <a href="https://stackstorm.com/2017/10/05/event-grid-event-gateway-explained-part1/">Part 1</a>. In the table below StackStorm terms are used as as a reference point for our blog’s regular readers, along with a short explanation of their meaning for the guests.</p>
+<table>
+<thead>
+<tr>
+<th>StackStorm</th>
+<th>Event Grid</th>
+<th>Event Gateway</th>
+<th>What is it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sensors</td>
+<td>Event publishers</td>
+<td>N/A (out of scope)</td>
+<td>Event sources and a system responsible for ingesting external events</td>
+</tr>
+<tr>
+<td>Triggers</td>
+<td>Topics</td>
+<td>Events</td>
+<td>System representation of the external event</td>
+</tr>
+<tr>
+<td>Rules</td>
+<td>Subscriptions</td>
+<td>Subscriptions</td>
+<td>Triggers-to-Actions map, filtering, conditions, data passing</td>
+</tr>
+<tr>
+<td>Actions</td>
+<td>Event Handlers</td>
+<td>Function</td>
+<td>Target system invocation</td>
+</tr>
+</tbody>
+</table>
+<p>If you’re new to StackStorm, you can refresh refresh the concept of event driven automation at <a href="https://docs.stackstorm.com/overview.html">StackStorm documentation</a>.</p>
+<p>The common questions to evaluate the event automation products in the family would be:</p>
+<ul>
+<li>What triggers and actions are possible? What are already available? How can they be extended?</li>
+<li>How are rules defined? What are the filtering and data transforming capabilities?</li>
+<li>What are event delivery guarantees, throughput, and scale characteristics?</li>
+</ul>
+<p>And of course there is something uniquely interesting in each system. What is it?<br>
+With that, let’s continue to Event Gateway!</p>
+<h3 id="event-gateway-by-serverlesscom">Event Gateway by Serverless.com</h3>
+<p>Event Gateway is defined as “<em>an open-source communication fabric for serverless architectures. It combines both <strong>API gateway</strong> and <strong>pub/sub</strong> functionality into a single experience</em>”<a href="https://serverless.com/blog/introducing-serverless-event-gateway/">[*]</a>.</p>
+<p>The “<strong>pub/sub</strong>” part is what makes Event Gateway an event router, similar to Azure Event Grid. Event Gateway is emphasized as “Cross-cloud”, built to centralize event handling and react to event with any function on any cloud. This positioning reflects anticipation that serverless solutions are going to be spanning multiple cloud providers.<br>
+The “<strong>API gateway</strong>” part is a separate functionality, yet a part of the end-to-end developer experience: it is intended to optimize the synchronous calls to Function-as-a-Service functions of various cloud providers – think of AWS API Gateway functionality across the cloud, without dealing with notoriously painful AWS API gateway configuration.</p>
+<!-- raw HTML omitted -->
+<p>As a service offering by <a href="https://www.serverless.com">Serverless.com</a>, Event Gateway is tightly integrated into the <a href="https://serverless.com/framework/">serverless framework</a> for a seamless developer experience. How tightly &amp; how seamlessly? <a href="https://s3-us-west-2.amazonaws.com/emit-website/2017-slides/building+the+communication+fabric+for+serverless+architectures.pdf">Austen Collins demo-ed it</a> at <a href="http://www.emitconference.com">Emit conference</a> and the flow was impressive – watch the video once they post it, and judge for yourself. (I’ll update the post with the link once the video is posted). Or just try yourself – it is <a href="https://github.com/serverless/event-gateway">open-source</a>: open for contributions, transparent for understanding, and can be run by anyone in their own production cluster. The transparency makes this review an easy job – look at <a href="https://github.com/serverless/event-gateway">the code</a>, run the <a href="https://github.com/serverless/event-gateway-example">example</a>, and let’s compare notes!</p>
+<h4 id="event-sources">Event sources</h4>
+<p>Event sources are outside of Event Gateway’s scope: the platform doesn’t offers anything like <a href="https://docs.stackstorm.com/sensors.html">StackStorm sensors</a> – a way to plug-in a piece of code to sense an external event. Instead, EventGrid ingests events via HTTP(s) endpoint. A custom event is most similar to StackStorm WebHook trigger type or EventGrid custom topic. When emitted, triggers an asynchronous call to one or more target functions based on subscriptions.</p>
+<p>Events identify themselves by a string ID passed in via HTTP header. Namespacing is not enforced but will likely emerge as a convention. Event payload comes in a HTTP request body and parsed by EventGrid if it is JSON. As event types are not registered upfront, thus there is no payload schema, no static check, and no introspection on which payload parameters may be available for subscription filtering. Well, unfortunately there is no filtering either – I’ll get to it when it comes to subscriptions.</p>
+<p>There are also two “built-in” synchronous event types, essential for “just call me” use cases like using functions as client application backends, and function calls across cloud providers (I think of them as part of Event Grid’s API Gateway functionality):</p>
+<ul>
+<li><code>invoke</code> event type is used to call functions synchronously. It does not require a subscription: using <code>invoke</code> is like calling StackStorm Action API directly instead of going through the Trigger-Rule-Action chain. The function invocation output is sent in the response body “as is”.</li>
+<li><code>http</code> event occurs on HTTP requests on the Gateway paths defined by a special <code>http</code> subscription type. The event carries <code>path</code>, <code>method</code>, <code>query</code> string, headers and the other parameters of HTTP call to the function defined by the subscription. The function execution results are synchronously sent back to the caller in HTTP response</li>
+</ul>
+<p>There is also an internal event types. StackStorm users know how powerful <a href="https://docs.stackstorm.com/sensors.html#internal-triggers">internal triggers like <code>st2.generic.actiontrigger</code></a> can be in building elaborate chains of event reactions. In EventGrid, <a href="(https://github.com/serverless/event-gateway#system-events)">a few system events are defined</a> – <code>gateway.event.received</code>, <code>gateway.function.invoking</code>, <code>gateway.function.invoked</code>, <code>gateway.function.invocationFailed</code> –<br>
+with <a href="https://github.com/serverless/event-gateway/issues/215">intention to add more</a>.Here is an <a href="https://github.com/serverless/event-gateway-example/blob/master/services/errors/serverless.yml">example of using <code>internalFunctionError</code></a> for error handling. To realize their potential, the system events must become first class citizens, useful in subscriptions, with extra safeguards and usability aids to track the chains of events, break circular dependencies and prevent invocation chain reaction explosions.</p>
+<h4 id="functions">Functions</h4>
+<p>Functions must be pre-registered via configuration API. This is referred as “Function discovery”: it stores information about available functions, allowing the Event Gateway to call them as a reaction to received event. The three function types available today: AWS Lambda, HTTP, and Weighted. Weighted is an interesting concept: the call is load-balanced across a set of functions with probabilities based on each function’s user-assigned “weight”. There will be more function types: the docs already cite Google Cloud Functions, Azure Functions, OpenWhisk Actions. Function providers are not pluggable in the current implementation – adding a new function type to Event Gateway requires <a href="http://https://github.com/serverless/event-gateway/blob/master/functions/function.go">modification of the platform code</a> – but it will likely change as more types are implemented. I am particularly looking forward to invoking Step Functions and Logic Apps as the workflows will be used more to tame serverless complexity – and adding support for them looks pretty easy.</p>
+<h4 id="subscriptions">Subscriptions</h4>
+<p>Subscriptions map events to functions. Created via the same configuration API, subscriptions are as simple as Event Gateway’s, even simpler: just <code>(functionID</code>, event)` tuple. It does no filtering on event, and doesn’t offer any data transformation from event payload to function input, passing event payload to function as is. The lack of filtering pushes part of event routing responsibility onto functions: users will have to either mix routing and domain logics in function, or front-face the handlers by a “routing” function. The lack of data transformation creates data coupling between events and functions. This is unfortunate: the promise of Event Gateway is that it “completely decouples functions from one another, reducing communication costs across teams, eliminates effort spent redeploying functions, and allows you to easily share events across functions, HTTP services, even different cloud providers”, and in it current form, it’s not “completely decoupled”. However event filtering is <a href="https://github.com/serverless/event-gateway/issues/169">already on the roadmap</a> and well thought out. Data transformation is not yet in the plans, but from our experience with StackStorm it will be necessary.</p>
+<p>A special HTTP subscription is used to define an HTTP API endpoints by mapping paths and methods to synchronous function calls. HTTP subscription is created when the event type is <code>http</code>, and takes <code>path</code> and <code>method</code> parameters. There can be only one http subscription for the same <code>(method, path)</code> pair. It was not easy to get my head around special case for <code>http</code> at first, but now I find it easy to think about it as API Gateway functionality, and it is a very convenient way to expose functions as REST endpoints.</p>
+<h4 id="delivery-guarantee-and-scale">Delivery Guarantee and Scale</h4>
+<p>Event Gateway is a horizontally scalable stateless service. It relies on strongly consistent DB (etcd, Consul, Zookeeper) for managing state and inter-cluster communications. A cluster can span multiple cloud regions or even various cloud providers.</p>
+<p>Delivery guarantee is not specified; from <a href="https://github.com/serverless/event-gateway/blob/master/router/router.go#L303-L346">looking at the code</a> I would guess “at most once” but happy to be corrected. Retry is left to the event emitting clients for the time and <a href="https://github.com/serverless/event-gateway/issues/319">cited as a feature request</a>.</p>
+<h4 id="serverless-framework-integration">Serverless Framework Integration</h4>
+<p>What makes Event Gateway really appealing is the convenience of integration with Serverless framework. User describes the event-action mapping with already familiar syntax in <code>serverless.yml</code>, and the framework makes all the calls to register a function &amp; create a subscription:</p>
+<pre><code>functions:
+  analytics:
+    handler: recordEvents
+    events:
+      - user.registered
+      - user.clicked
+</code></pre>
+<p>Here is how the end-to-end developer experience is promising to be, once the Event Gateway is out in production:</p>
+<ul>
+<li><strong>Define</strong> your solution as a combination of events, functions, and subscriptions with familiar serverless framework syntax. Use the sync <code>http</code> events for client app backend services, <code>invoke</code> events to synchronously call functions from functions, and custom async events for orchestrating backend jobs.</li>
+<li><strong>Try locally</strong>: develop and test the solution with Event Gateway automatically deployed and running locally, along with local simulators of FaaS and some other “serverless-offline” goodies.</li>
+<li><strong>Deploy to clouds</strong>: with <code>sls deploy</code>, the functions will be deployed to the cloud providers, registered in Event Gateway via functional discovery, and event subscriptions will be created.</li>
+<li><strong>Emit events &amp; profit</strong>!</li>
+</ul>
+<h4 id="summary">Summary</h4>
+<p>Event Gateway is currently in beta, and under active development (the development <a href="https://github.com/serverless/event-gateway/graphs/contributors">noticeably slowed down</a> since it’s peak in August, which, I must admit, concerns me). While AWS, Azure, Google GCP &amp; IBM OpenWhisk are mentioned in docs, only AWS is implemented at the time of writing. The hosted service is not available yet: one can run Event Gateway locally via <a href="https://serverless.com/framework/">Serverless framework</a>, or <a href="https://github.com/serverless/event-gateway/blob/master/docs/developing.md">standalone</a>.</p>
+<p>Event Gateway is hardly useful at the current early preview stage, but looks very promising on its roadmap. A cross-cloud event router is “<em>the missing piece of serverless architectures</em>”<a href="https://serverless.com/blog/introducing-serverless-event-gateway/">[*]</a>, and Event Gateway makes a strong claim to this strategic spot. The combination of pub/sub and API gateway functionality provides single developer experience – the majority of solutions need both types of interactions. In addition, Event Gateway promises to serve as an “event store” – keep events long after execution to enable <a href="https://martinfowler.com/eaaDev/EventSourcing.html">event-sourcing</a>. Open-source model brings trust and carries the potential of a strong community support. I am looking forward to seeing Event Gateway develop towards achieving its grand vision.</p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/event-driven-automation" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">event-driven automation</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/review" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">review</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/serverless" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">serverless</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2017/01/24/innovation-at-dimension-data-event-driven-automation/">Innovation at Dimension Data: Accelerating Innovation and Digital Transformation with StackStorm Event Driven Automation</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/11/14/iot-event-driven-automation-supercomputing16/">Unleash the power of IoT with Event-Driven Automation (ST2 &amp; BWC @ SuperComputing16)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/11/03/stackstorm-at-openstack-barcelona/">StackStorm at OpenStack Barcelona</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/">Auto-Remediation for Real: Self-Healing Clouds and Auto-Remediation as a Service</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/">OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

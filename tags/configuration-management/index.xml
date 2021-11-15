@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>configuration management on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/configuration-management/</link>
+    <description>Recent content in configuration management on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Jan 2019 09:29:24 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/configuration-management/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible StackStorm role v1.0.0 released</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</link>
+      <pubDate>Tue, 15 Jan 2019 09:29:24 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Jan 15, 2019&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C. (@armab)&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We’re very excited to announce that Ansible roles to deploy StackStorm have been promoted to major version &lt;code&gt;1.0.0&lt;/code&gt;!&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm Puppet Module goes v1.0.0 stable!</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/</link>
+      <pubDate>Thu, 09 Aug 2018 16:21:54 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;August 9, 2018&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by &lt;a href=&#34;https://github.com/nmaludy&#34;&gt;Nick Maludy&lt;/a&gt; – &lt;a href=&#34;http://www.encore.tech&#34;&gt;Encore Technologies&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ready to automatically provision and maintain StackStorm nodes in production? Then the &lt;code&gt;stackstorm-st2&lt;/code&gt; Puppet module is for you! We’re proud to announce the &lt;code&gt;v1.0.0&lt;/code&gt; stable release of &lt;a href=&#34;https://github.com/StackStorm/puppet-st2&#34;&gt;github.com/StackStorm/puppet-st2&lt;/a&gt;, the StackStorm Puppet module.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/stackstorm/puppet-st2&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Puppet is an excellent tool that allows the user to declare the desired state of their system in code. Once defined, hand over the reins to Puppet and watch as it transforms your nodes into what you’ve declared. We wanted to bring the power of declarative state to StackStorm deployments, and &lt;a href=&#34;https://github.com/StackStorm/puppet-st2&#34;&gt;puppet-st2&lt;/a&gt; is that solution.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Find StackStorm v1.0.0 on Puppet Forge, – &lt;a href=&#34;https://forge.puppet.com/stackstorm/st2&#34;&gt;https://forge.puppet.com/stackstorm/st2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A great deal of work has gone into the &lt;code&gt;v1.0.0&lt;/code&gt; release to ensure that &lt;a href=&#34;https://docs.stackstorm.com/latest/install/puppet.html&#34;&gt;st2 Puppet Module&lt;/a&gt; is ready to provision and manage StackStorm nodes in production environments. See January, 2018 &lt;a href=&#34;https://stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/&#34;&gt;Puppet Module to Install StackStorm – Announcing Release Candidate&lt;/a&gt;. Over the past year we’ve iterated through several pre-releases, release-candidate versions, fixed a lot of bugs, reworked the entire module structure and can now declare it stable and production ready.&lt;/p&gt;
+&lt;p&gt;There are still a lot of exciting new announcements in this release. Keep reading to find out what’s changed!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Puppet Module to Install StackStorm – Announcing Release Candidate</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</link>
+      <pubDate>Fri, 05 Jan 2018 17:27:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;January 4, 2018&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By &lt;a href=&#34;https://github.com/nmaludy&#34;&gt;Nick Maludy&lt;/a&gt; of &lt;a href=&#34;http://www.encore.tech&#34;&gt;Encore Technologies&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;So far StackStorm has multiple installation methods: deb/rpm packages, &lt;a href=&#34;https://docs.stackstorm.com/install/index.html#ref-one-line-install&#34;&gt;&lt;code&gt;curl|bash&lt;/code&gt;&lt;/a&gt; installer used for simple deployments, &lt;a href=&#34;https://github.com/stackstorm/st2-docker&#34;&gt;Docker&lt;/a&gt;, &lt;a href=&#34;https://github.com/stackstorm/ansible-st2&#34;&gt;Ansible&lt;/a&gt;, &lt;a href=&#34;https://github.com/stackstorm/chef-stackstorm&#34;&gt;Chef&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now it’s Puppet time!&lt;/p&gt;
+&lt;p&gt;Starting in July of 2017 a major effort has been underway to modernize the Puppet module to install/deploy StackStorm. In August of 2017 &lt;code&gt;v1.0.0-beta&lt;/code&gt; was released with completely re-worked internals to support the new StackStorm &lt;code&gt;deb/rpm&lt;/code&gt; package installation method and fix a large number of bugs. Since the beta we’ve continued development of new features like supporting all 4 StackStorm OSes, Puppet 4 and 5 compatibility, ChatOps installation and configuration, modernized pack management, full integration testing in Docker containers along with a slew of Puppet best practices improvements.&lt;/p&gt;
+&lt;p&gt;Today we’re proud to announce the Release Candidate version &lt;code&gt;v1.0.0-rc&lt;/code&gt; of the &lt;a href=&#34;https://github.com/StackStorm/puppet-st2&#34;&gt;&lt;code&gt;stackstorm-st2&lt;/code&gt;&lt;/a&gt; Puppet module which is available on Forge.&lt;br&gt;
+&lt;a href=&#34;https://forge.puppet.com/stackstorm/st2&#34;&gt;&lt;br&gt;
+&lt;!-- raw HTML omitted --&gt;&lt;br&gt;
+https://forge.puppet.com/stackstorm/st2&lt;br&gt;
+&lt;/a&gt;&lt;br&gt;
+Our plan is to release &lt;code&gt;v1.0.0&lt;/code&gt; stable in the coming weeks, but in order to do this we need your help. We ask everyone who is interested in Puppet-based deployment to give the module a try and provide your feedback!&lt;/p&gt;
+&lt;p&gt;Keep reading to find out more details about what’s changed and where the project is heading.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ansible playbooks to deploy StackStorm: BWC, ChatOps and more</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</link>
+      <pubDate>Mon, 15 May 2017 19:19:14 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;May 15, 2017&lt;/strong&gt; &lt;em&gt;by Eugen C. (&lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;As you may know, previously we &lt;a href=&#34;https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&#34;&gt;announced&lt;/a&gt; availability of Ansible production-friendly playbooks to install &amp;amp; configure StackStorm for cases when our demo &lt;code&gt;bash&lt;/code&gt; installer wasn’t sufficient.&lt;/p&gt;
+&lt;p&gt;With the new release &lt;a href=&#34;https://github.com/StackStorm/ansible-st2&#34;&gt;github.com/StackStorm/ansible-st2&lt;/a&gt; &lt;code&gt;v0.7.0&lt;/code&gt; you can do even more!&lt;/p&gt;
+&lt;p&gt;This version includes new &lt;code&gt;bwc&lt;/code&gt; and &lt;code&gt;st2chatops&lt;/code&gt; roles, features like passing settings to &lt;code&gt;st2.conf&lt;/code&gt;, enhancements to use custom SSL certificate for &lt;code&gt;st2web&lt;/code&gt;, more documentation use-cases, some breaking changes and of course, bug fixes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Introducing Ansible playbooks to deploy StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</link>
+      <pubDate>Thu, 02 Feb 2017 19:16:27 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Feb 2, 2017&lt;/strong&gt; &lt;em&gt;by Eugen C. (&lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;)&lt;/em&gt;&lt;br&gt;
+&lt;a href=&#34;https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Did you know we have Ansible playbooks to deploy StackStorm?&lt;br&gt;
+It’s something we’ve been working on quietly for a while:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/StackStorm/ansible-st2&#34;&gt;github.com/StackStorm/ansible-st2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Well, now you know!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

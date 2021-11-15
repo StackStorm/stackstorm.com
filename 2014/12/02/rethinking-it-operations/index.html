@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rethinking IT Operations | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="December 1, 2014
+by Patrick Hoolboom
+I’ve spoken at a couple of events, and chatted with hundreds of people at these events about an idea that has been swirling around in my head for a while now. This idea has gnawed at my subconscious throughout a big part of my career in IT Operations, but I was never really able to put my finger on what was bothering me. I just knew that lack of visibility and consistency in procedures drove me crazy. The opaque nature of action performed during an outage, or even a scheduled operation was frustrating. Post mortems were a nightmare of hazy memories, chat transcripts, and various permutations of ad hoc log parsing.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rethinking IT Operations" />
+<meta property="og:description" content="December 1, 2014
+by Patrick Hoolboom
+I’ve spoken at a couple of events, and chatted with hundreds of people at these events about an idea that has been swirling around in my head for a while now. This idea has gnawed at my subconscious throughout a big part of my career in IT Operations, but I was never really able to put my finger on what was bothering me. I just knew that lack of visibility and consistency in procedures drove me crazy. The opaque nature of action performed during an outage, or even a scheduled operation was frustrating. Post mortems were a nightmare of hazy memories, chat transcripts, and various permutations of ad hoc log parsing." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2014/12/02/rethinking-it-operations/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2014-12-02T18:06:09+00:00" />
+<meta property="article:modified_time" content="2014-12-02T18:06:09+00:00" />
+
+<meta itemprop="name" content="Rethinking IT Operations">
+<meta itemprop="description" content="December 1, 2014
+by Patrick Hoolboom
+I’ve spoken at a couple of events, and chatted with hundreds of people at these events about an idea that has been swirling around in my head for a while now. This idea has gnawed at my subconscious throughout a big part of my career in IT Operations, but I was never really able to put my finger on what was bothering me. I just knew that lack of visibility and consistency in procedures drove me crazy. The opaque nature of action performed during an outage, or even a scheduled operation was frustrating. Post mortems were a nightmare of hazy memories, chat transcripts, and various permutations of ad hoc log parsing."><meta itemprop="datePublished" content="2014-12-02T18:06:09+00:00" />
+<meta itemprop="dateModified" content="2014-12-02T18:06:09+00:00" />
+<meta itemprop="wordCount" content="1260">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rethinking IT Operations"/>
+<meta name="twitter:description" content="December 1, 2014
+by Patrick Hoolboom
+I’ve spoken at a couple of events, and chatted with hundreds of people at these events about an idea that has been swirling around in my head for a while now. This idea has gnawed at my subconscious throughout a big part of my career in IT Operations, but I was never really able to put my finger on what was bothering me. I just knew that lack of visibility and consistency in procedures drove me crazy. The opaque nature of action performed during an outage, or even a scheduled operation was frustrating. Post mortems were a nightmare of hazy memories, chat transcripts, and various permutations of ad hoc log parsing."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2014/12/02/rethinking-it-operations/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2014/12/02/rethinking-it-operations/&amp;text=Rethinking%20IT%20Operations" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2014/12/02/rethinking-it-operations/&amp;title=Rethinking%20IT%20Operations" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rethinking IT Operations</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2014-12-02T18:06:09Z">December 2, 2014</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>December 1, 2014</strong></p>
+<p><em>by Patrick Hoolboom</em></p>
+<p>I’ve spoken at a couple of events, and chatted with hundreds of people at these events about an idea that has been swirling around in my head for a while now. This idea has gnawed at my subconscious throughout a big part of my career in IT Operations, but I was never really able to put my finger on what was bothering me. I just knew that lack of visibility and consistency in procedures drove me crazy. The opaque nature of action performed during an outage, or even a scheduled operation was frustrating. Post mortems were a nightmare of hazy memories, chat transcripts, and various permutations of ad hoc log parsing.</p>
+<p>As I sat late one night, back in May, whiteboarding some ideas with my boss, it finally materialized. I explained to him how I felt that Operations teams need to identify behaviour patterns much like how developers have software development patterns. He started quickly jotting down some things on the board and we ended up with what, at StackStorm, we refer to as Operations Design Patterns.</p>
+<p><strong>Operations Design Patterns</strong><br>
+The general idea in the beginning was that in the IT Operations/Infrastructure world, most of the behaviors or procedures can be distilled down to the essentials bits. We can then take those bits and templatize them. In theory, we should then be able to compare these templates…and even share these templates.</p>
+<p>Most groups already have these templates. They keep them in wikis, or runbooks. Maybe even in scripts. None of these give us the combination of abstraction, visibility, and flexibility that we need. People forget to update wikis. Runbooks can be too heavily tied to the technical underpinnings of the tasks, and scripts are actually the worst. They are the easiest for us to write, but the hardest for us to maintain. They are completely opaque from the outside, and most languages give us too many ways to do any single task. This is fantastic for development, but can make modeling procedural patterns all but impossible.</p>
+<p>The point I want to make is that most organizations are already aware of these patterns on some level and tracking them in some way. The shift we need to make is to focus less on the steps in the pattern, and more on the patterns themselves. If we make the patterns the first class citizens, it completely changes how we think about our procedures. The storing, reviewing, and improving of these templates will be a core piece of how the team operates. This starts to get a bit utopian, I know. There are definitely technical requirements, as well as team buy in, and consistency for this to really work.</p>
+<p><strong>The Basic Pattern: Workflow vs Action</strong><br>
+One of the most basic patterns that I’ve come to see everywhere is the idea of separating the procedure (or workflow) from the actions that are being performed. We need to take the logic from our procedure and extract it out, away from the actual actions being performed. For example, we can build a workflow out of a basic remediation procedure.</p>
+<!-- raw HTML omitted -->
+<p>An event happens, that starts us down the path of troubleshooting this problem. We know we need to collect a certain amount of diagnostic data, then choose the appropriate remediation tasks based off of this data. At the end, we communicate what was done and the current state. We could build these kind of diagrams around dozens, if not hundreds of different kinds of troubleshooting scenarios. The specifics of the underlying task are unimportant in the context of modeling the procedure, what really matters is the pattern.</p>
+<p>We now can identify these patterns but we don’t yet have a clear, standardized way to express them. One of the key pieces of this model is finding this language. It must come via a workflow engine or other means that makes the workflows themselves <strong>executable</strong>. This is vital, otherwise our workflows are only slightly better than the wikis they replace. When we find a language to express our workflows that is not only executable but also human readable, we essentially end up with living documentation. The very documents we use to record our procedures are what we run to follow those procedures.</p>
+<p><strong>The Atomic Action</strong><br>
+Another basic piece to this is the concept of atomic actions. To quote Doug McIlroy:</p>
+<p><em>“This is the Unix philosophy: Write programs that do one thing and do it well. Write programs to work together.”</em></p>
+<p>In a perfect world there would be virtually no logic in the scripts that perform the actions. The logic should be expressed in the higher level workflow language. For ease of readability, and quick manipulations you do not want logic that impacts the decision tree of the procedure buried in the code. The reality is that it is probably not practical to abstract out all of the logic, and we will end up somewhere in between pure scripts, and pure workflow when it comes to where the logic lives.</p>
+<p>Lego blocks are a great analogy.</p>
+<p>Having large amounts of logic in the scripts is like using highly specialized Lego bricks. Like this one:</p>
+<!-- raw HTML omitted -->
+<p>It would do one job really well, and we could get it up and running very quickly. The problem is that we can’t easily make changes that don’t fit within the design constraints of this Lego fence. We end up hacking pieces around our fence just to get the full functionality we need.</p>
+<p>The other option, more akin to using atomic actions and workflow, is to build everything out of the smallest brick possible.</p>
+<!-- raw HTML omitted -->
+<p>This gives us the most power and the greatest flexibility but also takes the most time. We could build giant structures out of these, and down the road if we needed to, switching one of them to red, is as easy as replacing that single brick.</p>
+<p><strong>The Reality of My Utopian Ops Dream</strong><br>
+This is my first stab at writing this idea down and I know there are going to be holes in it. Places where this just doesn’t fit. Mostly due to time constraints, or lack of the necessary technology. The two big problems I see are:</p>
+<ul>
+<li><strong>Time</strong> – It takes a great deal of time to rewrite the monolithic ops scripts into atomic actions. It also takes time to write the workflows themselves.</li>
+<li><strong>Technology</strong> – I don’t see a widely adopted workflow engine that has the power and flexibility we need to do this.</li>
+</ul>
+<p>My thoughts so far are that we can attack the first point by rallying a community around this idea. If we collaborate and share our ops patterns we will greatly reduce the ramp up time necessary to get a model like this working. Not only that, but we could start to standardize practices across organizations from the get go.</p>
+<p>I don’t want to dig into the specific technologies that are out there at this point but at StackStorm we are using Mistral as the main workflow engine.  <!-- raw HTML omitted -->Mistral<!-- raw HTML omitted --> combined with the “everything as code” nature of the StackStorm product has helped us overcome a lot of the technical roadblocks in adopting the Operations Design Patterns concept.</p>
+<p>This has been a fairly rough brain dump of my thoughts around how to improve IT Ops via capturing Operations Design Patterns. I’m hoping as I get this discussion going more it will continue to grow and improve. I would love to hear feedback from people on this. Feel free to contact me on Twitter, or on IRC: DoriftoShoes, generally found in #stackstorm on Freenode.</p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

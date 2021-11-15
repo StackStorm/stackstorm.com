@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oss on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/oss/</link>
+    <description>Recent content in oss on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Aug 2018 16:21:54 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/oss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StackStorm Puppet Module goes v1.0.0 stable!</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/</link>
+      <pubDate>Thu, 09 Aug 2018 16:21:54 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/08/09/stackstorm-puppet-module-goes-v1-0-0-stable/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;August 9, 2018&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by &lt;a href=&#34;https://github.com/nmaludy&#34;&gt;Nick Maludy&lt;/a&gt; – &lt;a href=&#34;http://www.encore.tech&#34;&gt;Encore Technologies&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ready to automatically provision and maintain StackStorm nodes in production? Then the &lt;code&gt;stackstorm-st2&lt;/code&gt; Puppet module is for you! We’re proud to announce the &lt;code&gt;v1.0.0&lt;/code&gt; stable release of &lt;a href=&#34;https://github.com/StackStorm/puppet-st2&#34;&gt;github.com/StackStorm/puppet-st2&lt;/a&gt;, the StackStorm Puppet module.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/stackstorm/puppet-st2&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Puppet is an excellent tool that allows the user to declare the desired state of their system in code. Once defined, hand over the reins to Puppet and watch as it transforms your nodes into what you’ve declared. We wanted to bring the power of declarative state to StackStorm deployments, and &lt;a href=&#34;https://github.com/StackStorm/puppet-st2&#34;&gt;puppet-st2&lt;/a&gt; is that solution.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Find StackStorm v1.0.0 on Puppet Forge, – &lt;a href=&#34;https://forge.puppet.com/stackstorm/st2&#34;&gt;https://forge.puppet.com/stackstorm/st2&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;A great deal of work has gone into the &lt;code&gt;v1.0.0&lt;/code&gt; release to ensure that &lt;a href=&#34;https://docs.stackstorm.com/latest/install/puppet.html&#34;&gt;st2 Puppet Module&lt;/a&gt; is ready to provision and manage StackStorm nodes in production environments. See January, 2018 &lt;a href=&#34;https://stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/&#34;&gt;Puppet Module to Install StackStorm – Announcing Release Candidate&lt;/a&gt;. Over the past year we’ve iterated through several pre-releases, release-candidate versions, fixed a lot of bugs, reworked the entire module structure and can now declare it stable and production ready.&lt;/p&gt;
+&lt;p&gt;There are still a lot of exciting new announcements in this release. Keep reading to find out what’s changed!&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

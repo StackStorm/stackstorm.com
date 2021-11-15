@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FOSS on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/foss/</link>
+    <description>Recent content in FOSS on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Oct 2018 13:06:04 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/foss/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StackStorm HA in Kubernetes βeta – Community update</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/10/10/stackstorm-ha-in-kubernetes-beta-community-update/</link>
+      <pubDate>Wed, 10 Oct 2018 13:06:04 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/10/10/stackstorm-ha-in-kubernetes-beta-community-update/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Oct 10, 2018&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By &lt;a href=&#34;https://github.com/warrenvw&#34;&gt;Warren Van Winckel&lt;/a&gt; and &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C.&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A couple weeks ago, &lt;a href=&#34;https://stackstorm.com/2018/09/26/stackstorm-enterprise-ha-in-kubernetes-beta/&#34;&gt;we released&lt;/a&gt; the Helm chart and docker images so you could install StackStorm Enterprise HA cluster in Kubernetes.&lt;/p&gt;
+&lt;p&gt;Today, we’re glad to announce that the Community free and open source edition of StackStorm HA is now available, too! With this update we are excited to bring Kubernetes powers to the broader community and strive for greater adoption in production with better safety for all important operations you delegate to StackStorm automation engine.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/stackstorm/stackstorm-ha&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,2390 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Network Automation with StackStorm and Docker | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="May 24, 2016
+by Matthew Stone
+What is StackStorm going to do with network automation? Ever since we joined Brocade, it’s been everyone’s question, and we have been hand-waving some answers. But the talk walks, code talks: let’s show something really working. Today’s example is on Docker network automation, where StackStorm makes physical networking follow Docker containers as they get created.
+Millennial kids should watch my video with detailed explanations on StackStorm’s YouTube channel.
+True hackers might jump straight to automation code on GitHub to see how it is built and try it out on your StackStorm instance.
+Or, just read on.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Network Automation with StackStorm and Docker" />
+<meta property="og:description" content="May 24, 2016
+by Matthew Stone
+What is StackStorm going to do with network automation? Ever since we joined Brocade, it’s been everyone’s question, and we have been hand-waving some answers. But the talk walks, code talks: let’s show something really working. Today’s example is on Docker network automation, where StackStorm makes physical networking follow Docker containers as they get created.
+Millennial kids should watch my video with detailed explanations on StackStorm’s YouTube channel.
+True hackers might jump straight to automation code on GitHub to see how it is built and try it out on your StackStorm instance.
+Or, just read on." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-05-19T14:31:55+00:00" />
+<meta property="article:modified_time" content="2016-05-19T14:31:55+00:00" />
+
+<meta itemprop="name" content="Network Automation with StackStorm and Docker">
+<meta itemprop="description" content="May 24, 2016
+by Matthew Stone
+What is StackStorm going to do with network automation? Ever since we joined Brocade, it’s been everyone’s question, and we have been hand-waving some answers. But the talk walks, code talks: let’s show something really working. Today’s example is on Docker network automation, where StackStorm makes physical networking follow Docker containers as they get created.
+Millennial kids should watch my video with detailed explanations on StackStorm’s YouTube channel.
+True hackers might jump straight to automation code on GitHub to see how it is built and try it out on your StackStorm instance.
+Or, just read on."><meta itemprop="datePublished" content="2016-05-19T14:31:55+00:00" />
+<meta itemprop="dateModified" content="2016-05-19T14:31:55+00:00" />
+<meta itemprop="wordCount" content="5284">
+<meta itemprop="keywords" content="Docker,networking," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Network Automation with StackStorm and Docker"/>
+<meta name="twitter:description" content="May 24, 2016
+by Matthew Stone
+What is StackStorm going to do with network automation? Ever since we joined Brocade, it’s been everyone’s question, and we have been hand-waving some answers. But the talk walks, code talks: let’s show something really working. Today’s example is on Docker network automation, where StackStorm makes physical networking follow Docker containers as they get created.
+Millennial kids should watch my video with detailed explanations on StackStorm’s YouTube channel.
+True hackers might jump straight to automation code on GitHub to see how it is built and try it out on your StackStorm instance.
+Or, just read on."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/&amp;text=Network%20Automation%20with%20StackStorm%20and%20Docker" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/&amp;title=Network%20Automation%20with%20StackStorm%20and%20Docker" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Network Automation with StackStorm and Docker</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2016-05-19T14:31:55Z">May 19, 2016</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>May 24, 2016</strong><br>
+<em>by Matthew Stone</em></p>
+<p>What is StackStorm going to do with network automation? Ever since we joined Brocade, it’s been everyone’s question, and we have been hand-waving some answers. But the talk walks, code talks: let’s show something really working. Today’s example is on Docker network automation, where StackStorm makes physical networking follow Docker containers as they get created.</p>
+<p>Millennial kids should watch my <a href="https://www.youtube.com/watch?v=P9G71Ow6GUs">video with detailed explanations on StackStorm’s YouTube channel</a>.</p>
+<p>True hackers might jump straight to <a href="https://github.com/StackStorm/dockernetwork-vdx-demo">automation code on GitHub</a> to see how it is built and try it out on your StackStorm instance.</p>
+<p>Or, just read on.</p>
+<p>The evolution of Docker networking has been fun to watch, and with the latest additions to <a href="https://github.com/docker/libnetwork">libnetwork</a>, things are getting even better. Docker <a href="https://github.com/docker/docker/blob/master/experimental/vlan-networks.md">recently added Macvlan and Ipvlan</a> to the list of drivers for libnetwork. (Note: At the time of writing these drivers are still considered experimental) These drivers allow Docker containers to speak directly to the physical network. Getting traffic in and out of overlay networks can be a challenge. You need to implement a VTEP on the physical switch or vSwitch to communicate with the rest of the network. Docker decided to solve the problem by allowing you to send traffic tagged with a VLAN ID. Something every network engineer has done. This allows you to treat container networking similarly to how you treat virtual machine networking. I’ll leave the detailed explanation <a href="https://github.com/docker/docker/blob/master/experimental/vlan-networks.md">to the writeup Docker did on the subject.</a></p>
+<p>Tagging container traffic means you need to coordinate your physical network configuration with your Docker configuration, and do it automatically. We use StackStorm to trigger on creating of Docker network, and fire a workflow that reconfigures the physical network using Brocade VDX switch API. Here is now it’s done, step-by step.</p>
+<p>We started by creating a Swarm cluster, connected to a Brocade VDX switch.</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-1_docker_info-out-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &gt; docker info
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Containers: 2
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Images: 4
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Server Version: swarm/1.1.3
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Role: primary
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Strategy: spread
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Filters: health, port, dependency, affinity, constraint
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Nodes: 2
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              vagrant-ubuntu-trusty-64: 172.28.128.6:2375
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Status: Healthy
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Containers: 1
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Reserved CPUs: 0 / 1
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Reserved Memory: 0 B / 514.5 MiB
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Labels: executiondriver=, kernelversion=3.13.0-83-generic, operatingsystem=Ubuntu 14.04.4 LTS, storagedriver=aufs
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Error: (none)
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ UpdatedAt: 2016-04-29T16:14:55Z
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              vagrant-ubuntu-trusty-64: 172.28.128.5:2375
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Status: Healthy
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Containers: 1
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Reserved CPUs: 0 / 1
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Reserved Memory: 0 B / 514.5 MiB
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Labels: executiondriver=, kernelversion=3.13.0-83-generic, operatingsystem=Ubuntu 14.04.4 LTS, storagedriver=aufs
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ Error: (none)
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              └ UpdatedAt: 2016-04-29T16:14:55Z
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L25&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;25&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC25&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Kernel Version: 3.13.0-83-generic
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L26&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;26&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC26&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Operating System: linux
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L27&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;27&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC27&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              CPUs: 2
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L28&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;28&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC28&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Total Memory: 1.005 GiB
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-1_docker_info-out-L29&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;29&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-1_docker_info-out-LC29&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Name: 96a237d545b4
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-2_docker_network_ls-out-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &gt; docker network ls
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-2_docker_network_ls-out-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-2_docker_network_ls-out-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              NETWORK ID NAME DRIVER
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-2_docker_network_ls-out-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-2_docker_network_ls-out-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              45a14a2a8a5a vagrant-ubuntu-trusty-64/host host
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-2_docker_network_ls-out-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-2_docker_network_ls-out-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              d7cd20ce6a9b vagrant-ubuntu-trusty-64/none null
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-2_docker_network_ls-out-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-2_docker_network_ls-out-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              c5d83e381f1f vagrant-ubuntu-trusty-64/host host
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-2_docker_network_ls-out-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-2_docker_network_ls-out-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              70e091519778 vagrant-ubuntu-trusty-64/bridge bridgeb
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-2_docker_network_ls-out-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-2_docker_network_ls-out-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              3208fb94f122 vagrant-ubuntu-trusty-64/bridge bridge
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-2_docker_network_ls-out-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-2_docker_network_ls-out-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              21602e11db6e vagrant-ubuntu-trusty-64/none null
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>As you can see this cluster has two healthy nodes and only the default networks created.</p>
+<p>Before we get into the other details let’s briefly look at the current Ve interfaces on the Brocade VDX switch and see how that output will change based on the workflow.</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-3_show_ip_ve-out-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Spine-198976# show ip int brief | inc Ve
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-3_show_ip_ve-out-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-3_show_ip_ve-out-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Ve 10 10.1.1.21 default-vrf up up
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-3_show_ip_ve-out-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-3_show_ip_ve-out-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Ve 20 20.1.1.21 default-vrf up up
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-3_show_ip_ve-out-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-3_show_ip_ve-out-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Ve 30 30.1.1.21 default-vrf up up
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>These three existing Ve interfaces are for services outside of the docker deployment we’ll use in this example.</p>
+<p>With the Swarm cluster in place I started exploring Docker’s event API. This is an HTTP based streaming API that notifies any subscribers of cluster-wide events. Things like container creation, network creation, etc get pushed to this API. I wrote a simple Sensor that subscribes to the event API and fires a Trigger when a new network is created:</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-4_sensor-py-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-k&quot;&gt;from&lt;/span&gt; st2reactor.sensor.base &lt;span class=&quot;pl-k&quot;&gt;import&lt;/span&gt; Sensor
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-k&quot;&gt;import&lt;/span&gt; re
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-k&quot;&gt;import&lt;/span&gt; json
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-k&quot;&gt;import&lt;/span&gt; uuid
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-k&quot;&gt;import&lt;/span&gt; requests
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-k&quot;&gt;import&lt;/span&gt; ipaddress
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;run&lt;/span&gt;(&lt;span class=&quot;pl-smi&quot;&gt;&lt;span class=&quot;pl-smi&quot;&gt;self&lt;/span&gt;&lt;/span&gt;):
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-c&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;#&lt;/span&gt; Values hardcoded for briefety of example, you should use &lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-c&quot;&gt;&lt;span class=&quot;pl-c&quot;&gt;#&lt;/span&gt; self._config and put parameters to config.yaml in the pack.&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              r &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; requests.get(&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;http://172.28.128.4:3376/events&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, &lt;span class=&quot;pl-v&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pl-c1&quot;&gt;True&lt;/span&gt;)
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              key &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;REPLACE WITH SWARM KEY&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-k&quot;&gt;for&lt;/span&gt; chunk &lt;span class=&quot;pl-k&quot;&gt;in&lt;/span&gt; r.raw.read_chunked():
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              event &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; json.loads(chunk)
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              netwk_data &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; requests.get(&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;http://172.28.128.4:3376/networks/&lt;span class=&quot;pl-c1&quot;&gt;%s&lt;/span&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;%&lt;/span&gt; event[&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;Actor&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;][&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;Attributes&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;][&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;name&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;])
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-k&quot;&gt;if&lt;/span&gt; event[&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;Action&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;] &lt;span class=&quot;pl-k&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;create&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              netwk_data &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; json.loads(netwk_data.content)
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              vlan &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; re.findall(&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;eth[0-9]+\.([0-9]+)&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;, netwk_data[&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;Options&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;][&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;parent&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;])[&lt;span class=&quot;pl-c1&quot;&gt;&lt;/span&gt;]
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              network &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; ipaddress.ip_network(netwk_data[&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;IPAM&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;][&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;Config&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;][&lt;span class=&quot;pl-c1&quot;&gt;&lt;/span&gt;][&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;Subnet&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;])
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              data &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;dict&lt;/span&gt;(&lt;span class=&quot;pl-v&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;event[&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;Action&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;],
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-v&quot;&gt;rbridge&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;21&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-v&quot;&gt;subnet&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;pl-c1&quot;&gt;%s&lt;/span&gt;/&lt;span class=&quot;pl-c1&quot;&gt;%s&lt;/span&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;%&lt;/span&gt; (network[&lt;span class=&quot;pl-c1&quot;&gt;1&lt;/span&gt;], network.prefixlen),
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-v&quot;&gt;vlan&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;vlan,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-v&quot;&gt;channel&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;docker&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L25&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;25&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC25&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-v&quot;&gt;host&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;10.254.4.105&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L26&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;26&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC26&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-v&quot;&gt;username&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;admin&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L27&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;27&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC27&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-v&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;password&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;)
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L28&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;28&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC28&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              trigger &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;docker.NetworkEvent&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L29&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;29&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC29&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              trace_tag &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; uuid.uuid4().hex
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L30&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;30&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC30&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-c1&quot;&gt;self&lt;/span&gt;._sensor_service.dispatch(&lt;span class=&quot;pl-v&quot;&gt;trigger&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;trigger, &lt;span class=&quot;pl-v&quot;&gt;payload&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;data,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-4_sensor-py-L31&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;31&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-4_sensor-py-LC31&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-v&quot;&gt;trace_tag&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt;trace_tag)
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>Next, I created an action that pushes the needed configuration changes to the VDX. The building blocks of it is <a href="https://github.com/StackStorm/dockernetwork-vdx-demo/tree/master/vdx">VDX pack</a> that I auto-generated from VDX <a href="https://tools.ietf.org/html/rfc6020">YANG model</a> – an interesting topic that I’ll save for a separate blog. The network reconfiguration action is a workflow that uses these building blocks, and looks like this:</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-5_rule-yaml-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              ---
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;network-trigger&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;pack&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;docker&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;description&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;Triggered when a docker network event happens.&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;enabled&lt;/span&gt;: &lt;span class=&quot;pl-c1&quot;&gt;true&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;trigger&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;type&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;docker.NetworkEvent&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;criteria&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;{}&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;parameters&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;channel&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;{{trigger.channel}}&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;host&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;{{trigger.host}}&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;password&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;{{trigger.password}}&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;rbridge_id&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;{{trigger.rbridge}}&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;subnet&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;{{trigger.subnet}}&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;username&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;{{trigger.username}}&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-5_rule-yaml-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-5_rule-yaml-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;vlan&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;{{trigger.vlan}}&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>Lastly, I set up a Rule, to fire a workflow when the sensor fires a trigger:</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-6_workflow-yaml-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;version&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;2.0&lt;span class=&quot;pl-pds&quot;&gt;'&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;docker.docker-network-tor&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;description&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;Workflow to add TOR VLAN interfaces for docker MACVLAN Networks.&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;rbridge_id&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;subnet&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;vlan&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;channel&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;host&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;username&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;password&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;task-defaults&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;on-error&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;notify_fail&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;tasks&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;add_ve_interface&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;vdx.interface_vlan_interface_vlan_vlan_name&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.vlan %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;vlan_name&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Docker Network&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;host&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.host %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;username&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.username %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L25&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;25&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC25&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;password&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.password %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L26&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;26&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC26&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;publish&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L27&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;27&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC27&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;status_message&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Successfully added VE Interface&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L28&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;28&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC28&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;on-success&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L29&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;29&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC29&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;add_global_ve_int&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L30&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;30&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC30&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;add_global_ve_int&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L31&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;31&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC31&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;vdx.interface_vlan_interface_ve_gve_name&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L32&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;32&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC32&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L33&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;33&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC33&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;gve_name&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.vlan %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L34&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;34&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC34&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;host&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.host %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L35&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;35&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC35&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;username&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.username %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L36&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;36&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC36&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;password&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.password %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L37&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;37&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC37&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;publish&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L38&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;38&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC38&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;status_message&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Successfully added global VE Interface&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L39&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;39&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC39&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;on-success&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L40&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;40&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC40&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;set_ve_ip&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L41&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;41&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC41&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;set_ve_ip&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L42&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;42&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC42&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;vdx.rbridge_id_interface_ve_ip_ip_config_address_address&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L43&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;43&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC43&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L44&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;44&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC44&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;rbridge_id&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.rbridge_id %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L45&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;45&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC45&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.vlan %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L46&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;46&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC46&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;address&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.subnet %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L47&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;47&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC47&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;host&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.host %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L48&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;48&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC48&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;username&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.username %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L49&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;49&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC49&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;password&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.password %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L50&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;50&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC50&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;publish&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L51&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;51&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC51&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;status_message&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Successfully set VE IP Address&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L52&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;52&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC52&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;on-success&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L53&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;53&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC53&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;no_shut_ve&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L54&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;54&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC54&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;no_shut_ve&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L55&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;55&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC55&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;vdx.rbridge_id_interface_ve_shutdown&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L56&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;56&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC56&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L57&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;57&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC57&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;rbridge_id&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.rbridge_id %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L58&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;58&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC58&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;name&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.vlan %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L59&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;59&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC59&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;delete_shutdown&lt;/span&gt;: &lt;span class=&quot;pl-c1&quot;&gt;True&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L60&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;60&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC60&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;host&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.host %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L61&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;61&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC61&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;username&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.username %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L62&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;62&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC62&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;password&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.password %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L63&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;63&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC63&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;publish&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L64&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;64&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC64&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;status_message&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Successfully noshut VE Interface&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L65&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;65&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC65&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;on-success&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L66&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;66&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC66&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;no_shut_ve_global&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L67&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;67&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC67&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;no_shut_ve_global&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L68&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;68&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC68&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;vdx.interface_vlan_interface_ve_global_ve_shutdown&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L69&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;69&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC69&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L70&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;70&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC70&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;gve_name&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.vlan %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L71&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;71&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC71&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;delete_global_ve_shutdown&lt;/span&gt;: &lt;span class=&quot;pl-c1&quot;&gt;True&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L72&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;72&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC72&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;host&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.host %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L73&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;73&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC73&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;username&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.username %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L74&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;74&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC74&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;password&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.password %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L75&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;75&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC75&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;publish&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L76&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;76&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC76&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;status_message&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Successfully noshut VE Interface&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L77&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;77&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC77&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;on-success&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L78&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;78&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC78&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              - &lt;span class=&quot;pl-s&quot;&gt;notify_success&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L79&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;79&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC79&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;notify_success&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L80&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;80&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC80&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;chatops.post_message&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L81&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;81&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC81&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L82&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;82&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC82&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;channel&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.channel %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L83&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;83&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC83&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;message&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Docker network has been created on TOR.&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L84&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;84&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC84&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;publish&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L85&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;85&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC85&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;status_message&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Sent success message to chatops.&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L86&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;86&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC86&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;notify_fail&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L87&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;87&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC87&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;action&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;chatops.post_message&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L88&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;88&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC88&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;input&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L89&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;89&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC89&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;channel&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;% $.channel %&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L90&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;90&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC90&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;message&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Failed to create docker network on TOR.&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L91&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;91&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC91&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;publish&lt;/span&gt;:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-6_workflow-yaml-L92&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;92&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-6_workflow-yaml-LC92&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &lt;span class=&quot;pl-ent&quot;&gt;status_message&lt;/span&gt;: &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;Sent fail message to chatops.&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>So let’s create a docker network and see what happens in StackStorm and Docker. Again, <a href="https://www.youtube.com/watch?v=P9G71Ow6GUs">watch the video</a> to see it in action. Or, follow alone:</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-7_docker_network_create-out-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &gt; docker network create --driver=macvlan --subnet=172.16.112.0/24 -o parent=eth0.112 dockernetwork112
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-7_docker_network_create-out-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-7_docker_network_create-out-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              1d2154903275c95437506e0b714fbff826835c8da63bbfa08cfca8f8d0a8c188
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>The previous command tells the swarm cluster to create a new network named <code>dockernetwork112</code> with the subnet of <code>172.16.112.0/24</code> and pinned to the host interface <code>eth0.112</code>.</p>
+<p>Lets now list the networks in the swarm cluster.</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-8_docker_network_ls-out-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &gt; docker network ls
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-8_docker_network_ls-out-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-8_docker_network_ls-out-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              NETWORK ID NAME DRIVER
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-8_docker_network_ls-out-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-8_docker_network_ls-out-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              45a14a2a8a5a vagrant-ubuntu-trusty-64/host host
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-8_docker_network_ls-out-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-8_docker_network_ls-out-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              1d2154903275 vagrant-ubuntu-trusty-64/dockernetwork112 macvlan
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-8_docker_network_ls-out-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-8_docker_network_ls-out-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              70e091519778 vagrant-ubuntu-trusty-64/bridge bridge
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-8_docker_network_ls-out-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-8_docker_network_ls-out-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              d7cd20ce6a9b vagrant-ubuntu-trusty-64/none null
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-8_docker_network_ls-out-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-8_docker_network_ls-out-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              c5d83e381f1f vagrant-ubuntu-trusty-64/host host
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-8_docker_network_ls-out-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-8_docker_network_ls-out-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              3208fb94f122 vagrant-ubuntu-trusty-64/bridge bridge
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-8_docker_network_ls-out-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-8_docker_network_ls-out-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              21602e11db6e vagrant-ubuntu-trusty-64/none null
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>Unsurprisingly our new network is now listed and available to attach containers to. In a normal cluster this is where you would log into the physical network and create the related configuration for the network to work correctly. Since we’ve attached to the event API and have a StackStorm workflow waiting to create the network lets see what happened in the background once we created the network.</p>
+<p>Let’s begin by showing you the execution that ran when the event API created a new network. (I got the hash value by running <code>st2 execution list</code>)</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-9_st2_execution_get-out-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              vagrant@ip-172-28-128-3:~$ st2 execution get 57238dae3520fd02f700565e
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              id: 57238dae3520fd02f700565e
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              action.ref: docker.docker-network-tor
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              parameters:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              channel: docker
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              host: 10.254.4.105
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              password: password
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              rbridge_id: '21'
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              subnet: 172.16.112.1/24
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              username: admin
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              vlan: '112'
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              status: succeeded
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              start_timestamp: 2016-04-29T16:37:02.056217Z
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              end_timestamp: 2016-04-29T16:37:40.404525Z
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +--------------------------+-----------+-------------------+------------------------------+-------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | id | status | task | action | start_timestamp |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +--------------------------+-----------+-------------------+------------------------------+-------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57238db03520fd062929960b | succeeded | add_ve_interface | vdx.interface_vlan_interface | Fri, 29 Apr 2016 16:37:04 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | | | _vlan_vlan_name | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57238db63520fd062929960d | succeeded | add_global_ve_int | vdx.interface_vlan_interface | Fri, 29 Apr 2016 16:37:10 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | | | _ve_gve_name | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57238dbc3520fd062929960f | succeeded | set_ve_ip | vdx.rbridge_id_interface_ve_ | Fri, 29 Apr 2016 16:37:16 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | | | ip_ip_config_address_address | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57238dc23520fd0629299611 | succeeded | no_shut_ve | vdx.rbridge_id_interface_ve_ | Fri, 29 Apr 2016 16:37:22 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L25&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;25&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC25&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | | | shutdown | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L26&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;26&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC26&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57238dc93520fd0629299613 | succeeded | no_shut_ve_global | vdx.interface_vlan_interface | Fri, 29 Apr 2016 16:37:29 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L27&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;27&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC27&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | | | | _ve_global_ve_shutdown | |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L28&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;28&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC28&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              | 57238dcf3520fd0629299615 | succeeded | notify_success | chatops.post_message | Fri, 29 Apr 2016 16:37:35 UTC |
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-9_st2_execution_get-out-L29&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;29&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-9_st2_execution_get-out-LC29&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              +--------------------------+-----------+-------------------+------------------------------+-------------------------------+
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>From the output you can see this workflow executed several actions. Creating a VE interface, creating the global VE interface, setting the IP address, no shutting the interface, and notify_success. We’ll come back to notify_success later. For now let’s look at the other actions which are all actions to send NETCONF formed XML to the VDX to have it create our configuration. If we log into the VDX again and use some show command we can see the additional configuration.</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-10_show_ip_ve_2-out-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Spine-198976# show ip int brief | inc Ve
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-10_show_ip_ve_2-out-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-10_show_ip_ve_2-out-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Ve 10 10.1.1.21 default-vrf up up
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-10_show_ip_ve_2-out-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-10_show_ip_ve_2-out-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Ve 20 20.1.1.21 default-vrf up up
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-10_show_ip_ve_2-out-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-10_show_ip_ve_2-out-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Ve 30 30.1.1.21 default-vrf up up
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-10_show_ip_ve_2-out-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-10_show_ip_ve_2-out-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Ve 112 172.16.112.1 default-vrf up up
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-11_show_running_config-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              Spine-198976# show running-config rbridge-id 21 interface Ve 112
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-11_show_running_config-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-11_show_running_config-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              rbridge-id 21
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-11_show_running_config-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-11_show_running_config-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              interface Ve 112
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-11_show_running_config-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-11_show_running_config-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              ip proxy-arp
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-11_show_running_config-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-11_show_running_config-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              ip address 172.16.112.1/24
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-11_show_running_config-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-11_show_running_config-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              no shutdown
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-11_show_running_config-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-11_show_running_config-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              !
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-11_show_running_config-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-11_show_running_config-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              !
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>We can see here how StackStorm used the VDX action pack to push the needed configuration to the device. Reducing the time to delivery of the network and freeing up the network engineer to focus on more pressing issues.</p>
+<p>The last piece of the workflow was the <code>notify_success</code>. This action sends a message into a slack channel which can notify network staff or operational staff of the net network’s availability.<br>
+This is a simple but powerful example of network automation. Enabling operational staff to capture their repetitive tasks as a workflows is an incredibly powerful concept, for network operators and devops alike. I’m personally excited to see Brocade doubling down on this event driven, workflow centric, community approach to operations. Expect to see us deliver more network automation capabilities like this over the next few months. Don’t stop there though: Use your imagination and think about how you can tie the network into your workflows!</p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/docker" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Docker</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/networking" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">networking</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/05/27/ci-using-stackstorm-on-top-of-github-docker-and-dockerhub/">CI Using StackStorm On Top Of GitHub, Docker And DockerHub</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

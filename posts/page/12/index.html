@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/stackstorm.com/posts/index.xml" rel="alternate" type="application/rss+xml" title="StackStorm" />
+      <link href="/stackstorm.com/posts/index.xml" rel="feed" type="application/rss+xml" title="StackStorm" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/posts/" />
+
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/" class="link black dim">
+        OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h3 id="stackstorm-at-openstack-summit-highlights">StackStorm at OpenStack Summit Highlights:</h3>
+<ul>
+<li>Booth: B34 (You’ll find us in the Brocade Booth)</li>
+<li><!-- raw HTML omitted -->StackStorm Theater Presentation<!-- raw HTML omitted -->: StackStorm and OpenStack: Two Practical Cases for Event Driven Automation; Wed 26 11:20am-11:45am, <!-- raw HTML omitted -->P0 – Marketplace Theater<!-- raw HTML omitted --></li>
+<li>Mirantis Session: <!-- raw HTML omitted -->Sleep Better at Night: OpenStack Cloud Auto­-Healing<!-- raw HTML omitted --></li>
+<li>Design Summit: Mistral Working Sessions</li>
+</ul>
+<!-- raw HTML omitted -->
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/09/30/minor-update-v2-0-1/" class="link black dim">
+        Minor update: v2.0.1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>Sep 30, 2016</strong><br>
+<em>by Lindsay Hill</em></p>
+<p>Hey folks, StackStorm v2.0.1 has been released, with a few small fixes and enhancements. We’ve also had some great code contributions recently, with a new integration for <a href="https://www.datadoghq.com/">Datadog</a>, and improvements to our Github and Nagios packs.</p>
+<p>Read on for details, plus a few hints on what we’re up to next.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/09/20/troubleshoot_a_rule/" class="link black dim">
+        How to Troubleshoot a Rule
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>Sep 20, 2016</strong><br>
+<em>by Dmitri Zimine</em></p>
+<p>I set up a sensor to watch for a trigger (trigger represents an external event; sensor will fire a trigger-instance of the trigger type when the event is detected). I created a rule: if the trigger happens, and matches the criteria, it should fire an action. I see that event had happened. I expected the actions to fire. But it didn’t happen. Where did it break?</p>
+<p>This is a long read, and may look complicated. But really, it’s just <em>three debugging steps</em>. And it’s long because I refuse to write briefly, drop bunch of hints on the way and get you distracted. But as they say in math, the thicker the math book the faster it reads. <strong>Brace yourself</strong>.</p>
+<p>In the example below, I’ll be showing you how we debugged our Twitter automation that scans tweets for mentions and posts it to Slack. A pretty good way to keep track on who is trash talking about us! The debugging “runbook” is generic and applies to troubleshooting other rules just fine.</p>
+<p>First, let’s look at the trigger chain and review how it works.</p>
+<!-- raw HTML omitted -->
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/09/01/stackstorm-enterprise-back/" class="link black dim">
+        StackStorm Enterprise is Back!
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>September 1, 2016</strong><br>
+<em>by Lindsay Hill</em></p>
+<p>StackStorm Enterprise is back, and it’s now <strong>Brocade Workflow Composer</strong>. We’ve just shipped version 2.0. The platform has had a look &amp; feel update, the usual round of bugfixes and enhancements, and we’re introducing “Network Automation Suites” for our networking friends. More on those in a minute.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>We know that you’ve been asking about the future of StackStorm, where the project is going, when you can buy StackStorm Enterprise again, etc. Well, today we should be able to answer all of those questions.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/08/27/stackstorm-brocade-workflow-composer-vmworld-2016/" class="link black dim">
+        Connecting The Future: Event Driven Automation for Cross Domain Workflows.  StackStorm and Brocade Workflow Composer at VmWorld 2016
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>August 27, 2016</strong><br>
+<em>by Chip Copper</em></p>
+<p>I’ve seen it over and over again.</p>
+<p>A user puts in a simple request. Nothing elaborate or unusual – just a standard request. It goes into the queue, generates a ticket, and then… nothing.</p>
+<p>Days or weeks later, an overworked, tired engineer in the back office operations room finally gets to the request, opens a process document, and begins the laborious task of doing the same thing that he or she has done dozens of times before each time that this type of request comes in. Ok, maybe the IP address or the user name has changed, but the process is the same as it has always been. And it is slow. Very slow. And the engineer may make a mistake. And, quite frankly, it’s frustrating for the user and boring for the engineer.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/" class="link black dim">
+        Summary – Brocade Workflow Composer at NFD 12
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>August 23, 2016</strong><br>
+<em>by Yousuf Hasan</em></p>
+<p>We had a great afternoon with the <a href="http://techfieldday.com/event/nfd12">NFD</a> team as we walked them through our vision, design principles and demos of the Brocade Workflow Composer. We had productive discussions and got good, candid feedback. Caffeine and sugar kept everyone’s critical abilities to the max. There’s 4 separate video sessions…here’s what happened:</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/08/10/stackstorm-v1-6-0/" class="link black dim">
+        StackStorm v1.6.0 is here
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>August 10, 2016</strong><br>
+<em>By Tomaz Muraus</em></p>
+<p>A good month after <a href="https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/">releasing StackStorm v1.5.0</a> we are happy to announce the release of StackStorm v1.6.0.</p>
+<p>This release includes various new features and improvements described below.</p>
+<h2 id="concurrency-policy-improvements">Concurrency policy improvements</h2>
+<p>We have listened to <a href="https://github.com/StackStorm/st2/issues/2794">feedback from our users</a> and updated <a href="https://docs.stackstorm.com/latest/policies.html#concurrency">action concurrency policies</a> to allow action execution to be canceled instead of just delayed when a concurrency threshold is reached.</p>
+<p>This feature comes handy in situations where multiple users request the same action, but the action is already running because of the first request.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/07/26/chasing-bugs-best-users/" class="link black dim">
+        Chasing Bugs, and the Best Users
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>July 26, 2016</strong><br>
+<em>by Lindsay Hill</em></p>
+<p>We love our users. We love them even when they report bugs. We love them <strong>because</strong> they report bugs. But we <strong>really, really</strong> love our users when they report bugs, along with complete configurations, how to reproduce the bug, and logs. Recently <a href="https://github.com/bri365">Brian Martin</a> did just this, helping us resolve a tricky deadlock bug. Thank you Brian!</p>
+<h2 id="tracking-down-deadlocks">Tracking down Deadlocks</h2>
+<p>When you’re investigating a bug report, the first thing you want to do is to try to reproduce it. This helps you see what’s going on, and it gives you a clear test case to see if you’ve resolved it. Deadlocks &amp; race conditions can be horrible bugs to work with, as they are often difficult to reproduce. They might depend upon your hardware resources, or what other jobs are running at the same time. Even reproducing it on the exact same setup is tough.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/07/12/stackstorm-v1-5-1-released/" class="link black dim">
+        StackStorm v1.5.1 released
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      July 13, 2016
+By Tomaz Muraus
+Today we are happy to announce the release of StackStorm v1.5.1.
+This is primarily a bug-fix release which includes bug fixes and improvements for some of the features which have been introduced in StackStorm v1.5.0.
+Release Highlights  Fix trigger registration when using st2-register-content script with –register-triggers flag. Fix an issue with CronTimer sometimes not firing due to TriggerInstance creation failure. Add support for default values when a new pack configuration is used.
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2016/07/06/best-thing-stackstorm-community/" class="link black dim">
+        The Best thing about StackStorm? The Community
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>The StackStorm documentation is pretty good. But it’s not always enough. Sometimes you need a bit of help. Sometimes you think you’ve found a bug, and want to talk with the developers about it. That’s where our StackStorm community support can help.</p>
+<p>I’m sure you’ve heard us talk about our <a href="http://stackstorm.com/community-signup">Slack channel</a>. It’s a great place for StackStorm users to get together, share ideas, and solve problems. But did you know that our Stormers are in this channel, and do their best to help support the community?</p>
+<p>Our engineers hang out here from 9:00 -&gt; 17:00 PST, and often later. They’re happy to answer whatever questions you have. Just in the last few days, we’ve had questions about installation, ChatOps setup, writing sensors, purging history, creating actions, etc. Because the core engineers are involved in those discussions, not only can they help fix problems, they can also explain the design thinking.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/11/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/10/" aria-label="Page 10" class="page-link" role="button">10</a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/11/" aria-label="Page 11" class="page-link" role="button">11</a>
+      </li>
+      <li class="page-item active">
+        <a href="#" aria-current="page" aria-label="Page 12" class="page-link" role="button">12</a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/13/" aria-label="Page 13" class="page-link" role="button">13</a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/14/" aria-label="Page 14" class="page-link" role="button">14</a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/13/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/36/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

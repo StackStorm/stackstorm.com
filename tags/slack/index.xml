@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>slack on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/slack/</link>
+    <description>Recent content in slack on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 May 2018 17:00:21 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/slack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Simplified Network Performance Tests with PerfSonar and SLX</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</link>
+      <pubDate>Thu, 03 May 2018 17:00:21 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</guid>
+      <description>&lt;p&gt;&lt;em&gt;May 3, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.perfsonar.net/&#34;&gt;PerfSonar&lt;/a&gt; is a super handy toolkit for measuring network performance between any two points. Combine this with the Guest VM built into the &lt;a href=&#34;https://www.extremenetworks.com/product/slx-9850-router/&#34;&gt;Extreme SLX series of switches,&lt;/a&gt; and you can easily run performance tests between any two points on your network, measuring performance, latency, jitter, MTU, path taken, etc. Combine that with StackStorm, and you can easily run those tests from Slack. No need to even login to a switch.&lt;/p&gt;
+&lt;h2 id=&#34;demo-network-performance-tests-via-slack&#34;&gt;Demo: Network Performance Tests via Slack&lt;/h2&gt;
+&lt;p&gt;Check out the video here. From Slack, we can trigger different tests between any two switches – &lt;a href=&#34;https://en.wikipedia.org/wiki/Iperf&#34;&gt;performance&lt;/a&gt;, &lt;a href=&#34;http://software.internet2.edu/owamp/&#34;&gt;one-way latency measurement&lt;/a&gt;, or &lt;a href=&#34;https://linux.die.net/man/8/tracepath&#34;&gt;trace the path&lt;/a&gt;, showing the path MTU. The results are then shown in Slack:&lt;/p&gt;
+&lt;p&gt;Read on for more about how to set this up.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Simple Packet Captures with SLX and CloudShark</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</link>
+      <pubDate>Fri, 27 Apr 2018 03:54:32 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</guid>
+      <description>&lt;p&gt;&lt;em&gt;April 27, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Packet Captures are a necessary evil when you need to prove network innocence. But they’re tedious to configure, collect &amp;amp; analyze. What if you could simplify the setup, collection and viewing? That’s what we’ve done here, combining StackStorm, Extreme Insight Architecture, &lt;a href=&#34;https://www.cloudshark.org&#34;&gt;CloudShark&lt;/a&gt;, and of course Slack.&lt;/p&gt;
+&lt;h2 id=&#34;demo-running-packet-captures-from-slack&#34;&gt;Demo: Running Packet Captures from Slack&lt;/h2&gt;
+&lt;p&gt;Check out the video here – we show entering some commands in Slack, which triggers a packet capture on multiple switches. The PCAPs are automatically uploaded to CloudShark, so we can view the packets in our browser:&lt;/p&gt;
+&lt;p&gt;Read on for more about how to set this up.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>August Pack Updates</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/09/04/august-pack-updates/</link>
+      <pubDate>Mon, 04 Sep 2017 23:32:12 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/09/04/august-pack-updates/</guid>
+      <description>&lt;p&gt;August has rolled on by, but our Northern Hemisphere users have not been taking a break over summer: StackStorm Exchange updates continue, with new packs and updates. This time, we also have a request for our AWS pack users.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm 1.2.0: the new ChatOps</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</link>
+      <pubDate>Tue, 08 Dec 2015 15:07:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;December 8, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Edward Medvedev&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the &lt;a href=&#34;https://www.youtube.com/watch?v=37LmuHToYjQ&#34;&gt;DevOps Next Steps talk&lt;/a&gt; by &lt;a href=&#34;https://github.com/jfryman&#34;&gt;James Fryman&lt;/a&gt;, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the &lt;a href=&#34;http://www.youtube.com/watch?v=NST3u-GjjFw&#34;&gt;ChatOps at GitHub talk&lt;/a&gt; by Jesse Newland.&lt;/p&gt;
+&lt;p&gt;Today, we’re all excited to introduce — as a part of our &lt;a href=&#34;https://github.com/StackStorm/st2/releases/tag/v1.2.0&#34;&gt;1.2.0 release&lt;/a&gt; — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>AHH #04 – Typeform to Slack Auto-Invite</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/06/26/ahh04-typeform-to-slack-auto-invite/</link>
+      <pubDate>Fri, 26 Jun 2015 23:58:27 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/26/ahh04-typeform-to-slack-auto-invite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ansible and ChatOps. Get started 🚀</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</link>
+      <pubDate>Wed, 24 Jun 2015 20:16:09 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 25, 2015&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;(Updated: February 21, 2017)&lt;!-- raw HTML omitted --&gt;&lt;br&gt;
+&lt;em&gt;Contribution by Integration Developer &lt;!-- raw HTML omitted --&gt;Eugen C.&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/HWN8T78.png&#34; alt=&#34;Ansible and ChatOps with StackStorm event-driven automation platform, Slack, Hubot&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-is-chatops&#34;&gt;What is ChatOps?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ChatOps brings the context of work you are already doing into the conversations you are already having. &lt;!-- raw HTML omitted --&gt;@jfryman&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ChatOps is still a fresh and uncommon thing in the DevOps world, where work is brought into a shared chat room. You can run commands directly from chat and everyone in the chatroom can see the history of work being done, do the same, interact with each other and even learn. The information and process is owned by the entire team which brings a lot of benefits.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

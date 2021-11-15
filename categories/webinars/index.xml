@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Webinars on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/categories/webinars/</link>
+    <description>Recent content in Webinars on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Mar 2016 00:26:33 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/categories/webinars/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automation Happy Hour #13 – Automation, ChatOps, and Security</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/03/21/automation-happy-hour-13-automation-chatops-security/</link>
+      <pubDate>Tue, 22 Mar 2016 00:26:33 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/03/21/automation-happy-hour-13-automation-chatops-security/</guid>
+      <description>This time, we’re bringing in Jon Middleton of Pulsant. He’s a contributor in the StackStorm Communityand one of the foremost experts on the topic.</description>
+    </item>
+    
+    <item>
+      <title>Automation Happy Hour #12 – ChatOps Patterns</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/</link>
+      <pubDate>Tue, 08 Mar 2016 22:48:42 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/</guid>
+      <description>   </description>
+    </item>
+    
+    <item>
+      <title>Automation Happy Hour #11 – Kubernetes Lifecycle Management of External Dependencies</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/02/12/automation-happy-hour-11-kubernetes-lifecycle-management-of-external-dependencies/</link>
+      <pubDate>Fri, 12 Feb 2016 23:08:32 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/12/automation-happy-hour-11-kubernetes-lifecycle-management-of-external-dependencies/</guid>
+      <description>Michael Ward is the Principal Systems Architect at Pearson responsible for leading technical design around enterprise Platform-as-a-Service based on Kubernetes. Prior to Pearson, Michael has spent many years in the industry in various roles including Chief of Site Reliability at Ping Identity, the Identity Security company. Take him for a beer and pick his brains on anything you like. You might even come away with something valuable. He is the speaker at the upcoming KubeCon in London and an uber-active members of the ST2 Community.</description>
+    </item>
+    
+    <item>
+      <title>Automation Happy Hour #10 – ChatOps, Auto-Remediation, and More!</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/01/16/automation-happy-hour-10-designing-a-remediation-solution/</link>
+      <pubDate>Sat, 16 Jan 2016 18:47:01 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/01/16/automation-happy-hour-10-designing-a-remediation-solution/</guid>
+      <description>Automation Happy Hour #10 is in the books! This wan the first one this year.
+James Fryman was piloting seat this one but Patrick should be back in the captain seat for the next AHH.
+A panel of guests included Alex Makarski, who us gave a marketing ops perspective on ChatOps, Sally Lehman of GoDaddy, and James White of GitHub.
+  </description>
+    </item>
+    
+    <item>
+      <title>Automation Happy Hour #09 – Multi-Cloud Orchestration</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/12/12/automation-happy-hour-9-multi-cloud-orchestration/</link>
+      <pubDate>Sat, 12 Dec 2015 13:02:11 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/12/12/automation-happy-hour-9-multi-cloud-orchestration/</guid>
+      <description>For this Automation Happy Hour, Patrick Hoolboom is joined by Anthony Shaw of Dimension Data to discuss best practices for multi-cloud orchestration using StackStorm and Libcloud.
+Anthony is a Product Development Manager, Innovation and Research for Dimension Data in Sydney, Australia. Within ITAAS global R&amp;amp;D team, he is responsible for driving technical innovation, automation and integration strategies for Dimension Data cloud and other.</description>
+    </item>
+    
+    <item>
+      <title>Automation Happy Hour #08 – How Netflix Uses ST2 for Auto Remediation of Cassandra</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/12/12/automation-happy-hour-08-how-netflix-uses-st2-for-auto-remediation-of-cassandra/</link>
+      <pubDate>Sat, 12 Dec 2015 09:15:14 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/12/12/automation-happy-hour-08-how-netflix-uses-st2-for-auto-remediation-of-cassandra/</guid>
+      <description>Patrick Hoolboom discusses project details with Sayli Karmarkar and Jean-Sebastien Jeannotte, Senior Software Engineers from Netflix and asks them in-depth questions.
+ Sayli Karmarkar is a software engineer with 7 years of experience in developing platforms and services to configure and manage thousands of systems in an enterprise. She is passionate about designing systems with focus on scalability and performance. Sayli worked at Red Hat on their systems management platform (Satellite) used to efficiently deploy, configure and monitor RHEL infrastructure.</description>
+    </item>
+    
+    <item>
+      <title>AHH #07 – Unpacking the Gloriousness of StackStorm 1.1 &amp; StackStorm Enterprise</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/11/15/ahh-07-unpacking-the-gloriousness-of-stackstorm-1-1-stackstorm-enterprise/</link>
+      <pubDate>Mon, 16 Nov 2015 04:04:12 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/11/15/ahh-07-unpacking-the-gloriousness-of-stackstorm-1-1-stackstorm-enterprise/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AHH #06 – Managing IT Outages with Icinga and StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/07/31/ahh06-managing-it-outages-with-icinga-and-stackstorm/</link>
+      <pubDate>Fri, 31 Jul 2015 23:35:10 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/07/31/ahh06-managing-it-outages-with-icinga-and-stackstorm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AHH #05 – Continuous Integration Pipeline</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/07/10/ahh05-continuous-integration-pipeline/</link>
+      <pubDate>Fri, 10 Jul 2015 20:50:58 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/07/10/ahh05-continuous-integration-pipeline/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AHH #04 – Typeform to Slack Auto-Invite</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/06/26/ahh04-typeform-to-slack-auto-invite/</link>
+      <pubDate>Fri, 26 Jun 2015 23:58:27 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/26/ahh04-typeform-to-slack-auto-invite/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AHH #03 – ChatOps &amp; Notifications</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/06/12/ahh03-chatops-notifications/</link>
+      <pubDate>Sat, 13 Jun 2015 00:03:19 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/12/ahh03-chatops-notifications/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AHH #02 – Workflow Construction</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/05/29/ahh-02-workflow-construction/</link>
+      <pubDate>Sat, 30 May 2015 01:51:22 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/05/29/ahh-02-workflow-construction/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AHH #01 – Action Authoring</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/05/15/ahh-01-action-authoring/</link>
+      <pubDate>Sat, 16 May 2015 01:58:54 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/05/15/ahh-01-action-authoring/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

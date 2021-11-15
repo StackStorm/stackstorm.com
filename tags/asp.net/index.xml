@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ASP.NET on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/asp.net/</link>
+    <description>Recent content in ASP.NET on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Nov 2015 21:08:07 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/asp.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/</link>
+      <pubDate>Thu, 26 Nov 2015 21:08:07 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;November 26, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Anthony Shaw of &lt;a href=&#34;http://www.dimensiondata.com&#34;&gt;Dimension Data&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This tutorial will show you how to leverage the power of the StackStorm API to expose your fantastic new workflows built using the Flow (available to Enterprise Edition uses) by &lt;a href=&#34;https://stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/&#34;&gt;following one of the blogs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In our fictional scenario, we have built 2 complex workflows.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Engage Tractor Beam, this workflow deploys some virtual machines to cloud, uses Hubot to notify the staff and then Puppet to drive the tractor beam.&lt;/li&gt;
+&lt;li&gt;Open/Close loading bay doors, this workflow takes the desired state of the doors to drive another workflow.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We want to provide our technical operations team with a really simple UI where they can just click these buttons and we hide the magic behind the scenes.&lt;/p&gt;
+&lt;h2 id=&#34;starting-off&#34;&gt;Starting off&lt;/h2&gt;
+&lt;p&gt;First off, this is a tutorial for ASP.NET 4.5, MVC 5 and WebAPI 2.0, the latest Microsoft Web Development toolkit.&lt;/p&gt;
+&lt;p&gt;If you want to use another stack, you can follow the patterns here to repeat in another language.&lt;/p&gt;
+&lt;p&gt;Opening up Visual Studio (here I am using 2013, 2015 would also work), select the ASP.NET Web Application template&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;When prompted, pick out the Single Page Application option, this will install a whole smorgasbord of web-development tools.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

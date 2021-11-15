@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ansible on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/ansible/</link>
+    <description>Recent content in ansible on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Jan 2019 09:29:24 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible StackStorm role v1.0.0 released</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</link>
+      <pubDate>Tue, 15 Jan 2019 09:29:24 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Jan 15, 2019&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C. (@armab)&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We’re very excited to announce that Ansible roles to deploy StackStorm have been promoted to major version &lt;code&gt;1.0.0&lt;/code&gt;!&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ansible playbooks to deploy StackStorm: BWC, ChatOps and more</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</link>
+      <pubDate>Mon, 15 May 2017 19:19:14 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;May 15, 2017&lt;/strong&gt; &lt;em&gt;by Eugen C. (&lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;As you may know, previously we &lt;a href=&#34;https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&#34;&gt;announced&lt;/a&gt; availability of Ansible production-friendly playbooks to install &amp;amp; configure StackStorm for cases when our demo &lt;code&gt;bash&lt;/code&gt; installer wasn’t sufficient.&lt;/p&gt;
+&lt;p&gt;With the new release &lt;a href=&#34;https://github.com/StackStorm/ansible-st2&#34;&gt;github.com/StackStorm/ansible-st2&lt;/a&gt; &lt;code&gt;v0.7.0&lt;/code&gt; you can do even more!&lt;/p&gt;
+&lt;p&gt;This version includes new &lt;code&gt;bwc&lt;/code&gt; and &lt;code&gt;st2chatops&lt;/code&gt; roles, features like passing settings to &lt;code&gt;st2.conf&lt;/code&gt;, enhancements to use custom SSL certificate for &lt;code&gt;st2web&lt;/code&gt;, more documentation use-cases, some breaking changes and of course, bug fixes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Introducing Ansible playbooks to deploy StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</link>
+      <pubDate>Thu, 02 Feb 2017 19:16:27 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Feb 2, 2017&lt;/strong&gt; &lt;em&gt;by Eugen C. (&lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;)&lt;/em&gt;&lt;br&gt;
+&lt;a href=&#34;https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Did you know we have Ansible playbooks to deploy StackStorm?&lt;br&gt;
+It’s something we’ve been working on quietly for a while:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/StackStorm/ansible-st2&#34;&gt;github.com/StackStorm/ansible-st2&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Well, now you know!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm &#43; Ansible: Summer Update</title>
+      <link>https://stackstorm.github.io/stackstorm.com/?p=5809/</link>
+      <pubDate>Wed, 29 Jun 2016 17:22:45 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/?p=5809/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ansible and ChatOps. Get started 🚀</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</link>
+      <pubDate>Wed, 24 Jun 2015 20:16:09 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 25, 2015&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;(Updated: February 21, 2017)&lt;!-- raw HTML omitted --&gt;&lt;br&gt;
+&lt;em&gt;Contribution by Integration Developer &lt;!-- raw HTML omitted --&gt;Eugen C.&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/HWN8T78.png&#34; alt=&#34;Ansible and ChatOps with StackStorm event-driven automation platform, Slack, Hubot&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-is-chatops&#34;&gt;What is ChatOps?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ChatOps brings the context of work you are already doing into the conversations you are already having. &lt;!-- raw HTML omitted --&gt;@jfryman&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ChatOps is still a fresh and uncommon thing in the DevOps world, where work is brought into a shared chat room. You can run commands directly from chat and everyone in the chatroom can see the history of work being done, do the same, interact with each other and even learn. The information and process is owned by the entire team which brings a lot of benefits.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New In StackStorm: Ansible Integration</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/06/05/new-in-stackstorm-ansible-integration/</link>
+      <pubDate>Fri, 05 Jun 2015 17:28:33 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/05/new-in-stackstorm-ansible-integration/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 5, 2015&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Contribution by Integration Developer Eugen C.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We’re always happy when the number of integrations to StackStorm increases, creating bridges between more DevOps tools and extending possible use cases.  Our IFTTT for Ops approach – or Event Driven Automation – becomes more valuable the more ways to control and listen to your environment come pre-integrated, “batteries included.”&lt;/p&gt;
+&lt;p&gt;Recently, an &lt;!-- raw HTML omitted --&gt;Ansible integration pack&lt;!-- raw HTML omitted --&gt; was added to StackStorm Exchange, giving users the possibility to use Ansible as an underlying remote change and configuration management tool in conjunction with StackStorm.&lt;/p&gt;
+&lt;p&gt;There are approaches &lt;!-- raw HTML omitted --&gt;StackStorm&lt;!-- raw HTML omitted --&gt; and &lt;!-- raw HTML omitted --&gt;Ansible&lt;!-- raw HTML omitted --&gt; have in common:&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

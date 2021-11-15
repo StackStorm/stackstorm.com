@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openstack on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/openstack/</link>
+    <description>Recent content in openstack on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 May 2017 19:29:51 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StackStorm at OpenStack Summit Boston 2017</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</link>
+      <pubDate>Thu, 04 May 2017 19:29:51 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/04/stackstorm-at-openstack-summit-boston-2017/</guid>
+      <description>The world runs on open infrastructure. At the OpenStack Summit, you’ll learn about the mix of open technologies building the modern infrastructure stack, including OpenStack, Kubernetes, Docker, network automation and more. From integrating legacy applications, to self-healing clouds, robotics and network automation the StackStorm open source event driven automation platform provides DevOps teams a powerful, flexible, and reliable solution to take your cloud to the next level. Be sure to stop by the StackStorm booth to meet the StackStorm team, and learn how you can integrate the StackStorm event driven automation platform with your OpenStack cloud</description>
+    </item>
+    
+    <item>
+      <title>StackStorm at OpenStack Barcelona</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/11/03/stackstorm-at-openstack-barcelona/</link>
+      <pubDate>Thu, 03 Nov 2016 08:09:35 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/03/stackstorm-at-openstack-barcelona/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Nov 01, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Dmitri Zimine&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Lights flashing at the StackStorm-Brocade booth made event-driven automation feel real with the IoT demo entertaining enterprise and DevOps crowds alike. Mirantis’ talk about auto-healing Symantec OpenStack cloud with StackStorm sparkled hallway conversations about auto-remediation. Our guerrilla hacking challenge was success, unveiled that the best hackers are all co-located…(guess where, anyone?)&lt;/p&gt;
+&lt;p&gt;Read on for details.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auto-Remediation for Real: Self-Healing Clouds and Auto-Remediation as a Service</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</link>
+      <pubDate>Thu, 27 Oct 2016 18:58:59 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Oct 27, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Dana Christensen&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;What do companies like eBay, VMware, Facebook, Netflix, Mirantis, Verizon, Infosys, Cisco, Dell, LinkedIn, and Apple have in common?&lt;/p&gt;
+&lt;p&gt;They all attended the &lt;!-- raw HTML omitted --&gt;Auto-Remediation and Event-Driven Automation MeetUp&lt;!-- raw HTML omitted --&gt; on Oct. 20th hosted by the StackStorm team at Brocade in San Jose.&lt;/p&gt;
+&lt;p&gt;The topic for the evening was “Remediation For Real” and both Mirantis and Netflix provided excellent overviews and demonstrations of how auto-remediation is helping to address business issues and increase their engineers’ productivity (and sleeptime!).&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm Challenge At OpenStack Summit</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/24/stackstorm-challenge-openstack-summit/</link>
+      <pubDate>Tue, 25 Oct 2016 05:59:16 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/24/stackstorm-challenge-openstack-summit/</guid>
+      <description>&lt;p&gt;At OpenStack Barcelona? Pick the challenge, win GoPro! Read on to know how.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;To be a good Stormer is to be a good hacker. Not necessarily in the sense that you enjoy compromising unsuspecting grandmother’s laptop or a random web cam, but that you have a curiosity about how things work. This isn’t unique in the tech industry at large, and many security conferences exploit this curiosity for fun in the form of Capture The Flag (CTF) type problem solver games and various challenges. This year for OpenStack Summit we’ve built our own challenge for people to play. The main reason is because it’s just plain fun, but we also think it’s a great way to introduce people to the power of StackStorm. If you’re bent towards curiosity and if you are a hacker at heart, read on!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</link>
+      <pubDate>Thu, 13 Oct 2016 02:50:08 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</guid>
+      <description>&lt;h3 id=&#34;stackstorm-at-openstack-summit-highlights&#34;&gt;StackStorm at OpenStack Summit Highlights:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Booth: B34 (You’ll find us in the Brocade Booth)&lt;/li&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;StackStorm Theater Presentation&lt;!-- raw HTML omitted --&gt;: StackStorm and OpenStack: Two Practical Cases for Event Driven Automation; Wed 26 11:20am-11:45am, &lt;!-- raw HTML omitted --&gt;P0 – Marketplace Theater&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Mirantis Session: &lt;!-- raw HTML omitted --&gt;Sleep Better at Night: OpenStack Cloud Auto­-Healing&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Design Summit: Mistral Working Sessions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>A Look Back At The Successes Of OpenStack, And Some Emerging Challenges</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/</link>
+      <pubDate>Thu, 31 Jul 2014 16:36:08 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2014/07/31/look-back-successes-openstack-emerging-challenges/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;July 31, 2014&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by Evan Powell&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;As an entrepreneur betting heavily – in time, money, and relationships – on OpenStack, I’m biased towards its success and more than a little interested in how it is growing up. I have long believed in open infrastructure and remain convinced that OpenStack is the best chance we all have for a future of greater innovation, quality, capability, and, yes, affordability for cloud infrastructure.&lt;/p&gt;
+&lt;p&gt;I first looked at OpenStack a number of years ago when growing Nexenta and creating a market we then called the OpenStorage market, and recently took some time to look at the entire project and how far it’s come, as well as some emerging challenges.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The gap between the mainstream user and hyper scale cloud providers is growing greater by the day&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

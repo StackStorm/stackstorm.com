@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GitHub on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/github/</link>
+    <description>Recent content in GitHub on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Jul 2016 21:30:40 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chasing Bugs, and the Best Users</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/07/26/chasing-bugs-best-users/</link>
+      <pubDate>Tue, 26 Jul 2016 21:30:40 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/07/26/chasing-bugs-best-users/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;July 26, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We love our users. We love them even when they report bugs. We love them &lt;strong&gt;because&lt;/strong&gt; they report bugs. But we &lt;strong&gt;really, really&lt;/strong&gt; love our users when they report bugs, along with complete configurations, how to reproduce the bug, and logs. Recently &lt;a href=&#34;https://github.com/bri365&#34;&gt;Brian Martin&lt;/a&gt; did just this, helping us resolve a tricky deadlock bug. Thank you Brian!&lt;/p&gt;
+&lt;h2 id=&#34;tracking-down-deadlocks&#34;&gt;Tracking down Deadlocks&lt;/h2&gt;
+&lt;p&gt;When you’re investigating a bug report, the first thing you want to do is to try to reproduce it. This helps you see what’s going on, and it gives you a clear test case to see if you’ve resolved it. Deadlocks &amp;amp; race conditions can be horrible bugs to work with, as they are often difficult to reproduce. They might depend upon your hardware resources, or what other jobs are running at the same time. Even reproducing it on the exact same setup is tough.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CI Using StackStorm On Top Of GitHub, Docker And DockerHub</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/05/27/ci-using-stackstorm-on-top-of-github-docker-and-dockerhub/</link>
+      <pubDate>Wed, 27 May 2015 18:28:39 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/05/27/ci-using-stackstorm-on-top-of-github-docker-and-dockerhub/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;May 27, 2015&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by Lakshmi Kannan&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In this blog post, we cover CI part of CICD with Docker as an example. At a high level, this blog post will demonstrate how to create a docker image and push it to a registry on every commit to a github repo. You have probably read our own James Fryman’s excellent &lt;!-- raw HTML omitted --&gt;blog post&lt;!-- raw HTML omitted --&gt; on continuous delivery with StackStorm in a more traditional environment. If not, I highly recommend reading it. Also, this recent &lt;!-- raw HTML omitted --&gt;blog post&lt;!-- raw HTML omitted --&gt; from docker is a great introduction to using docker in continuous delivery. Before diving into the details, below is some motivation for switching to container based immutable infrastructure.&lt;/p&gt;
+&lt;h2 id=&#34;a-classanchor-stylecolor-4183c4-hrefhttpsgistgithubcomlakshmi-kannan2b95e6bae7dc4ed8c6c7motivation-relnoreferrer-nameuser-content-motivationamotivation&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;As Michael Dehaan of Ansible fame notes, &lt;!-- raw HTML omitted --&gt;immutable infrastructure is the way of the future&lt;!-- raw HTML omitted --&gt;. Containers (especially, Docker) facilitate this by offering users a way to define their infrastructure through simple files (Dockerfile, for example). The role of orchestration tools changes when dealing with immutable infrastructure. A relevant quote from Michael Dehaan’s blog:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

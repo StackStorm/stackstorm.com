@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SuperComputing16 on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/supercomputing16/</link>
+    <description>Recent content in SuperComputing16 on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 14 Nov 2016 19:09:21 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/supercomputing16/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Unleash the power of IoT with Event-Driven Automation (ST2 &amp; BWC @ SuperComputing16)</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/11/14/iot-event-driven-automation-supercomputing16/</link>
+      <pubDate>Mon, 14 Nov 2016 19:09:21 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/14/iot-event-driven-automation-supercomputing16/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;By Chip Copper, PhD;&lt;/strong&gt; Principal Technology Evangelist, Brocade&lt;br&gt;
+&lt;em&gt;Nov 14, 2016&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The pattern is the same: “I can’t because we don’t…”, “But we are also…”, “Can I …”, and finally “How do I get it?”&lt;/p&gt;
+&lt;p&gt;We’re demonstrating Brocade Workflow Composer (BWC), powered by &lt;a href=&#34;http://stackstorm.com&#34;&gt;StackStorm&lt;/a&gt;, at &lt;a href=&#34;http://www.brocade.com/en/about-us/events/sc16.html&#34;&gt;SuperComputing16&lt;/a&gt; in Salt Lake City. When you stop by booth 1131, we will give you a token of our appreciation. It’s an NodeMCU microcontroller. It’s pretty cool – WiFi built in, ARM microcontroller, lots of GPIO pins, and it can easily be programmed using the freely-available Arduino IDE. It gets you into the world of IoT quickly and easily, and it’s a lot of fun! Bonus!&lt;/p&gt;
+&lt;p&gt;But there is a catch – you have to watch a demo to get it.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

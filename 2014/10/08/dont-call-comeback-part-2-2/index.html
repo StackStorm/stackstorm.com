@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>“Don’t Call It A Comeback!” [Part 2] | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="October 8, 2014
+by Evan Powell
+In part one of this blog series we discussed the first and second waves of operations automation and how they’ve paved the way for the emerging third wave. In part two, we’ll discuss the importance and impact of the third wave.
+**Why do we need another wave, and why is it like the first? **
+Across many domains in IT you see waves such as those we are witnessing in the automation space today. A few important changes that are forcing change on many pieces of IT include:
+1. Abstraction is powerful, but “too much” is bad
+We hear this all the time from our DevOps users. They want to be able to achieve the benefits of automation – and to improve the lives of their operators, developers and especially their end users.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="“Don’t Call It A Comeback!” [Part 2]" />
+<meta property="og:description" content="October 8, 2014
+by Evan Powell
+In part one of this blog series we discussed the first and second waves of operations automation and how they’ve paved the way for the emerging third wave. In part two, we’ll discuss the importance and impact of the third wave.
+**Why do we need another wave, and why is it like the first? **
+Across many domains in IT you see waves such as those we are witnessing in the automation space today. A few important changes that are forcing change on many pieces of IT include:
+1. Abstraction is powerful, but “too much” is bad
+We hear this all the time from our DevOps users. They want to be able to achieve the benefits of automation – and to improve the lives of their operators, developers and especially their end users." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2014/10/08/dont-call-comeback-part-2-2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2014-10-08T15:54:54+00:00" />
+<meta property="article:modified_time" content="2014-10-08T15:54:54+00:00" />
+
+<meta itemprop="name" content="“Don’t Call It A Comeback!” [Part 2]">
+<meta itemprop="description" content="October 8, 2014
+by Evan Powell
+In part one of this blog series we discussed the first and second waves of operations automation and how they’ve paved the way for the emerging third wave. In part two, we’ll discuss the importance and impact of the third wave.
+**Why do we need another wave, and why is it like the first? **
+Across many domains in IT you see waves such as those we are witnessing in the automation space today. A few important changes that are forcing change on many pieces of IT include:
+1. Abstraction is powerful, but “too much” is bad
+We hear this all the time from our DevOps users. They want to be able to achieve the benefits of automation – and to improve the lives of their operators, developers and especially their end users."><meta itemprop="datePublished" content="2014-10-08T15:54:54+00:00" />
+<meta itemprop="dateModified" content="2014-10-08T15:54:54+00:00" />
+<meta itemprop="wordCount" content="1161">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="“Don’t Call It A Comeback!” [Part 2]"/>
+<meta name="twitter:description" content="October 8, 2014
+by Evan Powell
+In part one of this blog series we discussed the first and second waves of operations automation and how they’ve paved the way for the emerging third wave. In part two, we’ll discuss the importance and impact of the third wave.
+**Why do we need another wave, and why is it like the first? **
+Across many domains in IT you see waves such as those we are witnessing in the automation space today. A few important changes that are forcing change on many pieces of IT include:
+1. Abstraction is powerful, but “too much” is bad
+We hear this all the time from our DevOps users. They want to be able to achieve the benefits of automation – and to improve the lives of their operators, developers and especially their end users."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2014/10/08/dont-call-comeback-part-2-2/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2014/10/08/dont-call-comeback-part-2-2/&amp;text=%e2%80%9cDon%e2%80%99t%20Call%20It%20A%20Comeback!%e2%80%9d%20[Part%202]" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2014/10/08/dont-call-comeback-part-2-2/&amp;title=%e2%80%9cDon%e2%80%99t%20Call%20It%20A%20Comeback!%e2%80%9d%20[Part%202]" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">“Don’t Call It A Comeback!” [Part 2]</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              Dmitri Zimine
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2014-10-08T15:54:54Z">October 8, 2014</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>October 8, 2014</strong></p>
+<p><em>by Evan Powell</em></p>
+<p>In <!-- raw HTML omitted -->part one<!-- raw HTML omitted --> of this blog series we discussed the first and second waves of operations automation and how they’ve paved the way for the emerging third wave. In part two, we’ll discuss the importance and impact of the third wave.</p>
+<p>**Why do we need another wave, and why is it like the first? **</p>
+<p>Across many domains in IT you see waves such as those we are witnessing in the automation space today. A few important changes that are forcing change on many pieces of IT include:</p>
+<p><strong>1. Abstraction is powerful, but “too much” is bad</strong></p>
+<p>We hear this all the time from our DevOps users. They want to be able to achieve the benefits of automation – and to improve the lives of their operators, developers and especially their end users.</p>
+<p>And yet, if they do not see the underpinnings of the automation they often lose trust in it. Developers want to see the code itself – they can think in code – and if you hide somewhere in proprietary code information about the state of “their” datacenter or “their” application, they become upset (and not just because they thought they were building a stateless architecture J). The design requirement we took from this is to actually externalize the automation completely, as code. The phrase that is often used to describe this, is “Infrastructure as Code.”</p>
+<p><strong>2. Developers, developers, developers</strong></p>
+<p>Almost eight years after Steve Ballmer’s famous sweat stained chant<!-- raw HTML omitted -->1<!-- raw HTML omitted -->, the world of IT is more dominated by developers than ever. And their domain has gone right into infrastructure itself, via the DevOps movement.</p>
+<p>Because developers now build and help run some the most massively productive IT environments in history – like Facebook, Google, and AWS – automation must conform with requirements like treating infrastructure as code.</p>
+<p>Moreover, it is because developers are in charge that every single API must be a first class citizen. They determine whether your API is inadequate very quickly. If you treat your APIs badly by deprecating them suddenly and without warning, you are essentially slapping developers that use your APIs in the face. The rise of APIs and the rise of developers as not just consumers of IT but as its operators go completely hand in hand.</p>
+<p><strong>3. Scale and scalable humans</strong></p>
+<p>The unicorn companies that have broken open new frontiers use advanced automation to do the basic tasks, allowing humans to focus on actually thinking, building, troubleshooting and evolving their systems. The 10-100x productivity advantages that companies like Facebook, Google and others achieve are amazing.</p>
+<p>However, it turns out they are also fighting each other tooth and nail over the scarce humans that are able to build and then help operate these massively scalable environments (when they are not colluding over salaries at least).<!-- raw HTML omitted -->2<!-- raw HTML omitted --></p>
+<p>In addition to collusion, what have these major players done to address the incredible scarcity of top talent? In part, they have started down the path of artificial intelligence.</p>
+<p>Facebook has written publicly a couple of times about their use of artificial intelligence in complex environments. A few years ago they talked about a type of remediation as a service they called <!-- raw HTML omitted -->FBAR<!-- raw HTML omitted -->.</p>
+<p>More recently they claimed a 27 percent savings in power used on compute cycles thanks to the use of a highly intelligent system they call, somewhat less imaginatively, <!-- raw HTML omitted -->AutoScaling<!-- raw HTML omitted -->.</p>
+<p>In both cases you can see the role that machine intelligence plus control theory is having at Facebook. At StackStorm, we are aware of similar approaches in other large operators including Microsoft – who wrote about their <!-- raw HTML omitted -->AutoPilot project<!-- raw HTML omitted --> back in 2007.</p>
+<p><strong>Conclusion</strong></p>
+<p>In summary, the third wave is seeing Infrastructure as Code, humans organizing themselves via DevOps, and machine intelligence being used with control theory to close the loop and provide intelligent – and still transparent – automations that learn.</p>
+<p>This third wave builds upon the prior waves to deliver the promise of broadly adopted automation without the downsides of either the difficult to manage first wave of systems or the inflexibility and eventual lack of trust of VMware’s black boxes, which are so reminiscent of the mainframe era.</p>
+<p>What projects do we see as fitting into this third wave? Well, in the basic order of their usage as an organization that moves from agile development into agile operations (aka DevOps) we see:</p>
+<ol>
+<li>Docker automating tracking of all dependencies for an environment while providing efficient and very fast to deploy containers;</li>
+<li>Jenkins automating QA testing;</li>
+<li>OpenStack and Docker orienting orchestration solutions, possibly leveraging libswarm APIs like Kubernetes and Fig;</li>
+<li>A reinvented monitoring space, including Sensu, and of course the application performance vendors like New Relic and even measure <em>everything</em> AppFirst, who seems to be doing well with very large enterprises;</li>
+<li>StackStorm and others are focusing on automation as a service; and this layer is based on the incredible explosion of control knobs that have been introduced into the data center via APIs and via control software like Chef, Puppet, mCollective, SaltStack and even Fabric.  We also see Docker itself starting to be used in certain use cases. As a side note and a possible subject of a future post, there is a fissure that is expanding between shops betting on “immutable” approaches powered by Docker typically, and those shops that are willing to recast and fix servers with the help of Chef and Puppet.</li>
+</ol>
+<p>We have seen a number of Automation as a Service (AaaS) libraries with management for this control layer built by the larger operators; however, have yet to see a project or company really lay claim to delivering true automation as a service. This is where StackStorm intends to play, working especially with existing projects in configuration management and remote execution, as well as interfacing with monitoring providers to extend the reach of both by closing the loop between monitoring and other triggering events and actions taken.</p>
+<p>These closed loops will lend themselves to the use of advanced control theory in concert with machine intelligence as the examples of Facebook and Microsoft suggest.</p>
+<p>We at StackStorm believe an era of truly self-driving data centers is around the corner for the broader market. Thanks to both a forthcoming emergence of automation as a service and the subsequent layering of self-driving controls we expect to see a broader adoption of DevOps and hence dramatic improvements in our ability to build and operate software. In short, working with the ferment of innovation occurring in and around cloud and DevOps, we believe we can help make the world a fundamentally smarter place through automation, machine learning, and control theory.</p>
+<p>We’re interested in your comments – feel free to share them below or via <!-- raw HTML omitted -->@Stack_Storm<!-- raw HTML omitted --> or <!-- raw HTML omitted -->@epowell101<!-- raw HTML omitted -->. Are we indeed at the beginning of the third wave of operations automation? What else could we and should we have learned from the prior waves? And why are these waves occurring?</p>
+<p><em><!-- raw HTML omitted -->1<!-- raw HTML omitted --> <!-- raw HTML omitted --><a href="https://www.youtube.com/watch?v=8To-6VIJZRE">https://www.youtube.com/watch?v=8To-6VIJZRE</a><!-- raw HTML omitted --></em><br>
+<em><!-- raw HTML omitted -->2<!-- raw HTML omitted --> Nothing has been proven, but you can see smoking gun emails thanks to PandoDaily <!-- raw HTML omitted -->here<!-- raw HTML omitted -->.</em></p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

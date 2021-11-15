@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Cisco Spark integration for StackStorm | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="March 22, 2016
+by Anthony Shaw of Dimension Data
+I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.
+This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.
+What is Cisco Spark?
+Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.
+What is StackStorm?
+StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.
+Configuring Cisco Spark
+If you don’t already have a Cisco Spark account, you can sign up at www.ciscospark.com.
+Once you have signed up, go to developer.ciscospark.com and sign in, then you should be able to generate a key
+  ">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Cisco Spark integration for StackStorm" />
+<meta property="og:description" content="March 22, 2016
+by Anthony Shaw of Dimension Data
+I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.
+This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.
+What is Cisco Spark?
+Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.
+What is StackStorm?
+StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.
+Configuring Cisco Spark
+If you don’t already have a Cisco Spark account, you can sign up at www.ciscospark.com.
+Once you have signed up, go to developer.ciscospark.com and sign in, then you should be able to generate a key
+  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2016-03-23T04:01:31+00:00" />
+<meta property="article:modified_time" content="2016-03-23T04:01:31+00:00" />
+
+<meta itemprop="name" content="Cisco Spark integration for StackStorm">
+<meta itemprop="description" content="March 22, 2016
+by Anthony Shaw of Dimension Data
+I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.
+This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.
+What is Cisco Spark?
+Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.
+What is StackStorm?
+StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.
+Configuring Cisco Spark
+If you don’t already have a Cisco Spark account, you can sign up at www.ciscospark.com.
+Once you have signed up, go to developer.ciscospark.com and sign in, then you should be able to generate a key
+  "><meta itemprop="datePublished" content="2016-03-23T04:01:31+00:00" />
+<meta itemprop="dateModified" content="2016-03-23T04:01:31+00:00" />
+<meta itemprop="wordCount" content="777">
+<meta itemprop="keywords" content="chatops,cisco,hubot,spark," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Cisco Spark integration for StackStorm"/>
+<meta name="twitter:description" content="March 22, 2016
+by Anthony Shaw of Dimension Data
+I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.
+This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.
+What is Cisco Spark?
+Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.
+What is StackStorm?
+StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.
+Configuring Cisco Spark
+If you don’t already have a Cisco Spark account, you can sign up at www.ciscospark.com.
+Once you have signed up, go to developer.ciscospark.com and sign in, then you should be able to generate a key
+  "/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/&amp;text=Cisco%20Spark%20integration%20for%20StackStorm" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/&amp;title=Cisco%20Spark%20integration%20for%20StackStorm" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Cisco Spark integration for StackStorm</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2016-03-23T04:01:31Z">March 23, 2016</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>March 22, 2016</strong><br>
+<em>by <!-- raw HTML omitted -->Anthony Shaw<!-- raw HTML omitted --> of Dimension Data</em></p>
+<p>I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.<br>
+This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.</p>
+<h2 id="what-is-cisco-spark">What is Cisco Spark?</h2>
+<p>Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.</p>
+<h2 id="what-is-stackstorm">What is StackStorm?</h2>
+<p>StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.</p>
+<h2 id="configuring-cisco-spark">Configuring Cisco Spark</h2>
+<p>If you don’t already have a Cisco Spark account, you can sign up at <a href="https://www.ciscospark.com/">www.ciscospark.com</a>.</p>
+<p>Once you have signed up, go to <a href="https://developer.ciscospark.com/">developer.ciscospark.com</a> and sign in, then you should be able to generate a key</p>
+<p><img src="http://s8.postimg.org/dnq0660g5/developer_key.png" alt="">  </p>
+<p>Now, copy the key to the clipboard and save it for later.</p>
+<p><img src="http://s28.postimg.org/hzphh1kkd/key_copy.png" alt="Copy the key"></p>
+<p>You want to create a room, or get the ID of an existing room also, so in the developer console go to the rooms page and test out the create room function.</p>
+<p><img src="http://s8.postimg.org/6upn9w9mt/create_a_room.png" alt="Creating a key"></p>
+<p>Copy the <code>id</code> property of the created room from the response in the right-hand pane, you will need this later.</p>
+<p>Back in the Cisco Spark UI, you can then join that room by searching for it.</p>
+<p><img src="http://s30.postimg.org/xevybou35/join_room.png" alt=""></p>
+<h2 id="configuring-stackstorm">Configuring StackStorm</h2>
+<p>To configure the StackStorm chatops bot to set the following environment variables:</p>
+<ul>
+<li><code>HUBOT_SPARK_API_URI</code> – The URI, defaults to the public service if not provided</li>
+<li><code>HUBOT_SPARK_ACCESS_TOKEN</code> – The access token we just created</li>
+<li><code>HUBOT_SPARK_ROOMS</code> – A list of room Ids (comma seperated) you want your bot to listen in</li>
+</ul>
+<p>You need to alter the following properties of <code>&quot;/opt/puppet/hieradata/answers.yaml&quot;</code> then run <code>update-system</code></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>If you already have the docker hubot image running, stop it and download the new version</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now you can tail <code>docker logs hubot</code> to see what is going on, check into your room and start issuing those ChatOps commands!</p>
+<h2 id="testing-the-integration">Testing the integration</h2>
+<p>Then you will be able to post messages and wait for the arrival of your bot.</p>
+<p><img src="http://s11.postimg.org/suvx19wyr/stackstorm_testing.png" alt=""></p>
+<p>Then to test that out, head into StackStorm and run the <code>chatops.post_message</code> action with a hello message:</p>
+<p><img src="http://s16.postimg.org/729365mkl/chatops_test.png" alt="Hello world"></p>
+<p>And then back in Cisco Spark you should see your message!</p>
+<p><img src="http://s30.postimg.org/bva1w9in5/stackstorm_hello_world.png" alt="In Spark"></p>
+<h2 id="what-now">What now?</h2>
+<p>Now you can install more packs that support ChatOps commands into your StackStorm environment, try out some of these out-of-the-box integrations.</p>
+<ul>
+<li><strong>Duo Security</strong> ChatOps integration – <a href="https://github.com/StackStorm-Exchange/stackstorm-duo">https://github.com/StackStorm-Exchange/stackstorm-duo</a></li>
+<li><strong>Tesla</strong> ChatOps integration – <a href="https://github.com/StackStorm-Exchange/stackstorm-tesla">https://github.com/StackStorm-Exchange/stackstorm-tesla</a></li>
+<li><strong>ServiceNow</strong> ChatOps integration – <a href="https://github.com/StackStorm-Exchange/stackstorm-servicenow">https://github.com/StackStorm-Exchange/stackstorm-servicenow</a></li>
+<li><strong>SaltStack</strong> ChatOps integration – <a href="https://github.com/StackStorm-Exchange/stackstorm-salt">https://github.com/StackStorm-Exchange/stackstorm-salt</a></li>
+</ul>
+<h2 id="about-dimension-data">About Dimension Data</h2>
+<p>Dimension Data is a ICT services and solutions provider that uses its technology expertise, global service delivery capability, and entrepreneurial spirit to accelerate the business ambitions of its clients. For an idea of what we do, check out this <a href="https://www.youtube.com/watch?v=X194y3oAtbM">YouTube video of the Tour de France- powered by Dimension Data</a></p>
+<h3 id="dimension-data-and-cisco-spark">Dimension Data and Cisco Spark</h3>
+<p>Dimension Data is one of Cisco’s largest global partners with a relationship that extends over 20 years and a Cisco Gold Partner in every region in which we operate. Dimension Data’s Cisco qualifications cover virtually all the certifications and specializations that Cisco uses to classify its partners.</p>
+<p><a href="http://www.dimensiondata.com/Global/Downloadable%20Documents/Dimension%20Data%20Launches%20Global%20Cisco%20Spark%20Hybrid%20Services.pdf">Dimension Data announced Cisco Spark hybrid services after celebrating their 25 year partnership with Cisco</a></p>
+<p>Cisco Spark Hybrid Services is the next generation of the Spark Service that that connects clients’ existing on-premises collaboration capabilities to Cisco Spark in the Dimension Data Collaboration Cloud services bringing together the best of both worlds.</p>
+<h3 id="dimension-data-and-stackstorm">Dimension Data and StackStorm</h3>
+<p>Dimension Data are a StackStorm Enterprise customer and have been using StackStorm to automate research projects, integrate and automate their public cloud and automate the deployment of <a href="http://www.dimensiondata.com/en-AU/Solutions/Cloud/">Cloud Services</a></p>
+<h2 id="about-anthony">About Anthony</h2>
+<p>Anthony runs Innovation and Research projects for Dimension Data’s IT-as-a-Service global division out of Sydney, Australia.</p>
+<p>Anthony is a long-time StackStorm user, after starting to use StackStorm to automate the Dimension Data Cloud, Anthony ended up developing packs for <a href="https://github.com/StackStorm-Exchange/stackstorm-tesla">tesla</a>, [OctopusDeploy (https://github.com/StackStorm-Exchange/stackstorm-octopusdeploy), <a href="https://github.com/StackStorm-Exchange/stackstorm-signalr">SignalR</a>, and others..</p>
+<p>Anthony’s goal for next month (once the hardware arrives) is to upgrade the sprinkler system in his house to use StackStorm IFTTT triggers to control the water flow based on the weather conditions.. More to come on that one.</p>
+<p>You can follow Anthony on <a href="https://twitter.com/anthonypjshaw">Twitter</a> to see what he’s currently up to.</p>
+<h2 id="acknowledgement">Acknowledgement</h2>
+<p>I’d like to acknowledge:</p>
+<ul>
+<li><strong>Edward Medvedev</strong> for his continued collaboration with me, on late night discussions about Tesla, the correct way to setup the horn honking and support on my bizarre and poorly thought through ideas for StackStorm. Keep it real Ed-<br>
+<img src="http://stackstorm.com/wp/wp-content/uploads/2016/03/1681874-inline-inline-6-how-adventure-time-keeps-it-real.jpg" alt="Keep it real"></li>
+<li>The ‘Stormers <strong>Manas</strong>, <strong>Lakshmi</strong>, <strong>Tomaz</strong>, <strong>Winston</strong>, <strong>Kirill</strong> and <strong>Patrick</strong> for providing consistent 24×7 above-and-beyond support for us on our wild automation adventure.</li>
+</ul>
+<p>[<em>Image: Cartoon Network</em>]</p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/chatops" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">chatops</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/cisco" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">cisco</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/hubot" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">hubot</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/spark" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">spark</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/">Ansible and ChatOps. Get started 🚀</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/03/08/automation-happy-hour-12-chatops-patterns/">Automation Happy Hour #12 – ChatOps Patterns</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/02/25/history-of-chatops/">The Brief History of ChatOps at StackStorm (and How We Got Here)</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/">Improvements to ChatOps Pack Development User Story in ST2 1.4dev</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/01/06/stackstorm-nagios-integration-openstack-automation/">Stackstorm: from Nagios integration to Openstack automation</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/12/10/chatops_pitfalls_and_tips/">Chatops Pitfalls and Tips</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/">StackStorm 1.2.0: the new ChatOps</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/06/12/ahh03-chatops-notifications/">AHH #03 – ChatOps &amp; Notifications</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2014/11/25/stackstorm-automated-troubleshooting/">StackStorm – Automated Troubleshooting</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

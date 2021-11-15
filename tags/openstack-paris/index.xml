@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>openstack paris on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/openstack-paris/</link>
+    <description>Recent content in openstack paris on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Aug 2014 21:33:41 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/openstack-paris/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenStack Summit Paris 2014</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2014/08/11/openstack-summit-paris-2014-2/</link>
+      <pubDate>Mon, 11 Aug 2014 21:33:41 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2014/08/11/openstack-summit-paris-2014-2/</guid>
+      <description>November 3-7, 2014 | Paris, France
+Visit StackStorm at Booth E2
+Talks:
+Monday, November 3 – #vBrownBag TechTalks
+3:15 pm – Mistral: OpenStack Workflow Service (Dmitri Zimine)
+4:15 pm – Operational Design Patterns (Patrick Hoolboom)
+Tuesday, November 4 – Sponsor Demo Theater
+3:45 pm – Operating OpenStack / AWS Environments With Smart Automation (Evan Powell)
+EVENT WEBSITE</description>
+    </item>
+    
+  </channel>
+</rss>

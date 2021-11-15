@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>events on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/events/</link>
+    <description>Recent content in events on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Jul 2018 21:28:00 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/events/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StackStorm at ServerlessConf, SFO, July 31 – Aug 1, 2018</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/07/27/stackstorm-at-serverlessconf-sfo-july-31-aug-1-2018/</link>
+      <pubDate>Fri, 27 Jul 2018 21:28:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/07/27/stackstorm-at-serverlessconf-sfo-july-31-aug-1-2018/</guid>
+      <description>&lt;p&gt;&lt;em&gt;July 27, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lakshmi Kannan&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For all the people in a hurry, StackStorm will be at &lt;a href=&#34;https://sf.serverless.io&#34;&gt;ServerlessConf in San Francisco&lt;/a&gt; July 31-Aug 1, 2018. Winson Chan and Dmitri Zimine will be speakers from StackStorm talking about our new workflow engine and serverless functions. We also have a booth with cool demos showcasing our new multi-cloud serverless orchestrator – &lt;a href=&#34;https://orquesta.cloud&#34;&gt;Orquesta&lt;/a&gt; and our &lt;a href=&#34;https://github.com/StackStorm/orquesta&#34;&gt;new workflow engine&lt;/a&gt;. Of course, we will have some cool swags! Stop by and don’t be a stranger! For all the people who are enjoying your Friday afternoon like I am, read the longer version.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hubot on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/hubot/</link>
+    <description>Recent content in hubot on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 23 Mar 2016 04:01:31 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/hubot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cisco Spark integration for StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</link>
+      <pubDate>Wed, 23 Mar 2016 04:01:31 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;March 22, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by &lt;!-- raw HTML omitted --&gt;Anthony Shaw&lt;!-- raw HTML omitted --&gt; of Dimension Data&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.&lt;br&gt;
+This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-cisco-spark&#34;&gt;What is Cisco Spark?&lt;/h2&gt;
+&lt;p&gt;Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-stackstorm&#34;&gt;What is StackStorm?&lt;/h2&gt;
+&lt;p&gt;StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.&lt;/p&gt;
+&lt;h2 id=&#34;configuring-cisco-spark&#34;&gt;Configuring Cisco Spark&lt;/h2&gt;
+&lt;p&gt;If you don’t already have a Cisco Spark account, you can sign up at &lt;a href=&#34;https://www.ciscospark.com/&#34;&gt;www.ciscospark.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once you have signed up, go to &lt;a href=&#34;https://developer.ciscospark.com/&#34;&gt;developer.ciscospark.com&lt;/a&gt; and sign in, then you should be able to generate a key&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://s8.postimg.org/dnq0660g5/developer_key.png&#34; alt=&#34;&#34;&gt;  &lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ansible and ChatOps. Get started 🚀</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</link>
+      <pubDate>Wed, 24 Jun 2015 20:16:09 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 25, 2015&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;(Updated: February 21, 2017)&lt;!-- raw HTML omitted --&gt;&lt;br&gt;
+&lt;em&gt;Contribution by Integration Developer &lt;!-- raw HTML omitted --&gt;Eugen C.&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/HWN8T78.png&#34; alt=&#34;Ansible and ChatOps with StackStorm event-driven automation platform, Slack, Hubot&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-is-chatops&#34;&gt;What is ChatOps?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ChatOps brings the context of work you are already doing into the conversations you are already having. &lt;!-- raw HTML omitted --&gt;@jfryman&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ChatOps is still a fresh and uncommon thing in the DevOps world, where work is brought into a shared chat room. You can run commands directly from chat and everyone in the chatroom can see the history of work being done, do the same, interact with each other and even learn. The information and process is owned by the entire team which brings a lot of benefits.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

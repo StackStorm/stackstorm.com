@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ansible-st2 on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/ansible-st2/</link>
+    <description>Recent content in ansible-st2 on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Aug 2020 17:18:30 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/ansible-st2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ansible StackStorm role v2.0.0 released</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</link>
+      <pubDate>Wed, 05 Aug 2020 17:18:30 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2020/08/05/ansible-st2-v2-0-0/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ansible StackStorm role v1.0.0 released</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</link>
+      <pubDate>Tue, 15 Jan 2019 09:29:24 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2019/01/15/ansible-st2-v1-0-0-released/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Jan 15, 2019&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C. (@armab)&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We’re very excited to announce that Ansible roles to deploy StackStorm have been promoted to major version &lt;code&gt;1.0.0&lt;/code&gt;!&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ansible playbooks to deploy StackStorm: BWC, ChatOps and more</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</link>
+      <pubDate>Mon, 15 May 2017 19:19:14 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/15/ansible-playbooks-to-deploy-stackstorm-v0-7-0/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;May 15, 2017&lt;/strong&gt; &lt;em&gt;by Eugen C. (&lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;As you may know, previously we &lt;a href=&#34;https://stackstorm.com/2017/02/02/introducing-ansible-playbooks-deploy-stackstorm/&#34;&gt;announced&lt;/a&gt; availability of Ansible production-friendly playbooks to install &amp;amp; configure StackStorm for cases when our demo &lt;code&gt;bash&lt;/code&gt; installer wasn’t sufficient.&lt;/p&gt;
+&lt;p&gt;With the new release &lt;a href=&#34;https://github.com/StackStorm/ansible-st2&#34;&gt;github.com/StackStorm/ansible-st2&lt;/a&gt; &lt;code&gt;v0.7.0&lt;/code&gt; you can do even more!&lt;/p&gt;
+&lt;p&gt;This version includes new &lt;code&gt;bwc&lt;/code&gt; and &lt;code&gt;st2chatops&lt;/code&gt; roles, features like passing settings to &lt;code&gt;st2.conf&lt;/code&gt;, enhancements to use custom SSL certificate for &lt;code&gt;st2web&lt;/code&gt;, more documentation use-cases, some breaking changes and of course, bug fixes.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

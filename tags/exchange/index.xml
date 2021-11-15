@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>exchange on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/exchange/</link>
+    <description>Recent content in exchange on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 20 Jun 2019 20:06:56 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/exchange/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ST2 Exchange – A BeerTab Pack??</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2019/06/20/st2-exchange-a-beertab-pack/</link>
+      <pubDate>Thu, 20 Jun 2019 20:06:56 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2019/06/20/st2-exchange-a-beertab-pack/</guid>
+      <description>&lt;p&gt;&lt;em&gt;June 20, 2019&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;StackStorm can’t pour you a beer. But now it can keep track of who owes you a beer! Read on for more info about the new &lt;a href=&#34;https://github.com/StackStorm-Exchange/stackstorm-beertab&#34;&gt;beertab&lt;/a&gt; pack, and other new packs &amp;amp; interesting &lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt; updates.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>What’s new in ST2 Exchange?</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2019/03/25/whats-new-in-st2-exchange/</link>
+      <pubDate>Tue, 26 Mar 2019 03:03:13 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2019/03/25/whats-new-in-st2-exchange/</guid>
+      <description>&lt;p&gt;&lt;em&gt;March 25, 2019&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Hey folks, been a little while since we’ve done a roundup of new &amp;amp; interesting pack updates. This time it’s Telegram, vSphere, Terraform, Napalm, Icinga2 and more. We’ve also been doing some background preparation work for Python 3. Read on for the full details.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Website Updates, Pack Updates</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/11/27/website-updates-pack-updates/</link>
+      <pubDate>Tue, 27 Nov 2018 22:00:47 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/11/27/website-updates-pack-updates/</guid>
+      <description>&lt;p&gt;&lt;em&gt;November 27, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We have been doing a little tidying up around here, giving the website a small facelift. Our contributors have not rested either, with more pack updates including NetBox, PagerDuty, Atlassian Crowd and InfluxDB. Here’s the details:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm 2.9.1 and Exchange Updates</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/10/23/stackstorm-2-9-1-and-exchange-updates/</link>
+      <pubDate>Wed, 24 Oct 2018 01:06:17 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/10/23/stackstorm-2-9-1-and-exchange-updates/</guid>
+      <description>&lt;p&gt;&lt;em&gt;October 23, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Late October already – where did the year go? Well at least part of it was spent making StackStorm better, and adding new packs and actions to the &lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt;. Read on for more details about StackStorm 2.9.1, and pack updates to ManageIQ, Jira, ServiceNow, InfluxDB, vSphere, and more:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>More Packs, More Fixes</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/08/17/more-packs-more-fixes/</link>
+      <pubDate>Fri, 17 Aug 2018 23:23:30 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/08/17/more-packs-more-fixes/</guid>
+      <description>&lt;p&gt;&lt;em&gt;August 17, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Time for another roundup of recent &lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt; pack updates. It’s easy to miss the new packs and updates to old ones. This month it’s Bolt, Backups, Slack, Jenkins and more. Read on for details.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>ST2 2.8.1 plus Exchange Pack Updates</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/07/17/st2-exchange-pack-updates/</link>
+      <pubDate>Tue, 17 Jul 2018 18:40:55 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/07/17/st2-exchange-pack-updates/</guid>
+      <description>&lt;p&gt;&lt;em&gt;July 17, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Using packs from the &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;StackStorm Exchange&lt;/a&gt;? Here’s a roundup of recent updates, including new packs for Algosec, Cisco ACI and AWS Boto3, along with fixes and updates for Slack, MySQL, Zabbix, RabbitMQ and more. We’ve also released StackStorm 2.8.1, with a few small fixes since 2.8. Details below:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Recent Exchange Updates</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/06/03/recent-exchange-updates/</link>
+      <pubDate>Mon, 04 Jun 2018 00:35:55 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/06/03/recent-exchange-updates/</guid>
+      <description>&lt;p&gt;&lt;em&gt;June 3, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Here’s a few of the recent updates to &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;StackStorm Exchange&lt;/a&gt;. New packs for Check Point, Infoblox, Cisco ACI and vCloud Director, and CircleCI 2.0 migration complete. Here’s the details:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>More Packs, More Actions, and a new Forum</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/04/20/more-packs-more-actions-and-a-new-forum/</link>
+      <pubDate>Sat, 21 Apr 2018 00:21:52 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/04/20/more-packs-more-actions-and-a-new-forum/</guid>
+      <description>&lt;p&gt;&lt;em&gt;April 20, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We’ve got a few things to cover here – firstly we have a new &lt;a href=&#34;https://forum.stackstorm.com&#34;&gt;forum&lt;/a&gt; for seeking help and sharing ideas, and we have good bunch of recent updates to &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;StackStorm Exchange&lt;/a&gt; packs. There’s new packs for Redis &amp;amp; Kayako, and updates to the Slack, Email, Jira, and Palo Alto packs. Here’s the details:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>February Update</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/03/03/february-update/</link>
+      <pubDate>Sat, 03 Mar 2018 22:35:52 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/03/03/february-update/</guid>
+      <description>&lt;p&gt;&lt;em&gt;March 2, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A short month, so not so many updates to &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;StackStorm Exchange&lt;/a&gt; this month. But there’s still a few things going on with Kubernetes, OpenStack, Fortinet, ServiceNow and Microsoft Exchange. Plus some CircleCI news. Here’s the details:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Double Packs Update</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/02/02/double-packs-update/</link>
+      <pubDate>Fri, 02 Feb 2018 22:28:20 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/02/02/double-packs-update/</guid>
+      <description>&lt;p&gt;&lt;em&gt;February 2, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;No packs update over Christmas because we were taking a break – so here’s a double helping of updates to packs on the &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;StackStorm Exchange&lt;/a&gt;. We have new packs for Palo Alto Networks, CloudShark, updates to the OpenStack, NetBox, Device42 packs, and a bunch of bugfixes, including Consul, ServiceNow, Cisco Spark and more. Here’s the details:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm Exchange goes Serverless</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/</link>
+      <pubDate>Thu, 14 Dec 2017 09:00:10 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/</guid>
+      <description>&lt;p&gt;Run &lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt; actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;December 14, 2017&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by &lt;a href=&#34;https://twitter.com/dzimine&#34;&gt;Dmitri Zimine&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt; is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying &lt;a href=&#34;https://stackstorm.com/&#34;&gt;StackStorm&lt;/a&gt; may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/connectors/apis-list#popular-connectors&#34;&gt;great library of reusable connectors&lt;/a&gt;? Why can’t YOU grab something ready-to-use?&lt;/p&gt;
+&lt;p&gt;Now you can! Run StackStorm Exchange actions as lambda functions. Without StackStorm. &lt;strong&gt;Serverless and Stormless.&lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Consider a detailed tutorial &lt;a href=&#34;https://medium.com/@dzimine/tutorial-building-a-community-on-boarding-app-with-serverless-stepfunctions-and-stackstorm-b2f7cf2cc419&#34;&gt;“Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange”&lt;/a&gt; to really get your hands dirty and try this out for real.&lt;/p&gt;
+&lt;/blockquote&gt;</description>
+    </item>
+    
+    <item>
+      <title>November Pack Roundup</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/12/01/november-pack-roundup/</link>
+      <pubDate>Fri, 01 Dec 2017 17:30:33 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/12/01/november-pack-roundup/</guid>
+      <description>&lt;p&gt;&lt;em&gt;December 1, 2017&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Second to last month of the year, and updates to the &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;StackStorm Exchange&lt;/a&gt; keep coming. New Terraform pack, major updates to Consul pack, and a bunch more updates. Read on for the details.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>October Pack Updates</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/11/01/october-pack-updates/</link>
+      <pubDate>Thu, 02 Nov 2017 00:00:50 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/11/01/october-pack-updates/</guid>
+      <description>&lt;p&gt;&lt;em&gt;November 1, 2017&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;More packs, more updates, more goodness. Here’s October’s roundup of new &amp;amp; changed packs. Zabbix, Keycloak, Foreman, Solarwinds and more. Plus a couple of proposals for pack changes to Kubernetes and AWS, and a warning about upcoming Python action changes.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>September Pack Updates: Usability</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/09/30/september-pack-updates-usability/</link>
+      <pubDate>Sat, 30 Sep 2017 22:54:48 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/09/30/september-pack-updates-usability/</guid>
+      <description>&lt;p&gt;Time for our monthly roundup of new packs on the &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;StackStorm Exchange&lt;/a&gt;. This time it’s a new pack for Extreme Networks devices, and usability improvements to the Email, Ansible, Sensu and Napalm packs.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>August Pack Updates</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/09/04/august-pack-updates/</link>
+      <pubDate>Mon, 04 Sep 2017 23:32:12 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/09/04/august-pack-updates/</guid>
+      <description>&lt;p&gt;August has rolled on by, but our Northern Hemisphere users have not been taking a break over summer: StackStorm Exchange updates continue, with new packs and updates. This time, we also have a request for our AWS pack users.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>July Exchange Update</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/07/31/july-exchange-update/</link>
+      <pubDate>Mon, 31 Jul 2017 17:00:24 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/07/31/july-exchange-update/</guid>
+      <description>&lt;p&gt;&lt;em&gt;July 31st, 2017&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The StackStorm Exchange saw several new packs during July, along with some updates to old favorites. Read on for a roundup of interesting happenings:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm Exchange: The New Pack Management</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/</link>
+      <pubDate>Tue, 31 Jan 2017 20:36:28 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/01/31/stackstorm-exchange-new-pack-management/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Jan 30, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Edward Medvedev&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Warning: this post describes a long set of important changes. It is enormous in size and full of cheesy puns, feelings, and heart emojis. You might prefer to &lt;a href=&#34;docs.stackstorm.com/packs.html&#34;&gt;read the documentation&lt;/a&gt; if that is not what you are into. Otherwise, grab a favorite caffeinated drink of your choice and let’s begin!&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A little while ago we &lt;a href=&#34;https://stackstorm.com/2016/12/06/2-1-new-pack-management/&#34;&gt;rolled out StackStorm 2.1&lt;/a&gt;, a release focused on one primary theme: integration packs.&lt;/p&gt;
+&lt;p&gt;StackStorm pack management infrastructure is evolving with the demand. As the number of integration packs grows, we want to provide means for faster and easier deployment, make pack development more productive, and encourage collaboration. There are dozens of changes making it happen—both in our internal infrastructure and the StackStorm core—and we are excited and hopeful that through better experience with integration packs, working with StackStorm will become even more efficient, easy, and fun.&lt;/p&gt;
+&lt;p&gt;As it is the case with all “thematic” releases, 2.1 is more than just a set of features and changes. It has a lot of context around it, and more importantly, it has a story—and this is a story we are now going to tell.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

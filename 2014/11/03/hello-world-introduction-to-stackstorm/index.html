@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Hello, World! Introduction To StackStorm | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="November 3, 2014
+by Evan Powell
+Today we are excited to announce the open-source availability of StackStorm, our operations automation software.
+StackStorm ties together your existing infrastructure and application environment so you can more easily automate that environment — with a particular focus on taking actions in response to events.
+With StackStorm you define, and share – as code – your operational patterns from events and triggers through to actions taken in response.
+Whether it is wiring together your continuous integration (CI) and continuous deployment (CD) environments in a transparent way, or automating your troubleshooting and even remediation (including responses to security events, or any of the other common patterns you perform each day manually or with the help of siloed automation), StackStorm helps.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Hello, World! Introduction To StackStorm" />
+<meta property="og:description" content="November 3, 2014
+by Evan Powell
+Today we are excited to announce the open-source availability of StackStorm, our operations automation software.
+StackStorm ties together your existing infrastructure and application environment so you can more easily automate that environment — with a particular focus on taking actions in response to events.
+With StackStorm you define, and share – as code – your operational patterns from events and triggers through to actions taken in response.
+Whether it is wiring together your continuous integration (CI) and continuous deployment (CD) environments in a transparent way, or automating your troubleshooting and even remediation (including responses to security events, or any of the other common patterns you perform each day manually or with the help of siloed automation), StackStorm helps." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2014/11/03/hello-world-introduction-to-stackstorm/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2014-11-03T04:54:11+00:00" />
+<meta property="article:modified_time" content="2014-11-03T04:54:11+00:00" />
+
+<meta itemprop="name" content="Hello, World! Introduction To StackStorm">
+<meta itemprop="description" content="November 3, 2014
+by Evan Powell
+Today we are excited to announce the open-source availability of StackStorm, our operations automation software.
+StackStorm ties together your existing infrastructure and application environment so you can more easily automate that environment — with a particular focus on taking actions in response to events.
+With StackStorm you define, and share – as code – your operational patterns from events and triggers through to actions taken in response.
+Whether it is wiring together your continuous integration (CI) and continuous deployment (CD) environments in a transparent way, or automating your troubleshooting and even remediation (including responses to security events, or any of the other common patterns you perform each day manually or with the help of siloed automation), StackStorm helps."><meta itemprop="datePublished" content="2014-11-03T04:54:11+00:00" />
+<meta itemprop="dateModified" content="2014-11-03T04:54:11+00:00" />
+<meta itemprop="wordCount" content="1062">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hello, World! Introduction To StackStorm"/>
+<meta name="twitter:description" content="November 3, 2014
+by Evan Powell
+Today we are excited to announce the open-source availability of StackStorm, our operations automation software.
+StackStorm ties together your existing infrastructure and application environment so you can more easily automate that environment — with a particular focus on taking actions in response to events.
+With StackStorm you define, and share – as code – your operational patterns from events and triggers through to actions taken in response.
+Whether it is wiring together your continuous integration (CI) and continuous deployment (CD) environments in a transparent way, or automating your troubleshooting and even remediation (including responses to security events, or any of the other common patterns you perform each day manually or with the help of siloed automation), StackStorm helps."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2014/11/03/hello-world-introduction-to-stackstorm/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2014/11/03/hello-world-introduction-to-stackstorm/&amp;text=Hello,%20World!%20Introduction%20To%20StackStorm" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2014/11/03/hello-world-introduction-to-stackstorm/&amp;title=Hello,%20World!%20Introduction%20To%20StackStorm" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Hello, World! Introduction To StackStorm</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2014-11-03T04:54:11Z">November 3, 2014</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>November 3, 2014</strong></p>
+<p><em>by Evan Powell</em></p>
+<p>Today <!-- raw HTML omitted -->we are excited to announce the open-source availability of StackStorm<!-- raw HTML omitted -->, our operations automation software.</p>
+<p>StackStorm ties together your existing infrastructure and application environment so you can more easily automate that environment — with a particular focus on taking actions in response to events.</p>
+<p>With StackStorm you define, and share – <em>as code</em> – your operational patterns from events and triggers through to actions taken in response.</p>
+<p>Whether it is wiring together your continuous integration (CI) and continuous deployment (CD) environments in a transparent way, or automating your troubleshooting and even remediation (including responses to security events, or any of the other common patterns you perform each day manually or with the help of siloed automation), StackStorm helps.</p>
+<p>Much automation has grown organically to fit one particular pain point, whether it’s build integration or trouble alerting, or provisioning Docker images or infrastructure components or something else. System A is tied to System B with package C and –</p>
+<p><em>Voila!</em> – I have an automation silo.</p>
+<p>Those automation silos over time can be hard to manage. Before you know it, you have a large number of systems tied to countless other systems in many different ways. And the logic that ties these systems together itself is distributed as checks, or scripts, or settings across many systems. Therefore, you hire more automation engineers and you start writing your own wiring – which embeds and, too often, <em>cements</em> your particular operational patterns.</p>
+<p>While hyperscale operators can and do pull off writing their own operations automation management software — and have learned over time what traps to avoid — for the rest of us who want to automate without being overrun by the automation, wouldn’t it be better to share a common platform, with common integrations?</p>
+<p>As one of our beta users put it: “Why should I be the eleventh guy to tie Nagios with a little logic to JIRA events in order to trigger deployment to AWS and OpenStack environments. This operational pattern is common. Let’s share it!”</p>
+<p>We agree. Let’s share common operational patterns – whether CI/CD or troubleshooting or even remediation – as a starting point without having to code those integrations and that automation ourselves.</p>
+<p>That’s StackStorm. Operations automation for everyone.</p>
+<p><strong>How StackStorm Works</strong></p>
+<p>The StackStorm platform works with two main classes of content: integrations (both inbound and outbound) and automations (decisions you want made and workflows). The platform executes and manages that content, enabling you to tie events whether generated by people or systems to actions, which again can be responses from a system or a person.</p>
+<!-- raw HTML omitted -->
+<p>StackStorm is easy to extend to work with just about anything. While our roots are in OpenStack (a great home for much of our workflow code, for example), StackStorm absorbs events and takes actions on almost everything that makes up today’s operational environments such as AWS, OpenStack, Docker, Jenkins, Bamboo, PagerDuty, HipChat or Slack, your ELK stack, your monitoring pipeline, your security event manager, and more.</p>
+<p>Integrations, via pluggable sensors, are open and you can contribute to them. Grab a Nagios pack (one ships with the default download), tweak as needed, and now you are ingesting Nagios events. Or grab another like the Puppet integration so you can leverage Puppet for provisioning and perhaps as a system of record. Integrations are just files — share them via our community, via GitHub, however you’d like.</p>
+<p>Once it has a couple of integrations or triggers, StackStorm can start to automate. These automations tie your triggers to some “if / then” logic via rules and are also open, so you can contribute them, pull them and so forth. Most of the OpenStack troubleshooting guide, for example, comes as automations with the default StackStorm download. Again, automation are just files — share them via our community, via GitHub, however you’d like.</p>
+<p>With StackStorm you can make your actions Unix-like, so that they do one thing well. In certain cases workflows, which tie actions and events together so that results of one action or event can lead to other behaviors, are the right tool for the job and StackStorm helps you author and execute workflows as well. A couple of types of workflow are supported, all defined via YAML, and easy to share and review.</p>
+<p>StackStorm can also ingest your actions — your scripts. Just add meta data or use one of our automations to add the meta data. And if you are a Python scripter, you can import the StackStorm client and have the power of StackStorm at your fingertips.</p>
+<p>Once you have wired together your environment with some automations, StackStorm helps you both use and manage those automations. Complete audit, with simple integration into your existing logging infrastructure. Role-based access control is on the way, too. Transparency leads to learning and to trust.</p>
+<p>StackStorm is built to be run as a service – so called Automation as a Service – with comprehensive APIs, a highly scalable architecture, powerful CLI and convenient Python bindings.</p>
+<p>Our Web UI will add convenience and ease of use for managing actions, authoring rules and auditing execution history. It is just seeing the light of day — it does <em>not</em> automatically download with the rest of the open source, it is too fresh. You can see Web UI screen shots <!-- raw HTML omitted -->here<!-- raw HTML omitted -->. Please request access to the Web UI <a href="mailto:support@stackstorm.com">here</a>. The Web UI will be open source too as it progresses.</p>
+<p>Users often interact with StackStorm via ChatOps. We support bi-directional integration into most chat environments through a fork of the heavily used Hubot project. While ChatOps is not yet for everyone, we are big fans and supporters.</p>
+<p>I encourage you to download our software, try it out, and <!-- raw HTML omitted -->contribute an integration, a bug report, or a feature request<!-- raw HTML omitted -->. I also welcome comments on this blog post, or via Twitter at <!-- raw HTML omitted -->@Stack_Storm<!-- raw HTML omitted -->. We look forward to hearing your feedback!</p>
+<p><strong>Learn More</strong></p>
+<p><strong><!-- raw HTML omitted -->Start Now<!-- raw HTML omitted -->:</strong> Our goal is to get you running your first safe, understandable, automations in 15 minutes. Try StackStorm now.</p>
+<p><strong><!-- raw HTML omitted -->Product<!-- raw HTML omitted -->:</strong> Here you will see more about common use cases and benefits.</p>
+<p><strong><!-- raw HTML omitted -->Comparison<!-- raw HTML omitted -->:</strong> Take a look to see how StackStorm compares to configuration management, Docker based software, in-house built software and other approaches.</p>
+<p><strong><!-- raw HTML omitted -->Community<!-- raw HTML omitted -->:</strong> Our <!-- raw HTML omitted -->stackstorm.com/community<!-- raw HTML omitted --> hub pulls together information about community contributions including interesting looking integrations and actions. You can always go straight to our <!-- raw HTML omitted -->GitHub<!-- raw HTML omitted --> as well.</p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

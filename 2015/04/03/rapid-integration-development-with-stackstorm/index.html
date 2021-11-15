@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Rapid Integration Development With StackStorm | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="April 3, 2015
+by James Fryman
+Day in and day out, the team at StackStorm is building tools that take away pain from the daily lives of Operations and Developers in IT Departments everywhere. We do this by focusing our efforts on absorbing all the Glue Code, the small snippets of code that tie together tools in your organization, and relieving the developer and operator of much of the traditional management overhead associated with automations. We also need to make sure that the tools we provide around StackStorm are equally enjoyable and frictionless to use. To that end, I would like to share with you how to rapidly build integrations with our integrated development environment, st2workroom.
+What is StackStorm?
+If you’re just getting started with StackStorm, or are curious what it is, we have a great primer on the product… Take a moment, head over there, and give it a quick read or watch. We’ll be right here when you get back.
+In a nutshell, StackStorm provides Event Driven Automation. StackStorm integrates with your various tools, and manages orchestration based on events that occur in your environment.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Rapid Integration Development With StackStorm" />
+<meta property="og:description" content="April 3, 2015
+by James Fryman
+Day in and day out, the team at StackStorm is building tools that take away pain from the daily lives of Operations and Developers in IT Departments everywhere. We do this by focusing our efforts on absorbing all the Glue Code, the small snippets of code that tie together tools in your organization, and relieving the developer and operator of much of the traditional management overhead associated with automations. We also need to make sure that the tools we provide around StackStorm are equally enjoyable and frictionless to use. To that end, I would like to share with you how to rapidly build integrations with our integrated development environment, st2workroom.
+What is StackStorm?
+If you’re just getting started with StackStorm, or are curious what it is, we have a great primer on the product… Take a moment, head over there, and give it a quick read or watch. We’ll be right here when you get back.
+In a nutshell, StackStorm provides Event Driven Automation. StackStorm integrates with your various tools, and manages orchestration based on events that occur in your environment." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-04-03T22:06:53+00:00" />
+<meta property="article:modified_time" content="2015-04-03T22:06:53+00:00" />
+
+<meta itemprop="name" content="Rapid Integration Development With StackStorm">
+<meta itemprop="description" content="April 3, 2015
+by James Fryman
+Day in and day out, the team at StackStorm is building tools that take away pain from the daily lives of Operations and Developers in IT Departments everywhere. We do this by focusing our efforts on absorbing all the Glue Code, the small snippets of code that tie together tools in your organization, and relieving the developer and operator of much of the traditional management overhead associated with automations. We also need to make sure that the tools we provide around StackStorm are equally enjoyable and frictionless to use. To that end, I would like to share with you how to rapidly build integrations with our integrated development environment, st2workroom.
+What is StackStorm?
+If you’re just getting started with StackStorm, or are curious what it is, we have a great primer on the product… Take a moment, head over there, and give it a quick read or watch. We’ll be right here when you get back.
+In a nutshell, StackStorm provides Event Driven Automation. StackStorm integrates with your various tools, and manages orchestration based on events that occur in your environment."><meta itemprop="datePublished" content="2015-04-03T22:06:53+00:00" />
+<meta itemprop="dateModified" content="2015-04-03T22:06:53+00:00" />
+<meta itemprop="wordCount" content="1631">
+<meta itemprop="keywords" content="tutorial," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rapid Integration Development With StackStorm"/>
+<meta name="twitter:description" content="April 3, 2015
+by James Fryman
+Day in and day out, the team at StackStorm is building tools that take away pain from the daily lives of Operations and Developers in IT Departments everywhere. We do this by focusing our efforts on absorbing all the Glue Code, the small snippets of code that tie together tools in your organization, and relieving the developer and operator of much of the traditional management overhead associated with automations. We also need to make sure that the tools we provide around StackStorm are equally enjoyable and frictionless to use. To that end, I would like to share with you how to rapidly build integrations with our integrated development environment, st2workroom.
+What is StackStorm?
+If you’re just getting started with StackStorm, or are curious what it is, we have a great primer on the product… Take a moment, head over there, and give it a quick read or watch. We’ll be right here when you get back.
+In a nutshell, StackStorm provides Event Driven Automation. StackStorm integrates with your various tools, and manages orchestration based on events that occur in your environment."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/&amp;text=Rapid%20Integration%20Development%20With%20StackStorm" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/&amp;title=Rapid%20Integration%20Development%20With%20StackStorm" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Rapid Integration Development With StackStorm</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2015-04-03T22:06:53Z">April 3, 2015</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>April 3, 2015</strong></p>
+<p><em>by James Fryman</em></p>
+<p>Day in and day out, the team at StackStorm is building tools that take away pain from the daily lives of Operations and Developers in IT Departments everywhere. We do this by focusing our efforts on absorbing all the Glue Code, the small snippets of code that tie together tools in your organization, and relieving the developer and operator of much of the traditional management overhead associated with automations. We also need to make sure that the tools we provide <em>around</em> StackStorm are equally enjoyable and frictionless to use. To that end, I would like to share with you how to rapidly build integrations with our integrated development environment, <code>st2workroom</code>.</p>
+<h6 id="what-is-stackstorm">What is StackStorm?</h6>
+<p>If you’re just getting started with StackStorm, or are curious what it is, we have a <!-- raw HTML omitted -->great primer<!-- raw HTML omitted --> on the product… Take a moment, head over there, and give it a quick read or watch. We’ll be right here when you get back.</p>
+<p>In a nutshell, StackStorm provides Event Driven Automation. StackStorm integrates with your various tools, and manages orchestration based on events that occur in your environment.</p>
+<h6 id="st2workroom">st2workroom</h6>
+<p>The st2workroom is a self-contained project that has some custom additions that allow us to quickly and easily prototype infrastructures of all types and sizes. This project can be downloaded from our GitHub repository at <!-- raw HTML omitted --><a href="https://github.com/StackStorm-Exchange">https://github.com/StackStorm-Exchange</a><!-- raw HTML omitted -->. In this project, there are a few primary components:</p>
+<ul>
+<li><strong>Vagrant</strong> – This project needs little introduction. Vagrant allows us to ship a consistent Dev Platform, regardless of the Host Operating System.</li>
+<li><strong>Stacks</strong> – This addition to Vagrant allows us to quickly and easily define many nodes in a Vagrant environment.</li>
+<li><strong>Guard</strong> – This ruby project keeps watch on changes to the filesystem and manages restarts as necessary.</li>
+</ul>
+<p>Using this project, we can quickly and easily set up a fresh StackStorm server, associate our code with that node, and rapidly prototype/develop. Let’s build our first pack.</p>
+<h6 id="pre-work">Pre-Work</h6>
+<p>In this example, I am going to work on the trello integration with StackStorm. I have a few things already set up on my host computer. These steps really should only have to be done one time. Let’s go over them:</p>
+<ul>
+<li><strong>Download and Install Vagrant:</strong> This is a manual step currently. Head to <!-- raw HTML omitted --><a href="https://www.vagrantup.com/downloads.html">https://www.vagrantup.com/downloads.html</a><!-- raw HTML omitted --> and download the latest version for your OS/Architecture.</li>
+<li><strong>Download and Install VirtualBox/VMWare Fusion (Optional):</strong> If you prefer to do all development on your local machine, you’ll want to get one of these Virtual Machine executors. We’ll go over how to develop with StackStorm if your local machine isn’t suited to run Virtual Machines.</li>
+<li><strong>StackStorm Exchange projects are downloaded to my computer:</strong> These projects are where we keep our main packs. We encourage community members to submit Pull Requests against this repository. To learn more about Pull Requests, head over to <!-- raw HTML omitted --><a href="https://help.github.com/articles/fork-a-repo/">https://help.github.com/articles/fork-a-repo/</a><!-- raw HTML omitted -->.</li>
+<li><strong>`st2workbench` project is downloaded to my computer:</strong> This is the actual place work will be done.</li>
+</ul>
+<h6 id="setup">Setup</h6>
+<p>Now, in this example, let’s work on developing the <code>trello</code> pack. What we’ll want here is to set up <code>st2workroom</code> to allow us to develop on our local machine with all of our environment settings, but still run the code in our clean-room development environment. This consists of two steps: the first, to tell <code>st2workroom</code> where the pack files are located, and the second, to optionally configure any configuration for the integration itself.</p>
+<p><strong>Setting up the Pack File Location</strong></p>
+<p>In this example, I’ll be contributing to the <code>trello</code> repository. Let’s take advantage of our Stacks and tell the development environment where it can expect to find our <code>trello</code> pack files, which on my computer is located at <code>/Users/jfryman/stackstorm/stackstorm-trello</code>.</p>
+<ul>
+<li>Navigate to the `st2workbench` directory: `cd ~/stackstorm/st2workbench`</li>
+<li>Edit the file `stacks/st2.yaml` and add the file-mount to the `st2express` key. We want to target the pack directory to `/opt/stackstorm/packs/trello`.</li>
+</ul>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<pre><code>&lt;ul&gt;
+  &lt;li&gt;
+    Save the file and exit.
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+  Note: By default in the &lt;code&gt;st2workroom&lt;/code&gt;, the &lt;code&gt;st2&lt;/code&gt; stack is loaded up (&lt;code&gt;stacks/st2.yaml&lt;/code&gt;). If you want to create your own infrastructure definitions, simply create a new Stack, and change the environment variable &lt;code&gt;stack&lt;/code&gt; to your newly named stack. For example, if I wanted to create a new stack called &lt;code&gt;frymanio&lt;/code&gt;, I would create a new file &lt;code&gt;stacks/frymanio.yaml&lt;/code&gt;, and update my environment variable. See the file STACKS.md in the root of the &lt;code&gt;st2workbench&lt;/code&gt; repository for more information.
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;b&gt;Setting Pack Configuration&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  To bootstrap StackStorm, &lt;code&gt;st2workbench&lt;/code&gt; leverages our Puppet module. (https://github.com/StackStorm/puppet-st2). Because of this, we can leverage Hiera to set configuration variables about our packs that will be downloaded. The benefit here is that once you are done developing against this repository, the hiera data is easily portable to a production environment, reinforcing the Infrastructure as Code concept.
+&lt;/p&gt;
+
+&lt;p&gt;
+  In the &lt;code&gt;trello&lt;/code&gt; pack, we have determined before hand that we need two configuration variables: &lt;code&gt;api_key&lt;/code&gt; and &lt;code&gt;token&lt;/code&gt;. Let&amp;#8217;s set those now.
+&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    Navigate to the `st2workbench` directory: `cd ~/stackstorm/st2workbench`
+  &lt;/li&gt;
+  &lt;li&gt;
+    Edit the `hieradata/workbench.yaml` file, and add the pack configuration to the `st2::packs` key.
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;# hieradata/workbench.yaml
+</code></pre>
+<p>st2::packs:
+trello:
+ensure: present
+config:
+api_key: &quot;&quot;
+token: &quot;&quot;
+<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  &lt;b&gt;Cloud Configuration&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  This is an optional step. However, if you find yourself wanting to develop on StackStorm, but your local computing environment is not up to the challenge? No fear, you can quickly and easily get a quick development environment setup.
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;b&gt;Digital Ocean&lt;/b&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  To enable Digital Ocean support, you&amp;#8217;ll need to do the following:
+&lt;/p&gt;
+
+&lt;p&gt;
+  1) Install the Digital Ocean Vagrant plugin: vagrant plugin install &lt;code&gt;vagrant-digitalocean&lt;/code&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+  2) Add the following environment variables to the file &lt;code&gt;.env&lt;/code&gt; at the root of the &lt;code&gt;st2workroom&lt;/code&gt; directory.
+&lt;/p&gt;
+
+&lt;pre&gt;
+</code></pre>
+<h1 id="env">.env</h1>
+<p>DO_SSH_KEY_PATH=XXX # Path to the SSH Key to be used for installation. (e.g.: ~/.ssh/id_rsa)</p>
+<p>DO_TOKEN=YYY        # Digital Ocean API Token</p>
+<p>sync_type=rsync     # Copies all bootstrap items to the Digital Ocean node, and provisions.</p>
+<p><!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  3) Make sure the attribute &lt;code&gt;sync_type: nfs&lt;/code&gt; is removed from the file &lt;code&gt;stacks/st2.yaml&lt;/code&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+  You can get your Digital Ocean API Token from &lt;a href=&quot;https://cloud.digitalocean.com/settings/applications&quot; target=&quot;_blank&quot;&gt;https://cloud.digitalocean.com/settings/applications&lt;/a&gt; and generate a new token.
+&lt;/p&gt;
+
+&lt;p&gt;
+  Proceed to &lt;code&gt;Start it up!&lt;/code&gt;, paying specific attention to the &lt;code&gt;--provisioner&lt;/code&gt; parameter.
+&lt;/p&gt;
+
+&lt;p&gt;
+  &lt;b&gt;AWS&lt;/b&gt;&lt;br /&gt; To enable AWS support, you&amp;#8217;ll need to do the following:
+&lt;/p&gt;
+
+&lt;p&gt;
+  1) Install the AWS Vagrant Plugin: &lt;code&gt;vagrant plugin install vagrant-aws&lt;/code&gt;&lt;br /&gt; 2) Download the &lt;code&gt;dummy&lt;/code&gt; AWS box: &lt;code&gt;vagrant box add dummy &amp;lt;a href=&quot;https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box&quot; target=&quot;_blank&quot;&amp;gt;https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box&amp;lt;/a&amp;gt;&lt;/code&gt;&lt;br /&gt; 3) Setup a New Keypair in AWS. Download this keypair and store it locally.&lt;br /&gt; 4) Add the following environmental variables to the file &lt;code&gt;.env&lt;/code&gt; at the root of the &lt;code&gt;st2workroom&lt;/code&gt; directory.
+&lt;/p&gt;
+
+&lt;pre&gt;
+</code></pre>
+<h1 id="env-1">.env</h1>
+<p>AWS_ACCESS_KEY_ID=XXX     # AWS Access Key</p>
+<p>AWS_SECRET_ACCESS_KEY=YYY # AWS Secret Access Key</p>
+<p>AWS_SSH_KEY_PATH=ZZZ      # Path to the SSH Key Generated in Step #3 (e.g.: ~/.ssh/aws_ssh)</p>
+<p>AWS_KEYPAIR_NAME=NNN      # Use the keypair generated in Step #3</p>
+<p>sync_type=rsync           # Copies all bootstrap items to the Digital Ocean node, and provisions.</p>
+<p><!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  5) Make sure the attribute &lt;code&gt;sync_type: nfs&lt;/code&gt;is removed from the file &lt;code&gt;stacks/st2.yaml&lt;/code&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+  Head to the AWS Web Console and look for the &amp;#8220;Security Credentials&amp;#8221; page. You may need to get in touch with your administrator for key.
+&lt;/p&gt;
+
+&lt;p&gt;
+  Proceed to &lt;code&gt;Start it up!&lt;/code&gt;, paying specific attention to the &lt;code&gt;--provisioner&lt;/code&gt; parameter.
+&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;
+    Note: By default, this provisions an Ubuntu 14.04 node in &lt;code&gt;us-west-2&lt;/code&gt;. If you would like to change this, set the &lt;code&gt;AWS_REGION&lt;/code&gt; and “AWS_AMI&lt;code&gt;variables in&lt;/code&gt;.env&lt;code&gt;as detailed above.&amp;lt;br /&gt;
+</code></pre>
+<p>&lt;h6&gt;Start it Up!&lt;/h6&gt;&lt;br /&gt;
+At this point, we&rsquo;re all set to get started! Go ahead and spin up<!-- raw HTML omitted -->st2express<!-- raw HTML omitted -->via the workroom, and let&rsquo;s get started. You can do this with the<!-- raw HTML omitted -->vagrant up<!-- raw HTML omitted -->command in the root of the<!-- raw HTML omitted -->st2workroom` directory.
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted --></p>
+<pre><code>&lt;pre&gt;
+</code></pre>
+<p>$ cd ~/stackstorm/st2workroom</p>
+<p>$ vagrant up st2express (&ndash;provisioner &lt;provision&gt;)
+<!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  Note: If you are leveraging the DO/AWS Cloud Provisoner, take note of the provisioner parameter. You will need to supply this. Use the &lt;code&gt;--provisioner digital_ocean&lt;/code&gt; for DO, and &lt;code&gt;--provisioner aws&lt;/code&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+  If this is your first time booting, it will take a few minutes depending on the speed of your computer and internet connection. On average, first boot takes approximately ~5 minutes. During this process, StackStorm is being downloaded to the latest version, setup on your computer in the development environment, and validated. It is rare that you&amp;#8217;ll need to re-create the &lt;code&gt;st2workbench&lt;/code&gt; after the first boot.
+&lt;/p&gt;
+
+&lt;h6&gt;
+  Start Guard
+&lt;/h6&gt;
+
+&lt;p&gt;
+  Guard is our Filesystem monitor. Its job is to monitor the &lt;code&gt;/opt/stackstorm&lt;/code&gt; directory (and children, which in this case includes our new &lt;code&gt;trello&lt;/code&gt; pack) for filesystem changes and automatically reloads. Anytime that you save a file in your pack directory, Guard will automatically restart the appropriate components of StackStorm to have your changes live loaded.
+&lt;/p&gt;
+
+&lt;p&gt;
+  To do this, log into your new StackStorm box, and click on &lt;code&gt;guard&lt;/code&gt;.
+&lt;/p&gt;
+
+&lt;pre&gt;
+</code></pre>
+<p>$ cd ~/stackstorm/st2workroom</p>
+<p>$ vagrant ssh st2express</p>
+<p>$ cd /opt/puppet</p>
+<p>$ bundle exec guard -i -w /opt/stackstorm/packs</p>
+<p><!-- raw HTML omitted --></p>
+<pre><code>&lt;p&gt;
+  This will now automatically restart the appropriate component of StackStorm as you save files to the filesystem. Focus on development!
+&lt;/p&gt;
+
+&lt;h6&gt;
+  Start Developing!
+&lt;/h6&gt;
+
+&lt;p&gt;
+  The hard work is over! We now have a full fledged development environment to work with. If you happen to be on OSX, or have the &lt;code&gt;avahi&lt;/code&gt; tool installed on your Linux box, you can head over to https://st2express.local:9101 and gain access to the WebUI. Likewise, you now have access to the StackStorm &lt;code&gt;st2express&lt;/code&gt; environment, and can kick off commands from there.
+&lt;/p&gt;
+
+&lt;p&gt;
+  Head over to our documentation website at http://docs.stackstorm.com, and read up on creating Actions and Sensors. From here, you can begin creating all the integrations that you desire.
+&lt;/p&gt;
+
+&lt;p&gt;
+  In coming articles, we&amp;#8217;ll have tutorials and walk throughs on developing your first action, developing ActionChain workflows, developing Mistral workflows, sensor development and more! In the meantime, be sure to take a look at our existing community packs online at https://exchange.stackstorm.org for example packs.
+&lt;/p&gt;
+
+&lt;p&gt;
+  Until next time!
+&lt;/p&gt;</code></pre><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/tutorial" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorial</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/">Managing AWS Instance Lifecycle With StackStorm</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/">Monitor Twitter And Fire Automations Based On Twitter Keywords Using StackStorm</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

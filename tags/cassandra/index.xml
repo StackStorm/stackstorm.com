@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cassandra on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/cassandra/</link>
+    <description>Recent content in Cassandra on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 02 Oct 2015 18:06:12 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/cassandra/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tutorial of the Week: Cassandra Auto-Remediation</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/</link>
+      <pubDate>Fri, 02 Oct 2015 18:06:12 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;October 2, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Evan Powell&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;Let’s get right to it.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;This week we feature a tutorial that published last week.  It has to do with auto-remediating your environment.  The tutorial focuses on using StackStorm to auto-remediation Cassandra; it was published at the Cassandra Summit after all – building on &lt;!-- raw HTML omitted --&gt;Netflix’s&lt;!-- raw HTML omitted --&gt; use of StackStorm for that use case.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

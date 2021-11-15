@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenStack Newton on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/openstack-newton/</link>
+    <description>Recent content in OpenStack Newton on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Oct 2016 02:50:08 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/openstack-newton/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</link>
+      <pubDate>Thu, 13 Oct 2016 02:50:08 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/</guid>
+      <description>&lt;h3 id=&#34;stackstorm-at-openstack-summit-highlights&#34;&gt;StackStorm at OpenStack Summit Highlights:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Booth: B34 (You’ll find us in the Brocade Booth)&lt;/li&gt;
+&lt;li&gt;&lt;!-- raw HTML omitted --&gt;StackStorm Theater Presentation&lt;!-- raw HTML omitted --&gt;: StackStorm and OpenStack: Two Practical Cases for Event Driven Automation; Wed 26 11:20am-11:45am, &lt;!-- raw HTML omitted --&gt;P0 – Marketplace Theater&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Mirantis Session: &lt;!-- raw HTML omitted --&gt;Sleep Better at Night: OpenStack Cloud Auto­-Healing&lt;!-- raw HTML omitted --&gt;&lt;/li&gt;
+&lt;li&gt;Design Summit: Mistral Working Sessions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

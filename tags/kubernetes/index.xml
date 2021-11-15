@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Oct 2018 13:06:04 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StackStorm HA in Kubernetes βeta – Community update</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/10/10/stackstorm-ha-in-kubernetes-beta-community-update/</link>
+      <pubDate>Wed, 10 Oct 2018 13:06:04 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/10/10/stackstorm-ha-in-kubernetes-beta-community-update/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Oct 10, 2018&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By &lt;a href=&#34;https://github.com/warrenvw&#34;&gt;Warren Van Winckel&lt;/a&gt; and &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C.&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A couple weeks ago, &lt;a href=&#34;https://stackstorm.com/2018/09/26/stackstorm-enterprise-ha-in-kubernetes-beta/&#34;&gt;we released&lt;/a&gt; the Helm chart and docker images so you could install StackStorm Enterprise HA cluster in Kubernetes.&lt;/p&gt;
+&lt;p&gt;Today, we’re glad to announce that the Community free and open source edition of StackStorm HA is now available, too! With this update we are excited to bring Kubernetes powers to the broader community and strive for greater adoption in production with better safety for all important operations you delegate to StackStorm automation engine.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/stackstorm/stackstorm-ha&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm Enterprise HA in Kubernetes – βeta</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/09/26/stackstorm-enterprise-ha-in-kubernetes-beta/</link>
+      <pubDate>Wed, 26 Sep 2018 15:00:11 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/09/26/stackstorm-enterprise-ha-in-kubernetes-beta/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Sep 26, 2018&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C.&lt;/a&gt; and &lt;a href=&#34;https://github.com/warrenvw&#34;&gt;Warren Van Winckel&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;More groups are progressing from just talking about Event-Driven Automation to actually doing it in practice. StackStorm helps make this easy. When organizations start offloading business-critical tasks and automating for real it becomes essential to ensure that the Automation engine itself is not a single point of failure when it is responsible for recovering a fleet of servers, managing datacenters, and automating remediations.&lt;/p&gt;
+&lt;p&gt;StackStorm was designed to be cloud-native, API-driven, easily deployed, microservice-oriented, resilient and can be scaled out horizontally to fulfill High Availability and/or High Load demands.&lt;/p&gt;
+&lt;p&gt;Previously we only documented best practices describing how to distribute StackStorm in HA mode (&lt;a href=&#34;https://docs.stackstorm.com/reference/ha.html&#34;&gt;docs.stackstorm.com/reference/ha.html&lt;/a&gt;), giving a high level overview regarding StackStorm design and how to ensure its redundancy. Based on those recommendations, some companies were spending weeks to months to codify a complex st2 HA infrastructure and iterate over their deployments until finding that “silver bullet” stability/production state.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.stackstorm.com/latest/install/k8s_ha.html#enterprise-ewc&#34;&gt;&lt;img src=&#34;https://stackstorm.com/wp/wp-content/uploads/2018/09/stackstorm-enterprise-ha.png&#34; alt=&#34;StackStorm HA in K8s and Helm&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Autoscaling Swarm on AWS with StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/</link>
+      <pubDate>Thu, 22 Jun 2017 08:14:50 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 22, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by &lt;a href=&#34;https://twitter.com/dzimine&#34;&gt;Dmitri Zimine&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In this blog, we show how to scale out a Docker Swarm Cluster based on container workload, so that you don’t over-provision your AWS cluster and pay for just enough instances to run your containers. Learn how we achieved this, watch the &lt;em&gt;2 min video&lt;/em&gt; to see it in action. Read the blog for details. Grab our code recipe and adjust it to your liking and use to auto-scale your Swarm on AWS.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

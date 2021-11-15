@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>StackStorm Centralized Logging with Graylog | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="August 22, 2017
+By Nick Maludy of Encore Technologies
+Want to implement centralized logging for your StackStorm deployment? Read on to find out how to send your StackStorm logs to Graylog, and produce pretty dashboards like this:
+">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="StackStorm Centralized Logging with Graylog" />
+<meta property="og:description" content="August 22, 2017
+By Nick Maludy of Encore Technologies
+Want to implement centralized logging for your StackStorm deployment? Read on to find out how to send your StackStorm logs to Graylog, and produce pretty dashboards like this:
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-08-22T23:45:41+00:00" />
+<meta property="article:modified_time" content="2017-08-22T23:45:41+00:00" />
+
+<meta itemprop="name" content="StackStorm Centralized Logging with Graylog">
+<meta itemprop="description" content="August 22, 2017
+By Nick Maludy of Encore Technologies
+Want to implement centralized logging for your StackStorm deployment? Read on to find out how to send your StackStorm logs to Graylog, and produce pretty dashboards like this:
+"><meta itemprop="datePublished" content="2017-08-22T23:45:41+00:00" />
+<meta itemprop="dateModified" content="2017-08-22T23:45:41+00:00" />
+<meta itemprop="wordCount" content="1453">
+<meta itemprop="keywords" content="Community,integrations,tutorial," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="StackStorm Centralized Logging with Graylog"/>
+<meta name="twitter:description" content="August 22, 2017
+By Nick Maludy of Encore Technologies
+Want to implement centralized logging for your StackStorm deployment? Read on to find out how to send your StackStorm logs to Graylog, and produce pretty dashboards like this:
+"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/&amp;text=StackStorm%20Centralized%20Logging%20with%20Graylog" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/&amp;title=StackStorm%20Centralized%20Logging%20with%20Graylog" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">StackStorm Centralized Logging with Graylog</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2017-08-22T23:45:41Z">August 22, 2017</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>August 22, 2017</strong><br>
+<em>By Nick Maludy of <a href="http://www.encore.tech">Encore Technologies</a></em></p>
+<p>Want to implement centralized logging for your StackStorm deployment? Read on to find out how to send your StackStorm logs to Graylog, and produce pretty dashboards like this:</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2017/08/dashboard.png"><!-- raw HTML omitted --></a></p>
+<h2 id="background-centralised-logging-and-stackstorm">Background: Centralised Logging and StackStorm</h2>
+<p>One of the pillars of modern application deployments is aggregating its logs in a centralized logging application such as ELK stack, Splunk or Graylog. Centralized logging allows engineers to format, index and query logs from across their stack and distributed applications and be able to access them in a single pane of glass. StackStorm is a distributed application with multiple services that can benefit greatly from centralized logging aggregation. In this blog post, we’ll investigate how to configure StackStorm to output structured logs, setup and configure Fluentd to ship these logs, and finally configure Graylog to receive, index and query the logs.</p>
+<h2 id="structured-logging">Structured Logging</h2>
+<p>Structured logging is a fancy term for writing log output from an application in JSON format. When logs are output in JSON this gives context for all of the information contained in each log message. This context allows log shippers to save precious CPU cycles by not having to parse out this information from plain text logs. It also allows centralized logging applications to effectively index the logs and provide it with multiple fields with which to query.</p>
+<p>To demonstrate the difference between plain text logs and structured logs we’ll take an example from <code>st2api</code>. Below is an example of a standard log message that is written to <code>/var/log/st2/st2api.log</code>:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>As you can see this has some information such as the timestamp, log level, and several other fields. If we were to try to utilize this in some meaningful way a parser would need to be written to extract the data fields. If the log message was instead written in a standard format (JSON) we could easily parse it and quickly make meaningful use of the fields within the message. Below is the structured logging message that corresponds to the plain text log from above.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This is great, but kind of hard to read. Below is the same log message formatted in a way that’s easier to read.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This output is in GELF (Graylog Extended Logging Format) JSON format. GELF log messages are nothing more than JSON with a few standard fields in the payload. The GELF payload specification can be found <a href="http://docs.graylog.org/en/2.3/pages/gelf.html#gelf-payload-specification">here</a>. GELF also defines two wire protocol formats, GELF UDP and GELF TCP that detail how GELF JSON log messages can be sent to Graylog.</p>
+<h2 id="log-shippers">Log Shippers</h2>
+<p>A log shipper is an application that reads in log messages from some source, usually a log file, potentially transforms the message and then transmits it to some destination, usually a log aggregation or centralized logging application. There are several commonly used log shippers out there including <a href="https://www.fluentd.org/">Fluentd</a>, <a href="https://www.elastic.co/products/logstash">Logstash</a>, and <a href="https://www.elastic.co/products/beats/filebeat">Filebeat</a>.</p>
+<p>In this article we’re going to be using Fluentd because it was the easiest one to configure for parsing GELF JSON and shipping to Graylog.</p>
+<h2 id="architecture">Architecture</h2>
+<p>The setup detailed in this blog post will adhere to the following architecture:</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2017/08/pipeline.png"><!-- raw HTML omitted --></a></p>
+<p>First, StackStorm uses the Python <code>logging</code> module to write logs to <code>/var/log/st2/*.log</code> in GELF JSON format. The log shipper Fluentd monitors those log files for changes, reads in any new messages, converts them into GELF UDP format and sends that to Graylog. Finally, Graylog receives GELF UDP and indexes the log messages.</p>
+<h2 id="configuring-stackstorm-logging">Configuring StackStorm Logging</h2>
+<p>StackStorm uses Python’s builtin <code>logging</code> module for application level logging. In this module there are two key concepts: <code>formatters</code> and <code>handlers</code>.</p>
+<p>A <code>formatter</code> takes a log function call in python code and translates that into a string of text.</p>
+<p><em>Python Logging Call</em></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><em>Log String</em></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>handlers</code> take the log message strings and writes it to some destination. The builtin <code>handlers</code> can write to a file, syslog, UDP, TCP and more.</p>
+<p>StackStorm logging configuration files are written in the <code>logging</code> module’s <a href="https://docs.python.org/2/library/logging.config.html#configuration-file-format">configuration file format</a>. To configure StackStorm to write structured logs we’ll be editing the logging config file stored in <code>/etc/st2/logging.&lt;component&gt;.conf</code>. StackStorm ships with a formatter <code>st2common.logging.formatters.GelfLogFormatter</code> that emits structured logs in GELF format. Luckily StackStorm AUDIT logs utilize the <code>GelfLogFormatter</code> so there is a reference already defined that we can reuse. All we need to do is add another <code>handler</code> to each config that writes the GELF logs to a new file. We can define a new log handler by adding the following to every logging config:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Now that we have a new handler defined we need to tell the logger about it. To accomplish this we’ll need to add <code>gelfHandler</code> to the following sections:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>StackStorm should now be configured to write structured logs to <code>/var/log/st2/st2&lt;component&gt;.gelf.log</code>. In order for these changes to be realized we need to restart the StackStorm services. This can be accomplished by either restarting all StackStorm processes:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Or we can restart just the components we’ve modified</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>This is a good time to check <code>/var/log/st2/st2&lt;component&gt;.gelf.log</code> and make sure logs are present.</p>
+<p>Astute readers may be asking “if the builtin logging facility provides a UDP handler, why not use it to send logs directly to Graylog?”. The answer is fairly simple, the <code>DatagramHandler</code> which writes log strings to UDP does NOT format the messages in GELF UDP format. GELF UDP requires a special header at the beginning of every packet. To accommodate this we’ll be using Fluentd in the next section to send the log message in GELF UDP format to Graylog.</p>
+<h2 id="configuring-the-log-shipper-fluentd">Configuring the Log Shipper Fluentd</h2>
+<p>We’re going to use Fluentd to read from <code>/var/log/st2/st2&lt;component&gt;.gelf.log</code> and transform the log messages into GELF UDP format, then send those UDP packets to Graylog.</p>
+<p>First we need to install Fluentd v0.14.</p>
+<blockquote>
+<p><strong>Note</strong> Fluentd v0.14 is required if you would like sub-second resolution on your logging timestamps. In Fluentd v0.12 timestamps are rounded to 1-second resolution. This causes the messages in graylog to potentially be viewed out-of-order because Graylog doesn’t know which message came first within a 1-second interval.</p>
+</blockquote>
+<p>Below are instructions for installation on RHEL 7, for all other platforms please follow the official documentation <a href="https://docs.fluentd.org/v0.14/categories/installation">here</a>.</p>
+<blockquote>
+<p><strong>Note</strong> Fluentd is the name of the log shipping application and it is written by a company called Treasure Data (td). The agent installed on your machine is called <code>td-agent</code> and it wraps Fluentd in a service file that’s specific to your platform.</p>
+</blockquote>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>After installation we need to install a Fluentd plugin that implements GELF UDP output formatting.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Next we need to configure Fluentd to tail the new StackStorm log files we configured in the previous section. The default location for the Fluentd config file is <code>/etc/td-agent/td-agent.conf</code>:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<blockquote>
+<p><strong>Note</strong> <code>estimate_current_event true</code> is used in the config file because the timestamps emitted by StackStorm are rounded to 1-second resolutions. This is fixed in PR <a href="https://github.com/StackStorm/st2/pull/3662">#3662</a> where a new field <code>timestamp_f</code> is added to the GELF logging output. This PR has been merged and should be available in StackStorm <code>v2.4</code>. In these versions you can replace <code>estimate_current_event true</code> with:</p>
+<!-- raw HTML omitted -->
+</blockquote>
+<p>keep_time_key true
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>Finally we need to restart Fluentd so that the config file changes are realized:</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>Fluentd should now be sending log messages to Graylog, however Graylog is not listening.</p>
+<h2 id="configuring-graylog">Configuring Graylog</h2>
+<p>To configure Graylog to receive GELF UDP messages we need to add a new <code>Input</code>. In the Graylog WebUI navigate to System &gt; Inputs:</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2017/08/inputs.png"><!-- raw HTML omitted --></a></p>
+<p>To add a new input click the dropdown <code>Select a new input type:</code> and select <code>GELF UDP</code> then press the button <code>Launch new Input</code>.</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2017/08/configure_input.png"><!-- raw HTML omitted --></a></p>
+<p>In the new input dialog configure it with the following settings:</p>
+<ul>
+<li>Global = Yes</li>
+<li>Name = GELF UDP</li>
+<li>Port = 12202</li>
+</ul>
+<p>Leave all other settings as defaults, and click <strong>Save</strong>.</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2017/08/input_options.png"><!-- raw HTML omitted --></a></p>
+<p>Why did we choose port 12202? Graylog, by default, logs its internal logs to udp/12201 so we need to choose a different port to differentiate the inputs. Graylog should now be receiving log messages from StackStorm.</p>
+<p><a href="https://stackstorm.com/wp/wp-content/uploads/2017/08/log_search.png"><!-- raw HTML omitted --></a></p>
+<p>If you’re not seeing any messages flowing in you can always run an action <code>st2 run</code> or restart a service <code>systemctl restart st2api</code> and this should force logs to be written.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We’ve introduced you to structured logging and log shippers, then walked you through the configuration and setup of utilizing these technologies to stream StackStorm logs into the centralized logging application Graylog. Now that we have StackStorm logs into Graylog, what can we do with them? In a future blog post I’ll walk you through creating a dashboard that will provide insight and visualization of your StackStorm deployment.</p>
+<h2 id="about-the-author">About The Author</h2>
+<p>Nick Maludy is the DevOps Manager at <a href="http://www.encore.tech">Encore Technologies</a>, a company out of Cincinnati Ohio that specializes in Datacenters, Cloud and Managed Services, Professional Services and Hardware Sales. Nick works in the Cloud and Managed Services organization that is focused on providing customers with tailored IT solutions to accelerate their business through automation and modernization.</p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/community" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Community</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/integrations" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">integrations</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/tutorial" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorial</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2017/07/31/july-exchange-update/">July Exchange Update</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/">Installing StackStorm on Offline Systems</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/11/29/2-1-headsup/">2.1 is Coming to Town: Check the New Pack Management</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/07/06/best-thing-stackstorm-community/">The Best thing about StackStorm? The Community</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/">StackStorm 1.2.0: the new ChatOps</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/">Auto-remediation by example: handling out-of-disk-space.</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/">OctopusDeploy Integration with StackStorm</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/09/15/java-action/">Turning Java App Into StackStorm Action</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/07/29/getting-started-with-stackstorm-and-saltstack/">Getting Started With StackStorm and SaltStack</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/07/08/automating-with-mistral-workflow/">Automated Troubleshooting With StackStorm and Mistral</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/06/12/integrating-chatops-with-stackstorm/">Integrating ChatOps With StackStorm</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/04/20/actions-of-all-flavors-in-stackstorm/">Actions Of All Flavors In StackStorm</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/">Rapid Integration Development With StackStorm</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/">Managing AWS Instance Lifecycle With StackStorm</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/">Monitor Twitter And Fire Automations Based On Twitter Keywords Using StackStorm</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

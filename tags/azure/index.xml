@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>azure on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/azure/</link>
+    <description>Recent content in azure on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 05 Oct 2017 20:04:17 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Microsoft Azure Event Grid explained for StackStorm users</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/10/05/event-grid-event-gateway-explained-part1/</link>
+      <pubDate>Thu, 05 Oct 2017 20:04:17 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/10/05/event-grid-event-gateway-explained-part1/</guid>
+      <description>&lt;p&gt;October 05, 2017&lt;br&gt;
+&lt;em&gt;by &lt;!-- raw HTML omitted --&gt;Dmitri Zimine&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Two new event-driven systems were introduced last month. &lt;!-- raw HTML omitted --&gt;Event Grid&lt;!-- raw HTML omitted --&gt; from Microsoft Azure and &lt;!-- raw HTML omitted --&gt;Event Gateway&lt;!-- raw HTML omitted --&gt; from &lt;!-- raw HTML omitted --&gt;Serverless.com&lt;!-- raw HTML omitted --&gt; were launched two days apart from each other. An event that triggered these announcements seem to be emitted by &lt;!-- raw HTML omitted --&gt;Emit conference&lt;!-- raw HTML omitted --&gt; on serverless. Serverless computing became a primary driver for the event-centric approach, and as serverless architectural patterns emerged, the need for a dedicated event router became apparent.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Event Driven Auto-Remediation with the Elastic Stack | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Jan 12, 2017
+by Siddharth Krishna
+Recently we explained how to use Syslog with Splunk &amp; StackStorm to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – Elastic Stack (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same use case as before and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using StackStorm.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Event Driven Auto-Remediation with the Elastic Stack" />
+<meta property="og:description" content="Jan 12, 2017
+by Siddharth Krishna
+Recently we explained how to use Syslog with Splunk &amp; StackStorm to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – Elastic Stack (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same use case as before and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using StackStorm." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-01-13T02:30:10+00:00" />
+<meta property="article:modified_time" content="2017-01-13T02:30:10+00:00" />
+
+<meta itemprop="name" content="Event Driven Auto-Remediation with the Elastic Stack">
+<meta itemprop="description" content="Jan 12, 2017
+by Siddharth Krishna
+Recently we explained how to use Syslog with Splunk &amp; StackStorm to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – Elastic Stack (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same use case as before and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using StackStorm."><meta itemprop="datePublished" content="2017-01-13T02:30:10+00:00" />
+<meta itemprop="dateModified" content="2017-01-13T02:30:10+00:00" />
+<meta itemprop="wordCount" content="2149">
+<meta itemprop="keywords" content="Auto-remediation,Elastic Stack,networking,syslog,tutorials,workflows," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Event Driven Auto-Remediation with the Elastic Stack"/>
+<meta name="twitter:description" content="Jan 12, 2017
+by Siddharth Krishna
+Recently we explained how to use Syslog with Splunk &amp; StackStorm to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – Elastic Stack (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same use case as before and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using StackStorm."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/&amp;text=Event%20Driven%20Auto-Remediation%20with%20the%20Elastic%20Stack" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/&amp;title=Event%20Driven%20Auto-Remediation%20with%20the%20Elastic%20Stack" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Event Driven Auto-Remediation with the Elastic Stack</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2017-01-13T02:30:10Z">January 13, 2017</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>Jan 12, 2017</strong><br>
+<em>by Siddharth Krishna</em></p>
+<p>Recently we explained how to use <a href="https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/"><strong>Syslog with Splunk &amp; StackStorm</strong></a> to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – <a href="https://www.elastic.co/webinars/introduction-elk-stack"><strong>Elastic Stack</strong></a> (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same <a href="https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/">use case as before</a> and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using <strong>StackStorm</strong>.</p>
+<h3 id="any-changes-to-stackstorm">Any changes to StackStorm?</h3>
+<p>No. Everything in relation with StackStorm (webhooks, workflows, actions and integrations) remains the same as documented in the earlier blog. Optionally, you could create a new webhook URL (eg. elk_link_flap) specifically for your Elastic Stack setup. Here, our primary focus will be on configuring the Elastic Stack for an end-to-end demonstration of the auto-remediation use case.</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-stackstorm_elk_webhook-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              name: &quot;elk_link_flap_webhook_rule&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              enabled: true
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              description: &quot;ELK link flap webhook rule&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              trigger:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              type: &quot;core.st2.webhook&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              parameters:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              url: &quot;elk_link_flap&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              criteria: {}
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              action:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              ref: st2_demos.link_flap_remed_workflow
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              parameters:
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              host: &quot;{{trigger.body.host}}&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-stackstorm_elk_webhook-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-stackstorm_elk_webhook-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              interface: &quot;{{trigger.body.interface}}&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf/raw/34f848645d149c946475088abb4a55c2bc9abe46/stackstorm_elk_webhook&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf#file-stackstorm_elk_webhook&quot;&gt;stackstorm_elk_webhook&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<h3 id="set-up-logstash">Set Up Logstash</h3>
+<p>First step is to define data source for syslog as input and Elasticsearch as the output in the <strong>Logstash</strong> configuration. UDP port 514 is used for syslog. The Logstash configuration file is located at <code>/etc/logstash/conf.d/</code>. Create a new config file eg. <code>lsconfig.conf</code> if one does not already exist and ensure that there’s only one config file at this location for Logstash to use. Add the following content:</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-logstash_input_ouput-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              input {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              udp {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              port =&gt; 514
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              type =&gt; syslog
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              output {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              elasticsearch { hosts =&gt; [&quot;127.0.0.1:9200&quot;] }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              stdout { }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_input_ouput-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_input_ouput-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf/raw/34f848645d149c946475088abb4a55c2bc9abe46/logstash_input_ouput&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf#file-logstash_input_ouput&quot;&gt;logstash_input_ouput&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>Restart the Logstash service:<br>
+<code>sudo service logstash start</code></p>
+<h3 id="verify-syslog-on-kibana">Verify Syslog on Kibana</h3>
+<p>On <strong>Kibana</strong>, define a new Index Pattern <code>logstash-*</code> and select it in the Discover dashboard. Assuming that your network devices are pointing to the Elastic Stack server for syslog, you should now start seeing the syslog messages from the devices on Kibana dashboard.</p>
+<!-- raw HTML omitted -->
+<h3 id="add-field-extractions">Add Field Extractions</h3>
+<p>To be able to pass relevant information such as the switch interface name (for the link which went down) and IP address to the StackStorm Auto-Remediation workflow, the info has to be first extracted from the log message body. We use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html">Logstash Filters</a> &amp; <a href="https://www.elastic.co/guide/en/kibana/current/managing-fields.html">Kibana Fields</a> to do this. Add the following filter to the Logstash config and restart all Elastic Stack services.</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-logstash_filter-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              filter {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_filter-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_filter-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              if [type] == &quot;syslog&quot; {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_filter-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_filter-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              grok {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_filter-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_filter-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              match =&gt; { &quot;message&quot; =&gt; &quot;Interface %{GREEDYDATA:interfacename} is link down&quot; }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_filter-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_filter-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              add_field =&gt; [ &quot;received_at&quot;, &quot;%{@timestamp}&quot;]
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_filter-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_filter-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              add_field =&gt; [ &quot;received_from&quot;, &quot;%{host}&quot; ]
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_filter-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_filter-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_filter-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_filter-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-logstash_filter-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-logstash_filter-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf/raw/34f848645d149c946475088abb4a55c2bc9abe46/logstash_filter&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf#file-logstash_filter&quot;&gt;logstash_filter&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>Once this is done, fields <code>interfacename</code> and <code>host</code> will start getting auto-populated for each syslog message. Yes, <code>interfacename</code> extraction will work only for “link down” syslog messages but that’s good enough for our demonstration. Of course, you can use more specific grok text pattern matching for better filtering.</p>
+<!-- raw HTML omitted -->
+<h3 id="sense-app-for-kibana">Sense App for Kibana</h3>
+<p>The <strong>Sense</strong> App is nice for interacting with the REST API of Elasticsearch. We use it to create a <em>watch</em> to trigger our workflow. It is a convenient way to quickly test out elastic search configurations via the REST interface. Follow the official documentation <a href="https://www.elastic.co/guide/en/sense/current/installing.html">here</a> to install Sense.</p>
+<!-- raw HTML omitted -->
+<h3 id="install-watcher-create-a-watch">Install Watcher, Create a Watch</h3>
+<p>We use Elasticsearch Watcher Plugin for the alerting functionality required for triggering the StackStorm workflow. After <a href="https://www.elastic.co/guide/en/watcher/current/installing-watcher.html#package-installation">installing the plugin</a>, use Sense to create a watch: an alert which calls a webhook into StackStorm whenever the “link down” syslog message is received from a switch (determined by a match criteria and a condition).</p>
+<blockquote>
+<p>Watcher helps identify changes in your data that are interesting to you by using the Elasticsearch query language. It provides multiple alerting options with built-in integrations and comes with a powerful webhook output for integration with your existing monitoring infrastructure or any third-party system.</p>
+</blockquote>
+<p>Watch definition:</p>
+<!-- raw HTML omitted -->
+<pre><code>            &lt;td id=&quot;file-watcher_watch-LC1&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              PUT _watcher/watch/my_demo_watch
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L2&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;2&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC2&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L3&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;3&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC3&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;trigger&quot; : {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L4&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;4&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC4&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;schedule&quot; : { &quot;interval&quot; : &quot;5s&quot; }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L5&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;5&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC5&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              },
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L6&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;6&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC6&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;input&quot; : {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L7&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;7&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC7&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;search&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L8&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;8&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC8&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;request&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L9&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;9&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC9&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;indices&quot;: &quot;logstash-*&quot;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L10&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;10&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC10&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;body&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L11&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;11&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC11&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;query&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L12&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;12&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC12&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;bool&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L13&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;13&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC13&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;must&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L14&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;14&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC14&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;match_phrase&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L15&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;15&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC15&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;message&quot;: &quot;is link down&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L16&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;16&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC16&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L17&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;17&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC17&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              },
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L18&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;18&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC18&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;filter&quot; : {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L19&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;19&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC19&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;range&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L20&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;20&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC20&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;@timestamp&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L21&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;21&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC21&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;from&quot;: &quot;now-8s&quot;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L22&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;22&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC22&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;to&quot;: &quot;now&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L23&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;23&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC23&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L24&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;24&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC24&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L25&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;25&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC25&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L26&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;26&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC26&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L27&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;27&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC27&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L28&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;28&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC28&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L29&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;29&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC29&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L30&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;30&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC30&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L31&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;31&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC31&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              },
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L32&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;32&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC32&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;condition&quot; : {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L33&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;33&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC33&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;compare&quot; : { &quot;ctx.payload.hits.total&quot; : { &quot;gt&quot; : 0 }}
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L34&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;34&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC34&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              },
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L35&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;35&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC35&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;actions&quot; : {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L36&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;36&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC36&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;my_webhook&quot; : {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L37&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;37&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC37&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;webhook&quot; : {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L38&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;38&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC38&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;scheme&quot; : &quot;https&quot;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L39&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;39&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC39&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;port&quot; : 443,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L40&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;40&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC40&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;method&quot; : &quot;POST&quot;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L41&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;41&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC41&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;host&quot; : &quot;bwc&quot;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L42&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;42&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC42&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;path&quot; : &quot;/api/v1/webhooks/elk_link_flap?st2-api-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;,
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L43&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;43&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC43&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;headers&quot;: {
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L44&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;44&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC44&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;Content-Type&quot;: &quot;application/json&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L45&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;45&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC45&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              },
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L46&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;46&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC46&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              &quot;body&quot; : &quot;{\&quot;host\&quot;: \&quot;{{ctx.payload.hits.hits.0._source.host}}\&quot;, \&quot;interface\&quot;: \&quot;{{ctx.payload.hits.hits.0._source.interfacename}}\&quot;}&quot;
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L47&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;47&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC47&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L48&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;48&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC48&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L49&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;49&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC49&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+          
+          &lt;tr&gt;
+            &lt;td id=&quot;file-watcher_watch-L50&quot; class=&quot;blob-num js-line-number&quot; data-line-number=&quot;50&quot;&gt;
+            &lt;/td&gt;
+            
+            &lt;td id=&quot;file-watcher_watch-LC50&quot; class=&quot;blob-code blob-code-inner js-file-line&quot;&gt;
+              }
+            &lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/table&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;gist-meta&quot;&gt;
+  &lt;a href=&quot;https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf/raw/34f848645d149c946475088abb4a55c2bc9abe46/watcher_watch&quot; style=&quot;float:right&quot;&gt;view raw&lt;/a&gt; &lt;a href=&quot;https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf#file-watcher_watch&quot;&gt;watcher_watch&lt;/a&gt; hosted with &amp;#10084; by &lt;a href=&quot;https://github.com&quot;&gt;GitHub&lt;/a&gt;
+&lt;/div&gt;
+</code></pre>
+<!-- raw HTML omitted -->
+<p>The watch has the following characteristics:</p>
+<ul>
+<li><strong>Schedule</strong>: Runs every 5 seconds.</li>
+<li><strong>Match Criteria</strong>: Messages in index <code>logstash-*</code> containing string “is link down” received in the last 8 seconds.</li>
+<li><strong>Condition</strong>: If the filtered message count at watch run time is greater than 0.</li>
+<li><strong>Actions</strong>: Call a webhook into StackStorm passing parameter values for <code>host</code> (switch IP address) and <code>interfacename</code> (identity of the interface that went down).</li>
+</ul>
+<h3 id="putting-it-together">Putting it together</h3>
+<p>We are now ready with the configurations and its time to verify our automation. Trigger the event (in this case, link down), confirm that the syslog for the event shows up on the Kibana dashboard and finally validate the execution of the StackStorm workflow to see the programmed auto-remediation in action. That’s it. You now have syslog driven auto-remediation working in your environment with the Elastic Stack!</p><ul class="pa0">
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/auto-remediation" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Auto-remediation</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/elastic-stack" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">Elastic Stack</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/networking" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">networking</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/syslog" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">syslog</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/tutorials" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">tutorials</a>
+   </li>
+  
+   <li class="list">
+     <a href="/stackstorm.com/tags/workflows" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">workflows</a>
+   </li>
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/">Auto-Remediation with StackStorm &amp; Splunk</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/11/03/stackstorm-at-openstack-barcelona/">StackStorm at OpenStack Barcelona</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/10/27/auto-remediation-for-real-self-healing-clouds/">Auto-Remediation for Real: Self-Healing Clouds and Auto-Remediation as a Service</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/10/13/auto-remediation-meetup-stories-demos-netflix-mirantis/">Auto-Remediation Meetup: Stories &amp; Demos by Netflix and Mirantis</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/10/12/openstack-summit-barcelona-preview/">OpenStack Summit Barcelona Preview: Resiliency, High Availability, Adaptability, and Self-Healing with StackStorm Event-Driven Automation</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/09/20/troubleshoot_a_rule/">How to Troubleshoot a Rule</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/08/23/summary-brocade-workflow-composer-nfd-12/">Summary – Brocade Workflow Composer at NFD 12</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/">Network Automation with StackStorm and Docker</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/12/02/getting-started-with-auto-remediation/">Auto-Remediation: Getting Started</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/">Auto-remediation by example: handling out-of-disk-space.</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/">Tutorial of the Week: Cassandra Auto-Remediation</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/10/01/octopusdeploy-integration-with-stackstorm/">OctopusDeploy Integration with StackStorm</a>
+        </li>
+	    
+	     <li  class="mb2">
+          <a href="/stackstorm.com/2015/05/29/ahh-02-workflow-construction/">AHH #02 – Workflow Construction</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Using StackStorm to Auto-Invite Users to a Slack Organization | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="June 30, 2015
+by Patrick Hoolboom
+Slack is an amazing tool but sending invitations was a little bit of a pain point for us. So we figured (like we do), let’s automate it! Before we dig in to how we did this, if you haven’t signed up for the StackStorm-Community, do it now: StackStorm-Community 
+{#user-content-a-shout-out.anchor}A Shout Out
+First, I’d like to thank the academy…wait…wrong speech. In all seriousness, I found the following blog and it made writing these automation so simple. I have to give credit where credit is due:
+levels.io/slack-typeform-auto-invite-sign-ups
+So go tweet at him, or send him chocolates or ponies. He deserves it!">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Using StackStorm to Auto-Invite Users to a Slack Organization" />
+<meta property="og:description" content="June 30, 2015
+by Patrick Hoolboom
+Slack is an amazing tool but sending invitations was a little bit of a pain point for us. So we figured (like we do), let’s automate it! Before we dig in to how we did this, if you haven’t signed up for the StackStorm-Community, do it now: StackStorm-Community 
+{#user-content-a-shout-out.anchor}A Shout Out
+First, I’d like to thank the academy…wait…wrong speech. In all seriousness, I found the following blog and it made writing these automation so simple. I have to give credit where credit is due:
+levels.io/slack-typeform-auto-invite-sign-ups
+So go tweet at him, or send him chocolates or ponies. He deserves it!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2015/06/30/using-stackstorm-to-auto-invite-users-to-a-slack-organization/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2015-07-01T01:45:41+00:00" />
+<meta property="article:modified_time" content="2015-07-01T01:45:41+00:00" />
+
+<meta itemprop="name" content="Using StackStorm to Auto-Invite Users to a Slack Organization">
+<meta itemprop="description" content="June 30, 2015
+by Patrick Hoolboom
+Slack is an amazing tool but sending invitations was a little bit of a pain point for us. So we figured (like we do), let’s automate it! Before we dig in to how we did this, if you haven’t signed up for the StackStorm-Community, do it now: StackStorm-Community 
+{#user-content-a-shout-out.anchor}A Shout Out
+First, I’d like to thank the academy…wait…wrong speech. In all seriousness, I found the following blog and it made writing these automation so simple. I have to give credit where credit is due:
+levels.io/slack-typeform-auto-invite-sign-ups
+So go tweet at him, or send him chocolates or ponies. He deserves it!"><meta itemprop="datePublished" content="2015-07-01T01:45:41+00:00" />
+<meta itemprop="dateModified" content="2015-07-01T01:45:41+00:00" />
+<meta itemprop="wordCount" content="1271">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Using StackStorm to Auto-Invite Users to a Slack Organization"/>
+<meta name="twitter:description" content="June 30, 2015
+by Patrick Hoolboom
+Slack is an amazing tool but sending invitations was a little bit of a pain point for us. So we figured (like we do), let’s automate it! Before we dig in to how we did this, if you haven’t signed up for the StackStorm-Community, do it now: StackStorm-Community 
+{#user-content-a-shout-out.anchor}A Shout Out
+First, I’d like to thank the academy…wait…wrong speech. In all seriousness, I found the following blog and it made writing these automation so simple. I have to give credit where credit is due:
+levels.io/slack-typeform-auto-invite-sign-ups
+So go tweet at him, or send him chocolates or ponies. He deserves it!"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2015/06/30/using-stackstorm-to-auto-invite-users-to-a-slack-organization/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2015/06/30/using-stackstorm-to-auto-invite-users-to-a-slack-organization/&amp;text=Using%20StackStorm%20to%20Auto-Invite%20Users%20to%20a%20Slack%20Organization" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2015/06/30/using-stackstorm-to-auto-invite-users-to-a-slack-organization/&amp;title=Using%20StackStorm%20to%20Auto-Invite%20Users%20to%20a%20Slack%20Organization" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Using StackStorm to Auto-Invite Users to a Slack Organization</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2015-07-01T01:45:41Z">July 1, 2015</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>June 30, 2015</strong><br>
+<em>by Patrick Hoolboom</em></p>
+<p>Slack is an amazing tool but sending invitations was a little bit of a pain point for us. So we figured (like we do), let’s automate it! Before we dig in to how we did this, if you haven’t signed up for the StackStorm-Community, do it now: <!-- raw HTML omitted -->StackStorm-Community <!-- raw HTML omitted --></p>
+<h2 id="1user-content-a-shout-outanchora-shout-out"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#a-shout-out"></a>{#user-content-a-shout-out.anchor}A Shout Out</h2>
+<p>First, I’d like to thank the academy…wait…wrong speech. In all seriousness, I found the following blog and it made writing these automation so simple. I have to give credit where credit is due:</p>
+<p><!-- raw HTML omitted -->levels.io/slack-typeform-auto-invite-sign-ups<!-- raw HTML omitted --></p>
+<p>So go tweet at him, or send him chocolates or ponies. He deserves it!</p>
+<h2 id="2user-content-whyanchorwhy"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#why"></a>{#user-content-why.anchor}Why?</h2>
+<p>We have been using Slack for internal communication for quite a while now. We love it. The search functionality, the doc uploads, all of it is fantastic for us. As we began maturing our ChatOps story, we did almost all of that development work through Slack.</p>
+<p>Conversely, a majority of our customer interactions were done via Google Groups or our IRC channel (#stackstorm on Freenode). Neither of these methods were inherently bad but they missed a lot of the fun features you get from using Slack or another rich chat client. Who doesn’t want images to automatically show up in the room when a link is posted? 🙂</p>
+<p>So as we were working on a way for people to test out our ChatOps integration we decided to use a separate Slack organization. We got all the fun features of Slack plus we also easily have a StackStorm bot in the room with all sorts of neat actions for people to use.</p>
+<p><a href="http://stackstorm.com/wp/wp-content/uploads/2015/06/687474703a2f2f692e696d6775722e636f6d2f396a6f64777a382e706e67.png"><!-- raw HTML omitted --></a></p>
+<h2 id="4user-content-howanchorhow"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#how"></a>{#user-content-how.anchor}How?</h2>
+<h3 id="5user-content-prerequisitesanchorprerequisites"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#prerequisites"></a>{#user-content-prerequisites.anchor}Prerequisites</h3>
+<p>Beyond a working StackStorm installation, the following four integration packs are required for this to work.</p>
+<ul>
+<li><!-- raw HTML omitted -->typeform<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->st2-slack<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->st2-mysql<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->st2-community<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="6user-content-designanchordesign"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#design"></a>{#user-content-design.anchor}Design</h3>
+<p>First, it wasn’t easy figuring out exactly what a “public” Slack organization would be. I kept thinking there would be some specific designator for this, but there isn’t. So we spun up:</p>
+<p><!-- raw HTML omitted -->stackstorm-community.slack.com<!-- raw HTML omitted --></p>
+<p>By default, only people with email addresses from the domain you specified when setting up the org could sign up through the Slack interface. In order to invite the community, we needed an admin to send them an invitation. This started to smell like a good opportunity for automation.</p>
+<p>After reading through <!-- raw HTML omitted -->@levelsio’s blog<!-- raw HTML omitted --> I knew how he had done it, but I wanted to do it a little different. This was the design I had in mind:</p>
+<ol>
+<li>Typeform polling sensor periodically pulls completed form submissions and emits triggers with new users.</li>
+<li>A rule would match on this trigger and fire a simple action chain workflow</li>
+<li>The action chain workflow would do two things
+<ol>
+<li>Add the user registration information to a MySQL db</li>
+<li>Send out the Slack invitation.</li>
+</ol>
+</li>
+</ol>
+<h3 id="7user-content-typeform-sensoranchortypeform-sensor"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#typeform-sensor"></a>{#user-content-typeform-sensor.anchor}Typeform Sensor</h3>
+<p>This seemed simple enough. I started out writing the Typeform sensor using the API endpoint information I had gotten from the blog as a jumping off point.</p>
+<p>If anyone wants to skip over my beautiful prose and just read code, the sensor is located here:</p>
+<p><!-- raw HTML omitted -->Typeform Sensor<!-- raw HTML omitted --></p>
+<p>I needed a way to validate that the sensor only emitted triggers on new user registrations. I realized that Slack will not send an invitation to the same email address more than once so I used email as my uniqueness constraint. The sensor retrieves the completed list of submissions from the Typeform API, then queries the MySQL database to see if that user is already in there. If they are, it skips them. Otherwise, it emits a trigger with the new user information.</p>
+<p>For the sensor metadata, you can see that the parameters all map to fields on the form (except the date_* fields which are metadata sent from the Typeform API) but the only one required is email. This matches the setup of the form.</p>
+<p><!-- raw HTML omitted -->registration_sensor.yaml<!-- raw HTML omitted --></p>
+<pre><code>---
+  class_name: &quot;TypeformRegistrationSensor&quot;
+  entry_point: &quot;registration_sensor.py&quot;
+  description: &quot;Sensor which monitors for new Typeform registrations&quot;
+  poll_interval: 60
+  trigger_types:
+    -
+      name: &quot;registration&quot;
+      description: &quot;Trigger which indicates a new registration&quot;
+      payload_schema:
+        type: &quot;object&quot;
+        properties:
+          email:
+            type: &quot;string&quot;
+            required: true
+          first_name:
+            type: &quot;string&quot;
+          last_name:
+            type: &quot;string&quot;
+          source:
+            type: &quot;string&quot;
+          newsletter:
+            type: &quot;string&quot;
+          referer:
+            type: &quot;string&quot;
+          date_land:
+            type: &quot;string&quot;
+          date_submit:
+            type: &quot;string&quot;
+</code></pre>
+<p><strong>NOTE:</strong></p>
+<p><em>I had created the MySQL database prior to writing the sensor. In order to use this yourself, you will need to follow the Typeform integration pack README.</em></p>
+<p><strong>Configuration</strong></p>
+<p>The Typeform pack requires a bit of configuration. You’ll need to go to the admin page of your Typeform account and get your API key. You’ll also need to pull the form id from the URL of your Typeform form. The URL looks like this: <!-- raw HTML omitted --><a href="https://stackstorm.typeform.com/to/K76GRP">https://stackstorm.typeform.com/to/K76GRP</a><!-- raw HTML omitted --></p>
+<p>In our case, the form ID is <strong>K76GRP</strong></p>
+<p>Add both the API key, and the form id to your Typeform pack config.yaml. Also add in the credentials for your database while you are there.</p>
+<h3 id="8user-content-shiny-new-slack-actionsanchorshiny-new-slack-actions"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#shiny-new-slack-actions"></a>{#user-content-shiny-new-slack-actions.anchor}Shiny New Slack Actions</h3>
+<p>An interesting side effect of revisiting our Slack integration was that we ended up with a whole bunch of shiny new Slack actions! The new Slack pack is located here:</p>
+<ul>
+<li><!-- raw HTML omitted -->st2-slack<!-- raw HTML omitted --></li>
+</ul>
+<p>The action that matters for this use case is <code>slack.users.admin.invite</code>. This action lets us send an invitation to our Slack organization to any email address, whether or not the domain matches the one we set the organization up for. Woohoo!</p>
+<p>This is another chance for me to plug <!-- raw HTML omitted -->@levelsio’s blog<!-- raw HTML omitted -->. The admin API is <strong>not</strong> documented. He had discovered this and saved me quite a bit of work. 🙂</p>
+<h4 id="9user-content-configuration-1anchorconfiguration"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#configuration-1"></a>{#user-content-configuration-1.anchor}Configuration</h4>
+<p>Now, this does require a little set up on the Slack side. You’ll need to get an <strong>admin</strong> api token and add it to the **admin **section of the Slack pack config.yaml. The admin API token is slightly different than the API token used to access the other actions. You’ll need to create an application at the following link and use that token: <!-- raw HTML omitted -->Slack Applications<!-- raw HTML omitted --></p>
+<p>Also in the admin section of the config.yaml, you will need to configure your Slack organization name. This is the name as it appears in the beginning of the organization’s url. In our case, it would be <code>stackstorm-community</code>.</p>
+<p><strong><em><a href="https://stackstorm-community.slack.com">https://stackstorm-community.slack.com</a></em></strong></p>
+<h3 id="10user-content-workflowanchorworkflow"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#workflow"></a>{#user-content-workflow.anchor}Workflow</h3>
+<p>This part is pretty straight forward. An action chain that writes the data to the database and sends the slack invite…two sequential steps.</p>
+<p><!-- raw HTML omitted -->Action Chain: register_and_invite.yaml<!-- raw HTML omitted --></p>
+<pre><code>---
+  chain:
+    -
+      name: &quot;insert_registration&quot;
+      ref: &quot;mysql.insert&quot;
+      params:
+        db: &quot;community&quot;
+        table: &quot;user_registration&quot;
+        data: &quot;{{registration_data}}&quot;
+      publish:
+        email: &quot;{{registration_data.email}}&quot;
+        first_name: &quot;{{registration_data.first_name}}&quot;
+      on-success: &quot;send_slack_invite&quot;
+    - 
+      name: &quot;send_slack_invite&quot;
+      ref: &quot;slack.users.admin.invite&quot;
+      params: 
+        email: &quot;{{email}}&quot;
+        first_name: &quot;{{first_name}}&quot;
+
+  default: &quot;insert_registration&quot;
+</code></pre>
+<p><!-- raw HTML omitted -->Action Metadata: register_and_invite.yaml<!-- raw HTML omitted --></p>
+<pre><code>---
+  name: &quot;register_and_invite&quot;
+  runner_type: &quot;action-chain&quot;
+  description: &quot;Send Slack invitation based on Typeform submissins&quot;
+  enabled: true
+  entry_point: &quot;chains/register_and_invite.yaml&quot;
+  parameters:
+    registration_data:
+      type: &quot;object&quot;
+      required: true
+      description: &quot;Registration data as formatted when sent from Typeform&quot;
+</code></pre>
+<p>Simple enough.</p>
+<h3 id="11user-content-ruleanchorrule"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#rule"></a>{#user-content-rule.anchor}Rule</h3>
+<p>This was also quite easy to write. Nothing magic here.</p>
+<p><!-- raw HTML omitted -->typeform_invite.yaml<!-- raw HTML omitted --></p>
+<pre><code>---
+name: &quot;typeform_invite&quot;
+enabled: true
+description: &quot;Write to DB and send invite on new user submission&quot;
+trigger:
+  pack: &quot;typeform&quot;
+  type: &quot;typeform.registration&quot;
+criteria: {}
+action:
+  ref: community.register_and_invite
+  parameters:
+    registration_data: &quot;{{trigger}}&quot;
+</code></pre>
+<h2 id="12user-content-conclusionanchorconclusion"><a href="https://github.com/StackStorm/blogs/blob/master/2015/06/autoinvite_to_slack.md#conclusion"></a>{#user-content-conclusion.anchor}Conclusion</h2>
+<p>And that’s it. Users can now fill out the Typeform form and get an invitation to the StackStorm-Community Slack Org! Overall, a pretty simple process. One really big aspect of automating this through the StackStorm platform is the visibility I have through the CLI or UI. If a complaint comes in that their invitation hasn’t arrived yet, I can check the status of the workflow through the Web UI or CLI. Or even get visibility in to the actual trigger that was emitted by the sensor through the <code>trigger-instance list</code> functionality we recently added to the CLI. So, everyone come sign up! <!-- raw HTML omitted -->StackStorm-Community<!-- raw HTML omitted --></p>
+<p>Also, feel free to tweet about us <!-- raw HTML omitted -->@Stack_Storm<!-- raw HTML omitted -->, contact us at <!-- raw HTML omitted --><a href="mailto:support@stackstorm.com">support@stackstorm.com</a><!-- raw HTML omitted -->, or even check out the IRC channel on Freenode #stackstorm. Though, if you use the last one we’ll probably point you back to the StackStorm-Community Slack Channels!</p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>swarm on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/swarm/</link>
+    <description>Recent content in swarm on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 22 Jun 2017 08:14:50 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/swarm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Autoscaling Swarm on AWS with StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/</link>
+      <pubDate>Thu, 22 Jun 2017 08:14:50 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 22, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by &lt;a href=&#34;https://twitter.com/dzimine&#34;&gt;Dmitri Zimine&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In this blog, we show how to scale out a Docker Swarm Cluster based on container workload, so that you don’t over-provision your AWS cluster and pay for just enough instances to run your containers. Learn how we achieved this, watch the &lt;em&gt;2 min video&lt;/em&gt; to see it in action. Read the blog for details. Grab our code recipe and adjust it to your liking and use to auto-scale your Swarm on AWS.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

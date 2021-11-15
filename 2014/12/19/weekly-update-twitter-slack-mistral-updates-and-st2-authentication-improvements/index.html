@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>Weekly Update: Twitter, Slack, Mistral, And St2 Authentication Improvements | StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="December 19, 2014
+by Patrick Hoolboom
+As promised, the weekly StackStorm update! The team has been hard at work on platform improvements, getting the web interface squared away as we worked towards releasing it, as well as cleaning up some loose ends in the community repo and adding new integrations.
+We are seeing some more feedback and even contributions – thank you for those, and please keep them coming!
+This blog will be on hiatus next week unless Santa delivers an amazing new integration I’m not expecting.">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="Weekly Update: Twitter, Slack, Mistral, And St2 Authentication Improvements" />
+<meta property="og:description" content="December 19, 2014
+by Patrick Hoolboom
+As promised, the weekly StackStorm update! The team has been hard at work on platform improvements, getting the web interface squared away as we worked towards releasing it, as well as cleaning up some loose ends in the community repo and adding new integrations.
+We are seeing some more feedback and even contributions – thank you for those, and please keep them coming!
+This blog will be on hiatus next week unless Santa delivers an amazing new integration I’m not expecting." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/2014/12/19/weekly-update-twitter-slack-mistral-updates-and-st2-authentication-improvements/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2014-12-19T21:44:25+00:00" />
+<meta property="article:modified_time" content="2014-12-19T21:44:25+00:00" />
+
+<meta itemprop="name" content="Weekly Update: Twitter, Slack, Mistral, And St2 Authentication Improvements">
+<meta itemprop="description" content="December 19, 2014
+by Patrick Hoolboom
+As promised, the weekly StackStorm update! The team has been hard at work on platform improvements, getting the web interface squared away as we worked towards releasing it, as well as cleaning up some loose ends in the community repo and adding new integrations.
+We are seeing some more feedback and even contributions – thank you for those, and please keep them coming!
+This blog will be on hiatus next week unless Santa delivers an amazing new integration I’m not expecting."><meta itemprop="datePublished" content="2014-12-19T21:44:25+00:00" />
+<meta itemprop="dateModified" content="2014-12-19T21:44:25+00:00" />
+<meta itemprop="wordCount" content="449">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Weekly Update: Twitter, Slack, Mistral, And St2 Authentication Improvements"/>
+<meta name="twitter:description" content="December 19, 2014
+by Patrick Hoolboom
+As promised, the weekly StackStorm update! The team has been hard at work on platform improvements, getting the web interface squared away as we worked towards releasing it, as well as cleaning up some loose ends in the community repo and adding new integrations.
+We are seeing some more feedback and even contributions – thank you for those, and please keep them coming!
+This blog will be on hiatus next week unless Santa delivers an amazing new integration I’m not expecting."/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        POSTS
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://stackstorm.github.io/stackstorm.com/2014/12/19/weekly-update-twitter-slack-mistral-updates-and-st2-authentication-improvements/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://stackstorm.github.io/stackstorm.com/2014/12/19/weekly-update-twitter-slack-mistral-updates-and-st2-authentication-improvements/&amp;text=Weekly%20Update:%20Twitter,%20Slack,%20Mistral,%20And%20St2%20Authentication%20Improvements" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://stackstorm.github.io/stackstorm.com/2014/12/19/weekly-update-twitter-slack-mistral-updates-and-st2-authentication-improvements/&amp;title=Weekly%20Update:%20Twitter,%20Slack,%20Mistral,%20And%20St2%20Authentication%20Improvements" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">Weekly Update: Twitter, Slack, Mistral, And St2 Authentication Improvements</h1>
+      
+      <p class="tracked">
+          By <strong>
+          
+              st2admin
+          
+          </strong>
+      </p>
+      
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2014-12-19T21:44:25Z">December 19, 2014</time>
+      
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><strong>December 19, 2014</strong></p>
+<p><em>by Patrick Hoolboom</em></p>
+<p>As promised, the weekly StackStorm update! The team has been hard at work on platform improvements, getting the web interface squared away as we worked towards releasing it, as well as cleaning up some loose ends in the community repo and adding new integrations.</p>
+<p>We are seeing some more feedback and even contributions – thank you for those, and please keep them coming!</p>
+<p>This blog will be on hiatus next week unless Santa delivers an amazing new integration I’m not expecting.</p>
+<h6 id="community">COMMUNITY</h6>
+<h3 id="stable">STABLE</h3>
+<p>Changes to our main community repo, <!-- raw HTML omitted -->StackStorm Exchange<!-- raw HTML omitted -->, include:</p>
+<p><strong>Twitter</strong><br>
+A new Twitter integration pack was introduced that includes a sensor for fetching tweets that match certain keywords. Ever wanted to trigger your automations with tweets? Well this is the pack for you. Also included is a sample rule for posting these tweets directly to Slack.</p>
+<p><strong>Slack</strong><br>
+The initial Slack integration pack gives an action to post messages to Slack channel. We use Slack quite heavily at StackStorm so we are excited to start leveraging this integration.</p>
+<p><strong>libcloud</strong><br>
+Improved support for exoscale was added to the libcloud pack. Special thanks to <!-- raw HTML omitted -->@sebgoa<!-- raw HTML omitted --> for contributing these additions — and for some excellent ongoing feedback and direction.</p>
+<p><strong>Bug Fixes:</strong></p>
+<ul>
+<li>JIRA sensor registration</li>
+</ul>
+<h3 id="in-development-integrations">IN DEVELOPMENT INTEGRATIONS</h3>
+<p>Changes to our development integration repo: <!-- raw HTML omitted -->st2incubator<!-- raw HTML omitted -->, include:</p>
+<p><strong>freight</strong><br>
+Updates have been made to the freight pack to support adding multiple packages with a single action call and making the cache update action more concise.</p>
+<p><strong>st2cd</strong></p>
+<p>We have begun to release the internal build and delivery tools used by StackStorm to build StackStorm (automation inception). The initial pack includes actions for testing and packaging StackStorm as well as workflows to replicate the build pipeline on AWS. There will be a detailed blog coming in the next week or so that outlines how StackStorm solves this use case for us.</p>
+<p><strong>AWS</strong><br>
+Additional output filters have been added to the AWS pack. Output is now cleaner for the following:</p>
+<ul>
+<li>Instance Objects</li>
+<li>Volume Objects</li>
+<li>Reservation Objects</li>
+</ul>
+<h6 id="platform">PLATFORM</h6>
+<h3 id="upcoming-release">UPCOMING RELEASE</h3>
+<p><strong>Webhook Visibility</strong><br>
+It’s now easy to see all registered webhooks by making an API call. GET /v1/webhooks/.</p>
+<p><strong>MISTRAL</strong><br>
+A new version of the OpenStack related workflow engine Mistral was released today: 2015.1.0b1</p>
+<p>Many updated features include but are not limited to ‘join’ and ‘pause-resume’. For more details please see <!-- raw HTML omitted --><a href="https://pypi.python.org/pypi/mistral/2015.1.0b1">https://pypi.python.org/pypi/mistral/2015.1.0b1</a><!-- raw HTML omitted -->: Mistral is part of the st2 distribution and is installed when you get StackStorm.</p>
+<p>If you haven’t already, we invite you to check out our product by <a href="http://docs.stackstorm.com/install/index.html">install</a>ing StackStorm and following the <!-- raw HTML omitted -->quick start<!-- raw HTML omitted --> instructions — it will take less than 30 minutes to give you a taste of our automation. Share your thoughts and ideas via <a href="https://groups.google.com/forum/#!forum/stackstorm">stackstorm@googlegroups.com</a>,<!-- raw HTML omitted -->#stackstorm on irc.freenode.net<!-- raw HTML omitted --> or on Twitter <!-- raw HTML omitted -->@Stack_Storm<!-- raw HTML omitted -->.</p><ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>

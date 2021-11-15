@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>new feature on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/new-feature/</link>
+    <description>Recent content in new feature on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Nov 2017 16:58:38 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/new-feature/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New in StackStorm 2.5: Real-time action output streaming</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/11/07/new-stackstorm-2-5-real-time-action-output-streaming/</link>
+      <pubDate>Tue, 07 Nov 2017 16:58:38 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/11/07/new-stackstorm-2-5-real-time-action-output-streaming/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;November 07, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Tomaz Muraus&lt;/em&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>New in StackStorm 2.5: Inquiries</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/10/31/new-stackstorm-2-5-inquiries/</link>
+      <pubDate>Tue, 31 Oct 2017 16:29:25 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/10/31/new-stackstorm-2-5-inquiries/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/&#34;&gt;StackStorm 2.5&lt;/a&gt;  introduces one of our most highly requested features: “&lt;a href=&#34;https://docs.stackstorm.com/inquiries.html&#34;&gt;Inquiries&lt;/a&gt;”. Inquiries are a way of “asking a question” in the middle of a workflow (Mistral or ActionChain), to get additional data before moving on.&lt;/p&gt;
+&lt;p&gt;For instance, while you can store service credentials in the StackStorm datastore and retrieve them using a Jinja snippet, some services require two-factor authentication. It’s necessary, therefore, to be able to pause the workflow at a certain point, and allow a human to “inject” this data into the workflow midstream. There are a number of other use cases for this functionality, including the simple “I’m about to do something stupid dangerous, should I proceed?”.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackstorm.com/wp/wp-content/uploads/2017/10/swtn.gif&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Before we get into Inquiries and how they work, an important note: we’ve been working hard on making sure the new feature is useful for a variety of use cases, and as robust as possible. However, it is a complex and fairly low-level feature that has a lot of moving parts, and before recommending it for production use, we’d like to spend a release cycle gathering feedback on the API and the user experience. So, for 2.5, we would love for you to use this feature in your test/dev deployments of StackStorm and let us know what you think. Don’t worry, this is not going to stay “alpha” forever! We expect that it will be “production ready” in StackStorm 2.6, due to ship later this year.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Improved pack configuration, user scoped datastore items and secure secrets store</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/</link>
+      <pubDate>Thu, 30 Jun 2016 15:35:33 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/06/30/improved-pack-configuration-user-scoped-datastore-items-secure-secrets-store/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 30, 2016&lt;/strong&gt;&lt;br&gt;
+By Tomaz Muraus&lt;/p&gt;
+&lt;p&gt;The last couple of months, since the &lt;a href=&#34;https://stackstorm.com/2016/03/29/stackstorm-joining-brocade/&#34;&gt;Brocade acquisition&lt;/a&gt;, have been pretty busy for us here at StackStorm. We have been getting to know our new friends at Brocade, learning the typical networking use-cases and figuring out how we can use StackStorm to automate them and bring all the DevOps and data-center automation goodness to the networking space, while keeping StackStorm a generic DevOps automation platform.&lt;/p&gt;
+&lt;p&gt;As always, we have continued to support our users and the community. We also haven’t been slacking with the StackStorm feature development and improvements. We have worked hard to bring you two new releases in the last 2 months – &lt;a href=&#34;https://stackstorm.com/2016/04/20/stackstorm-v1-4/&#34;&gt;StackStorm v1.4&lt;/a&gt; and &lt;a href=&#34;https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/&#34;&gt;StackStorm v1.5&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;StackStorm v1.5 which has been released just recently includes many new features and improvements so if you haven’t already, I would encourage you to go &lt;a href=&#34;https://stackstorm.com/2016/06/27/stackstorm-v1-5-alive/&#34;&gt;check it out&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Today I will talk about the one of the major new features in StackStorm v1.5 which has been &lt;a href=&#34;https://github.com/StackStorm/st2/issues/2542&#34;&gt;discussed and requested many times in the past&lt;/a&gt; already. That is improved pack configuration.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

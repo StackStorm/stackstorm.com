@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorials on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/categories/tutorials/</link>
+    <description>Recent content in Tutorials on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Apr 2019 01:28:58 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/categories/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Feature: Output Schema</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2019/04/09/new-feature-output-schema/</link>
+      <pubDate>Wed, 10 Apr 2019 01:28:58 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2019/04/09/new-feature-output-schema/</guid>
+      <description>&lt;p&gt;&lt;em&gt;April 9, 2019&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;We added support for &lt;a href=&#34;https://docs.stackstorm.com/latest/actions.html#output-schema&#34;&gt;Output Schema&lt;/a&gt; in StackStorm 2.9. This feature has been “under the radar” for a while. Time to shed a little light, explain what it is, how to use it, and &lt;strong&gt;why&lt;/strong&gt; we added this feature. Read on!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Simplified Network Performance Tests with PerfSonar and SLX</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</link>
+      <pubDate>Thu, 03 May 2018 17:00:21 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/05/03/simplified-network-performance-tests-with-perfsonar-and-slx/</guid>
+      <description>&lt;p&gt;&lt;em&gt;May 3, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.perfsonar.net/&#34;&gt;PerfSonar&lt;/a&gt; is a super handy toolkit for measuring network performance between any two points. Combine this with the Guest VM built into the &lt;a href=&#34;https://www.extremenetworks.com/product/slx-9850-router/&#34;&gt;Extreme SLX series of switches,&lt;/a&gt; and you can easily run performance tests between any two points on your network, measuring performance, latency, jitter, MTU, path taken, etc. Combine that with StackStorm, and you can easily run those tests from Slack. No need to even login to a switch.&lt;/p&gt;
+&lt;h2 id=&#34;demo-network-performance-tests-via-slack&#34;&gt;Demo: Network Performance Tests via Slack&lt;/h2&gt;
+&lt;p&gt;Check out the video here. From Slack, we can trigger different tests between any two switches – &lt;a href=&#34;https://en.wikipedia.org/wiki/Iperf&#34;&gt;performance&lt;/a&gt;, &lt;a href=&#34;http://software.internet2.edu/owamp/&#34;&gt;one-way latency measurement&lt;/a&gt;, or &lt;a href=&#34;https://linux.die.net/man/8/tracepath&#34;&gt;trace the path&lt;/a&gt;, showing the path MTU. The results are then shown in Slack:&lt;/p&gt;
+&lt;p&gt;Read on for more about how to set this up.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Simple Packet Captures with SLX and CloudShark</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</link>
+      <pubDate>Fri, 27 Apr 2018 03:54:32 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/04/26/simple-packet-captures-with-slx-and-cloudshark/</guid>
+      <description>&lt;p&gt;&lt;em&gt;April 27, 2018&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;by Lindsay Hill&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Packet Captures are a necessary evil when you need to prove network innocence. But they’re tedious to configure, collect &amp;amp; analyze. What if you could simplify the setup, collection and viewing? That’s what we’ve done here, combining StackStorm, Extreme Insight Architecture, &lt;a href=&#34;https://www.cloudshark.org&#34;&gt;CloudShark&lt;/a&gt;, and of course Slack.&lt;/p&gt;
+&lt;h2 id=&#34;demo-running-packet-captures-from-slack&#34;&gt;Demo: Running Packet Captures from Slack&lt;/h2&gt;
+&lt;p&gt;Check out the video here – we show entering some commands in Slack, which triggers a packet capture on multiple switches. The PCAPs are automatically uploaded to CloudShark, so we can view the packets in our browser:&lt;/p&gt;
+&lt;p&gt;Read on for more about how to set this up.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New in StackStorm 2.5: Real-time action output streaming</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/11/07/new-stackstorm-2-5-real-time-action-output-streaming/</link>
+      <pubDate>Tue, 07 Nov 2017 16:58:38 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/11/07/new-stackstorm-2-5-real-time-action-output-streaming/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;November 07, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Tomaz Muraus&lt;/em&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>New in StackStorm 2.5: Inquiries</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/10/31/new-stackstorm-2-5-inquiries/</link>
+      <pubDate>Tue, 31 Oct 2017 16:29:25 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/10/31/new-stackstorm-2-5-inquiries/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackstorm.com/2017/10/26/stackstorm-2-5-hit-streets/&#34;&gt;StackStorm 2.5&lt;/a&gt;  introduces one of our most highly requested features: “&lt;a href=&#34;https://docs.stackstorm.com/inquiries.html&#34;&gt;Inquiries&lt;/a&gt;”. Inquiries are a way of “asking a question” in the middle of a workflow (Mistral or ActionChain), to get additional data before moving on.&lt;/p&gt;
+&lt;p&gt;For instance, while you can store service credentials in the StackStorm datastore and retrieve them using a Jinja snippet, some services require two-factor authentication. It’s necessary, therefore, to be able to pause the workflow at a certain point, and allow a human to “inject” this data into the workflow midstream. There are a number of other use cases for this functionality, including the simple “I’m about to do something stupid dangerous, should I proceed?”.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackstorm.com/wp/wp-content/uploads/2017/10/swtn.gif&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Before we get into Inquiries and how they work, an important note: we’ve been working hard on making sure the new feature is useful for a variety of use cases, and as robust as possible. However, it is a complex and fairly low-level feature that has a lot of moving parts, and before recommending it for production use, we’d like to spend a release cycle gathering feedback on the API and the user experience. So, for 2.5, we would love for you to use this feature in your test/dev deployments of StackStorm and let us know what you think. Don’t worry, this is not going to stay “alpha” forever! We expect that it will be “production ready” in StackStorm 2.6, due to ship later this year.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm Centralized Logging with Graylog</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/</link>
+      <pubDate>Tue, 22 Aug 2017 23:45:41 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/08/22/stackstorm-centralized-logging-graylog/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;August 22, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By Nick Maludy of &lt;a href=&#34;http://www.encore.tech&#34;&gt;Encore Technologies&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Want to implement centralized logging for your StackStorm deployment? Read on to find out how to send your StackStorm logs to Graylog, and produce pretty dashboards like this:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://stackstorm.com/wp/wp-content/uploads/2017/08/dashboard.png&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Installing StackStorm on Offline Systems</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/</link>
+      <pubDate>Fri, 10 Feb 2017 17:45:13 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/02/10/installing-stackstorm-offline-systems/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Feb 10, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Want to install StackStorm on a machine that doesn’t have access to the internet? If you’ve got another box on your local network that connects to the public network, you can do this by making it a local package repository server. In this post, we’ll walk you through steps for setting up an apt-mirror server with the required packages and configuring the &lt;strong&gt;offline&lt;/strong&gt; client machine to quickly get a full StackStorm installation up and running!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Event Driven Auto-Remediation with the Elastic Stack</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</link>
+      <pubDate>Fri, 13 Jan 2017 02:30:10 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/01/12/event-driven-auto-remediation-elastic-stack/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Jan 12, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Recently we explained how to use &lt;a href=&#34;https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&#34;&gt;&lt;strong&gt;Syslog with Splunk &amp;amp; StackStorm&lt;/strong&gt;&lt;/a&gt; to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative – &lt;a href=&#34;https://www.elastic.co/webinars/introduction-elk-stack&#34;&gt;&lt;strong&gt;Elastic Stack&lt;/strong&gt;&lt;/a&gt; (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you’re at the right place! In this post, we’re taking the same &lt;a href=&#34;https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/&#34;&gt;use case as before&lt;/a&gt; and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Execution Time for ChatOps commands</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/11/07/chatops-execution-time/</link>
+      <pubDate>Mon, 07 Nov 2016 17:00:47 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/11/07/chatops-execution-time/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;November 7, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Eugen C. aka &lt;!-- raw HTML omitted --&gt;@armab&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Did you know you can do something like this with &lt;a href=&#34;https://docs.stackstorm.com/chatops/index.html&#34;&gt;StackStorm ChatOps&lt;/a&gt;?&lt;br&gt;
+&lt;img src=&#34;https://i.imgur.com/evtmoCq.png&#34; alt=&#34;ChatOps Command Execution time&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Looks simple, but it’s a very useful thing to have in your ChatOps toolset, especially for potentially long-running commands.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auto-Remediation with StackStorm &amp; Splunk</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</link>
+      <pubDate>Fri, 21 Oct 2016 20:13:26 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Oct 21, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Siddharth Krishna&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.splunk.com&#34;&gt;&lt;strong&gt;Splunk&lt;/strong&gt;&lt;/a&gt; is a great tool for collecting and analyzing log data. StackStorm is a great tool for automated event-driven remediation. So what happens when we stick them together? Here’s how to use Splunk to collect syslog data and trigger event-based network remediation workflows using &lt;strong&gt;StackStorm&lt;/strong&gt;!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to Troubleshoot a Rule</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/09/20/troubleshoot_a_rule/</link>
+      <pubDate>Wed, 21 Sep 2016 02:20:06 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/09/20/troubleshoot_a_rule/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Sep 20, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Dmitri Zimine&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I set up a sensor to watch for a trigger (trigger represents an external event; sensor will fire a trigger-instance of the trigger type when the event is detected). I created a rule: if the trigger happens, and matches the criteria, it should fire an action. I see that event had happened. I expected the actions to fire. But it didn’t happen. Where did it break?&lt;/p&gt;
+&lt;p&gt;This is a long read, and may look complicated. But really, it’s just &lt;em&gt;three debugging steps&lt;/em&gt;. And it’s long because I refuse to write briefly, drop bunch of hints on the way and get you distracted. But as they say in math, the thicker the math book the faster it reads. &lt;strong&gt;Brace yourself&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In the example below, I’ll be showing you how we debugged our Twitter automation that scans tweets for mentions and posts it to Slack. A pretty good way to keep track on who is trash talking about us! The debugging “runbook” is generic and applies to troubleshooting other rules just fine.&lt;/p&gt;
+&lt;p&gt;First, let’s look at the trigger chain and review how it works.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Cisco Spark integration for StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</link>
+      <pubDate>Wed, 23 Mar 2016 04:01:31 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/03/22/cisco-spark-integration-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;March 22, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by &lt;!-- raw HTML omitted --&gt;Anthony Shaw&lt;!-- raw HTML omitted --&gt; of Dimension Data&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I’m “pretty excited” to share some news, we’ve just finished integrating Cisco Spark into StackStorm, via our automation-bot, Hubot.&lt;br&gt;
+This means you can get all of the power of StackStorm chatops from within Cisco Spark rooms and collaboration experiences.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-cisco-spark&#34;&gt;What is Cisco Spark?&lt;/h2&gt;
+&lt;p&gt;Cisco Spark delivers cloud-based business communications that enables customers to message, meet and call anyone, whether it be on their mobile device, desktop or meeting room end-points.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-stackstorm&#34;&gt;What is StackStorm?&lt;/h2&gt;
+&lt;p&gt;StackStorm is an event-driven automation platform that ties together every component of your environment. It’s commonly used for auto-remediation—including response to security events—and other cases such as complex deployments.&lt;/p&gt;
+&lt;h2 id=&#34;configuring-cisco-spark&#34;&gt;Configuring Cisco Spark&lt;/h2&gt;
+&lt;p&gt;If you don’t already have a Cisco Spark account, you can sign up at &lt;a href=&#34;https://www.ciscospark.com/&#34;&gt;www.ciscospark.com&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Once you have signed up, go to &lt;a href=&#34;https://developer.ciscospark.com/&#34;&gt;developer.ciscospark.com&lt;/a&gt; and sign in, then you should be able to generate a key&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://s8.postimg.org/dnq0660g5/developer_key.png&#34; alt=&#34;&#34;&gt;  &lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Improvements to ChatOps Pack Development User Story in ST2 1.4dev</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</link>
+      <pubDate>Mon, 15 Feb 2016 22:34:17 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/15/improvments-to-chatops-pack-development-user-story-in-st2-1-4dev/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;February 15, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by &lt;!-- raw HTML omitted --&gt;Jon Middleton&lt;!-- raw HTML omitted --&gt;, Optimisation Project Lead @ Pulsant Limited&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In the post &lt;!-- raw HTML omitted --&gt;StackStorm QuickTip: ChatOps your pack dev workflow&lt;!-- raw HTML omitted --&gt; James Fryman gave a ChatOPS alias recipe to reduce the friction for deploying packs and then in the &lt;em&gt;Random Thoughts&lt;/em&gt; section asked:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;This action is tied directly to the &lt;code&gt;packs.install&lt;/code&gt;. What about a workflow? Seems like that would be a better way to structure this.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This resonated with me as I had already started working on an internal pack that did just that, as I thought attempting to deploy a pack via an alias (and action) contained within the same pack would be madness (or just lead to interesting race conditions). In the last week, our &lt;em&gt;Pull Request&lt;/em&gt; has been merged, documentation has been included in st2docs (&lt;a href=&#34;https://docs.stackstorm.com/latest/chatops/pack_deploy.html&#34;&gt;link&lt;/a&gt;) for a workflow that fulfils the above random thought and should be released with 1.4.&lt;/p&gt;
+&lt;p&gt;So introducing &lt;code&gt;packs.deploy&lt;/code&gt;, an action written in Mistral to handle the mapping of names for Git repositories to the information required to carry out the &lt;code&gt;packs.install&lt;/code&gt; action.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm, Yammer, and cat pictures</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/02/08/stackstorm-yammer-cat-pictures/</link>
+      <pubDate>Mon, 08 Feb 2016 18:31:58 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/08/stackstorm-yammer-cat-pictures/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;February 8, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Edward Medvedev&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Less than a week ago Microsoft announced a plan to activate Yammer — its corporate social network — for every customer with Office 365 subscription. Yammer will be seamlessly turned on for everyone with a business or education account over the next two months, which means more and more people will rely on it in their daily communication. Pretty exciting!&lt;/p&gt;
+&lt;p&gt;If you’re a long-time StackStorm user, chances are you already know what’s going to happen. After all, we only write articles with words like “pretty exciting” in them when we have something great to show, and this one is no exception: today we’re proud to announce &lt;strong&gt;ChatOps integration with Yammer&lt;/strong&gt; for both Community and Enterprise editions of StackStorm!&lt;/p&gt;
+&lt;p&gt;If you’re new to ChatOps, it’s a chat-centric way to enable or extend DevOps — especially when based upon StackStorm. With the help of our powerful rules engine, workflows, and more, you can execute actions from your chat app of choice, keep it visible for your team, and grow your automation patterns over time. Naturally, our own blog has a lot of articles on the topic, like the recent &lt;em&gt;&lt;a href=&#34;https://stackstorm.com/2016/02/03/on-force-multiplication-and-event-driven-automation/&#34;&gt;On Force Multiplication and Event-driven Automation&lt;/a&gt;&lt;/em&gt; by James Fryman.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Watching the watcher:  How to test and debug rules and trace what StackStorm does with triggers?</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/02/04/watching-watcher-test-debug-rules-trace-stackstorm-triggers/</link>
+      <pubDate>Fri, 05 Feb 2016 01:06:02 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/04/watching-watcher-test-debug-rules-trace-stackstorm-triggers/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;February 4. 2016&lt;/strong&gt;&lt;br&gt;
+By Manas Kelshikar&lt;/p&gt;
+&lt;p&gt;We have always wanted StackStorm to be much more transparent than older run book automation systems so that users trust it – so they allow StackStorm to do more and more of the work such as quashing 2am pages via auto-remediation.&lt;/p&gt;
+&lt;p&gt;Recently we’ve added some capabilities that further increase StackStorm’s transparency.&lt;/p&gt;
+&lt;p&gt;This post focuses on a few features that help follow the breadcrumbs of an event-driven automation. It specifically provides ways to answer the questions –&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Why does this rule not work?&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;What did StackStorm do with the event that it received?&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;We will put these question in context of a StackStorm Auto-remediation. The example for this blog will use StackStorm to auto-remediate an application that at times has poor API response times. The cast for this plot will be StackStorm as the guardian and protector, Sensu as the watcher and an application that must be brought back to the light when it starts erring in its ways.&lt;/p&gt;
+&lt;p&gt;We will specifically demonstrate the use of &lt;code&gt;st2-rule-tester&lt;/code&gt; as well as what we call Trace Tags. As always in these kinds of “tutorial” blogs – we include the actual StackStorm content.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>On Force Multiplication and Event Driven Automation</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/02/03/on-force-multiplication-and-event-driven-automation/</link>
+      <pubDate>Wed, 03 Feb 2016 17:31:09 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/02/03/on-force-multiplication-and-event-driven-automation/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;February 3, 2016&lt;/strong&gt;&lt;br&gt;
+By James Fryman&lt;/p&gt;
+&lt;p&gt;Recently, I have found myself reflecting on the statement “Be a force multiplier”. This usually comes to mind when faced with some sort of burn-out: hearing in indirectly from a colleauge or friend, or experiencing it first hand. The intent is good and aligns well with some core tenants of DevOps. Force multiplication fits into the DevOps ethos by encouraging the need to cross-train and collaborate. By working together and sharing knowledge about respective domains (Development or Operations), team members gain empathy for each other. This in turn has a downstream effect of now enabling better collaboration around the repair/growth/operation/expansion of the delivery pipeline.&lt;/p&gt;
+&lt;p&gt;The only challenge that I have seen over and over again is that by the time that this idea of “force multiplication” is needed in a team, one or more major bottlenecks exist. These bottlenecks are often real and a result of an imbalance of resources. Servers arriving faster than there are resources to rack/stack/configure/turn-up. DBAs cannot handle the number of schema changes needed to be reviewed/tested/deployed. Developers must wait on a certain person or persons who have access to publish a package before it can “go live”. You probably have your own bottleneck that you see very clearly in your own mind.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Unifying disparate applications into the One System</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/</link>
+      <pubDate>Fri, 29 Jan 2016 14:24:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/01/29/unifying-disparate-applications-one-system/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;January 29, 2016&lt;/strong&gt;&lt;br&gt;
+By James Fryman&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Originally published at &lt;a href=&#34;http://devops.com/2016/01/29/unifying-applications-into-one-system&#34;&gt;http://devops.com/2016/01/29/unifying-applications-into-one-system&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Let’s talk about a real problem that all of us have faced at one point or another: keeping track of a single thread of work across many disparate tools. Regardless of the specific industry a company operates in, as a company grows, back-office applications in support of the business begin to accumulate. Many knowledge based companies have some sort of communication tool, some sort of project tracker, and some support tracker. These are tools that aim at being more effective with daily business process. Conversations suffice until they do not, and tools are implemented as the need arises. Every tool that was added has purpose, solves a critical need, and made you and/or your team more productive.&lt;/p&gt;
+&lt;p&gt;At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work… how many ways can you name how not just conversations are lost, but &lt;em&gt;context&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm QuickTip: ChatOps your pack dev workflow</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/01/25/stackstorm-quicktip-shorten-pack-development-feedback-loop/</link>
+      <pubDate>Mon, 25 Jan 2016 18:29:28 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/01/25/stackstorm-quicktip-shorten-pack-development-feedback-loop/</guid>
+      <description>&lt;p&gt;&lt;em&gt;by James Fryman&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Happy Monday! In today’s StackStorm quick tip, we are going to show you a way to rapidly test and deploy packs. This technique pairs a StackStorm action, &lt;a href=&#34;https://github.com/StackStorm/st2/blob/master/contrib/packs/actions/install.meta.yaml&#34;&gt;&lt;code&gt;packs.install&lt;/code&gt;&lt;/a&gt;, and an &lt;a href=&#34;https://docs.stackstorm.com/chatops/aliases.html&#34;&gt;Action-Alias&lt;/a&gt; that we will create to allow users to rapidly test and deploy new ChatOps commands for themselves.&lt;/p&gt;
+&lt;p&gt;Let’s just dive in!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm 1.2.0: the new ChatOps</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</link>
+      <pubDate>Tue, 08 Dec 2015 15:07:00 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/12/08/stackstorm-1-2-0-the-new-chatops/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;December 8, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Edward Medvedev&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;ChatOps — a concept where a chat bot acts as a control plane for your operations — has always been a core part of StackStorm. It adds context to your actions, automates routine tasks nobody likes, helps team members communicate better and learn from each other, and sometimes it’s just plain fun. If you’re new to this, check out the &lt;a href=&#34;https://www.youtube.com/watch?v=37LmuHToYjQ&#34;&gt;DevOps Next Steps talk&lt;/a&gt; by &lt;a href=&#34;https://github.com/jfryman&#34;&gt;James Fryman&lt;/a&gt;, and if you’ve been writing Eggdrop scripts in IRC since you were five but never used it in your daily operations, you might also get inspired from the &lt;a href=&#34;http://www.youtube.com/watch?v=NST3u-GjjFw&#34;&gt;ChatOps at GitHub talk&lt;/a&gt; by Jesse Newland.&lt;/p&gt;
+&lt;p&gt;Today, we’re all excited to introduce — as a part of our &lt;a href=&#34;https://github.com/StackStorm/st2/releases/tag/v1.2.0&#34;&gt;1.2.0 release&lt;/a&gt; — a completely revamped ChatOps feature list. If you’re already using our Hubot integration to execute StackStorm actions from chat, stop doing whatever it is you’re doing and update! If not, it’s a good time to get started: ChatOps is the way of the future, now more than ever.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Build or Integrate Your Own Operational Dashboard w/ StackStorm (guest blog)</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/</link>
+      <pubDate>Thu, 26 Nov 2015 21:08:07 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/11/26/build-integrate-operational-dashboard-w-stackstorm-guest-blog/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;November 26, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Anthony Shaw of &lt;a href=&#34;http://www.dimensiondata.com&#34;&gt;Dimension Data&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This tutorial will show you how to leverage the power of the StackStorm API to expose your fantastic new workflows built using the Flow (available to Enterprise Edition uses) by &lt;a href=&#34;https://stackstorm.com/2015/10/02/tutorial-of-the-week-cassandra-auto-remediation/&#34;&gt;following one of the blogs&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;In our fictional scenario, we have built 2 complex workflows.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Engage Tractor Beam, this workflow deploys some virtual machines to cloud, uses Hubot to notify the staff and then Puppet to drive the tractor beam.&lt;/li&gt;
+&lt;li&gt;Open/Close loading bay doors, this workflow takes the desired state of the doors to drive another workflow.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;We want to provide our technical operations team with a really simple UI where they can just click these buttons and we hide the magic behind the scenes.&lt;/p&gt;
+&lt;h2 id=&#34;starting-off&#34;&gt;Starting off&lt;/h2&gt;
+&lt;p&gt;First off, this is a tutorial for ASP.NET 4.5, MVC 5 and WebAPI 2.0, the latest Microsoft Web Development toolkit.&lt;/p&gt;
+&lt;p&gt;If you want to use another stack, you can follow the patterns here to repeat in another language.&lt;/p&gt;
+&lt;p&gt;Opening up Visual Studio (here I am using 2013, 2015 would also work), select the ASP.NET Web Application template&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;When prompted, pick out the Single Page Application option, this will install a whole smorgasbord of web-development tools.&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auto-remediation by example: handling out-of-disk-space.</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/</link>
+      <pubDate>Mon, 05 Oct 2015 22:59:54 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/10/05/auto-remediation-out-of-disk-space/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;October 5, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Dmitri Zimine, Patrick Hoolboom&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A host is running out of disk space. What follows is a routine pager panic and rush in cleaning things up, at best. At worst, downtime. It is silly, but it happens much more than most of us care to admit.&lt;/p&gt;
+&lt;p&gt;This, and many other annoying events like this can, and shall be auto-remediated. The “classic” pattern of wiring monitoring to and paging is simply not good enough, and know it when you’re paged at 3am to clean the disk on production server.&lt;/p&gt;
+&lt;p&gt;And to those of you who hard-wire their remediation scripts into Nagios/Sensu event handlers, Splunk alert scripts and NewRelic web hooks: it is plain wrong there’s a better way.&lt;/p&gt;
+&lt;p&gt;In this blog, we show how StackStorm auto-remediation platform helps you hand out-of-disk case, with step-by-step walk-through and a working automation sample to kick-start your auto-remediation.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Auto-remediating bad hosts in Cassandra cluster with StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/09/22/auto-remediating-bad-hosts-in-cassandra-cluster-with-stackstorm/</link>
+      <pubDate>Tue, 22 Sep 2015 21:25:20 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/09/22/auto-remediating-bad-hosts-in-cassandra-cluster-with-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;September 23, 2015&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by Lakshmi Kannan&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;!-- raw HTML omitted --&gt;If “SLAs”, “five 9 uptime”, “pager fatigue” and “customer support” are phrases you use everyday in your work, you know by now auto-remediation is a serious use case. If you are running critical infrastructure of any kind, you may already be looking into auto-remediation, &lt;!-- raw HTML omitted --&gt;or even using it like Facebook, LinkedIn, Netflix (more on that later). The idea is that if you are running critical systems of any kind, you need to see when events happen and to act on them as fast as humanly possible. Actually, no, to improve mean time to recovery you need to respond &lt;em&gt;FASTER&lt;/em&gt; than humanly possible.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Turning Java App Into StackStorm Action</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/09/15/java-action/</link>
+      <pubDate>Tue, 15 Sep 2015 20:45:34 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/09/15/java-action/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;September, 11 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Dmitri Zimine&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A StackStorm user with large investment in Java asked us: “Can I turn my Java code into StackStorm actions, and how?”&lt;/p&gt;
+&lt;p&gt;The answer is “&lt;strong&gt;Yes you can&lt;/strong&gt;, in three basic steps”:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ol&gt;
+&lt;li&gt;Wrap the Java code in a Java console application;&lt;/li&gt;
+&lt;li&gt;Take the input as command line arguments&lt;/li&gt;
+&lt;li&gt;For the best results, output formatted JSON to stdout/stderr – this way StackStorm will auto-parse it so that you reference them with &lt;code&gt;dotted.notation&lt;/code&gt; in workflows.&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    
+    <item>
+      <title>Getting Started With StackStorm and SaltStack</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/07/29/getting-started-with-stackstorm-and-saltstack/</link>
+      <pubDate>Wed, 29 Jul 2015 13:23:55 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/07/29/getting-started-with-stackstorm-and-saltstack/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Guest post by Jurnell Cockhren, CTO and Founder of &lt;a href=&#34;http://sophicware.com/&#34;&gt;SophicWare&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&#34;our-journey&#34;&gt;Our Journey&lt;/h2&gt;
+&lt;p&gt;The task at hand is to connect Stackstorm to your pre-existing Saltstack infrastructure. Why? Well, by doing this you can turn all of your existing Salt actions into StackStorm actions, allowing you to use StackStorm for your overall event driven automation while Salt remains focused on remote execution and other use cases. This is a pattern we are increasingly seeing – so let’s try it out!&lt;/p&gt;
+&lt;p&gt;This blog covers both proper configuration of Saltstack NetAPI allowing for Stackstorm usage as well as how to install and configure the salt pack within StackStorm. This tutorial covers &lt;a href=&#34;https://github.com/StackStorm-Exchange/stackstorm-salt#scenario-2-st2-using-salt-netapi&#34;&gt;Scenario 2 listed on the Salt pack README&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Automated Troubleshooting With StackStorm and Mistral</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/07/08/automating-with-mistral-workflow/</link>
+      <pubDate>Thu, 09 Jul 2015 01:14:05 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/07/08/automating-with-mistral-workflow/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;July 08, 2015&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Dmitri Zimine&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Recently someone on #stackstorm IRC asked how to build a simple troubleshooting automation: &lt;em&gt;“on cron, ping a server, and dump the stats to the log for analytics; post the failure to Slack immediately if the ping fails.”&lt;/em&gt; Our short answer was &lt;em&gt;“use Mistral workflow”.&lt;/em&gt; In this post, I’ll use this simple case to walk you through the details of setting up a basic automation, powered by Mistral workflow.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/openstack/mistral&#34;&gt;Mistral&lt;/a&gt; is a workflow service that we help develop upstream in OpenStack. It gives features and reliability that are missing in simple workflows like our own ActionChain or Ansible’s (details in &lt;a href=&#34;http://stackstorm.com/2015/04/10/the-return-of-workflows/&#34;&gt;“Return of workflows”&lt;/a&gt;). Mistral comes embedded and supported with StackStorm.&lt;/p&gt;
+&lt;p&gt;The scenario I use here is obviously simplification: in a typical deployment, monitoring is set up to do heavy-lifting on issue identifications, and a variety of devops tools are used to troubleshoot and remediate issues. StackStorm gives a &lt;a href=&#34;https://exchange.stackstorm.org&#34;&gt;fair bunch of lego-blocks&lt;/a&gt; to integrate existing devops tools, and build more realistic automation workflows. Yet, the production development flow and the patterns are going to be just as in this simple example.&lt;/p&gt;
+&lt;p&gt;I’ll take an opportunity to go over some basics of using StackStorm. It’s all &lt;a href=&#34;http://docs.stackstorm.com/latest/&#34;&gt;documented&lt;/a&gt;, but doesn’t hurt to repeat some in context, and share my tips and tricks.&lt;/p&gt;
+&lt;p&gt;For you impatient kinds: the final version is available as a pack on GitHub, &lt;a href=&#34;#install_example&#34;&gt;made-ready to install&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Ansible and ChatOps. Get started 🚀</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</link>
+      <pubDate>Wed, 24 Jun 2015 20:16:09 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/24/ansible-chatops-get-started-%F0%9F%9A%80/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 25, 2015&lt;/strong&gt; &lt;!-- raw HTML omitted --&gt;(Updated: February 21, 2017)&lt;!-- raw HTML omitted --&gt;&lt;br&gt;
+&lt;em&gt;Contribution by Integration Developer &lt;!-- raw HTML omitted --&gt;Eugen C.&lt;!-- raw HTML omitted --&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/HWN8T78.png&#34; alt=&#34;Ansible and ChatOps with StackStorm event-driven automation platform, Slack, Hubot&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-is-chatops&#34;&gt;What is ChatOps?&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;ChatOps brings the context of work you are already doing into the conversations you are already having. &lt;!-- raw HTML omitted --&gt;@jfryman&lt;!-- raw HTML omitted --&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ChatOps is still a fresh and uncommon thing in the DevOps world, where work is brought into a shared chat room. You can run commands directly from chat and everyone in the chatroom can see the history of work being done, do the same, interact with each other and even learn. The information and process is owned by the entire team which brings a lot of benefits.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Integrating ChatOps With StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/06/12/integrating-chatops-with-stackstorm/</link>
+      <pubDate>Fri, 12 Jun 2015 17:00:50 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/06/12/integrating-chatops-with-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 12, 2015&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by James Fryman&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;With our recent announcement of our ChatOps integration and of our commercial support for ChatOps and ChatOps related dev ops professional services, we thought it would be fun to take a moment and share our insights into the design decisions that we made while developing this feature. Several core platform changes were introduced, including Action-Aliases and Notifications, to enable ChatOps. So, grab some popcorn, get cozy, and we let’s dive in!&lt;/p&gt;
+&lt;h2 id=&#34;grand-overview&#34;&gt;Grand Overview&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;https://cloud.githubusercontent.com/assets/20028/8009363/f481fdc2-0b6d-11e5-9660-dc9f56c3a016.png&#34; alt=&#34;stackstorm-chatops_1024&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Actions Of All Flavors In StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/04/20/actions-of-all-flavors-in-stackstorm/</link>
+      <pubDate>Mon, 20 Apr 2015 13:00:04 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/04/20/actions-of-all-flavors-in-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;April 20, 2015&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by James Fryman&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In order to unleash the true power of StackStorm, a good first step is to learn about actions. Actions are the cornerstone of the StackStorm system, representing what we commonly refer to as ‘lego bricks’. Actions are what StackStorm ties together to compose complex workflows to drive even the most complex cases.&lt;/p&gt;
+&lt;p&gt;Today, we will explore actions within StackStorm. By the end of this article, you’ll have a great understanding of how…&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;to understand and create action metadata files.&lt;/li&gt;
+&lt;li&gt;and when to use each of the action runner types.&lt;/li&gt;
+&lt;li&gt;to create actions that execute code in any language.&lt;/li&gt;
+&lt;li&gt;to create actions using native Python hooks.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Ready to start your automation journey? Buckle up, and let’s dive in!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Rapid Integration Development With StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/</link>
+      <pubDate>Fri, 03 Apr 2015 22:06:53 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/04/03/rapid-integration-development-with-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;April 3, 2015&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by James Fryman&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Day in and day out, the team at StackStorm is building tools that take away pain from the daily lives of Operations and Developers in IT Departments everywhere. We do this by focusing our efforts on absorbing all the Glue Code, the small snippets of code that tie together tools in your organization, and relieving the developer and operator of much of the traditional management overhead associated with automations. We also need to make sure that the tools we provide &lt;em&gt;around&lt;/em&gt; StackStorm are equally enjoyable and frictionless to use. To that end, I would like to share with you how to rapidly build integrations with our integrated development environment, &lt;code&gt;st2workroom&lt;/code&gt;.&lt;/p&gt;
+&lt;h6 id=&#34;what-is-stackstorm&#34;&gt;What is StackStorm?&lt;/h6&gt;
+&lt;p&gt;If you’re just getting started with StackStorm, or are curious what it is, we have a &lt;!-- raw HTML omitted --&gt;great primer&lt;!-- raw HTML omitted --&gt; on the product… Take a moment, head over there, and give it a quick read or watch. We’ll be right here when you get back.&lt;/p&gt;
+&lt;p&gt;In a nutshell, StackStorm provides Event Driven Automation. StackStorm integrates with your various tools, and manages orchestration based on events that occur in your environment.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Managing AWS Instance Lifecycle With StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/</link>
+      <pubDate>Wed, 14 Jan 2015 00:38:05 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/01/14/managing-aws-instance-lifecycle-with-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;January 13, 2015&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by Patrick Hoolboom&lt;/em&gt;&lt;/p&gt;
+&lt;h6 id=&#34;introduction&#34;&gt;Introduction&lt;/h6&gt;
+&lt;p&gt;The StackStorm community repo has a rich integration pack for EC2 and Route53 action that you can find inside the &lt;a href=&#34;https://exchange.stackstorm.org/&#34;&gt;StackStorm Exchange&lt;/a&gt;. These actions are incredibly useful but they are just the building blocks. The real power of using StackStorm actions comes when they are stitched together into workflows. I’ve taken the two basic workflows we use for EC2 instance lifecycle management and genericized them, then added them to the AWS integration pack. I’m going to go over how these can be used to greatly simplify creation and termination of instances.&lt;/p&gt;
+&lt;h6 id=&#34;why&#34;&gt;Why?&lt;/h6&gt;
+&lt;p&gt;At StackStorm we needed a way to rapidly provision VMs that had all of our bootstrapping done…and it had to be easy to do from the command line or StackStorm UI. This version of the workflow has been simplified to remove some of our internal bootstrapping steps but still reduces the entire process of instance creation, DNS registration, and basic bootstrapping to a single command.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Monitor Twitter And Fire Automations Based On Twitter Keywords Using StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/</link>
+      <pubDate>Mon, 22 Dec 2014 22:10:32 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;December 22, 2014&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by Tomaz Muraus&lt;/em&gt;&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

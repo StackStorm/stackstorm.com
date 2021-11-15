@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on StackStorm</title>
+    <link>https://stackstorm.github.io/stackstorm.com/tags/docker/</link>
+    <description>Recent content in Docker on StackStorm</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 10 Oct 2018 13:06:04 +0000</lastBuildDate><atom:link href="https://stackstorm.github.io/stackstorm.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>StackStorm HA in Kubernetes βeta – Community update</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/10/10/stackstorm-ha-in-kubernetes-beta-community-update/</link>
+      <pubDate>Wed, 10 Oct 2018 13:06:04 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/10/10/stackstorm-ha-in-kubernetes-beta-community-update/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Oct 10, 2018&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By &lt;a href=&#34;https://github.com/warrenvw&#34;&gt;Warren Van Winckel&lt;/a&gt; and &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C.&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;A couple weeks ago, &lt;a href=&#34;https://stackstorm.com/2018/09/26/stackstorm-enterprise-ha-in-kubernetes-beta/&#34;&gt;we released&lt;/a&gt; the Helm chart and docker images so you could install StackStorm Enterprise HA cluster in Kubernetes.&lt;/p&gt;
+&lt;p&gt;Today, we’re glad to announce that the Community free and open source edition of StackStorm HA is now available, too! With this update we are excited to bring Kubernetes powers to the broader community and strive for greater adoption in production with better safety for all important operations you delegate to StackStorm automation engine.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/stackstorm/stackstorm-ha&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm Enterprise HA in Kubernetes – βeta</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2018/09/26/stackstorm-enterprise-ha-in-kubernetes-beta/</link>
+      <pubDate>Wed, 26 Sep 2018 15:00:11 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2018/09/26/stackstorm-enterprise-ha-in-kubernetes-beta/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Sep 26, 2018&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;By &lt;a href=&#34;https://github.com/armab&#34;&gt;Eugen C.&lt;/a&gt; and &lt;a href=&#34;https://github.com/warrenvw&#34;&gt;Warren Van Winckel&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;More groups are progressing from just talking about Event-Driven Automation to actually doing it in practice. StackStorm helps make this easy. When organizations start offloading business-critical tasks and automating for real it becomes essential to ensure that the Automation engine itself is not a single point of failure when it is responsible for recovering a fleet of servers, managing datacenters, and automating remediations.&lt;/p&gt;
+&lt;p&gt;StackStorm was designed to be cloud-native, API-driven, easily deployed, microservice-oriented, resilient and can be scaled out horizontally to fulfill High Availability and/or High Load demands.&lt;/p&gt;
+&lt;p&gt;Previously we only documented best practices describing how to distribute StackStorm in HA mode (&lt;a href=&#34;https://docs.stackstorm.com/reference/ha.html&#34;&gt;docs.stackstorm.com/reference/ha.html&lt;/a&gt;), giving a high level overview regarding StackStorm design and how to ensure its redundancy. Based on those recommendations, some companies were spending weeks to months to codify a complex st2 HA infrastructure and iterate over their deployments until finding that “silver bullet” stability/production state.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.stackstorm.com/latest/install/k8s_ha.html#enterprise-ewc&#34;&gt;&lt;img src=&#34;https://stackstorm.com/wp/wp-content/uploads/2018/09/stackstorm-enterprise-ha.png&#34; alt=&#34;StackStorm HA in K8s and Helm&#34;&gt;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>New and Improved StackStorm Docker Images!</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/08/30/new-improved-stackstorm-docker-images/</link>
+      <pubDate>Wed, 30 Aug 2017 17:36:56 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/08/30/new-improved-stackstorm-docker-images/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;h2 id=&#34;tagged-images&#34;&gt;Tagged Images&lt;/h2&gt;
+&lt;p&gt;For a little while now, the &lt;!-- raw HTML omitted --&gt;stackstorm/stackstorm&lt;!-- raw HTML omitted --&gt; docker image has been tagged with the version of StackStorm that comes pre-installed in the image. Now, you can pin your installation to a specific release of StackStorm! Images tagged with “latest” contain the most recent StackStorm release at the time it was tagged.&lt;/p&gt;
+&lt;p&gt;The &lt;!-- raw HTML omitted --&gt;stackstorm/stackstorm:2.4.0&lt;!-- raw HTML omitted --&gt; image will always contain the 2.4.0 release of stackstorm. The previous release, 2.3.2, is available at &lt;!-- raw HTML omitted --&gt;stackstorm/stackstorm:2.3.2&lt;!-- raw HTML omitted --&gt;. We never again update &lt;!-- raw HTML omitted --&gt;stackstorm/stackstorm:2.3.2&lt;!-- raw HTML omitted --&gt; after 2.4.0 is released. Any feature changes to st2-docker will only ever apply to the most recent stackstorm image.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Autoscaling Swarm on AWS with StackStorm</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/</link>
+      <pubDate>Thu, 22 Jun 2017 08:14:50 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/06/22/autoscaling-swarm-aws-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;June 22, 2017&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by &lt;a href=&#34;https://twitter.com/dzimine&#34;&gt;Dmitri Zimine&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In this blog, we show how to scale out a Docker Swarm Cluster based on container workload, so that you don’t over-provision your AWS cluster and pay for just enough instances to run your containers. Learn how we achieved this, watch the &lt;em&gt;2 min video&lt;/em&gt; to see it in action. Read the blog for details. Grab our code recipe and adjust it to your liking and use to auto-scale your Swarm on AWS.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>StackStorm on Docker Grows Up: Mistral, Community Maintainers and more…</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/05/23/stackstorm-docker-grows-mistral-community-maintainers/</link>
+      <pubDate>Tue, 23 May 2017 20:48:05 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/05/23/stackstorm-docker-grows-mistral-community-maintainers/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;h3 id=&#34;mistral-now-included&#34;&gt;Mistral Now Included&lt;/h3&gt;
+&lt;p&gt;A month ago, we launched the &lt;!-- raw HTML omitted --&gt;stackstorm&lt;!-- raw HTML omitted --&gt; image. We continued working on this and now it’s, hmm… ready! Well, software is never ready so how do we mean it? The image now contains Mistral, fixed bugs, new features. You can now perform everything with StackStorm using this image. The &lt;!-- raw HTML omitted --&gt;stackstorm&lt;!-- raw HTML omitted --&gt; image now contains st2, st2web and st2mistral!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Official StackStorm Docker Image is Here!</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2017/04/21/official-stackstorm-docker-image-here/</link>
+      <pubDate>Fri, 21 Apr 2017 19:28:58 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2017/04/21/official-stackstorm-docker-image-here/</guid>
+      <description>&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+    <item>
+      <title>Network Automation with StackStorm and Docker</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/</link>
+      <pubDate>Thu, 19 May 2016 14:31:55 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2016/05/19/automating-docker-networking-with-stackstorm/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;May 24, 2016&lt;/strong&gt;&lt;br&gt;
+&lt;em&gt;by Matthew Stone&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;What is StackStorm going to do with network automation? Ever since we joined Brocade, it’s been everyone’s question, and we have been hand-waving some answers. But the talk walks, code talks: let’s show something really working. Today’s example is on Docker network automation, where StackStorm makes physical networking follow Docker containers as they get created.&lt;/p&gt;
+&lt;p&gt;Millennial kids should watch my &lt;a href=&#34;https://www.youtube.com/watch?v=P9G71Ow6GUs&#34;&gt;video with detailed explanations on StackStorm’s YouTube channel&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;True hackers might jump straight to &lt;a href=&#34;https://github.com/StackStorm/dockernetwork-vdx-demo&#34;&gt;automation code on GitHub&lt;/a&gt; to see how it is built and try it out on your StackStorm instance.&lt;/p&gt;
+&lt;p&gt;Or, just read on.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>CI Using StackStorm On Top Of GitHub, Docker And DockerHub</title>
+      <link>https://stackstorm.github.io/stackstorm.com/2015/05/27/ci-using-stackstorm-on-top-of-github-docker-and-dockerhub/</link>
+      <pubDate>Wed, 27 May 2015 18:28:39 +0000</pubDate>
+      
+      <guid>https://stackstorm.github.io/stackstorm.com/2015/05/27/ci-using-stackstorm-on-top-of-github-docker-and-dockerhub/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;May 27, 2015&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;by Lakshmi Kannan&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In this blog post, we cover CI part of CICD with Docker as an example. At a high level, this blog post will demonstrate how to create a docker image and push it to a registry on every commit to a github repo. You have probably read our own James Fryman’s excellent &lt;!-- raw HTML omitted --&gt;blog post&lt;!-- raw HTML omitted --&gt; on continuous delivery with StackStorm in a more traditional environment. If not, I highly recommend reading it. Also, this recent &lt;!-- raw HTML omitted --&gt;blog post&lt;!-- raw HTML omitted --&gt; from docker is a great introduction to using docker in continuous delivery. Before diving into the details, below is some motivation for switching to container based immutable infrastructure.&lt;/p&gt;
+&lt;h2 id=&#34;a-classanchor-stylecolor-4183c4-hrefhttpsgistgithubcomlakshmi-kannan2b95e6bae7dc4ed8c6c7motivation-relnoreferrer-nameuser-content-motivationamotivation&#34;&gt;&lt;!-- raw HTML omitted --&gt;&lt;!-- raw HTML omitted --&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;As Michael Dehaan of Ansible fame notes, &lt;!-- raw HTML omitted --&gt;immutable infrastructure is the way of the future&lt;!-- raw HTML omitted --&gt;. Containers (especially, Docker) facilitate this by offering users a way to define their infrastructure through simple files (Dockerfile, for example). The role of orchestration tools changes when dealing with immutable infrastructure. A relevant quote from Michael Dehaan’s blog:&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

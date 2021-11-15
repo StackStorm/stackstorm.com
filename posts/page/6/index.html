@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>StackStorm</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.89.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+<link rel="stylesheet" href="/stackstorm.com/ananke/css/main.min.css" >
+
+
+
+
+    
+      
+
+    
+
+    
+    
+      <link href="/stackstorm.com/posts/index.xml" rel="alternate" type="application/rss+xml" title="StackStorm" />
+      <link href="/stackstorm.com/posts/index.xml" rel="feed" type="application/rss+xml" title="StackStorm" />
+      
+    
+    
+    <meta property="og:title" content="Posts" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://stackstorm.github.io/stackstorm.com/posts/" />
+
+<meta itemprop="name" content="Posts">
+<meta itemprop="description" content=""><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Posts"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/stackstorm.com/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        StackStorm
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Posts
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2018/01/25/new-year-new-stackstorm-v2-6-released/" class="link black dim">
+        New Year, New StackStorm – v2.6 Released
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>January 25, 2018</strong></p>
+<p>It’s a New Year, and time for a new version of StackStorm. 2.6 is available for download now. The biggest change is moving the Web UI to the <a href="https://reactjs.org/">React</a> JS framework, but of course there’s also multiple user- and developer-friendly fixes and enhancements in the backend. Read on to hear more about what’s changed:</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2018/01/05/announcing-puppet-module-1-0-0-rc/" class="link black dim">
+        Puppet Module to Install StackStorm – Announcing Release Candidate
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>January 4, 2018</strong><br>
+<em>By <a href="https://github.com/nmaludy">Nick Maludy</a> of <a href="http://www.encore.tech">Encore Technologies</a></em></p>
+<p>So far StackStorm has multiple installation methods: deb/rpm packages, <a href="https://docs.stackstorm.com/install/index.html#ref-one-line-install"><code>curl|bash</code></a> installer used for simple deployments, <a href="https://github.com/stackstorm/st2-docker">Docker</a>, <a href="https://github.com/stackstorm/ansible-st2">Ansible</a>, <a href="https://github.com/stackstorm/chef-stackstorm">Chef</a>.</p>
+<p>Now it’s Puppet time!</p>
+<p>Starting in July of 2017 a major effort has been underway to modernize the Puppet module to install/deploy StackStorm. In August of 2017 <code>v1.0.0-beta</code> was released with completely re-worked internals to support the new StackStorm <code>deb/rpm</code> package installation method and fix a large number of bugs. Since the beta we’ve continued development of new features like supporting all 4 StackStorm OSes, Puppet 4 and 5 compatibility, ChatOps installation and configuration, modernized pack management, full integration testing in Docker containers along with a slew of Puppet best practices improvements.</p>
+<p>Today we’re proud to announce the Release Candidate version <code>v1.0.0-rc</code> of the <a href="https://github.com/StackStorm/puppet-st2"><code>stackstorm-st2</code></a> Puppet module which is available on Forge.<br>
+<a href="https://forge.puppet.com/stackstorm/st2"><br>
+<!-- raw HTML omitted --><br>
+https://forge.puppet.com/stackstorm/st2<br>
+</a><br>
+Our plan is to release <code>v1.0.0</code> stable in the coming weeks, but in order to do this we need your help. We ask everyone who is interested in Puppet-based deployment to give the module a try and provide your feedback!</p>
+<p>Keep reading to find out more details about what’s changed and where the project is heading.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2017/12/19/early-christmas-stackstorm-patch-release-2-5-1/" class="link black dim">
+        Early Christmas: StackStorm Patch Release 2.5.1
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Here’s an early Christmas present for everyone: StackStorm 2.5.1 is out. Small enhancements and bugfixes, and some enhancements to Workflow Designer. Time to sneak it in before the change freeze? Or something to do on your dev system over the quiet period? Read on for details.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2017/12/14/stackstorm-exchange-goes-serverless/" class="link black dim">
+        StackStorm Exchange goes Serverless
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p>Run <a href="https://exchange.stackstorm.org/">StackStorm Exchange</a> actions as AWS Lambda functions. Serverless and Stormless. 100% Open Source.</p>
+<p><em>December 14, 2017</em><br>
+<em>by <a href="https://twitter.com/dzimine">Dmitri Zimine</a></em></p>
+<p><a href="https://exchange.stackstorm.org/">StackStorm Exchange</a> is an open source catalog of reusable actions. Integrations with everything ranging from common-man DevOps tools, suit and tie services like ServiceNow and Remedy to cool kids like Slack or Twilio, to more exotic systems like HUE Lights and Tesla cars. At the time of writing, there are 6500+ actions spread across 130 integration packs. It is Open Source, with a great community of maintainers. Something that makes StackStorm a great wiring tool to build automations integrating a wide breadth of domains.</p>
+<!-- raw HTML omitted -->
+<p>But if you’ve taken a red pill and gone wholesale on AWS running serverless, deploying <a href="https://stackstorm.com/">StackStorm</a> may be not an option. Yet the catalog of reusable functions to integrate with commonly used services is an appealing idea. C’mon there should be 1000 Slack lambdas and 10,000 Twilio lambdas out there already, it doesn’t feel creative to write 10,001? Jealous to Azure with their <a href="https://docs.microsoft.com/en-us/azure/connectors/apis-list#popular-connectors">great library of reusable connectors</a>? Why can’t YOU grab something ready-to-use?</p>
+<p>Now you can! Run StackStorm Exchange actions as lambda functions. Without StackStorm. <strong>Serverless and Stormless.</strong></p>
+<blockquote>
+<p>Consider a detailed tutorial <a href="https://medium.com/@dzimine/tutorial-building-a-community-on-boarding-app-with-serverless-stepfunctions-and-stackstorm-b2f7cf2cc419">“Building a community sign-up app with Serverless, StepFunctions, and StackStorm Exchange”</a> to really get your hands dirty and try this out for real.</p>
+</blockquote>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2017/12/11/stackstorm-is-hiring-2017/" class="link black dim">
+        StackStorm is Hiring!
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>December, 2017</strong><br>
+<em>by StackStorm Team</em></p>
+<p>As you may know, StackStorm recently has found a new place at <a href="https://stackstorm.com/2017/11/03/stackstorm_goes_extreme/">Extreme Networks</a>. With that, we’re happy to remind you that we’re hiring Engineers to help making StackStorm even better.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2017/12/01/november-pack-roundup/" class="link black dim">
+        November Pack Roundup
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><em>December 1, 2017</em><br>
+<em>by Lindsay Hill</em></p>
+<p>Second to last month of the year, and updates to the <a href="https://exchange.stackstorm.org">StackStorm Exchange</a> keep coming. New Terraform pack, major updates to Consul pack, and a bunch more updates. Read on for the details.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2017/11/13/devops-enterprise-summit-2017-san-francisco/" class="link black dim">
+        DevOps Enterprise Summit 2017 –San Francisco
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <h3 id="stackstorm-community-thought-leaders1"><a href="https://stackstorm.com/stackstorm-thought-leaders/">StackStorm Community Thought Leaders:</a></h3>
+<p><!-- raw HTML omitted -->Demonstrating Transformational Leadership with Event Driven Automation<!-- raw HTML omitted --></p>
+<p><em>By Dana Christensen</em></p>
+<!-- raw HTML omitted -->
+<p>The 3-day DevOps Enterprise Summit (DOES17) hosted by IT Revolution and Gene Kim is sold out and in full swing in San Francisco!</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2017/11/07/new-stackstorm-2-5-real-time-action-output-streaming/" class="link black dim">
+        New in StackStorm 2.5: Real-time action output streaming
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><strong>November 07, 2017</strong><br>
+<em>by Tomaz Muraus</em></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2017/11/03/stackstorm_goes_extreme/" class="link black dim">
+        StackStorm goes to Extreme
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><em>November 2, 2017</em><br>
+<em>by <a href="https://twitter.com/dzimine">Dmitri Zimine</a></em></p>
+<p>As of this week StackStorm is officially a part of Extreme Networks. We’ve changed hands 3 times in 18 months. We’ve survived 365 days of uncertainty. It’s over now. The future is certain and bright, more good stuff is coming soon. Seriously, it’s all good.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Posts</span>
+    <h1 class="f3 near-black">
+      <a href="/stackstorm.com/2017/11/01/october-pack-updates/" class="link black dim">
+        October Pack Updates
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      <p><em>November 1, 2017</em><br>
+<em>by Lindsay Hill</em></p>
+<p>More packs, more updates, more goodness. Here’s October’s roundup of new &amp; changed packs. Zabbix, Keycloak, Foreman, Solarwinds and more. Plus a couple of proposals for pack changes to Kubernetes and AWS, and a warning about upcoming Python action changes.</p>
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+    <ul class="pagination pagination-default">
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/" aria-label="First" class="page-link" role="button"><span aria-hidden="true">&laquo;&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/5/" aria-label="Previous" class="page-link" role="button"><span aria-hidden="true">&laquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/4/" aria-label="Page 4" class="page-link" role="button">4</a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/5/" aria-label="Page 5" class="page-link" role="button">5</a>
+      </li>
+      <li class="page-item active">
+        <a href="#" aria-current="page" aria-label="Page 6" class="page-link" role="button">6</a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/7/" aria-label="Page 7" class="page-link" role="button">7</a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/8/" aria-label="Page 8" class="page-link" role="button">8</a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/7/" aria-label="Next" class="page-link" role="button"><span aria-hidden="true">&raquo;</span></a>
+      </li>
+      <li class="page-item">
+        <a href="/stackstorm.com/posts/page/36/" aria-label="Last" class="page-link" role="button"><span aria-hidden="true">&raquo;&raquo;</span></a>
+      </li>
+    </ul></article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://stackstorm.github.io/stackstorm.com" >
+    &copy;  StackStorm 2021 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+  </body>
+</html>
