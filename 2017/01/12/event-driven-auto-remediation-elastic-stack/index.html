@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<style type="text/css">.ttfm1{font-family: 'dual300';font-size:em;line-height:em;color:;}  .ttfm2{font-family: 'Roboto';font-size:em;line-height:3em;color:;}</style>	<!--[if lt IE 9]>
+	<script src="/wp/wp-content/themes/rise/js/html5/dist/html5shiv.js"></script>
+	<script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+	<!--[if IE 8]>
+	<link rel="stylesheet" type="text/css" href="/wp/wp-content/themes/rise/css/ie8.css"/>
+	<![endif]-->
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/wp/wp-content/themes/rise/css/ie7.css"/>
+	<![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	
+			<meta name="google-site-verification" content="ovwnX0ej2kps4UuJ9NOzNjJcLOQD8JPDLNhe-hMYTMk">	
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Event Driven Auto-Remediation with the Elastic Stack - StackStorm</title>
+	<link rel="canonical" href="/2017/01/12/event-driven-auto-remediation-elastic-stack/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Event Driven Auto-Remediation with the Elastic Stack - StackStorm">
+	<meta property="og:description" content="Jan 12, 2017 by Siddharth Krishna Recently we explained how to use Syslog with Splunk &amp; StackStorm to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative &#8211; Elastic Stack (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if&hellip;">
+	<meta property="og:url" content="/2017/01/12/event-driven-auto-remediation-elastic-stack/">
+	<meta property="og:site_name" content="StackStorm">
+	<meta property="article:published_time" content="2017-01-13T02:30:10+00:00">
+	<meta property="article:modified_time" content="2017-02-07T21:32:52+00:00">
+	<meta property="og:image" content="/wp/wp-content/uploads/2017/01/kabanadashbaord.png">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="st2admin">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="4 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"StackStorm","url":"/","sameAs":[],"logo":{"@type":"ImageObject","@id":"/#logo","inLanguage":"en-US","url":"/wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","contentUrl":"/wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","width":228,"height":59,"caption":"StackStorm"},"image":{"@id":"/#logo"}},{"@type":"WebSite","@id":"/#website","url":"/","name":"StackStorm","description":"Event-driven automation","publisher":{"@id":"/#organization"},"potentialAction":[{"@type":"SearchAction","target":"/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#primaryimage","inLanguage":"en-US","url":"/wp/wp-content/uploads/2017/01/kabanadashbaord.png","contentUrl":"/wp/wp-content/uploads/2017/01/kabanadashbaord.png","width":1899,"height":581},{"@type":"WebPage","@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#webpage","url":"/2017/01/12/event-driven-auto-remediation-elastic-stack/","name":"Event Driven Auto-Remediation with the Elastic Stack - StackStorm","isPartOf":{"@id":"/#website"},"primaryImageOfPage":{"@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#primaryimage"},"datePublished":"2017-01-13T02:30:10+00:00","dateModified":"2017-02-07T21:32:52+00:00","breadcrumb":{"@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["/2017/01/12/event-driven-auto-remediation-elastic-stack/"]}]},{"@type":"BreadcrumbList","@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"/","url":"/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"/blog/","url":"/blog/","name":"Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#webpage"}}]},{"@type":"Article","@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#article","isPartOf":{"@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#webpage"},"author":{"@id":"/#/schema/person/d2242d1dc5b3b5652be4c9175eb18000"},"headline":"Event Driven Auto-Remediation with the Elastic Stack","datePublished":"2017-01-13T02:30:10+00:00","dateModified":"2017-02-07T21:32:52+00:00","mainEntityOfPage":{"@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#webpage"},"wordCount":752,"commentCount":1,"publisher":{"@id":"/#organization"},"image":{"@id":"/2017/01/12/event-driven-auto-remediation-elastic-stack/#primaryimage"},"thumbnailUrl":"/wp/wp-content/uploads/2017/01/kabanadashbaord.png","keywords":["Auto-remediation","Elastic Stack","networking","syslog","tutorials","workflows"],"articleSection":["Blog","Tutorials"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["/2017/01/12/event-driven-auto-remediation-elastic-stack/#respond"]}]},{"@type":"Person","@id":"/#/schema/person/d2242d1dc5b3b5652be4c9175eb18000","name":"st2admin","image":{"@type":"ImageObject","@id":"/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/67f6d678610d4b8a7b9a7e95a065695f?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/67f6d678610d4b8a7b9a7e95a065695f?s=96&d=mm&r=g","caption":"st2admin"},"url":"/author/support/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="StackStorm &raquo; Event Driven Auto-Remediation with the Elastic Stack Comments Feed" href="/2017/01/12/event-driven-auto-remediation-elastic-stack/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp\/wp-includes\/js\/wp-emoji-release.min.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="dashicons-css" href="/wp/wp-includes/css/dashicons.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="menu-icons-extra-css" href="/wp/wp-content/plugins/menu-icons/css/extra.min.css?ver=0.12.8" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="/wp/wp-includes/css/dist/block-library/style.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-public.css?ver=2.0.3" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-gdpr.css?ver=2.0.3" type="text/css" media="all">
+<link rel="stylesheet" id="testimonial-rotator-style-css" href="/wp/wp-content/plugins/testimonial-rotator/testimonial-rotator-style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="/wp/wp-content/plugins/menu-icons/vendor/codeinwp/icon-picker/css/types/font-awesome.min.css?ver=4.7.0" type="text/css" media="all">
+<link rel="stylesheet" id="rise-style-css" href="/wp/wp-content/themes/stackstorm/style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-reset-css" href="/wp/wp-content/themes/rise/css/reset.css?v=1.101.1" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-main-style-css" href="/wp/wp-content/themes/rise/css/main_blue.css?v=1.101.1" type="text/css" media="all">
+<link rel="stylesheet" id="enlighterjs-css" href="/wp/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=c8vUwCl5jS8Iu00" type="text/css" media="all">
+<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery.min.js?v=1.101.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery-migrate.min.js?v=1.101.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="cookie-law-info-js-extra">
+/* <![CDATA[ */
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#384353","border":"#b1a6a6c2","border_on":"","button_1_button_colour":"#384353","button_1_button_hover":"#2d3642","button_1_link_colour":"#fff","button_1_as_button":"","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#00a5bf","button_2_as_button":"","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#b7b7b7","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"\/wp\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js?ver=2.0.3" id="cookie-law-info-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.js?v=1.101.1" id="cycletwo-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.addons.js?v=1.101.1" id="cycletwo-addons-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/easy-logo-slider/js/jquery.jcarousel.min.js?v=1.101.1" id="jquery_jcarousel_min-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/easy-logo-slider/js/jcarousel.responsive.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="jcarousel_responsive-js"></script>
+<link rel="https://api.w.org/" href="/wp-json/">
+<link rel="alternate" type="application/json" href="/wp-json/wp/v2/posts/6450">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/wp/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp/wp-includes/wlwmanifest.xml"> 
+
+<link rel="shortlink" href="/?p=6450">
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2F2017%2F01%2F12%2Fevent-driven-auto-remediation-elastic-stack%2F">
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2F2017%2F01%2F12%2Fevent-driven-auto-remediation-elastic-stack%2F&#038;format=xml">
+<style type="text/css">:not(#tve) .ttfm1{font-family: 'dual300' !important;font-weight: 400 !important;}.ttfm1 input, .ttfm1 select, .ttfm1 textarea, .ttfm1 button {font-family: 'dual300' !important;font-weight: 400 !important;}:not(#tve) .ttfm2{font-family: 'Roboto' !important;font-weight: 400 !important;}.ttfm2 input, .ttfm2 select, .ttfm2 textarea, .ttfm2 button {font-family: 'Roboto' !important;font-weight: 400 !important;}:not(#tve) .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong{font-weight: 500 !important;}.ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong input, .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong select, .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong textarea, .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong button {font-weight: 500 !important;}</style>
+<style type="text/css" id="tve_global_variables">:root{--tcb-gradient-0:linear-gradient(180deg, #ff712c 0%, #000000 100%);}</style>		<style type="text/css">.wp-video-shortcode {
+				max-width: 100% !important;
+			}
+
+			.bSe a {
+				clear: right;
+			}
+
+			.bSe blockquote {
+				clear: both;
+			}
+			body { background:#FFF; }.cnt article h1.entry-title a { color:#333; }.cnt article h2.entry-title a { color:#333; }.bSe h1, h1.entry-title, h1.entry-title a { color:#333; }.bSe h2 { color:#464545; }.bSe h3 { color:#333; }.bSe h4 { color:#333; }.bSe h5 { color:#333; }.bSe h6 { color:#333; }.bSe p, .mry .awr-e p { color:#666; }.cnt .bSe { color:#666; }.cnt h1 a, .tve-woocommerce .bSe .awr .entry-title, .tve-woocommerce .bSe .awr .page-title{font-family:Roboto,sans-serif;}.bSe h1{font-family:Roboto,sans-serif;}.bSe h2,.tve-woocommerce .bSe h2{font-family:Roboto,sans-serif;}.bSe h3,.tve-woocommerce .bSe h3{font-family:Roboto,sans-serif;}.bSe h4{font-family:Roboto,sans-serif;}.bSe h5{font-family:Roboto,sans-serif;}.bSe h6{font-family:Roboto,sans-serif;}#text_logo{font-family:Roboto,sans-serif;}.cnt h1 a { font-weight:500; }.bSe h1 { font-weight:500; }.bSe h2 { font-weight:500; }.bSe h3 { font-weight:500; }.bSe h4 { font-weight:500; }.bSe h5 { font-weight:500; }.bSe h6 { font-weight:500; }.cnt{font-family:Roboto,sans-serif;font-weight:300;}article strong {font-weight: bold;}.cnt p, .tve-woocommerce .product p, .tve-woocommerce .products p, .brd ul li, header nav ul li a, header nav ul li > ul li a, .has-extended.has-heading .colch, footer, footer .fmm p, .aut-f{font-family:Roboto,sans-serif;font-weight:300;}article strong {font-weight: bold;}.bSe h1, .bSe .entry-title { font-size:46px; }.cnt { font-size:18px; }.thrivecb { font-size:18px; }.out { font-size:18px; }.aut p { font-size:18px; }.cnt p { line-height:1.5em; }.thrivecb { line-height:1.5em; }.bSe a, .cnt a { color:#24447b; }.bSe .faq h4{font-family:Roboto,sans-serif;font-weight:300;}article strong {font-weight: bold;}header nav > ul.menu > li > a { color:#fff; }header nav > ul.menu > li >  a:hover { color:#fff; }header nav > ul > li.current_page_item > a:hover { color:#fff; }header nav > ul > li.current_menu_item > a:hover { color:#fff; }header nav > ul > li.current_menu_item > a:hover { color:#fff; }header nav > ul > li > a:active { color:#fff; }header #logo > a > img { max-width:200px; }header ul.menu > li.h-cta > a { color:#FFFFFF!important; }header ul.menu > li.h-cta > a { background:#4b7cc7; }header ul.menu > li.h-cta > a { border-color:#4b7cc7; }header ul.menu > li.h-cta > a:hover { color:#4b7cc7!important; }header ul.menu > li.h-cta > a:hover { background:#transparent; }</style>
+		<style type="text/css">span.oe_textdirection { unicode-bidi: bidi-override; direction: rtl; }
+	span.oe_displaynone { display: none; }</style>
+<style type="text/css" id="thrive-default-styles">@media (min-width: 300px) { .tcb-style-wrap blockquote {color:rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);font-family:Roboto, sans-serif;font-size:18px;font-weight:300;font-style:normal;margin:;padding-top:0px;padding-bottom:0px;text-decoration:rgb(102, 102, 102);text-transform:none;border-left:;--tcb-applied-color:;} }</style>
+<link rel="icon" href="/wp/wp-content/uploads/2015/09/st2.png" sizes="32x32">
+<link rel="icon" href="/wp/wp-content/uploads/2015/09/st2.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp/wp-content/uploads/2015/09/st2.png">
+<meta name="msapplication-TileImage" content="/wp/wp-content/uploads/2015/09/st2.png">
+		<style type="text/css" id="wp-custom-css">/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+.bSe ul:not([class]) {
+margin-left: 20px;
+margin-bottom: 15px;
+}
+
+.bSe ul:not([class]) li {
+    padding-left: 0;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+/* StackStorm "Donate" button */
+li#menu-item-9062 a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #418cc5;
+    border: 3px solid #418cc5;
+    color: #fff !important;
+    text-decoration: none;
+    height: 30px;
+    border-radius: 20px;
+    padding: 0 12px;
+    font-weight: 400;
+    transition: all .25s ease-in-out;
+}
+li#menu-item-9062 a:hover {
+    color: #333 !important;
+}
+li#menu-item-9062 a:before {
+    top: 0;
+}</style>
+					<style type="text/css">/* ***blog*** */
+
+pre code {
+        overflow: scroll !important;
+	white-space: pre !important;
+	font-size: 11px
+}
+
+header.side nav>ul>li {
+    padding: 15px !important;
+}
+
+.cnt {
+    margin-top: 50px !important;
+}
+
+.cnt a.customHref{
+    color: #f82 !important;
+}
+
+.bSe ul li:before {
+    content: '' !important;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.bSe ul {
+    list-style-type: disc !important;
+}
+
+.bSe table tbody tr{
+    border-top-width:0px !important;
+}
+
+code {
+    font-size: 0.9em !important;
+}
+
+pre{
+    font-family: Monaco, MonacoRegular, monospace !important;
+    font-size: 14px !important;
+    background-color: rgb(250,253,255) !important;
+    padding: 0px 3px 0px 3px !important;
+    white-space: pre !important;
+}
+
+.bSe h1, .bSe .entry-title {
+    line-height: 1.2;
+    font-size: 40px;
+}
+
+.bSe h2 {
+    font-weight: 300;
+}
+
+.bSe h2, .tve-woocommerce .bSe h2 {
+    font-family: "Roboto",sans-serif;
+}
+
+.cnt p, .tve-woocommerce .product p, .tve-woocommerce .products p {
+    font-family: Roboto,sans-serif;
+    font-weight: 300;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+
+header.fbh {
+    height: 49px;
+}
+header #logo>a>img {
+    max-width: 150px;
+}
+
+.gist .blob-code .blob-code-inner .js-file-line  {
+    white-space: pre !important;
+}</style>
+		
+</head>
+<body class="post-template-default single single-post postid-6450 single-format-standard">
+
+
+<!-- BEGIN LF Header --> 	<div id="lf-header" style="padding-bottom: 3px; padding-top: 3px;background: #252525;"> 		<div class="container wrp"> 			<a href="https://linuxfoundation.org/projects" target="_blank" rel="noopener noreferrer"> 				<img src="/wp/wp-content/themes/stackstorm/images/logo_lf_projects_horizontal.png" style="max-width: 270px;"> 			</a> 		</div> 	</div> 	<!-- END LF Header -->
+
+<div class="theme-wrapper">
+	
+	
+	
+	
+	<div class="fln">
+		<div class="wrp clearfix">
+												<a class="fl-l" href="/">
+						<img src="/wp/wp-content/uploads/2016/10/StackStorm-logo228.png" alt="StackStorm">
+					</a>
+										<div class="fl-s clearfix">
+																<ul>
+																													</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="header-wrapper h-bi">
+		<div id="floating_menu" data-float="float" data-social="0">
+			<header class="side" style="">
+								<div class="h-i">
+					<div class="wrp">
+														<div id="logo">
+									<a href="/">
+										<img src="/wp/wp-content/uploads/2016/10/StackStorm-logo228.png" alt="StackStorm"></a>
+								</div>
+																					<div class="m-s">
+								<div class="hsm"></div>
+								<div class="m-si">
+																												<nav class="menu-stackstorm-refresh-container"><ul id="menu-stackstorm-refresh" class="menu">
+<li id="menu-item-5952" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/features">Features</a></li>
+<li id="menu-item-6100" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/#community">Community</a></li>
+<li id="menu-item-4207" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a target="_blank" href="http://docs.stackstorm.com/">Docs</a></li>
+<li id="menu-item-8701" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="https://exchange.stackstorm.org/">Exchange</a></li>
+<li id="menu-item-2277" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/blog">Blog</a></li>
+<li id="menu-item-9062" class="menu-item menu-item-type-post_type menu-item-object-page toplvl"><a href="/donate/">Donate</a></li>
+</ul></nav>										<!-- Cart Dropdown -->
+									
+																	</div>
+							</div>
+						
+					</div>
+				</div>
+
+			</header>
+		</div>
+	</div>
+
+	
+	
+	
+	
+			
+		
+		<div class="wrp cnt">
+
+
+			<section class="bSe bpd">
+				
+<div class="awr">
+
+	
+	
+	
+				<h1 class="entry-title">Event Driven Auto-Remediation with the Elastic Stack</h1>
+			<div class="met">
+		<ul class="meta">
+																			<li>
+										<a href="/2017/01/12/event-driven-auto-remediation-elastic-stack/#comments">
+						1						COMMENT					</a>
+				</li>
+					</ul>
+
+			</div>
+
+	
+	
+		<div class="awr-i">
+		<p><strong>Jan 12, 2017</strong><br>
+<em>by Siddharth Krishna</em></p>
+<p>Recently we explained how to use <a href="/2016/10/21/auto-remediation-stackstorm-splunk/"><strong>Syslog with Splunk &amp; StackStorm</strong></a> to auto-remediate a link going down on a switch. Splunk is a widely used log management tool but there’s also a popular open source alternative &#8211; <a href="https://www.elastic.co/webinars/introduction-elk-stack"><strong>Elastic Stack</strong></a> (formerly the ELK Stack: Elasticsearch, Logstash and Kibana). So if you’re using the Elastic Stack, and are looking to automate event remediation in your environment, you&#8217;re at the right place! In this post, we’re taking the same <a href="/2016/10/21/auto-remediation-stackstorm-splunk/">use case as before</a> and talking about how to set up the Elastic stack to collect syslog data and trigger event-based network remediation workflows using <strong>StackStorm</strong>.</p>
+<p><span id="more-6450"></span></p>
+<h3>Any changes to StackStorm?</h3>
+<p>No. Everything in relation with StackStorm (webhooks, workflows, actions and integrations) remains the same as documented in the earlier blog. Optionally, you could create a new webhook URL (eg. elk_link_flap) specifically for your Elastic Stack setup. Here, our primary focus will be on configuring the Elastic Stack for an end-to-end demonstration of the auto-remediation use case.</p>
+<div id="gist43700226" class="gist">
+    <div class="gist-file" translate="no">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-stackstorm_elk_webhook" class="file my-2">
+    
+    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-text  ">
+
+        
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewbox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">      <a href="/2017/01/12/event-driven-auto-remediation-elastic-stack/{{ revealButtonHref }}" data-view-component="true" class="btn-sm btn">  Show hidden characters
+  
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewbox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table data-hpc class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file js-search-container" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="" data-tagsearch-path="stackstorm_elk_webhook">
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L1" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="1"></td>
+          <td id="file-stackstorm_elk_webhook-LC1" class="blob-code blob-code-inner js-file-line">name: &quot;elk_link_flap_webhook_rule&quot;</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L2" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="2"></td>
+          <td id="file-stackstorm_elk_webhook-LC2" class="blob-code blob-code-inner js-file-line">  enabled: true</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L3" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="3"></td>
+          <td id="file-stackstorm_elk_webhook-LC3" class="blob-code blob-code-inner js-file-line">  description: &quot;ELK link flap  webhook rule&quot;</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L4" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="4"></td>
+          <td id="file-stackstorm_elk_webhook-LC4" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L5" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="5"></td>
+          <td id="file-stackstorm_elk_webhook-LC5" class="blob-code blob-code-inner js-file-line">  trigger:</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L6" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="6"></td>
+          <td id="file-stackstorm_elk_webhook-LC6" class="blob-code blob-code-inner js-file-line">    type: &quot;core.st2.webhook&quot;</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L7" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="7"></td>
+          <td id="file-stackstorm_elk_webhook-LC7" class="blob-code blob-code-inner js-file-line">    parameters:</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L8" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="8"></td>
+          <td id="file-stackstorm_elk_webhook-LC8" class="blob-code blob-code-inner js-file-line">      url: &quot;elk_link_flap&quot;</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L9" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="9"></td>
+          <td id="file-stackstorm_elk_webhook-LC9" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L10" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="10"></td>
+          <td id="file-stackstorm_elk_webhook-LC10" class="blob-code blob-code-inner js-file-line">  criteria: {}</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L11" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="11"></td>
+          <td id="file-stackstorm_elk_webhook-LC11" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L12" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="12"></td>
+          <td id="file-stackstorm_elk_webhook-LC12" class="blob-code blob-code-inner js-file-line">  action:</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L13" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="13"></td>
+          <td id="file-stackstorm_elk_webhook-LC13" class="blob-code blob-code-inner js-file-line">    ref: st2_demos.link_flap_remed_workflow</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L14" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="14"></td>
+          <td id="file-stackstorm_elk_webhook-LC14" class="blob-code blob-code-inner js-file-line">    parameters:</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L15" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="15"></td>
+          <td id="file-stackstorm_elk_webhook-LC15" class="blob-code blob-code-inner js-file-line">      host: &quot;{{trigger.body.host}}&quot;</td>
+        </tr>
+        <tr>
+          <td id="file-stackstorm_elk_webhook-L16" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="16"></td>
+          <td id="file-stackstorm_elk_webhook-LC16" class="blob-code blob-code-inner js-file-line">      interface: &quot;{{trigger.body.interface}}&quot;</td>
+        </tr>
+  </table>
+</div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf/raw/34f848645d149c946475088abb4a55c2bc9abe46/stackstorm_elk_webhook" style="float:right">view raw</a>
+        <a href="https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf#file-stackstorm_elk_webhook">
+          stackstorm_elk_webhook
+        </a>
+        hosted with &#10084; by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+<h3>Set Up Logstash</h3>
+<p>First step is to define data source for syslog as input and Elasticsearch as the output in the <strong>Logstash</strong> configuration. UDP port 514 is used for syslog. The Logstash configuration file is located at <code>/etc/logstash/conf.d/</code>. Create a new config file eg. <code>lsconfig.conf</code> if one does not already exist and ensure that there’s only one config file at this location for Logstash to use. Add the following content:</p>
+<div id="gist43700226" class="gist">
+    <div class="gist-file" translate="no">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-logstash_input_ouput" class="file my-2">
+    
+    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-text  ">
+
+        
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewbox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">      <a href="/2017/01/12/event-driven-auto-remediation-elastic-stack/{{ revealButtonHref }}" data-view-component="true" class="btn-sm btn">  Show hidden characters
+  
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewbox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table data-hpc class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file js-search-container" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="" data-tagsearch-path="logstash_input_ouput">
+        <tr>
+          <td id="file-logstash_input_ouput-L1" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="1"></td>
+          <td id="file-logstash_input_ouput-LC1" class="blob-code blob-code-inner js-file-line">input {</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L2" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="2"></td>
+          <td id="file-logstash_input_ouput-LC2" class="blob-code blob-code-inner js-file-line">    udp {</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L3" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="3"></td>
+          <td id="file-logstash_input_ouput-LC3" class="blob-code blob-code-inner js-file-line">       port =&gt; 514</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L4" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="4"></td>
+          <td id="file-logstash_input_ouput-LC4" class="blob-code blob-code-inner js-file-line">       type =&gt; syslog</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L5" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="5"></td>
+          <td id="file-logstash_input_ouput-LC5" class="blob-code blob-code-inner js-file-line">    }</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L6" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="6"></td>
+          <td id="file-logstash_input_ouput-LC6" class="blob-code blob-code-inner js-file-line">}</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L7" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="7"></td>
+          <td id="file-logstash_input_ouput-LC7" class="blob-code blob-code-inner js-file-line">
+</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L8" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="8"></td>
+          <td id="file-logstash_input_ouput-LC8" class="blob-code blob-code-inner js-file-line">output {</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L9" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="9"></td>
+          <td id="file-logstash_input_ouput-LC9" class="blob-code blob-code-inner js-file-line">    elasticsearch { hosts =&gt; [&quot;127.0.0.1:9200&quot;] }</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L10" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="10"></td>
+          <td id="file-logstash_input_ouput-LC10" class="blob-code blob-code-inner js-file-line">    stdout { }</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_input_ouput-L11" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="11"></td>
+          <td id="file-logstash_input_ouput-LC11" class="blob-code blob-code-inner js-file-line">}</td>
+        </tr>
+  </table>
+</div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf/raw/34f848645d149c946475088abb4a55c2bc9abe46/logstash_input_ouput" style="float:right">view raw</a>
+        <a href="https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf#file-logstash_input_ouput">
+          logstash_input_ouput
+        </a>
+        hosted with &#10084; by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+<p>Restart the Logstash service:<br>
+<code>sudo service logstash start</code></p>
+<h3>Verify Syslog on Kibana</h3>
+<p>On <strong>Kibana</strong>, define a new Index Pattern <code>logstash-*</code> and select it in the Discover dashboard. Assuming that your network devices are pointing to the Elastic Stack server for syslog, you should now start seeing the syslog messages from the devices on Kibana dashboard.</p>
+<p><img loading="lazy" src="/wp/wp-content/uploads/2017/01/kabanadashbaord.png" width="1899" height="581" class="alignnone size-medium"></p>
+<h3>Add Field Extractions</h3>
+<p>To be able to pass relevant information such as the switch interface name (for the link which went down) and IP address to the StackStorm Auto-Remediation workflow, the info has to be first extracted from the log message body. We use <a href="https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html">Logstash Filters</a> &amp; <a href="https://www.elastic.co/guide/en/kibana/current/managing-fields.html">Kibana Fields</a> to do this. Add the following filter to the Logstash config and restart all Elastic Stack services.</p>
+<div id="gist43700226" class="gist">
+    <div class="gist-file" translate="no">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-logstash_filter" class="file my-2">
+    
+    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-text  ">
+
+        
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewbox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">      <a href="/2017/01/12/event-driven-auto-remediation-elastic-stack/{{ revealButtonHref }}" data-view-component="true" class="btn-sm btn">  Show hidden characters
+  
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewbox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table data-hpc class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file js-search-container" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="" data-tagsearch-path="logstash_filter">
+        <tr>
+          <td id="file-logstash_filter-L1" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="1"></td>
+          <td id="file-logstash_filter-LC1" class="blob-code blob-code-inner js-file-line">filter {</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_filter-L2" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="2"></td>
+          <td id="file-logstash_filter-LC2" class="blob-code blob-code-inner js-file-line">    if [type] == &quot;syslog&quot; {</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_filter-L3" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="3"></td>
+          <td id="file-logstash_filter-LC3" class="blob-code blob-code-inner js-file-line">        grok {</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_filter-L4" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="4"></td>
+          <td id="file-logstash_filter-LC4" class="blob-code blob-code-inner js-file-line">            match =&gt; { &quot;message&quot; =&gt; &quot;Interface %{GREEDYDATA:interfacename} is link down&quot; }</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_filter-L5" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="5"></td>
+          <td id="file-logstash_filter-LC5" class="blob-code blob-code-inner js-file-line">            add_field =&gt; [ &quot;received_at&quot;, &quot;%{@timestamp}&quot;]</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_filter-L6" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="6"></td>
+          <td id="file-logstash_filter-LC6" class="blob-code blob-code-inner js-file-line">            add_field =&gt; [ &quot;received_from&quot;, &quot;%{host}&quot; ]</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_filter-L7" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="7"></td>
+          <td id="file-logstash_filter-LC7" class="blob-code blob-code-inner js-file-line">        }</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_filter-L8" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="8"></td>
+          <td id="file-logstash_filter-LC8" class="blob-code blob-code-inner js-file-line">    }</td>
+        </tr>
+        <tr>
+          <td id="file-logstash_filter-L9" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="9"></td>
+          <td id="file-logstash_filter-LC9" class="blob-code blob-code-inner js-file-line">}</td>
+        </tr>
+  </table>
+</div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf/raw/34f848645d149c946475088abb4a55c2bc9abe46/logstash_filter" style="float:right">view raw</a>
+        <a href="https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf#file-logstash_filter">
+          logstash_filter
+        </a>
+        hosted with &#10084; by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+<p>Once this is done, fields <code>interfacename</code> and <code>host</code> will start getting auto-populated for each syslog message. Yes, <code>interfacename</code> extraction will work only for “link down” syslog messages but that’s good enough for our demonstration. Of course, you can use more specific grok text pattern matching for better filtering.</p>
+<p><img loading="lazy" src="/wp/wp-content/uploads/2017/01/fieldextractions.png" width="1563" height="498" class="alignnone size-medium"></p>
+<h3>Sense App for Kibana</h3>
+<p>The <strong>Sense</strong> App is nice for interacting with the REST API of Elasticsearch. We use it to create a <em>watch</em> to trigger our workflow. It is a convenient way to quickly test out elastic search configurations via the REST interface. Follow the official documentation <a href="https://www.elastic.co/guide/en/sense/current/installing.html">here</a> to install Sense.</p>
+<p><img loading="lazy" src="/wp/wp-content/uploads/2017/01/sense.png" width="1056" height="396" class="alignnone size-medium"></p>
+<h3>Install Watcher, Create a Watch</h3>
+<p>We use Elasticsearch Watcher Plugin for the alerting functionality required for triggering the StackStorm workflow. After <a href="https://www.elastic.co/guide/en/watcher/current/installing-watcher.html#package-installation">installing the plugin</a>, use Sense to create a watch: an alert which calls a webhook into StackStorm whenever the “link down” syslog message is received from a switch (determined by a match criteria and a condition).</p>
+<blockquote><p>
+  Watcher helps identify changes in your data that are interesting to you by using the Elasticsearch query language. It provides multiple alerting options with built-in integrations and comes with a powerful webhook output for integration with your existing monitoring infrastructure or any third-party system.
+</p></blockquote>
+<p>Watch definition:</p>
+<div id="gist43700226" class="gist">
+    <div class="gist-file" translate="no">
+      <div class="gist-data">
+        <div class="js-gist-file-update-container js-task-list-container file-box">
+  <div id="file-watcher_watch" class="file my-2">
+    
+    <div itemprop="text" class="Box-body p-0 blob-wrapper data type-text  ">
+
+        
+<div class="js-check-bidi js-blob-code-container blob-code-content">
+
+  <template class="js-file-alert-template">
+  <div data-view-component="true" class="flash flash-warn flash-full d-flex flex-items-center">
+  <svg aria-hidden="true" height="16" viewbox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+  
+    <span>
+      This file contains bidirectional Unicode text that may be interpreted or compiled differently than what appears below. To review, open the file in an editor that reveals hidden Unicode characters.
+      <a href="https://github.co/hiddenchars" target="_blank">Learn more about bidirectional Unicode characters</a>
+    </span>
+
+
+  <div data-view-component="true" class="flash-action">      <a href="/2017/01/12/event-driven-auto-remediation-elastic-stack/{{ revealButtonHref }}" data-view-component="true" class="btn-sm btn">  Show hidden characters
+  
+</a>
+</div>
+</div></template>
+<template class="js-line-alert-template">
+  <span aria-label="This line has hidden Unicode characters" data-view-component="true" class="line-alert tooltipped tooltipped-e">
+    <svg aria-hidden="true" height="16" viewbox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-alert">
+    <path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path>
+</svg>
+</span></template>
+
+  <table data-hpc class="highlight tab-size js-file-line-container js-code-nav-container js-tagsearch-file js-search-container" data-tab-size="8" data-paste-markdown-skip data-tagsearch-lang="" data-tagsearch-path="watcher_watch">
+        <tr>
+          <td id="file-watcher_watch-L1" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="1"></td>
+          <td id="file-watcher_watch-LC1" class="blob-code blob-code-inner js-file-line">PUT _watcher/watch/my_demo_watch</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L2" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="2"></td>
+          <td id="file-watcher_watch-LC2" class="blob-code blob-code-inner js-file-line">{</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L3" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="3"></td>
+          <td id="file-watcher_watch-LC3" class="blob-code blob-code-inner js-file-line">  &quot;trigger&quot; : { </td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L4" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="4"></td>
+          <td id="file-watcher_watch-LC4" class="blob-code blob-code-inner js-file-line">    &quot;schedule&quot; : { &quot;interval&quot; : &quot;5s&quot; }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L5" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="5"></td>
+          <td id="file-watcher_watch-LC5" class="blob-code blob-code-inner js-file-line">  },</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L6" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="6"></td>
+          <td id="file-watcher_watch-LC6" class="blob-code blob-code-inner js-file-line">  &quot;input&quot; : { </td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L7" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="7"></td>
+          <td id="file-watcher_watch-LC7" class="blob-code blob-code-inner js-file-line">    &quot;search&quot;: {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L8" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="8"></td>
+          <td id="file-watcher_watch-LC8" class="blob-code blob-code-inner js-file-line">      &quot;request&quot;: {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L9" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="9"></td>
+          <td id="file-watcher_watch-LC9" class="blob-code blob-code-inner js-file-line">        &quot;indices&quot;: &quot;logstash-*&quot;,</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L10" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="10"></td>
+          <td id="file-watcher_watch-LC10" class="blob-code blob-code-inner js-file-line">        &quot;body&quot;: {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L11" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="11"></td>
+          <td id="file-watcher_watch-LC11" class="blob-code blob-code-inner js-file-line">          &quot;query&quot;: {  </td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L12" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="12"></td>
+          <td id="file-watcher_watch-LC12" class="blob-code blob-code-inner js-file-line">            &quot;bool&quot;: {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L13" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="13"></td>
+          <td id="file-watcher_watch-LC13" class="blob-code blob-code-inner js-file-line">              &quot;must&quot;: {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L14" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="14"></td>
+          <td id="file-watcher_watch-LC14" class="blob-code blob-code-inner js-file-line">                &quot;match_phrase&quot;: { </td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L15" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="15"></td>
+          <td id="file-watcher_watch-LC15" class="blob-code blob-code-inner js-file-line">                  &quot;message&quot;: &quot;is link down&quot; </td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L16" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="16"></td>
+          <td id="file-watcher_watch-LC16" class="blob-code blob-code-inner js-file-line">                }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L17" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="17"></td>
+          <td id="file-watcher_watch-LC17" class="blob-code blob-code-inner js-file-line">              },</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L18" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="18"></td>
+          <td id="file-watcher_watch-LC18" class="blob-code blob-code-inner js-file-line">              &quot;filter&quot; : {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L19" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="19"></td>
+          <td id="file-watcher_watch-LC19" class="blob-code blob-code-inner js-file-line">                &quot;range&quot;: {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L20" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="20"></td>
+          <td id="file-watcher_watch-LC20" class="blob-code blob-code-inner js-file-line">                  &quot;@timestamp&quot;: {	</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L21" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="21"></td>
+          <td id="file-watcher_watch-LC21" class="blob-code blob-code-inner js-file-line">                      &quot;from&quot;: &quot;now-8s&quot;,</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L22" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="22"></td>
+          <td id="file-watcher_watch-LC22" class="blob-code blob-code-inner js-file-line">                      &quot;to&quot;: &quot;now&quot;</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L23" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="23"></td>
+          <td id="file-watcher_watch-LC23" class="blob-code blob-code-inner js-file-line">                  }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L24" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="24"></td>
+          <td id="file-watcher_watch-LC24" class="blob-code blob-code-inner js-file-line">                }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L25" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="25"></td>
+          <td id="file-watcher_watch-LC25" class="blob-code blob-code-inner js-file-line">              }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L26" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="26"></td>
+          <td id="file-watcher_watch-LC26" class="blob-code blob-code-inner js-file-line">            }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L27" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="27"></td>
+          <td id="file-watcher_watch-LC27" class="blob-code blob-code-inner js-file-line">          } </td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L28" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="28"></td>
+          <td id="file-watcher_watch-LC28" class="blob-code blob-code-inner js-file-line">        }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L29" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="29"></td>
+          <td id="file-watcher_watch-LC29" class="blob-code blob-code-inner js-file-line">      }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L30" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="30"></td>
+          <td id="file-watcher_watch-LC30" class="blob-code blob-code-inner js-file-line">    }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L31" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="31"></td>
+          <td id="file-watcher_watch-LC31" class="blob-code blob-code-inner js-file-line">  },</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L32" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="32"></td>
+          <td id="file-watcher_watch-LC32" class="blob-code blob-code-inner js-file-line">  &quot;condition&quot; : {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L33" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="33"></td>
+          <td id="file-watcher_watch-LC33" class="blob-code blob-code-inner js-file-line">      &quot;compare&quot; : { &quot;ctx.payload.hits.total&quot; : { &quot;gt&quot; : 0 }}</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L34" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="34"></td>
+          <td id="file-watcher_watch-LC34" class="blob-code blob-code-inner js-file-line">  },</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L35" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="35"></td>
+          <td id="file-watcher_watch-LC35" class="blob-code blob-code-inner js-file-line">  &quot;actions&quot; : {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L36" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="36"></td>
+          <td id="file-watcher_watch-LC36" class="blob-code blob-code-inner js-file-line">    &quot;my_webhook&quot; : {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L37" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="37"></td>
+          <td id="file-watcher_watch-LC37" class="blob-code blob-code-inner js-file-line">      &quot;webhook&quot; : {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L38" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="38"></td>
+          <td id="file-watcher_watch-LC38" class="blob-code blob-code-inner js-file-line">        &quot;scheme&quot; : &quot;https&quot;,</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L39" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="39"></td>
+          <td id="file-watcher_watch-LC39" class="blob-code blob-code-inner js-file-line">        &quot;port&quot;  : 443,</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L40" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="40"></td>
+          <td id="file-watcher_watch-LC40" class="blob-code blob-code-inner js-file-line">        &quot;method&quot; : &quot;POST&quot;,</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L41" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="41"></td>
+          <td id="file-watcher_watch-LC41" class="blob-code blob-code-inner js-file-line">        &quot;host&quot; : &quot;bwc&quot;,</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L42" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="42"></td>
+          <td id="file-watcher_watch-LC42" class="blob-code blob-code-inner js-file-line">        &quot;path&quot; : &quot;/api/v1/webhooks/elk_link_flap?st2-api-key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;,</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L43" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="43"></td>
+          <td id="file-watcher_watch-LC43" class="blob-code blob-code-inner js-file-line">        &quot;headers&quot;: {</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L44" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="44"></td>
+          <td id="file-watcher_watch-LC44" class="blob-code blob-code-inner js-file-line">          &quot;Content-Type&quot;: &quot;application/json&quot;</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L45" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="45"></td>
+          <td id="file-watcher_watch-LC45" class="blob-code blob-code-inner js-file-line">        },</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L46" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="46"></td>
+          <td id="file-watcher_watch-LC46" class="blob-code blob-code-inner js-file-line">        &quot;body&quot; : &quot;{\&quot;host\&quot;: \&quot;{{ctx.payload.hits.hits.0._source.host}}\&quot;, \&quot;interface\&quot;: \&quot;{{ctx.payload.hits.hits.0._source.interfacename}}\&quot;}&quot;</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L47" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="47"></td>
+          <td id="file-watcher_watch-LC47" class="blob-code blob-code-inner js-file-line">      }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L48" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="48"></td>
+          <td id="file-watcher_watch-LC48" class="blob-code blob-code-inner js-file-line">   }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L49" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="49"></td>
+          <td id="file-watcher_watch-LC49" class="blob-code blob-code-inner js-file-line">  }</td>
+        </tr>
+        <tr>
+          <td id="file-watcher_watch-L50" class="blob-num js-line-number js-code-nav-line-number js-blob-rnum" data-line-number="50"></td>
+          <td id="file-watcher_watch-LC50" class="blob-code blob-code-inner js-file-line"> }</td>
+        </tr>
+  </table>
+</div>
+
+
+    </div>
+
+
+  </div>
+</div>
+
+      </div>
+      <div class="gist-meta">
+        <a href="https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf/raw/34f848645d149c946475088abb4a55c2bc9abe46/watcher_watch" style="float:right">view raw</a>
+        <a href="https://gist.github.com/sidkrishna/d7f117bb95f2aa34ec51aa52158a5dbf#file-watcher_watch">
+          watcher_watch
+        </a>
+        hosted with &#10084; by <a href="https://github.com/">GitHub</a>
+      </div>
+    </div>
+</div>
+
+<p>The watch has the following characteristics:</p>
+<ul>
+<li>
+<strong>Schedule</strong>: Runs every 5 seconds.</li>
+<li>
+<strong>Match Criteria</strong>: Messages in index <code>logstash-*</code> containing string &#8220;is link down&#8221; received in the last 8 seconds.</li>
+<li>
+<strong>Condition</strong>: If the filtered message count at watch run time is greater than 0.</li>
+<li>
+<strong>Actions</strong>: Call a webhook into StackStorm passing parameter values for <code>host</code> (switch IP address) and <code>interfacename</code> (identity of the interface that went down).</li>
+</ul>
+<h3>Putting it together</h3>
+<p>We are now ready with the configurations and its time to verify our automation. Trigger the event (in this case, link down), confirm that the syslog for the event shows up on the Kibana dashboard and finally validate the execution of the StackStorm workflow to see the programmed auto-remediation in action. That’s it. You now have syslog driven auto-remediation working in your environment with the Elastic Stack!</p>	</div>
+	<div class="clear"></div>
+	
+	
+	
+				<div class="pnav">
+			<a class="pav left" href="/2016/12/20/quick-update-v2-1-1-published/">
+				<span>Previous Post</span>
+				<span>Quick update: v2.1.1 published</span>
+			</a>
+			<a class="pav right" href="/2017/01/24/innovation-at-dimension-data-event-driven-automation/">
+				<span>Next Post</span>
+				<span>Innovation at Dimension Data: Accelerating Innovation and Digital Transformation with StackStorm Event Driven Automation</span>
+			</a>
+		</div>
+	</div>
+
+	
+<div id="disqus_thread"></div>
+			</section>
+
+
+		</div>
+		<div class="clear"></div>
+	
+
+<div class="footer-wrapper">
+<footer>
+				<div class="fmw">
+			<div class="wrp">
+									<div class="colm oth ">
+						<section id="text-7" class="col"><div class="scn">			<div class="textwidget">
+<p><a href="http://docs.stackstorm.com/" target="_blank" rel="noopener">Documentation</a><br>
+<a href="https://github.com/StackStorm" target="_blank" rel="noopener">GitHub</a><br>
+<a href="/#community" target="_blank" rel="noopener">Community</a><br>
+<a href="/security" target="_blank" rel="noopener">Security</a></p>
+</div>
+		</div></section>					</div>
+									<div class="colm oth ">
+						<section id="text-8" class="col"><div class="scn">			<div class="textwidget">
+<p><a href="/blog">Blog</a><br>
+<a href="https://www.youtube.com/channel/UCColc5CuBJ8-1SnALnkDz8Q">Video Gallery</a><br>
+<a href="/privacy-policy">Privacy Policy</a></p>
+</div>
+		</div></section>					</div>
+									<div class="colm oth lst">
+						<section id="text-9" class="col"><div class="scn">			<div class="textwidget">
+<div style="line-height:1.7em;">
+<a href="/contact">Contact</a><br>
+
+<div class="ic-social">
+<a href="https://www.facebook.com/stackstormdevops" target="_blank" rel="noopener"><i class="fa fa-facebook-square"></i></a>
+<a href="https://twitter.com/StackStorm" target="_blank" rel="noopener"><i class="fa fa-twitter-square"></i></a>
+<a href="https://www.linkedin.com/company/stackstorm" target="_blank" rel="noopener"><i class="fa fa-linkedin-square"></i></a>
+<a href="https://github.com/StackStorm" target="_blank" rel="noopener"><i class="fa fa-github-square"></i></a>
+<a href="https://www.youtube.com/channel/UCColc5CuBJ8-1SnALnkDz8Q" target="_blank" rel="noopener"><i class="fa fa-youtube-square"></i></a>
+</div>
+</div>
+<style type="text/css">.tve-leads-track-ribbon-46 {
+  top: 70px !important;
+}
+.tve-leads-track-ribbon-46 #tve_four_set {
+  font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+}
+.tve-leads-track-ribbon-46 #tve_four_set .thrv-ribbon {
+border-top: 1px solid #ddd;
+    box-shadow: 0px 4px 3px -4px rgba(0,0,0,0.75);
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+    border-right: none;
+    border-left: none;
+}
+.tve-leads-track-ribbon-46 .bold_text {
+  font-weight: normal;
+}
+.tve-leads-track-ribbon-46 #tve_four_set .tve-ribbon-close {
+height: 30px;
+    border-color: white;
+    color: white;
+    font-family: sans-serif;
+    border-width: 2px;
+    top: 50%;
+    margin-top: -15px;
+    font-size: 18px;
+    font-weight: 800;
+}</style>
+</div>
+		</div></section>					</div>
+								<div class="clear"></div>
+			</div>
+		</div>
+		<div class="fmm">
+		<div class="wrp">
+			<div class="ft-m">
+							</div>
+		</div>
+		<div class="wrp">
+			<div class="ft-c">
+				<p>
+											© 2021 StackStorm a Series of LF Projects, LLC. All rights reserved. For web site terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/">https://lfprojects.org/</a>. 
+<br>For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds.  <a href="https://www.linuxfoundation.org/privacy">Privacy Policy</a> and <a href="https://www.linuxfoundation.org/terms">Terms of Use</a>.														</p>
+			</div>
+			<div class="ft-s">
+												<ul>
+																																		</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</footer>
+</div>
+
+
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>We use cookies for traffic analytics and ad and content personalization. By clicking on any of the content or interacting with any section of this website,<br>you are agreeing to this use of cookies in the manner described in our <a href="/privacy-policy" id="CONSTANT_OPEN_URL" target="_blank" class="cli-plugin-main-link" style="display:inline-block;">Privacy Policy</a> <a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="cli-plugin-main-button cookie_action_close_header cli_action_button" style="display:inline-block; ">close [x]</a></span></div>
+<div id="cookie-law-info-again" style="display:none;" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy & Cookies Policy</span></div>
+<div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+	  	<button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+	  	</button>
+	  	<div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+							<div class="wt-cli-necessary-checkbox">
+                        <input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+                        <label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+                    </div>
+                    <span class="cli-necessary-caption">Always Enabled</span> 						</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<p>Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.</p>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+							<div class="cli-switch">
+                        <input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+                        <label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+                    </div>						</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<p>Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.</p>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+	  	</div>
+	  	<div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE & ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><script type="text/javascript">/**
+ * Displays toast message from storage, it is used when the user is redirected after login
+ */
+if ( window.sessionStorage ) {
+	window.addEventListener( 'load', function () {
+		var message = sessionStorage.getItem( 'tcb_toast_message' );
+
+		if ( message ) {
+			tcbToast( sessionStorage.getItem( 'tcb_toast_message' ), false );
+			sessionStorage.removeItem( 'tcb_toast_message' );
+		}
+	} );
+}
+
+/**
+ * Displays toast message
+ */
+function tcbToast( message, error, callback ) {
+	/* Also allow "message" objects */
+	if ( typeof message !== 'string' ) {
+		message = message.message || message.error || message.success;
+	}
+	if ( ! error ) {
+		error = false;
+	}
+
+	let _icon = 'checkmark',
+		_extra_class = '';
+	if ( error ) {
+		_icon = 'cross';
+		_extra_class = ' tve-toast-error';
+	}
+
+	jQuery( 'body' ).slideDown( 'fast', function () {
+		jQuery( 'body' ).prepend( '<div class="tvd-toast tve-fe-message"><div class="tve-toast-message"><div class="tve-toast-icon-container' + _extra_class + '"><span class="tve_tick thrv-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" class="tcb-checkmark" style="width: 100%; height: 1em; stroke-width: 0; fill: #ffffff; stroke: #ffffff;" viewBox="0 0 32 32"><path d="M27 4l-15 15-7-7-5 5 12 12 20-20z"><\/path><\/svg><\/span><\/div><div class="tve-toast-message-container">' + message + '<\/div><\/div><\/div>' );
+	} );
+
+	setTimeout( function () {
+		jQuery( '.tvd-toast' ).hide();
+
+		if ( typeof callback === 'function' ) {
+			callback();
+		}
+
+	}, 3000 );
+}
+</script><link rel="stylesheet" id="jcarouselresponsive-css" href="/wp/wp-content/plugins/easy-logo-slider/css/jcarouselresponsive.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="style-admin-css" href="/wp/wp-content/plugins/easy-logo-slider/css/style-admin.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="gistpress-css" href="https://github.githubassets.com/assets/gist-embed-862c6e83e243.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<script type="text/javascript" id="disqus_count-js-extra">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"stackstorm"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/plugins/disqus-comment-system/public/js/comment_count.js?ver=3.0.22" id="disqus_count-js"></script>
+<script type="text/javascript" id="disqus_embed-js-extra">
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.22"},"disqusIdentifier":"6450 \/?p=6450","disqusShortname":"stackstorm","disqusTitle":"Event Driven Auto-Remediation with the Elastic Stack","disqusUrl":"\/2017\/01\/12\/event-driven-auto-remediation-elastic-stack\/","postId":"6450"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/plugins/disqus-comment-system/public/js/comment_embed.js?ver=3.0.22" id="disqus_embed-js"></script>
+<script type="text/javascript" id="thrive-main-script-js-extra">
+/* <![CDATA[ */
+var ThriveApp = {"ajax_url":"\/wp\/wp-admin\/admin-ajax.php","is_singular":"1","post_type":"post","lazy_load_comments":"0","comments_loaded":"0","theme_uri":"\/wp\/wp-content\/themes\/rise","translations":{"ProductDetails":"Product Details"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/themes/rise/js/script.js?v=1.101.1" id="thrive-main-script-js"></script>
+<script type="text/javascript" id="tve-dash-frontend-js-extra">
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"\/wp\/wp-admin\/admin-ajax.php","force_ajax_send":"","is_crawler":"1","recaptcha":[]};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/themes/rise/thrive-dashboard/js/dist/frontend.min.js?ver=2.4.0.1" id="tve-dash-frontend-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/enlighter/cache/enlighterjs.min.js?ver=c8vUwCl5jS8Iu00" id="enlighterjs-js"></script>
+<script type="text/javascript" id="enlighterjs-js-after">
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":2,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":false,"theme":"beyond","language":"python","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+</script>
+<script type="text/javascript" src="/wp/wp-includes/js/wp-embed.min.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="wp-embed-js"></script>
+<script type="text/javascript">var tcb_post_lists=JSON.parse('[]');</script>
+</div>
+</body>
+</html>

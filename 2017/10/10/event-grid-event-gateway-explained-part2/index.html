@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<style type="text/css">.ttfm1{font-family: 'dual300';font-size:em;line-height:em;color:;}  .ttfm2{font-family: 'Roboto';font-size:em;line-height:3em;color:;}</style>	<!--[if lt IE 9]>
+	<script src="/wp/wp-content/themes/rise/js/html5/dist/html5shiv.js"></script>
+	<script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+	<!--[if IE 8]>
+	<link rel="stylesheet" type="text/css" href="/wp/wp-content/themes/rise/css/ie8.css"/>
+	<![endif]-->
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/wp/wp-content/themes/rise/css/ie7.css"/>
+	<![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	
+			<meta name="google-site-verification" content="ovwnX0ej2kps4UuJ9NOzNjJcLOQD8JPDLNhe-hMYTMk">	
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Serverless&#039; Event Gateway explained for StackStorm users - StackStorm</title>
+	<link rel="canonical" href="/2017/10/10/event-grid-event-gateway-explained-part2/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Serverless&#039; Event Gateway explained for StackStorm users - StackStorm">
+	<meta property="og:description" content="October 10, 2017 by Dmitri Zimine In Part 1 of the series, I shared my excitement with two new event-driven systems introduced last month: Event Grid from Microsoft Azure and Event Gateway from Serverless.com, and posted some observations on Event Grid. Before we continue with Event Gateway, let’s bring the “terminology normalization” from Part 1.&hellip;">
+	<meta property="og:url" content="/2017/10/10/event-grid-event-gateway-explained-part2/">
+	<meta property="og:site_name" content="StackStorm">
+	<meta property="article:published_time" content="2017-10-10T13:52:20+00:00">
+	<meta property="article:modified_time" content="2017-10-10T19:53:45+00:00">
+	<meta property="og:image" content="/wp/wp-content/uploads/2017/10/event-gateway-serverless.png">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="Dmitri Zimine">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="9 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"StackStorm","url":"/","sameAs":[],"logo":{"@type":"ImageObject","@id":"/#logo","inLanguage":"en-US","url":"/wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","contentUrl":"/wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","width":228,"height":59,"caption":"StackStorm"},"image":{"@id":"/#logo"}},{"@type":"WebSite","@id":"/#website","url":"/","name":"StackStorm","description":"Event-driven automation","publisher":{"@id":"/#organization"},"potentialAction":[{"@type":"SearchAction","target":"/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#primaryimage","inLanguage":"en-US","url":"/wp/wp-content/uploads/2017/10/event-gateway-serverless.png","contentUrl":"/wp/wp-content/uploads/2017/10/event-gateway-serverless.png","width":991,"height":678,"caption":"Event Gateway by Serverless"},{"@type":"WebPage","@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#webpage","url":"/2017/10/10/event-grid-event-gateway-explained-part2/","name":"Serverless' Event Gateway explained for StackStorm users - StackStorm","isPartOf":{"@id":"/#website"},"primaryImageOfPage":{"@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#primaryimage"},"datePublished":"2017-10-10T13:52:20+00:00","dateModified":"2017-10-10T19:53:45+00:00","breadcrumb":{"@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["/2017/10/10/event-grid-event-gateway-explained-part2/"]}]},{"@type":"BreadcrumbList","@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"/","url":"/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"/blog/","url":"/blog/","name":"Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#webpage"}}]},{"@type":"Article","@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#article","isPartOf":{"@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#webpage"},"author":{"@id":"/#/schema/person/567d7d8eda65818b7b47ef6f9f362051"},"headline":"Serverless&#8217; Event Gateway explained for StackStorm users","datePublished":"2017-10-10T13:52:20+00:00","dateModified":"2017-10-10T19:53:45+00:00","mainEntityOfPage":{"@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#webpage"},"wordCount":1670,"commentCount":0,"publisher":{"@id":"/#organization"},"image":{"@id":"/2017/10/10/event-grid-event-gateway-explained-part2/#primaryimage"},"thumbnailUrl":"/wp/wp-content/uploads/2017/10/event-gateway-serverless.png","keywords":["event-driven automation","review","serverless"],"articleSection":["Blog","Community"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["/2017/10/10/event-grid-event-gateway-explained-part2/#respond"]}]},{"@type":"Person","@id":"/#/schema/person/567d7d8eda65818b7b47ef6f9f362051","name":"Dmitri Zimine","image":{"@type":"ImageObject","@id":"/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/956412cafe5d4b1d26ad33df724c5288?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/956412cafe5d4b1d26ad33df724c5288?s=96&d=mm&r=g","caption":"Dmitri Zimine"},"url":"/author/dzimine/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="StackStorm &raquo; Serverless&#8217; Event Gateway explained for StackStorm users Comments Feed" href="/2017/10/10/event-grid-event-gateway-explained-part2/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp\/wp-includes\/js\/wp-emoji-release.min.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="dashicons-css" href="/wp/wp-includes/css/dashicons.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="menu-icons-extra-css" href="/wp/wp-content/plugins/menu-icons/css/extra.min.css?ver=0.12.8" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="/wp/wp-includes/css/dist/block-library/style.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-public.css?ver=2.0.3" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-gdpr.css?ver=2.0.3" type="text/css" media="all">
+<link rel="stylesheet" id="testimonial-rotator-style-css" href="/wp/wp-content/plugins/testimonial-rotator/testimonial-rotator-style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="/wp/wp-content/plugins/menu-icons/vendor/codeinwp/icon-picker/css/types/font-awesome.min.css?ver=4.7.0" type="text/css" media="all">
+<link rel="stylesheet" id="rise-style-css" href="/wp/wp-content/themes/stackstorm/style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-reset-css" href="/wp/wp-content/themes/rise/css/reset.css?v=1.101.1" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-main-style-css" href="/wp/wp-content/themes/rise/css/main_blue.css?v=1.101.1" type="text/css" media="all">
+<link rel="stylesheet" id="enlighterjs-css" href="/wp/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=c8vUwCl5jS8Iu00" type="text/css" media="all">
+<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery.min.js?v=1.101.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery-migrate.min.js?v=1.101.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="cookie-law-info-js-extra">
+/* <![CDATA[ */
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#384353","border":"#b1a6a6c2","border_on":"","button_1_button_colour":"#384353","button_1_button_hover":"#2d3642","button_1_link_colour":"#fff","button_1_as_button":"","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#00a5bf","button_2_as_button":"","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#b7b7b7","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"\/wp\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js?ver=2.0.3" id="cookie-law-info-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.js?v=1.101.1" id="cycletwo-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.addons.js?v=1.101.1" id="cycletwo-addons-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/easy-logo-slider/js/jquery.jcarousel.min.js?v=1.101.1" id="jquery_jcarousel_min-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/easy-logo-slider/js/jcarousel.responsive.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="jcarousel_responsive-js"></script>
+<link rel="https://api.w.org/" href="/wp-json/">
+<link rel="alternate" type="application/json" href="/wp-json/wp/v2/posts/7156">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/wp/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp/wp-includes/wlwmanifest.xml"> 
+
+<link rel="shortlink" href="/?p=7156">
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2F2017%2F10%2F10%2Fevent-grid-event-gateway-explained-part2%2F">
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2F2017%2F10%2F10%2Fevent-grid-event-gateway-explained-part2%2F&#038;format=xml">
+<style type="text/css">:not(#tve) .ttfm1{font-family: 'dual300' !important;font-weight: 400 !important;}.ttfm1 input, .ttfm1 select, .ttfm1 textarea, .ttfm1 button {font-family: 'dual300' !important;font-weight: 400 !important;}:not(#tve) .ttfm2{font-family: 'Roboto' !important;font-weight: 400 !important;}.ttfm2 input, .ttfm2 select, .ttfm2 textarea, .ttfm2 button {font-family: 'Roboto' !important;font-weight: 400 !important;}:not(#tve) .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong{font-weight: 500 !important;}.ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong input, .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong select, .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong textarea, .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong button {font-weight: 500 !important;}</style>
+<style type="text/css" id="tve_global_variables">:root{--tcb-gradient-0:linear-gradient(180deg, #ff712c 0%, #000000 100%);}</style>		<style type="text/css">.wp-video-shortcode {
+				max-width: 100% !important;
+			}
+
+			.bSe a {
+				clear: right;
+			}
+
+			.bSe blockquote {
+				clear: both;
+			}
+			body { background:#FFF; }.cnt article h1.entry-title a { color:#333; }.cnt article h2.entry-title a { color:#333; }.bSe h1, h1.entry-title, h1.entry-title a { color:#333; }.bSe h2 { color:#464545; }.bSe h3 { color:#333; }.bSe h4 { color:#333; }.bSe h5 { color:#333; }.bSe h6 { color:#333; }.bSe p, .mry .awr-e p { color:#666; }.cnt .bSe { color:#666; }.cnt h1 a, .tve-woocommerce .bSe .awr .entry-title, .tve-woocommerce .bSe .awr .page-title{font-family:Roboto,sans-serif;}.bSe h1{font-family:Roboto,sans-serif;}.bSe h2,.tve-woocommerce .bSe h2{font-family:Roboto,sans-serif;}.bSe h3,.tve-woocommerce .bSe h3{font-family:Roboto,sans-serif;}.bSe h4{font-family:Roboto,sans-serif;}.bSe h5{font-family:Roboto,sans-serif;}.bSe h6{font-family:Roboto,sans-serif;}#text_logo{font-family:Roboto,sans-serif;}.cnt h1 a { font-weight:500; }.bSe h1 { font-weight:500; }.bSe h2 { font-weight:500; }.bSe h3 { font-weight:500; }.bSe h4 { font-weight:500; }.bSe h5 { font-weight:500; }.bSe h6 { font-weight:500; }.cnt{font-family:Roboto,sans-serif;font-weight:300;}article strong {font-weight: bold;}.cnt p, .tve-woocommerce .product p, .tve-woocommerce .products p, .brd ul li, header nav ul li a, header nav ul li > ul li a, .has-extended.has-heading .colch, footer, footer .fmm p, .aut-f{font-family:Roboto,sans-serif;font-weight:300;}article strong {font-weight: bold;}.bSe h1, .bSe .entry-title { font-size:46px; }.cnt { font-size:18px; }.thrivecb { font-size:18px; }.out { font-size:18px; }.aut p { font-size:18px; }.cnt p { line-height:1.5em; }.thrivecb { line-height:1.5em; }.bSe a, .cnt a { color:#24447b; }.bSe .faq h4{font-family:Roboto,sans-serif;font-weight:300;}article strong {font-weight: bold;}header nav > ul.menu > li > a { color:#fff; }header nav > ul.menu > li >  a:hover { color:#fff; }header nav > ul > li.current_page_item > a:hover { color:#fff; }header nav > ul > li.current_menu_item > a:hover { color:#fff; }header nav > ul > li.current_menu_item > a:hover { color:#fff; }header nav > ul > li > a:active { color:#fff; }header #logo > a > img { max-width:200px; }header ul.menu > li.h-cta > a { color:#FFFFFF!important; }header ul.menu > li.h-cta > a { background:#4b7cc7; }header ul.menu > li.h-cta > a { border-color:#4b7cc7; }header ul.menu > li.h-cta > a:hover { color:#4b7cc7!important; }header ul.menu > li.h-cta > a:hover { background:#transparent; }</style>
+		<style type="text/css">span.oe_textdirection { unicode-bidi: bidi-override; direction: rtl; }
+	span.oe_displaynone { display: none; }</style>
+<style type="text/css" id="thrive-default-styles">@media (min-width: 300px) { .tcb-style-wrap blockquote {color:rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);font-family:Roboto, sans-serif;font-size:18px;font-weight:300;font-style:normal;margin:;padding-top:0px;padding-bottom:0px;text-decoration:rgb(102, 102, 102);text-transform:none;border-left:;--tcb-applied-color:;} }</style>
+<link rel="icon" href="/wp/wp-content/uploads/2015/09/st2.png" sizes="32x32">
+<link rel="icon" href="/wp/wp-content/uploads/2015/09/st2.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp/wp-content/uploads/2015/09/st2.png">
+<meta name="msapplication-TileImage" content="/wp/wp-content/uploads/2015/09/st2.png">
+		<style type="text/css" id="wp-custom-css">/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+.bSe ul:not([class]) {
+margin-left: 20px;
+margin-bottom: 15px;
+}
+
+.bSe ul:not([class]) li {
+    padding-left: 0;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+/* StackStorm "Donate" button */
+li#menu-item-9062 a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #418cc5;
+    border: 3px solid #418cc5;
+    color: #fff !important;
+    text-decoration: none;
+    height: 30px;
+    border-radius: 20px;
+    padding: 0 12px;
+    font-weight: 400;
+    transition: all .25s ease-in-out;
+}
+li#menu-item-9062 a:hover {
+    color: #333 !important;
+}
+li#menu-item-9062 a:before {
+    top: 0;
+}</style>
+					<style type="text/css">table, td, th {    
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+tr:nth-child(odd) {background-color: #f2f2f2}
+th {
+    background-color: #4CAF50;
+    color: white;
+}</style>
+		
+</head>
+<body class="post-template-default single single-post postid-7156 single-format-standard">
+
+
+<!-- BEGIN LF Header --> 	<div id="lf-header" style="padding-bottom: 3px; padding-top: 3px;background: #252525;"> 		<div class="container wrp"> 			<a href="https://linuxfoundation.org/projects" target="_blank" rel="noopener noreferrer"> 				<img src="/wp/wp-content/themes/stackstorm/images/logo_lf_projects_horizontal.png" style="max-width: 270px;"> 			</a> 		</div> 	</div> 	<!-- END LF Header -->
+
+<div class="theme-wrapper">
+	
+	
+	
+	
+	<div class="fln">
+		<div class="wrp clearfix">
+												<a class="fl-l" href="/">
+						<img src="/wp/wp-content/uploads/2016/10/StackStorm-logo228.png" alt="StackStorm">
+					</a>
+										<div class="fl-s clearfix">
+																<ul>
+																													</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="header-wrapper h-bi">
+		<div id="floating_menu" data-float="float" data-social="0">
+			<header class="side" style="">
+								<div class="h-i">
+					<div class="wrp">
+														<div id="logo">
+									<a href="/">
+										<img src="/wp/wp-content/uploads/2016/10/StackStorm-logo228.png" alt="StackStorm"></a>
+								</div>
+																					<div class="m-s">
+								<div class="hsm"></div>
+								<div class="m-si">
+																												<nav class="menu-stackstorm-refresh-container"><ul id="menu-stackstorm-refresh" class="menu">
+<li id="menu-item-5952" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/features">Features</a></li>
+<li id="menu-item-6100" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/#community">Community</a></li>
+<li id="menu-item-4207" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a target="_blank" href="http://docs.stackstorm.com/">Docs</a></li>
+<li id="menu-item-8701" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="https://exchange.stackstorm.org/">Exchange</a></li>
+<li id="menu-item-2277" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/blog">Blog</a></li>
+<li id="menu-item-9062" class="menu-item menu-item-type-post_type menu-item-object-page toplvl"><a href="/donate/">Donate</a></li>
+</ul></nav>										<!-- Cart Dropdown -->
+									
+																	</div>
+							</div>
+						
+					</div>
+				</div>
+
+			</header>
+		</div>
+	</div>
+
+	
+	
+	
+	
+			
+		
+		<div class="wrp cnt">
+
+
+			<section class="bSe bpd">
+				
+<div class="awr">
+
+	
+	
+	
+				<h1 class="entry-title">Serverless&#8217; Event Gateway explained for StackStorm users</h1>
+		
+	
+	
+		<div class="awr-i">
+		<p>October 10, 2017<br>
+<em>by <a href="https://twitter.com/dzimine" rel="noopener" target="_blank">Dmitri Zimine</a></em></p>
+<p>In <a href="/2017/10/05/event-grid-event-gateway-explained-part1/">Part 1</a> of the series, I shared my excitement with two new event-driven systems introduced last month: <a href="https://docs.microsoft.com/en-us/azure/event-grid/overview" rel="noopener" target="_blank">Event Grid</a> from Microsoft Azure and <a href="https://serverless.com/event-gateway/" rel="noopener" target="_blank">Event Gateway</a> from <a href="https://serverless.com/" rel="noopener" target="_blank">Serverless.com</a>, and posted some observations on Event Grid.</p>
+<p>Before we continue with Event Gateway, let’s bring the “terminology normalization” from <a href="/2017/10/05/event-grid-event-gateway-explained-part1/">Part 1</a>. In the table below StackStorm terms are used as as a reference point for our blog’s regular readers, along with a short explanation of their meaning for the guests.</p>
+<p><span id="more-7156"></span></p>
+<table>
+<thead>
+<tr>
+<th>StackStorm</th>
+<th>Event Grid</th>
+<th>Event Gateway</th>
+<th>What is it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sensors</td>
+<td>Event publishers</td>
+<td>N/A (out of scope)</td>
+<td>Event sources and a system responsible for ingesting external events</td>
+</tr>
+<tr>
+<td>Triggers</td>
+<td>Topics</td>
+<td>Events</td>
+<td>System representation of the external event</td>
+</tr>
+<tr>
+<td>Rules</td>
+<td>Subscriptions</td>
+<td>Subscriptions</td>
+<td>Triggers-to-Actions map, filtering, conditions, data passing</td>
+</tr>
+<tr>
+<td>Actions</td>
+<td>Event Handlers</td>
+<td>Function</td>
+<td>Target system invocation</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p>If you’re new to StackStorm, you can refresh refresh the concept of event driven automation at <a href="https://docs.stackstorm.com/overview.html">StackStorm documentation</a>.</p>
+<p>The common questions to evaluate the event automation products in the family would be:</p>
+<ul>
+<li>What triggers and actions are possible? What are already available? How can they be extended?</li>
+<li>How are rules defined? What are the filtering and data transforming capabilities? </li>
+<li>What are event delivery guarantees, throughput, and scale characteristics? </li>
+</ul>
+<p>And of course there is something uniquely interesting in each system. What is it?<br>
+With that, let’s continue to Event Gateway!</p>
+<h3>Event Gateway by Serverless.com</h3>
+<p>Event Gateway is defined as “<em>an open-source communication fabric for serverless architectures. It combines both <strong>API gateway</strong> and <strong>pub/sub</strong> functionality into a single experience</em>”<a href="https://serverless.com/blog/introducing-serverless-event-gateway/">[*]</a>.</p>
+<p>The “<strong>pub/sub</strong>” part is what makes Event Gateway an event router,  similar to Azure Event Grid. Event Gateway is emphasized as “Cross-cloud”, built to centralize event handling and react to event with any function on any cloud. This positioning reflects anticipation that serverless solutions are going to be spanning multiple cloud providers.<br>
+The “<strong>API gateway</strong>” part is a separate functionality, yet a part of the end-to-end developer experience: it is intended to optimize the synchronous calls to Function-as-a-Service functions of various cloud providers &#8211; think of AWS API Gateway functionality across the cloud, without dealing with notoriously painful AWS API gateway configuration.</p>
+<p><img loading="lazy" src="/wp/wp-content/uploads/2017/10/event-gateway-serverless.png" alt="Event Gateway by Serverless" width="991" height="678" class="aligncenter size-full wp-image-7172" srcset="/wp/wp-content/uploads/2017/10/event-gateway-serverless.png 991w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-150x103.png 150w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-300x205.png 300w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-768x525.png 768w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-80x55.png 80w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-220x151.png 220w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-146x100.png 146w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-219x150.png 219w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-348x238.png 348w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-607x415.png 607w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-712x487.png 712w, /wp/wp-content/uploads/2017/10/event-gateway-serverless-870x595.png 870w" sizes="(max-width: 991px) 100vw, 991px"></p>
+<p>As a service offering by <a href="https://www.serverless.com/">Serverless.com</a>, Event Gateway is tightly integrated into the <a href="https://serverless.com/framework/">serverless framework</a> for a seamless developer experience. How tightly &amp; how seamlessly? <a href="https://s3-us-west-2.amazonaws.com/emit-website/2017-slides/building+the+communication+fabric+for+serverless+architectures.pdf">Austen Collins demo-ed it</a>  at <a href="http://www.emitconference.com/">Emit conference</a> and the flow was impressive &#8211; watch the video once they post it, and judge for yourself. (I’ll update the post with the link once the video is posted). Or just try yourself &#8211; it is <a href="https://github.com/serverless/event-gateway">open-source</a>: open for contributions, transparent for understanding, and can be run by anyone in their own production cluster. The transparency makes this review an easy job &#8211; look at <a href="https://github.com/serverless/event-gateway">the code</a>, run the <a href="https://github.com/serverless/event-gateway-example">example</a>, and let’s compare notes!</p>
+<h4>Event sources</h4>
+<p>Event sources are outside of Event Gateway’s scope: the platform doesn’t offers anything like <a href="https://docs.stackstorm.com/sensors.html">StackStorm sensors</a> &#8211; a way to plug-in a piece of code to  sense an external event. Instead, EventGrid ingests events via HTTP(s) endpoint.  A custom event is most similar to StackStorm WebHook trigger type or EventGrid custom topic. When emitted, triggers an asynchronous call to one or more target functions based on subscriptions.</p>
+<p>Events identify themselves by a string ID passed in via HTTP header. Namespacing is not enforced but will likely emerge as a convention. Event payload comes in a HTTP request body and parsed by EventGrid if it is JSON. As event types are not registered upfront, thus there is no payload schema, no static check, and no introspection on which payload parameters may be available for subscription filtering. Well, unfortunately there is no filtering either &#8211; I’ll get to it when it comes to subscriptions.</p>
+<p>There are also two “built-in” synchronous event types, essential for “just call me” use cases like using functions as client application backends, and function calls across cloud providers (I think of them as part of Event Grid&#8217;s API Gateway functionality):</p>
+<ul>
+<li>
+<code>invoke</code> event type is used to call functions synchronously. It does not require a subscription: using <code>invoke</code> is like calling StackStorm Action API directly instead of going through the Trigger-Rule-Action chain. The function invocation output is sent in the response body “as is”. </li>
+<li>
+<code>http</code> event occurs on HTTP requests on the Gateway paths defined by a special <code>http</code> subscription type. The event carries <code>path</code>, <code>method</code>, <code>query</code> string, headers and the other parameters of HTTP call to the function defined by the subscription. The function execution results are synchronously sent back to the caller in HTTP response</li>
+</ul>
+<p>There is also an internal event types.  StackStorm users know how powerful <a href="https://docs.stackstorm.com/sensors.html#internal-triggers">internal triggers like <code>st2.generic.actiontrigger</code></a> can be in building elaborate chains of event reactions. In EventGrid, <a href="(https://github.com/serverless/event-gateway#system-events)">a few system events are defined</a> &#8211; <code>gateway.event.received</code>, <code>gateway.function.invoking</code>, <code>gateway.function.invoked</code>, <code>gateway.function.invocationFailed</code> &#8211;<br>
+  with <a href="https://github.com/serverless/event-gateway/issues/215">intention to add more</a>.Here is an <a href="https://github.com/serverless/event-gateway-example/blob/master/services/errors/serverless.yml">example of using <code>internalFunctionError</code></a> for error handling. To realize their potential, the system events must become first class citizens, useful in subscriptions, with extra safeguards and usability aids to track the chains of events, break circular dependencies and prevent invocation chain reaction explosions.</p>
+<h4>Functions</h4>
+<p>Functions must be pre-registered via configuration API. This is referred as “Function discovery&#8221;: it stores information about available functions, allowing the Event Gateway to call them as a reaction to received event. The three function types available today: AWS Lambda, HTTP, and Weighted. Weighted is an interesting concept: the call is load-balanced across a set of functions with probabilities based on each function’s user-assigned “weight”. There will be more function types: the docs already cite Google Cloud Functions, Azure Functions, OpenWhisk Actions.  Function providers are not pluggable in the current implementation &#8211; adding a new function type to Event Gateway requires <a href="http://https://github.com/serverless/event-gateway/blob/master/functions/function.go">modification of the platform code</a> &#8211; but it will likely change as more types are implemented. I am particularly looking forward to invoking Step Functions and Logic Apps as the workflows will be used more to tame serverless complexity &#8211; and adding support for them looks pretty easy.</p>
+<h4>Subscriptions</h4>
+<p>Subscriptions map events to functions. Created via the same configuration API, subscriptions are as simple as Event Gateway’s, even simpler: just <code>(functionID</code>, event)` tuple. It does no filtering on event, and doesn’t offer any data transformation from event payload to function input, passing event payload to function as is. The lack of filtering pushes part of event routing responsibility onto functions:  users will have to either mix routing and domain logics in function, or front-face the handlers by a “routing” function. The lack of data transformation creates data coupling between events and functions. This is unfortunate: the promise of Event Gateway is that it  “completely decouples functions from one another, reducing communication costs across teams, eliminates effort spent redeploying functions, and allows you to easily share events across functions, HTTP services, even different cloud providers”, and in it current form, it’s not “completely decoupled”. However event filtering is <a href="https://github.com/serverless/event-gateway/issues/169">already on the roadmap</a> and well thought out. Data transformation is not yet in the plans, but from our experience with StackStorm it will be necessary.</p>
+<p>A special HTTP subscription is used to define an HTTP API endpoints by mapping paths and methods to synchronous function calls. HTTP subscription is created when the event type is <code>http</code>, and takes <code>path</code> and <code>method</code> parameters. There can be only one http subscription for the same <code>(method, path)</code> pair. It was not easy to get my head around special case for <code>http</code> at first, but now I find it easy to think about it as API Gateway functionality, and it is a very convenient way to expose functions as REST endpoints.</p>
+<h4>Delivery Guarantee and Scale</h4>
+<p>Event Gateway is a horizontally scalable stateless service. It relies on strongly consistent DB (etcd, Consul, Zookeeper) for managing state and inter-cluster communications. A cluster can span multiple cloud regions or even various cloud providers.</p>
+<p>Delivery guarantee is not specified; from <a href="https://github.com/serverless/event-gateway/blob/master/router/router.go#L303-L346">looking at the code</a> I would guess “at most once” but happy to be corrected. Retry is left to the event emitting clients for the time and <a href="https://github.com/serverless/event-gateway/issues/319">cited as a feature request</a>.</p>
+<h4>Serverless Framework Integration</h4>
+<p>What makes Event Gateway really appealing is the convenience of integration with Serverless framework. User describes the event-action mapping with already familiar syntax in <code>serverless.yml</code>, and the framework makes all the calls to register a function &amp; create a subscription:</p>
+<pre><code>functions:
+  analytics:
+    handler: recordEvents
+    events:
+      - user.registered
+      - user.clicked
+</code></pre>
+<p>Here is how the end-to-end developer experience is promising to be, once the Event Gateway is out in production:</p>
+<ul>
+<li>
+<strong>Define</strong> your solution as a combination of events, functions, and subscriptions with familiar serverless framework syntax. Use the sync <code>http</code> events for client app backend services,  <code>invoke</code> events to synchronously call functions from functions, and custom async events for orchestrating backend jobs. </li>
+<li>
+<strong>Try locally</strong>: develop and test the solution with Event Gateway automatically deployed and running locally, along with local simulators of FaaS and some other “serverless-offline” goodies. </li>
+<li>
+<strong>Deploy to clouds</strong>: with <code>sls deploy</code>, the functions will be deployed to the cloud providers, registered in Event Gateway via functional discovery, and event subscriptions will be created. </li>
+<li>
+<strong>Emit events &amp; profit</strong>!</li>
+</ul>
+<h4>Summary</h4>
+<p>Event Gateway is currently in beta, and under active development (the development <a href="https://github.com/serverless/event-gateway/graphs/contributors">noticeably slowed down</a> since it’s peak in August, which, I must admit, concerns me). While AWS, Azure, Google GCP &amp; IBM OpenWhisk are mentioned in docs, only AWS is implemented at the time of writing. The hosted service is not available yet: one can run Event Gateway locally via <a href="https://serverless.com/framework/">Serverless framework</a>, or <a href="https://github.com/serverless/event-gateway/blob/master/docs/developing.md">standalone</a>.</p>
+<p>Event Gateway is hardly useful at the current early preview stage, but looks very promising on its roadmap. A cross-cloud event router is “<em>the missing piece of serverless architectures</em>”<a href="https://serverless.com/blog/introducing-serverless-event-gateway/">[*]</a>, and Event Gateway makes a strong claim to this strategic spot. The combination of pub/sub and API gateway functionality provides single developer experience &#8211; the majority of solutions need both types of interactions.  In addition, Event Gateway promises to serve as an “event store” &#8211; keep events long after execution to enable <a href="https://martinfowler.com/eaaDev/EventSourcing.html">event-sourcing</a>. Open-source model brings trust and carries the potential of a strong community support. I am looking forward to seeing Event Gateway develop towards achieving its grand vision.</p>	</div>
+	<div class="clear"></div>
+	
+	
+	
+				<div class="pnav">
+			<a class="pav left" href="/2017/10/05/event-grid-event-gateway-explained-part1/">
+				<span>Previous Post</span>
+				<span>Microsoft Azure Event Grid explained for StackStorm users</span>
+			</a>
+			<a class="pav right" href="/2017/10/26/stackstorm-2-5-hit-streets/">
+				<span>Next Post</span>
+				<span>StackStorm 2.5 Has Hit the Streets!</span>
+			</a>
+		</div>
+	</div>
+
+	
+<div id="disqus_thread"></div>
+			</section>
+
+
+		</div>
+		<div class="clear"></div>
+	
+
+<div class="footer-wrapper">
+<footer>
+				<div class="fmw">
+			<div class="wrp">
+									<div class="colm oth ">
+						<section id="text-7" class="col"><div class="scn">			<div class="textwidget">
+<p><a href="http://docs.stackstorm.com/" target="_blank" rel="noopener">Documentation</a><br>
+<a href="https://github.com/StackStorm" target="_blank" rel="noopener">GitHub</a><br>
+<a href="/#community" target="_blank" rel="noopener">Community</a><br>
+<a href="/security" target="_blank" rel="noopener">Security</a></p>
+</div>
+		</div></section>					</div>
+									<div class="colm oth ">
+						<section id="text-8" class="col"><div class="scn">			<div class="textwidget">
+<p><a href="/blog">Blog</a><br>
+<a href="https://www.youtube.com/channel/UCColc5CuBJ8-1SnALnkDz8Q">Video Gallery</a><br>
+<a href="/privacy-policy">Privacy Policy</a></p>
+</div>
+		</div></section>					</div>
+									<div class="colm oth lst">
+						<section id="text-9" class="col"><div class="scn">			<div class="textwidget">
+<div style="line-height:1.7em;">
+<a href="/contact">Contact</a><br>
+
+<div class="ic-social">
+<a href="https://www.facebook.com/stackstormdevops" target="_blank" rel="noopener"><i class="fa fa-facebook-square"></i></a>
+<a href="https://twitter.com/StackStorm" target="_blank" rel="noopener"><i class="fa fa-twitter-square"></i></a>
+<a href="https://www.linkedin.com/company/stackstorm" target="_blank" rel="noopener"><i class="fa fa-linkedin-square"></i></a>
+<a href="https://github.com/StackStorm" target="_blank" rel="noopener"><i class="fa fa-github-square"></i></a>
+<a href="https://www.youtube.com/channel/UCColc5CuBJ8-1SnALnkDz8Q" target="_blank" rel="noopener"><i class="fa fa-youtube-square"></i></a>
+</div>
+</div>
+<style type="text/css">.tve-leads-track-ribbon-46 {
+  top: 70px !important;
+}
+.tve-leads-track-ribbon-46 #tve_four_set {
+  font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+}
+.tve-leads-track-ribbon-46 #tve_four_set .thrv-ribbon {
+border-top: 1px solid #ddd;
+    box-shadow: 0px 4px 3px -4px rgba(0,0,0,0.75);
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+    border-right: none;
+    border-left: none;
+}
+.tve-leads-track-ribbon-46 .bold_text {
+  font-weight: normal;
+}
+.tve-leads-track-ribbon-46 #tve_four_set .tve-ribbon-close {
+height: 30px;
+    border-color: white;
+    color: white;
+    font-family: sans-serif;
+    border-width: 2px;
+    top: 50%;
+    margin-top: -15px;
+    font-size: 18px;
+    font-weight: 800;
+}</style>
+</div>
+		</div></section>					</div>
+								<div class="clear"></div>
+			</div>
+		</div>
+		<div class="fmm">
+		<div class="wrp">
+			<div class="ft-m">
+							</div>
+		</div>
+		<div class="wrp">
+			<div class="ft-c">
+				<p>
+											© 2021 StackStorm a Series of LF Projects, LLC. All rights reserved. For web site terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/">https://lfprojects.org/</a>. 
+<br>For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds.  <a href="https://www.linuxfoundation.org/privacy">Privacy Policy</a> and <a href="https://www.linuxfoundation.org/terms">Terms of Use</a>.														</p>
+			</div>
+			<div class="ft-s">
+												<ul>
+																																		</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</footer>
+</div>
+
+
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>We use cookies for traffic analytics and ad and content personalization. By clicking on any of the content or interacting with any section of this website,<br>you are agreeing to this use of cookies in the manner described in our <a href="/privacy-policy" id="CONSTANT_OPEN_URL" target="_blank" class="cli-plugin-main-link" style="display:inline-block;">Privacy Policy</a> <a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="cli-plugin-main-button cookie_action_close_header cli_action_button" style="display:inline-block; ">close [x]</a></span></div>
+<div id="cookie-law-info-again" style="display:none;" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy & Cookies Policy</span></div>
+<div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+	  	<button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+	  	</button>
+	  	<div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+							<div class="wt-cli-necessary-checkbox">
+                        <input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+                        <label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+                    </div>
+                    <span class="cli-necessary-caption">Always Enabled</span> 						</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<p>Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.</p>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+							<div class="cli-switch">
+                        <input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+                        <label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+                    </div>						</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<p>Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.</p>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+	  	</div>
+	  	<div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE & ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><script type="text/javascript">/**
+ * Displays toast message from storage, it is used when the user is redirected after login
+ */
+if ( window.sessionStorage ) {
+	window.addEventListener( 'load', function () {
+		var message = sessionStorage.getItem( 'tcb_toast_message' );
+
+		if ( message ) {
+			tcbToast( sessionStorage.getItem( 'tcb_toast_message' ), false );
+			sessionStorage.removeItem( 'tcb_toast_message' );
+		}
+	} );
+}
+
+/**
+ * Displays toast message
+ */
+function tcbToast( message, error, callback ) {
+	/* Also allow "message" objects */
+	if ( typeof message !== 'string' ) {
+		message = message.message || message.error || message.success;
+	}
+	if ( ! error ) {
+		error = false;
+	}
+
+	let _icon = 'checkmark',
+		_extra_class = '';
+	if ( error ) {
+		_icon = 'cross';
+		_extra_class = ' tve-toast-error';
+	}
+
+	jQuery( 'body' ).slideDown( 'fast', function () {
+		jQuery( 'body' ).prepend( '<div class="tvd-toast tve-fe-message"><div class="tve-toast-message"><div class="tve-toast-icon-container' + _extra_class + '"><span class="tve_tick thrv-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" class="tcb-checkmark" style="width: 100%; height: 1em; stroke-width: 0; fill: #ffffff; stroke: #ffffff;" viewBox="0 0 32 32"><path d="M27 4l-15 15-7-7-5 5 12 12 20-20z"><\/path><\/svg><\/span><\/div><div class="tve-toast-message-container">' + message + '<\/div><\/div><\/div>' );
+	} );
+
+	setTimeout( function () {
+		jQuery( '.tvd-toast' ).hide();
+
+		if ( typeof callback === 'function' ) {
+			callback();
+		}
+
+	}, 3000 );
+}
+</script><link rel="stylesheet" id="jcarouselresponsive-css" href="/wp/wp-content/plugins/easy-logo-slider/css/jcarouselresponsive.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="style-admin-css" href="/wp/wp-content/plugins/easy-logo-slider/css/style-admin.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<script type="text/javascript" id="disqus_count-js-extra">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"stackstorm"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/plugins/disqus-comment-system/public/js/comment_count.js?ver=3.0.22" id="disqus_count-js"></script>
+<script type="text/javascript" id="disqus_embed-js-extra">
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.22"},"disqusIdentifier":"7156 \/?p=7156","disqusShortname":"stackstorm","disqusTitle":"Serverless’ Event Gateway explained for StackStorm users","disqusUrl":"\/2017\/10\/10\/event-grid-event-gateway-explained-part2\/","postId":"7156"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/plugins/disqus-comment-system/public/js/comment_embed.js?ver=3.0.22" id="disqus_embed-js"></script>
+<script type="text/javascript" id="thrive-main-script-js-extra">
+/* <![CDATA[ */
+var ThriveApp = {"ajax_url":"\/wp\/wp-admin\/admin-ajax.php","is_singular":"1","post_type":"post","lazy_load_comments":"0","comments_loaded":"0","theme_uri":"\/wp\/wp-content\/themes\/rise","translations":{"ProductDetails":"Product Details"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/themes/rise/js/script.js?v=1.101.1" id="thrive-main-script-js"></script>
+<script type="text/javascript" id="tve-dash-frontend-js-extra">
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"\/wp\/wp-admin\/admin-ajax.php","force_ajax_send":"","is_crawler":"1","recaptcha":[]};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/themes/rise/thrive-dashboard/js/dist/frontend.min.js?ver=2.4.0.1" id="tve-dash-frontend-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/enlighter/cache/enlighterjs.min.js?ver=c8vUwCl5jS8Iu00" id="enlighterjs-js"></script>
+<script type="text/javascript" id="enlighterjs-js-after">
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":2,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":false,"theme":"beyond","language":"python","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+</script>
+<script type="text/javascript" src="/wp/wp-includes/js/wp-embed.min.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="wp-embed-js"></script>
+<script type="text/javascript">var tcb_post_lists=JSON.parse('[]');</script>
+</div>
+</body>
+</html>

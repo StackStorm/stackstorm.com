@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<style type="text/css">.ttfm1{font-family: 'dual300';font-size:em;line-height:em;color:;}  .ttfm2{font-family: 'Roboto';font-size:em;line-height:3em;color:;}</style>	<!--[if lt IE 9]>
+	<script src="/wp/wp-content/themes/rise/js/html5/dist/html5shiv.js"></script>
+	<script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<![endif]-->
+	<!--[if IE 8]>
+	<link rel="stylesheet" type="text/css" href="/wp/wp-content/themes/rise/css/ie8.css"/>
+	<![endif]-->
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/wp/wp-content/themes/rise/css/ie7.css"/>
+	<![endif]-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	
+			<meta name="google-site-verification" content="ovwnX0ej2kps4UuJ9NOzNjJcLOQD8JPDLNhe-hMYTMk">	
+		<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Unifying disparate applications into the One System - StackStorm</title>
+	<link rel="canonical" href="/2016/01/29/unifying-disparate-applications-one-system/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Unifying disparate applications into the One System - StackStorm">
+	<meta property="og:description" content="January 29, 2016 By James Fryman Originally published at http://devops.com/2016/01/29/unifying-applications-into-one-system Let&#8217;s talk about a real problem that all of us have faced at one point or another: keeping track of a single thread of work across many disparate tools. Regardless of the specific industry a company operates in, as a company grows, back-office applications in&hellip;">
+	<meta property="og:url" content="/2016/01/29/unifying-disparate-applications-one-system/">
+	<meta property="og:site_name" content="StackStorm">
+	<meta property="article:published_time" content="2016-01-29T14:24:00+00:00">
+	<meta property="article:modified_time" content="2017-09-07T21:43:17+00:00">
+	<meta property="og:image" content="/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="st2admin">
+	<meta name="twitter:label2" content="Est. reading time">
+	<meta name="twitter:data2" content="9 minutes">
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"StackStorm","url":"/","sameAs":[],"logo":{"@type":"ImageObject","@id":"/#logo","inLanguage":"en-US","url":"/wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","contentUrl":"/wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","width":228,"height":59,"caption":"StackStorm"},"image":{"@id":"/#logo"}},{"@type":"WebSite","@id":"/#website","url":"/","name":"StackStorm","description":"Event-driven automation","publisher":{"@id":"/#organization"},"potentialAction":[{"@type":"SearchAction","target":"/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"ImageObject","@id":"/2016/01/29/unifying-disparate-applications-one-system/#primaryimage","inLanguage":"en-US","url":"/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png","contentUrl":"/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png"},{"@type":"WebPage","@id":"/2016/01/29/unifying-disparate-applications-one-system/#webpage","url":"/2016/01/29/unifying-disparate-applications-one-system/","name":"Unifying disparate applications into the One System - StackStorm","isPartOf":{"@id":"/#website"},"primaryImageOfPage":{"@id":"/2016/01/29/unifying-disparate-applications-one-system/#primaryimage"},"datePublished":"2016-01-29T14:24:00+00:00","dateModified":"2017-09-07T21:43:17+00:00","breadcrumb":{"@id":"/2016/01/29/unifying-disparate-applications-one-system/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["/2016/01/29/unifying-disparate-applications-one-system/"]}]},{"@type":"BreadcrumbList","@id":"/2016/01/29/unifying-disparate-applications-one-system/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"/","url":"/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"/blog/","url":"/blog/","name":"Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"/2016/01/29/unifying-disparate-applications-one-system/#webpage"}}]},{"@type":"Article","@id":"/2016/01/29/unifying-disparate-applications-one-system/#article","isPartOf":{"@id":"/2016/01/29/unifying-disparate-applications-one-system/#webpage"},"author":{"@id":"/#/schema/person/d2242d1dc5b3b5652be4c9175eb18000"},"headline":"Unifying disparate applications into the One System","datePublished":"2016-01-29T14:24:00+00:00","dateModified":"2017-09-07T21:43:17+00:00","mainEntityOfPage":{"@id":"/2016/01/29/unifying-disparate-applications-one-system/#webpage"},"wordCount":1839,"commentCount":0,"publisher":{"@id":"/#organization"},"image":{"@id":"/2016/01/29/unifying-disparate-applications-one-system/#primaryimage"},"thumbnailUrl":"/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png","articleSection":["Blog","Tutorials"],"inLanguage":"en-US","potentialAction":[{"@type":"CommentAction","name":"Comment","target":["/2016/01/29/unifying-disparate-applications-one-system/#respond"]}]},{"@type":"Person","@id":"/#/schema/person/d2242d1dc5b3b5652be4c9175eb18000","name":"st2admin","image":{"@type":"ImageObject","@id":"/#personlogo","inLanguage":"en-US","url":"https://secure.gravatar.com/avatar/67f6d678610d4b8a7b9a7e95a065695f?s=96&d=mm&r=g","contentUrl":"https://secure.gravatar.com/avatar/67f6d678610d4b8a7b9a7e95a065695f?s=96&d=mm&r=g","caption":"st2admin"},"url":"/author/support/"}]}</script>
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" href="//s.w.org">
+<link rel="alternate" type="application/rss+xml" title="StackStorm &raquo; Unifying disparate applications into the One System Comments Feed" href="/2016/01/29/unifying-disparate-applications-one-system/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.0.1\/svg\/","svgExt":".svg","source":{"concatemoji":"\/wp\/wp-includes\/js\/wp-emoji-release.min.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([55357,56424,8205,55356,57212],[55357,56424,8203,55356,57212])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}</style>
+	<link rel="stylesheet" id="dashicons-css" href="/wp/wp-includes/css/dashicons.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="menu-icons-extra-css" href="/wp/wp-content/plugins/menu-icons/css/extra.min.css?ver=0.12.8" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="/wp/wp-includes/css/dist/block-library/style.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-css" href="/wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-public.css?ver=2.0.3" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-gdpr.css?ver=2.0.3" type="text/css" media="all">
+<link rel="stylesheet" id="testimonial-rotator-style-css" href="/wp/wp-content/plugins/testimonial-rotator/testimonial-rotator-style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="/wp/wp-content/plugins/menu-icons/vendor/codeinwp/icon-picker/css/types/font-awesome.min.css?ver=4.7.0" type="text/css" media="all">
+<link rel="stylesheet" id="rise-style-css" href="/wp/wp-content/themes/stackstorm/style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-reset-css" href="/wp/wp-content/themes/rise/css/reset.css?v=1.101.1" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-main-style-css" href="/wp/wp-content/themes/rise/css/main_blue.css?v=1.101.1" type="text/css" media="all">
+<link rel="stylesheet" id="enlighterjs-css" href="/wp/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=c8vUwCl5jS8Iu00" type="text/css" media="all">
+<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery.min.js?v=1.101.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery-migrate.min.js?v=1.101.1" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="cookie-law-info-js-extra">
+/* <![CDATA[ */
+var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
+var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"500","background":"#384353","border":"#b1a6a6c2","border_on":"","button_1_button_colour":"#384353","button_1_button_hover":"#2d3642","button_1_link_colour":"#fff","button_1_as_button":"","button_1_new_win":"","button_2_button_colour":"#333","button_2_button_hover":"#292929","button_2_link_colour":"#00a5bf","button_2_as_button":"","button_2_hidebar":"1","button_3_button_colour":"#000","button_3_button_hover":"#000000","button_3_link_colour":"#fff","button_3_as_button":"1","button_3_new_win":"","button_4_button_colour":"#000","button_4_button_hover":"#000000","button_4_link_colour":"#fff","button_4_as_button":"1","button_7_button_colour":"#61a229","button_7_button_hover":"#4e8221","button_7_link_colour":"#fff","button_7_as_button":"1","button_7_new_win":"","font_family":"inherit","header_fix":"","notify_animate_hide":"1","notify_animate_show":"","notify_div_id":"#cookie-law-info-bar","notify_position_horizontal":"right","notify_position_vertical":"bottom","scroll_close":"","scroll_close_reload":"","accept_close_reload":"","reject_close_reload":"","showagain_tab":"1","showagain_background":"#fff","showagain_border":"#000","showagain_div_id":"#cookie-law-info-again","showagain_x_position":"100px","text":"#b7b7b7","show_once_yn":"","show_once":"10000","logging_on":"","as_popup":"","popup_overlay":"1","bar_heading_text":"","cookie_bar_as":"banner","popup_showagain_position":"bottom-right","widget_position":"left"};
+var log_object = {"ajax_url":"\/wp\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js?ver=2.0.3" id="cookie-law-info-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.js?v=1.101.1" id="cycletwo-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.addons.js?v=1.101.1" id="cycletwo-addons-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/easy-logo-slider/js/jquery.jcarousel.min.js?v=1.101.1" id="jquery_jcarousel_min-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/easy-logo-slider/js/jcarousel.responsive.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="jcarousel_responsive-js"></script>
+<link rel="https://api.w.org/" href="/wp-json/">
+<link rel="alternate" type="application/json" href="/wp-json/wp/v2/posts/5252">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="/wp/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="/wp/wp-includes/wlwmanifest.xml"> 
+
+<link rel="shortlink" href="/?p=5252">
+<link rel="alternate" type="application/json+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2F2016%2F01%2F29%2Funifying-disparate-applications-one-system%2F">
+<link rel="alternate" type="text/xml+oembed" href="/wp-json/oembed/1.0/embed?url=https%3A%2F%2F%2F2016%2F01%2F29%2Funifying-disparate-applications-one-system%2F&#038;format=xml">
+<style type="text/css">:not(#tve) .ttfm1{font-family: 'dual300' !important;font-weight: 400 !important;}.ttfm1 input, .ttfm1 select, .ttfm1 textarea, .ttfm1 button {font-family: 'dual300' !important;font-weight: 400 !important;}:not(#tve) .ttfm2{font-family: 'Roboto' !important;font-weight: 400 !important;}.ttfm2 input, .ttfm2 select, .ttfm2 textarea, .ttfm2 button {font-family: 'Roboto' !important;font-weight: 400 !important;}:not(#tve) .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong{font-weight: 500 !important;}.ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong input, .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong select, .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong textarea, .ttfm2.bold_text,.ttfm2 .bold_text,.ttfm2 b,.ttfm2 strong button {font-weight: 500 !important;}</style>
+<style type="text/css" id="tve_global_variables">:root{--tcb-gradient-0:linear-gradient(180deg, #ff712c 0%, #000000 100%);}</style>		<style type="text/css">.wp-video-shortcode {
+				max-width: 100% !important;
+			}
+
+			.bSe a {
+				clear: right;
+			}
+
+			.bSe blockquote {
+				clear: both;
+			}
+			body { background:#FFF; }.cnt article h1.entry-title a { color:#333; }.cnt article h2.entry-title a { color:#333; }.bSe h1, h1.entry-title, h1.entry-title a { color:#333; }.bSe h2 { color:#464545; }.bSe h3 { color:#333; }.bSe h4 { color:#333; }.bSe h5 { color:#333; }.bSe h6 { color:#333; }.bSe p, .mry .awr-e p { color:#666; }.cnt .bSe { color:#666; }.cnt h1 a, .tve-woocommerce .bSe .awr .entry-title, .tve-woocommerce .bSe .awr .page-title{font-family:Roboto,sans-serif;}.bSe h1{font-family:Roboto,sans-serif;}.bSe h2,.tve-woocommerce .bSe h2{font-family:Roboto,sans-serif;}.bSe h3,.tve-woocommerce .bSe h3{font-family:Roboto,sans-serif;}.bSe h4{font-family:Roboto,sans-serif;}.bSe h5{font-family:Roboto,sans-serif;}.bSe h6{font-family:Roboto,sans-serif;}#text_logo{font-family:Roboto,sans-serif;}.cnt h1 a { font-weight:500; }.bSe h1 { font-weight:500; }.bSe h2 { font-weight:500; }.bSe h3 { font-weight:500; }.bSe h4 { font-weight:500; }.bSe h5 { font-weight:500; }.bSe h6 { font-weight:500; }.cnt{font-family:Roboto,sans-serif;font-weight:300;}article strong {font-weight: bold;}.cnt p, .tve-woocommerce .product p, .tve-woocommerce .products p, .brd ul li, header nav ul li a, header nav ul li > ul li a, .has-extended.has-heading .colch, footer, footer .fmm p, .aut-f{font-family:Roboto,sans-serif;font-weight:300;}article strong {font-weight: bold;}.bSe h1, .bSe .entry-title { font-size:46px; }.cnt { font-size:18px; }.thrivecb { font-size:18px; }.out { font-size:18px; }.aut p { font-size:18px; }.cnt p { line-height:1.5em; }.thrivecb { line-height:1.5em; }.bSe a, .cnt a { color:#24447b; }.bSe .faq h4{font-family:Roboto,sans-serif;font-weight:300;}article strong {font-weight: bold;}header nav > ul.menu > li > a { color:#fff; }header nav > ul.menu > li >  a:hover { color:#fff; }header nav > ul > li.current_page_item > a:hover { color:#fff; }header nav > ul > li.current_menu_item > a:hover { color:#fff; }header nav > ul > li.current_menu_item > a:hover { color:#fff; }header nav > ul > li > a:active { color:#fff; }header #logo > a > img { max-width:200px; }header ul.menu > li.h-cta > a { color:#FFFFFF!important; }header ul.menu > li.h-cta > a { background:#4b7cc7; }header ul.menu > li.h-cta > a { border-color:#4b7cc7; }header ul.menu > li.h-cta > a:hover { color:#4b7cc7!important; }header ul.menu > li.h-cta > a:hover { background:#transparent; }</style>
+		<style type="text/css">span.oe_textdirection { unicode-bidi: bidi-override; direction: rtl; }
+	span.oe_displaynone { display: none; }</style>
+<style type="text/css" id="thrive-default-styles">@media (min-width: 300px) { .tcb-style-wrap blockquote {color:rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);font-family:Roboto, sans-serif;font-size:18px;font-weight:300;font-style:normal;margin:;padding-top:0px;padding-bottom:0px;text-decoration:rgb(102, 102, 102);text-transform:none;border-left:;--tcb-applied-color:;} }</style>
+<link rel="icon" href="/wp/wp-content/uploads/2015/09/st2.png" sizes="32x32">
+<link rel="icon" href="/wp/wp-content/uploads/2015/09/st2.png" sizes="192x192">
+<link rel="apple-touch-icon" href="/wp/wp-content/uploads/2015/09/st2.png">
+<meta name="msapplication-TileImage" content="/wp/wp-content/uploads/2015/09/st2.png">
+		<style type="text/css" id="wp-custom-css">/*
+You can add your own CSS here.
+
+Click the help icon above to learn more.
+*/
+
+.bSe ul:not([class]) {
+margin-left: 20px;
+margin-bottom: 15px;
+}
+
+.bSe ul:not([class]) li {
+    padding-left: 0;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+/* StackStorm "Donate" button */
+li#menu-item-9062 a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #418cc5;
+    border: 3px solid #418cc5;
+    color: #fff !important;
+    text-decoration: none;
+    height: 30px;
+    border-radius: 20px;
+    padding: 0 12px;
+    font-weight: 400;
+    transition: all .25s ease-in-out;
+}
+li#menu-item-9062 a:hover {
+    color: #333 !important;
+}
+li#menu-item-9062 a:before {
+    top: 0;
+}</style>
+					<style type="text/css">/* ***blog*** */
+
+pre code {
+        overflow: scroll !important;
+	white-space: pre !important;
+	font-size: 11px
+}
+
+header.side nav>ul>li {
+    padding: 15px !important;
+}
+
+.cnt {
+    margin-top: 50px !important;
+}
+
+.cnt a.customHref{
+    color: #f82 !important;
+}
+
+.bSe ul li:before {
+    content: '' !important;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.bSe ul {
+    list-style-type: disc !important;
+}
+
+.bSe table tbody tr{
+    border-top-width:0px !important;
+}
+
+code {
+    font-size: 0.9em !important;
+}
+
+pre{
+    font-family: Monaco, MonacoRegular, monospace !important;
+    font-size: 14px !important;
+    background-color: rgb(250,253,255) !important;
+    padding: 0px 3px 0px 3px !important;
+    white-space: pre !important;
+}
+
+.bSe h1, .bSe .entry-title {
+    line-height: 1.2;
+    font-size: 40px;
+}
+
+.bSe h2 {
+    font-weight: 300;
+}
+
+.bSe h2, .tve-woocommerce .bSe h2 {
+    font-family: "Roboto",sans-serif;
+}
+
+.cnt p, .tve-woocommerce .product p, .tve-woocommerce .products p {
+    font-family: Roboto,sans-serif;
+    font-weight: 300;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+
+header.fbh {
+    height: 49px;
+}
+header #logo>a>img {
+    max-width: 150px;
+}
+
+.gist .blob-code .blob-code-inner .js-file-line  {
+    white-space: pre !important;
+}</style>
+		
+</head>
+<body class="post-template-default single single-post postid-5252 single-format-standard">
+
+
+<!-- BEGIN LF Header --> 	<div id="lf-header" style="padding-bottom: 3px; padding-top: 3px;background: #252525;"> 		<div class="container wrp"> 			<a href="https://linuxfoundation.org/projects" target="_blank" rel="noopener noreferrer"> 				<img src="/wp/wp-content/themes/stackstorm/images/logo_lf_projects_horizontal.png" style="max-width: 270px;"> 			</a> 		</div> 	</div> 	<!-- END LF Header -->
+
+<div class="theme-wrapper">
+	
+	
+	
+	
+	<div class="fln">
+		<div class="wrp clearfix">
+												<a class="fl-l" href="/">
+						<img src="/wp/wp-content/uploads/2016/10/StackStorm-logo228.png" alt="StackStorm">
+					</a>
+										<div class="fl-s clearfix">
+																<ul>
+																													</ul>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="header-wrapper h-bi">
+		<div id="floating_menu" data-float="float" data-social="0">
+			<header class="side" style="">
+								<div class="h-i">
+					<div class="wrp">
+														<div id="logo">
+									<a href="/">
+										<img src="/wp/wp-content/uploads/2016/10/StackStorm-logo228.png" alt="StackStorm"></a>
+								</div>
+																					<div class="m-s">
+								<div class="hsm"></div>
+								<div class="m-si">
+																												<nav class="menu-stackstorm-refresh-container"><ul id="menu-stackstorm-refresh" class="menu">
+<li id="menu-item-5952" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/features">Features</a></li>
+<li id="menu-item-6100" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/#community">Community</a></li>
+<li id="menu-item-4207" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a target="_blank" href="http://docs.stackstorm.com/">Docs</a></li>
+<li id="menu-item-8701" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="https://exchange.stackstorm.org/">Exchange</a></li>
+<li id="menu-item-2277" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/blog">Blog</a></li>
+<li id="menu-item-9062" class="menu-item menu-item-type-post_type menu-item-object-page toplvl"><a href="/donate/">Donate</a></li>
+</ul></nav>										<!-- Cart Dropdown -->
+									
+																	</div>
+							</div>
+						
+					</div>
+				</div>
+
+			</header>
+		</div>
+	</div>
+
+	
+	
+	
+	
+			
+		
+		<div class="wrp cnt">
+
+
+			<section class="bSe bpd">
+				
+<div class="awr">
+
+	
+	
+	
+				<h1 class="entry-title">Unifying disparate applications into the One System</h1>
+		
+	
+	
+		<div class="awr-i">
+		<p><strong>January 29, 2016</strong><br>
+By James Fryman</p>
+<p><em>Originally published at <a href="http://devops.com/2016/01/29/unifying-applications-into-one-system">http://devops.com/2016/01/29/unifying-applications-into-one-system</a></em></p>
+<p>Let&#8217;s talk about a real problem that all of us have faced at one point or another: keeping track of a single thread of work across many disparate tools. Regardless of the specific industry a company operates in, as a company grows, back-office applications in support of the business begin to accumulate. Many knowledge based companies have some sort of communication tool, some sort of project tracker, and some support tracker. These are tools that aim at being more effective with daily business process. Conversations suffice until they do not, and tools are implemented as the need arises. Every tool that was added has purpose, solves a critical need, and made you and/or your team more productive.</p>
+<p>At some point however, this changes. Discovery starts to become a major issue as usage patterns between different tools leaves solos of data. It becomes hard to correlate the different company pipelines that ultimately drive your business: the pipeline to care and communicate for customers, the pipeline to deliver new features, and the human interfaces involved in each. This is only intensified by team members that work on different project with different tools and people, you introduce team members from a timezone not your own, the sheer quantity of work&#8230; how many ways can you name how not just conversations are lost, but <em>context</em></p>
+<p><span id="more-5252"></span></p>
+<p>Commonly, teams attempt to solve this in a few ways:</p>
+<ul>
+<li>Rules! Specific guidelines (sometimes suggestions, sometimes mandatory) on how and where to have conversations and to store data.</li>
+<li>Integrate! Write data transforms to move necessary data from system X to system Y as necessary.</li>
+<li>Go all in! Choose a suite of tools that takes care of all of these for you.</li>
+<li>Make it &#8220;Future You&#8221;&#8216;s problem. It&#8217;s fine as is, and not really an issue.</li>
+</ul>
+<p>At StackStorm, we ran into this problem. We have two ticketing systems (GitHub issues and Jira), a service desk tool (reamaze), and a chat client (Slack). The solution we use at StackStorm is one that I borrowed from my time at GitHub. One of my colleagues setup a really cool hook into Hubot that listened in our chat rooms for conversations we were having related to a GitHub Issue, a Pull Request, or even a code commit. When someone mentions one of these things, Hubot would grab a chat log plank, and cross-link the permalink to the Issue or Pull Request.</p>
+<p><img src="/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png" alt="/wp/wp-content/uploads/2016/01/bf7487ce-9ebd-11e5-87cf-657e8d89cc32.png"></p>
+<p>But, that&#8217;s just GitHub. Context matters across all tools, and gives team members additional flexibly in learning and gaining knowledge on their own. So, we took our Support Tool, reamaze, and did the same thing!</p>
+<p><img src="/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png" alt="/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png"></p>
+<ul>
+<li>In times of speed, breadcrumbs allow you to piece together puzzles from where travelers have once voyaged. May not be the entire puzzle, but having background greatly helps.</li>
+<li>In times of documentation, said breadcrumbs allow you to use the same investigative skills to assemble a better history.</li>
+</ul>
+<p>This is one part of a set of behaviors that helps create a dynamic web of information. By seamlessly having a mechanism to associate conversations and issues/pr/tickets/whatever, it becomes much easier to have conversations happen whenever they need to (serendipitous interactions ftw) and still get context to team members when they&#8217;re available.</p>
+<p>This matters because: <a href="https://youtu.be/vEpXJRPITN0?t=10m44s">There is only one system</a>.</p>
+<h2>Before we get started&#8230;</h2>
+<p>Full disclosure: I am affiliated with StackStorm the company building StackStorm the tool. That being said, the ultimate goal here is to illustrate the pattern of how harness the recent chat culture change using an event-driven framework with the hopes of regaining just a modicum of sanity in your daily life. If you&#8217;re interested in learning more about StackStorm and how it ties into the overall automated troubleshooting and autoremeditaion space, take a look at our <a href="/2015/12/10/chatops_pitfalls_and_tips/">ChatOps Pitfalls and Tips</a> by Dmitri Zimine. That should give you a good background on why we used StackStorm instead of say&#8230; just a small script.</p>
+<p>Ok, on to business!</p>
+<h3>The Sensor</h3>
+<p>This workflow begins with a sensor. Inside of the StackStorm-Slack integration is a sensor class connects to the Slack Real-Time Messaging API. The first place to begin is with Sensors. The official <a href="https://github.com/StackStorm-Exchange/stackstorm-slack">Slack</a> pack contains a sensor. This sensor uses the Slack RTM to connect to Slack and listen for messages in rooms that it is associated with. Each message is then sent as an &#8220;event&#8221; to StackStorm which I can create rules that will trap certain events and kick off.</p>
+<h3>Rules</h3>
+<p>Now that the sensor is emitting triggers into the system, I need to find a way to take an action when someone mentions an issue or ticket. The mechanism here is via a rule. Rules check triggers emitted into the system via sensors against a series of checks, and then executes an action or workflow if matched. A trigger can match to many rules.</p>
+<p>Let&#8217;s create a rule to watch Slack for discussions related to reamaze</p>
+<p><script src="https://gist.github.com/jfryman/12d08f3dbb1b6c8a7e7e.js"></script></p>
+<ul>
+<li>Source: <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/rules/crosslink-slack-to-reamaze.yaml">https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/rules/crosslink-slack-to-reamaze.yaml</a>
+</li>
+</ul>
+<p>The first element in the <code>criteria</code> block is <code>trigger.text</code>. In the rule, the trigger itself is just referred to as <code>trigger</code> as opposed to <code>slack.message.text</code>. We want to see if the <code>text</code> propery <code>contains</code> a pattern related to our reamaze issue tracker. I chose <code>contains</code> out of the <a href="https://docs.stackstorm.com/rules.html#critera-comparision">large list of comparison operators</a>, and made sure the pattern matches what I&#8217;m looking for. Last but not least, the <code>action</code> block. This block is basically the next operation. Here, I can choose a single action or a workflow to kick off, and even grab data from the trigger payload to pass to the action. In this case, I opted to create a new workflow for my purposes here, and made sure to grab a few keywords that I needed to do processing.</p>
+<p>At this point, I have a rule matching and now I need to create the action necessary to process the trigger.</p>
+<h3>Actions and Workflows</h3>
+<p>Next, we get to creating the actions. The goal is to ensure that anytime a discussion randomly breaks out about a reamaze support ticket, that @estee-tew posts the Slack permalink to the support ticket. With the trigger payload extracted in the above rule, the workflow will need to:</p>
+<ul>
+<li>Take the text of a user comment and extract reamaze issue URL</li>
+<li>Calculate the Slack Permalink URL of the matched message from the collected data.</li>
+<li>Post the Slack Permalink on the matched reamaze issue ticket.</li>
+</ul>
+<p>Inside the <a href="https://github.com/StackStorm-Exchange/stackstorm-reamaze/tree/master/actions"><code>reamaze</code> pack</a>, I can see that I have the ability to <code>create_message</code>. This action takes three parameters: <code>slug</code>, <code>message</code>, and <code>visibility</code>. In our rule above, the action that was kicked off when the critera matched desired slack messages is <code>stackstorm.crosslink_slack_to_reamaze</code>. As of right now, this does not exist, so that is the next step. For brevity&#8217;s sake, you can take a look at the <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/crosslink_slack_to_reamaze.yaml">action metadata</a> on GitHub.</p>
+<p><script src="https://gist.github.com/jfryman/12d08f3dbb1b6c8a7e7e.js"></script></p>
+<ul>
+<li>Source: <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/workflows/crosslink_slack_to_reamaze.yaml">https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/workflows/crosslink_slack_to_reamaze.yaml</a>
+</li>
+</ul>
+<p>This is a simple Action Chain. In as much as it just does one task after another. The tasks here are designed to be small and portable so they can be re-used. Let&#8217;s quickly inspect each of the actions and walk through what it is that lies before us now.</p>
+<h4>Step 1: Permalink to chat history</h4>
+<p>The goal is to create a way to crosslink a Slack permalink, so let&#8217;s start there. This starts with the <code>get_permalink</code> action above. While the history permalink is not in the trigger payload (or even in the official API, for that matter), Slack permalinks are actually not too terribly difficult to figure out. The first action takes two parameters (<code>channel</code> and <code>timestamp</code>), and then spits us out our permalink. We know we&#8217;re going to publish the <code>permalink</code> variable that can now be globally used in the workflow in the future. In additon, the next step takes us to the <code>sanitize_message</code> task. You can take a look at the <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/script/get_slack_message_permalink.py">python code</a> for this action upstream.</p>
+<h4>Step 2: Get support issue data</h4>
+<p>The next step actually happens in two tasks: <code>sanitize_message</code> and <code>get_reamaze_slug</code>. The immediate next step, <code>sanitize_message</code>, is necessary to clean up the output from Slack. In the message payload, URL data is sent to us as a special <a href="https://api.slack.com/docs/formatting">&#8220;escape sequence&#8221;</a> which doesn&#8217;t do the rest of the actions much good. This action, detailed below, is simple enough to be reused in several other workflows. Again, take a look at the <a href="https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications/blob/master/actions/script/sanitize_slack_message.py">action itself</a> The <code>run()</code> method in this <code>python-runner</code> task is the entry point from StackStorm, and this cleans up the text and returns it back as a plain URL which we can then pass to the next action, <code>get_reamaze_slug</code>. This returned information gets us what we need in order to call our final action, <code>reamaze.create_message</code>. We&#8217;re able to publish the permalink slug that was shared and discussed in chat. Now we know <em>what</em> is being discussed.</p>
+<h4>Step 3: Post the crosslink</h4>
+<p>In this step, a the link is actually created. Here we are! The finish line! Woot! The only thing that is essential to do is to make sure we only set the note as an <em>Internal Only</em> note to avoid sending weird links to our friends. The next step is the <code>crosslink_slack_to_reamaze</code> action. At this point, we have all the data we need, so it&#8217;s just execution.</p>
+<p>Permalink from Slack. Crosspost to reamaze</p>
+<p><img src="/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png" alt="/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png"></p>
+<h3>and now, with GitHub&#8230;</h3>
+<p>The premise is simple enough. Included in the upstream repository also includes examples for how to setup similar context mapping with StackStorm. Take a look at https://github.com/stackstorm-packs/st2-crosslink_chat_with_applications. Same process, code reuse, and the same end effect.</p>
+<p><img src="/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png" alt="/wp/wp-content/uploads/2016/01/687474703a2f2f692e696d6775722e636f6d2f6d4e37777851432e706e67.png"></p>
+<h1>Unknowns</h1>
+<ul>
+<li>This workflow is not for everyone.</li>
+<li>We expose internal-only links that are unaccessible by users, and it may be confusing to see random links in issues around GitHub. Why?! What are they?!</li>
+<li>Aliens!?</li>
+</ul>
+<p>There are many more that will come up, but the key facter to address here is that it&#8217;s not difficult to put this together, and it&#8217;s not that difficult to change. And that&#8217;s ok. We&#8217;ll have questions to be answered, but being able to try something out <em>super quickly</em> was indeed satisfying. (In truth, the workflow went up faster than the blog. :P)</p>
+<h1>Wrap up</h1>
+<p>For many reasons, it is unfeasable to capture many fluid conversations in many different tools. The answer is not to move data around, but to leverage humans and provide them a helping hand. This is by no mean a solution, but it begins to provide less friction in the daily work. Over time, add enough of these friction reducers, and then suddenly&#8230; it&#8217;s no longer a panic. This also reinforces the idea that there is not a collection of systems, but rather a single system. The single company. The tools you selected are obviously necessary as we defined at the beginning, but tools should not be dictating the communication structures of your teams, but rather informing them. Removing the ability for silos to form allows data in both bits and ideas to flow and move around. This can even be expanded to do much more&#8230;</p>
+<p>Until next time!</p>	</div>
+	<div class="clear"></div>
+	
+	
+	
+				<div class="pnav">
+			<a class="pav left" href="/2016/01/25/stackstorm-quicktip-shorten-pack-development-feedback-loop/">
+				<span>Previous Post</span>
+				<span>StackStorm QuickTip: ChatOps your pack dev workflow</span>
+			</a>
+			<a class="pav right" href="/2016/01/29/stackstorm-1-3-0-is-here/">
+				<span>Next Post</span>
+				<span>StackStorm 1.3.0 is here!</span>
+			</a>
+		</div>
+	</div>
+
+	
+<div id="disqus_thread"></div>
+			</section>
+
+
+		</div>
+		<div class="clear"></div>
+	
+
+<div class="footer-wrapper">
+<footer>
+				<div class="fmw">
+			<div class="wrp">
+									<div class="colm oth ">
+						<section id="text-7" class="col"><div class="scn">			<div class="textwidget">
+<p><a href="http://docs.stackstorm.com/" target="_blank" rel="noopener">Documentation</a><br>
+<a href="https://github.com/StackStorm" target="_blank" rel="noopener">GitHub</a><br>
+<a href="/#community" target="_blank" rel="noopener">Community</a><br>
+<a href="/security" target="_blank" rel="noopener">Security</a></p>
+</div>
+		</div></section>					</div>
+									<div class="colm oth ">
+						<section id="text-8" class="col"><div class="scn">			<div class="textwidget">
+<p><a href="/blog">Blog</a><br>
+<a href="https://www.youtube.com/channel/UCColc5CuBJ8-1SnALnkDz8Q">Video Gallery</a><br>
+<a href="/privacy-policy">Privacy Policy</a></p>
+</div>
+		</div></section>					</div>
+									<div class="colm oth lst">
+						<section id="text-9" class="col"><div class="scn">			<div class="textwidget">
+<div style="line-height:1.7em;">
+<a href="/contact">Contact</a><br>
+
+<div class="ic-social">
+<a href="https://www.facebook.com/stackstormdevops" target="_blank" rel="noopener"><i class="fa fa-facebook-square"></i></a>
+<a href="https://twitter.com/StackStorm" target="_blank" rel="noopener"><i class="fa fa-twitter-square"></i></a>
+<a href="https://www.linkedin.com/company/stackstorm" target="_blank" rel="noopener"><i class="fa fa-linkedin-square"></i></a>
+<a href="https://github.com/StackStorm" target="_blank" rel="noopener"><i class="fa fa-github-square"></i></a>
+<a href="https://www.youtube.com/channel/UCColc5CuBJ8-1SnALnkDz8Q" target="_blank" rel="noopener"><i class="fa fa-youtube-square"></i></a>
+</div>
+</div>
+<style type="text/css">.tve-leads-track-ribbon-46 {
+  top: 70px !important;
+}
+.tve-leads-track-ribbon-46 #tve_four_set {
+  font-family: 'Open Sans', Helvetica, Arial, Lucida, sans-serif;
+}
+.tve-leads-track-ribbon-46 #tve_four_set .thrv-ribbon {
+border-top: 1px solid #ddd;
+    box-shadow: 0px 4px 3px -4px rgba(0,0,0,0.75);
+    padding-bottom: 0px !important;
+    padding-top: 0px !important;
+    border-right: none;
+    border-left: none;
+}
+.tve-leads-track-ribbon-46 .bold_text {
+  font-weight: normal;
+}
+.tve-leads-track-ribbon-46 #tve_four_set .tve-ribbon-close {
+height: 30px;
+    border-color: white;
+    color: white;
+    font-family: sans-serif;
+    border-width: 2px;
+    top: 50%;
+    margin-top: -15px;
+    font-size: 18px;
+    font-weight: 800;
+}</style>
+</div>
+		</div></section>					</div>
+								<div class="clear"></div>
+			</div>
+		</div>
+		<div class="fmm">
+		<div class="wrp">
+			<div class="ft-m">
+							</div>
+		</div>
+		<div class="wrp">
+			<div class="ft-c">
+				<p>
+											© 2021 StackStorm a Series of LF Projects, LLC. All rights reserved. For web site terms of use, trademark policy and other project policies please see <a href="https://lfprojects.org/">https://lfprojects.org/</a>. 
+<br>For a list of trademarks of The Linux Foundation, please see our <a href="https://www.linuxfoundation.org/trademark-usage">Trademark Usage</a> page. Linux is a registered trademark of Linus Torvalds.  <a href="https://www.linuxfoundation.org/privacy">Privacy Policy</a> and <a href="https://www.linuxfoundation.org/terms">Terms of Use</a>.														</p>
+			</div>
+			<div class="ft-s">
+												<ul>
+																																		</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	</footer>
+</div>
+
+
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>We use cookies for traffic analytics and ad and content personalization. By clicking on any of the content or interacting with any section of this website,<br>you are agreeing to this use of cookies in the manner described in our <a href="/privacy-policy" id="CONSTANT_OPEN_URL" target="_blank" class="cli-plugin-main-link" style="display:inline-block;">Privacy Policy</a> <a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="cli-plugin-main-button cookie_action_close_header cli_action_button" style="display:inline-block; ">close [x]</a></span></div>
+<div id="cookie-law-info-again" style="display:none;" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy & Cookies Policy</span></div>
+<div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
+  <div class="cli-modal-dialog" role="document">
+	<div class="cli-modal-content cli-bar-popup">
+	  	<button type="button" class="cli-modal-close" id="cliModalClose">
+			<svg class="" viewbox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"></path><path d="M0 0h24v24h-24z" fill="none"></path></svg>
+			<span class="wt-cli-sr-only">Close</span>
+	  	</button>
+	  	<div class="cli-modal-body">
+			<div class="cli-container-fluid cli-tab-container">
+	<div class="cli-row">
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+			<div class="cli-privacy-overview">
+				<h4>Privacy Overview</h4>				<div class="cli-privacy-content">
+					<div class="cli-privacy-content-text">This website uses cookies to improve your experience while you navigate through the website. Out of these, the cookies that are categorized as necessary are stored on your browser as they are essential for the working of basic functionalities of the website. We also use third-party cookies that help us analyze and understand how you use this website. These cookies will be stored in your browser only with your consent. You also have the option to opt-out of these cookies. But opting out of some of these cookies may affect your browsing experience.</div>
+				</div>
+				<a class="cli-privacy-readmore" aria-label="Show more" tabindex="0" role="button" data-readmore-text="Show more" data-readless-text="Show less"></a>			</div>
+		</div>
+		<div class="cli-col-12 cli-align-items-stretch cli-px-0 cli-tab-section-container">
+												<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="necessary" data-toggle="cli-toggle-tab">
+								Necessary							</a>
+							<div class="wt-cli-necessary-checkbox">
+                        <input type="checkbox" class="cli-user-preference-checkbox" id="wt-cli-checkbox-necessary" data-id="checkbox-necessary" checked>
+                        <label class="form-check-label" for="wt-cli-checkbox-necessary">Necessary</label>
+                    </div>
+                    <span class="cli-necessary-caption">Always Enabled</span> 						</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="necessary">
+								<p>Necessary cookies are absolutely essential for the website to function properly. This category only includes cookies that ensures basic functionalities and security features of the website. These cookies do not store any personal information.</p>
+							</div>
+						</div>
+					</div>
+																	<div class="cli-tab-section">
+						<div class="cli-tab-header">
+							<a role="button" tabindex="0" class="cli-nav-link cli-settings-mobile" data-target="non-necessary" data-toggle="cli-toggle-tab">
+								Non-necessary							</a>
+							<div class="cli-switch">
+                        <input type="checkbox" id="wt-cli-checkbox-non-necessary" class="cli-user-preference-checkbox" data-id="checkbox-non-necessary" checked>
+                        <label for="wt-cli-checkbox-non-necessary" class="cli-slider" data-cli-enable="Enabled" data-cli-disable="Disabled"><span class="wt-cli-sr-only">Non-necessary</span></label>
+                    </div>						</div>
+						<div class="cli-tab-content">
+							<div class="cli-tab-pane cli-fade" data-id="non-necessary">
+								<p>Any cookies that may not be particularly necessary for the website to function and is used specifically to collect user personal data via analytics, ads, other embedded contents are termed as non-necessary cookies. It is mandatory to procure user consent prior to running these cookies on your website.</p>
+							</div>
+						</div>
+					</div>
+										</div>
+	</div>
+</div>
+	  	</div>
+	  	<div class="cli-modal-footer">
+			<div class="wt-cli-element cli-container-fluid cli-tab-container">
+				<div class="cli-row">
+					<div class="cli-col-12 cli-align-items-stretch cli-px-0">
+						<div class="cli-tab-footer wt-cli-privacy-overview-actions">
+						
+															<a id="wt-cli-privacy-save-btn" role="button" tabindex="0" data-cli-action="accept" class="wt-cli-privacy-btn cli_setting_save_button wt-cli-privacy-accept-btn cli-btn">SAVE & ACCEPT</a>
+													</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<div class="cli-modal-backdrop cli-fade cli-settings-overlay"></div>
+<div class="cli-modal-backdrop cli-fade cli-popupbar-overlay"></div>
+<!--googleon: all--><script type="text/javascript">/**
+ * Displays toast message from storage, it is used when the user is redirected after login
+ */
+if ( window.sessionStorage ) {
+	window.addEventListener( 'load', function () {
+		var message = sessionStorage.getItem( 'tcb_toast_message' );
+
+		if ( message ) {
+			tcbToast( sessionStorage.getItem( 'tcb_toast_message' ), false );
+			sessionStorage.removeItem( 'tcb_toast_message' );
+		}
+	} );
+}
+
+/**
+ * Displays toast message
+ */
+function tcbToast( message, error, callback ) {
+	/* Also allow "message" objects */
+	if ( typeof message !== 'string' ) {
+		message = message.message || message.error || message.success;
+	}
+	if ( ! error ) {
+		error = false;
+	}
+
+	let _icon = 'checkmark',
+		_extra_class = '';
+	if ( error ) {
+		_icon = 'cross';
+		_extra_class = ' tve-toast-error';
+	}
+
+	jQuery( 'body' ).slideDown( 'fast', function () {
+		jQuery( 'body' ).prepend( '<div class="tvd-toast tve-fe-message"><div class="tve-toast-message"><div class="tve-toast-icon-container' + _extra_class + '"><span class="tve_tick thrv-svg-icon"><svg xmlns="http://www.w3.org/2000/svg" class="tcb-checkmark" style="width: 100%; height: 1em; stroke-width: 0; fill: #ffffff; stroke: #ffffff;" viewBox="0 0 32 32"><path d="M27 4l-15 15-7-7-5 5 12 12 20-20z"><\/path><\/svg><\/span><\/div><div class="tve-toast-message-container">' + message + '<\/div><\/div><\/div>' );
+	} );
+
+	setTimeout( function () {
+		jQuery( '.tvd-toast' ).hide();
+
+		if ( typeof callback === 'function' ) {
+			callback();
+		}
+
+	}, 3000 );
+}
+</script><link rel="stylesheet" id="jcarouselresponsive-css" href="/wp/wp-content/plugins/easy-logo-slider/css/jcarouselresponsive.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="style-admin-css" href="/wp/wp-content/plugins/easy-logo-slider/css/style-admin.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<script type="text/javascript" id="disqus_count-js-extra">
+/* <![CDATA[ */
+var countVars = {"disqusShortname":"stackstorm"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/plugins/disqus-comment-system/public/js/comment_count.js?ver=3.0.22" id="disqus_count-js"></script>
+<script type="text/javascript" id="disqus_embed-js-extra">
+/* <![CDATA[ */
+var embedVars = {"disqusConfig":{"integration":"wordpress 3.0.22"},"disqusIdentifier":"5252 \/?p=5252","disqusShortname":"stackstorm","disqusTitle":"Unifying disparate applications into the One System","disqusUrl":"\/2016\/01\/29\/unifying-disparate-applications-one-system\/","postId":"5252"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/plugins/disqus-comment-system/public/js/comment_embed.js?ver=3.0.22" id="disqus_embed-js"></script>
+<script type="text/javascript" id="thrive-main-script-js-extra">
+/* <![CDATA[ */
+var ThriveApp = {"ajax_url":"\/wp\/wp-admin\/admin-ajax.php","is_singular":"1","post_type":"post","lazy_load_comments":"0","comments_loaded":"0","theme_uri":"\/wp\/wp-content\/themes\/rise","translations":{"ProductDetails":"Product Details"}};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/themes/rise/js/script.js?v=1.101.1" id="thrive-main-script-js"></script>
+<script type="text/javascript" id="tve-dash-frontend-js-extra">
+/* <![CDATA[ */
+var tve_dash_front = {"ajaxurl":"\/wp\/wp-admin\/admin-ajax.php","force_ajax_send":"","is_crawler":"1","recaptcha":[]};
+/* ]]> */
+</script>
+<script type="text/javascript" src="/wp/wp-content/themes/rise/thrive-dashboard/js/dist/frontend.min.js?ver=2.4.0.1" id="tve-dash-frontend-js"></script>
+<script type="text/javascript" src="/wp/wp-content/plugins/enlighter/cache/enlighterjs.min.js?ver=c8vUwCl5jS8Iu00" id="enlighterjs-js"></script>
+<script type="text/javascript" id="enlighterjs-js-after">
+!function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":2,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":false,"theme":"beyond","language":"python","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
+</script>
+<script type="text/javascript" src="/wp/wp-includes/js/wp-embed.min.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="wp-embed-js"></script>
+<script type="text/javascript">var tcb_post_lists=JSON.parse('[]');</script>
+</div>
+</body>
+</html>
