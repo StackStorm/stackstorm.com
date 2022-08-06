@@ -473,7 +473,7 @@ header #logo>a>img {
 <p>We previously warned that the <code>system</code> and <code>user</code> Jinja variable notation for accessing system and user scoped datastore items inside workflows and actions is going away and be replaced by the new <code>st2kv.system</code> and <code>st2kv.user</code> notation.</p>
 <p>Well, that time has arrived. Now you really do need to update your actions and workflows to use the new scoping notation.</p>
 <p>The database schema for Mistral has changed. The <code>executions_v2</code> table is no longer used. The table has been broken down into <code>workflow_executions_v2</code>, <code>task_executions_v2</code>, and <code>action_executions_v2</code>. There is currently no migration script to move existing records from executions_v2 into the new tables. If you really need to read from executions_v2, either use psql or install an older version of the python-mistralclient.</p>
-<p>As always, full changelogs are <a href="https://docs.stackstorm.com/changelog.html#february-22-2017">here</a>, full upgrade notes are <a href="https://docs.stackstorm.com/upgrade_notes.html">here</a>, and we are always available to help on our <a href="munity.slack.com/">Slack channel</a>. Sign up <a href="/community-signup">here</a>.</p>	</div>
+<p>As always, full changelogs are <a href="https://docs.stackstorm.com/changelog.html#february-22-2017">here</a>, full upgrade notes are <a href="https://docs.stackstorm.com/upgrade_notes.html">here</a>, and we are always available to help on our <a href="munity.slack.com/">Slack channel</a>. Sign up <a href="../../../../community-signup/index.html">here</a>.</p>	</div>
 	<div class="clear"></div>
 	
 	
