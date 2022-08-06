@@ -19,7 +19,7 @@
 
 	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>Automated Troubleshooting With StackStorm and Mistral - StackStorm</title>
-	<link rel="canonical" href="/2015/07/08/automating-with-mistral-workflow/">
+	<link rel="canonical" href="./index.html">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Automated Troubleshooting With StackStorm and Mistral - StackStorm">
@@ -306,7 +306,7 @@ header #logo>a>img {
 		<p><strong>July 08, 2015</strong><br>
 <em>by Dmitri Zimine</em></p>
 <p>Recently someone on #stackstorm IRC asked how to build a simple troubleshooting automation: <em>&#8220;on cron, ping a server, and dump the stats to the log for analytics; post the failure to Slack immediately if the ping fails.&#8221;</em> Our short answer was <em>&#8220;use Mistral workflow&#8221;.</em> In this post, I&#8217;ll use this simple case to walk you through the details of setting up a basic automation, powered by Mistral workflow.</p>
-<p><a href="https://github.com/openstack/mistral">Mistral</a> is a workflow service that we help develop upstream in OpenStack. It gives features and reliability that are missing in simple workflows like our own ActionChain or Ansible&#8217;s (details in <a href="/2015/04/10/the-return-of-workflows/">&#8220;Return of workflows&#8221;</a>). Mistral comes embedded and supported with StackStorm.</p>
+<p><a href="https://github.com/openstack/mistral">Mistral</a> is a workflow service that we help develop upstream in OpenStack. It gives features and reliability that are missing in simple workflows like our own ActionChain or Ansible&#8217;s (details in <a href="../../../../2015/04/10/the-return-of-workflows/index.html">&#8220;Return of workflows&#8221;</a>). Mistral comes embedded and supported with StackStorm.</p>
 <p>The scenario I use here is obviously simplification: in a typical deployment, monitoring is set up to do heavy-lifting on issue identifications, and a variety of devops tools are used to troubleshoot and remediate issues. StackStorm gives a <a href="https://exchange.stackstorm.org/">fair bunch of lego-blocks</a> to integrate existing devops tools, and build more realistic automation workflows. Yet, the production development flow and the patterns are going to be just as in this simple example.</p>
 <p>I&#8217;ll take an opportunity to go over some basics of using StackStorm. It&#8217;s all <a href="http://docs.stackstorm.com/latest/">documented</a>, but doesn&#8217;t hurt to repeat some in context, and share my tips and tricks.</p>
 <p>For you impatient kinds: the  final version is available as a pack on GitHub, <a href="#install_example">made-ready to install</a>.</p>
@@ -538,7 +538,7 @@ st2 run st2_101.ping host=mail.ru
 <p>That&#8217;s it! Note that <code>packs.install</code> doesn&#8217;t load the rules by default. You can either supply <code>register:all</code> key, or add rules later at your convenience with <code>st2 rule create</code>.</p>
 <h2>What&#8217;s next?</h2>
 <p>Congratulations, you have completed end-to-end workflow based automation with StackStorm! This should get you on the path of using Mistral workflows with StackStorm. And hopefully, it unleashes your imagination on how to build real automations for your operations, with actions, workflows, and rules.</p>
-<p>Be sure to check out &#8220;Actions of All Flavors&#8221;(/2015/04/20/actions-of-all-flavors-in-stackstorm) or <a href="/2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/">&#8220;Monitor Twitter and Fire an Action&#8221;</a> tutorials. More is coming up. Let us know about your experience &#8211; leave comments, or bring your questions and feedback:</p>
+<p>Be sure to check out &#8220;Actions of All Flavors&#8221;(/2015/04/20/actions-of-all-flavors-in-stackstorm) or <a href="../../../../2014/12/22/monitor-twitter-and-fire-automations-based-on-twitter-keywords-using-stackstorm/index.html">&#8220;Monitor Twitter and Fire an Action&#8221;</a> tutorials. More is coming up. Let us know about your experience &#8211; leave comments, or bring your questions and feedback:</p>
 <ul>
 <li>IRC: <a href="https://webchat.freenode.net/?channels=stackstorm">#stackstorm on freenode.org</a>
 </li>
@@ -551,11 +551,11 @@ st2 run st2_101.ping host=mail.ru
 	
 	
 				<div class="pnav">
-			<a class="pav left" href="/2015/06/30/using-stackstorm-to-auto-invite-users-to-a-slack-organization/">
+			<a class="pav left" href="../../../../2015/06/30/using-stackstorm-to-auto-invite-users-to-a-slack-organization/index.html">
 				<span>Previous Post</span>
 				<span>Using StackStorm to Auto-Invite Users to a Slack Organization</span>
 			</a>
-			<a class="pav right" href="/2015/07/10/ahh05-continuous-integration-pipeline/">
+			<a class="pav right" href="../../../../2015/07/10/ahh05-continuous-integration-pipeline/index.html">
 				<span>Next Post</span>
 				<span>AHH #05 &#8211; Continuous Integration Pipeline</span>
 			</a>

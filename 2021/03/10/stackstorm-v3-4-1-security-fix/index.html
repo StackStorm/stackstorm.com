@@ -19,7 +19,7 @@
 
 	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>StackStorm v3.4.1 - Security fix - CVE-2021-28667 - StackStorm</title>
-	<link rel="canonical" href="/2021/03/10/stackstorm-v3-4-1-security-fix/">
+	<link rel="canonical" href="./index.html">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="StackStorm v3.4.1 - Security fix - CVE-2021-28667 - StackStorm">
@@ -312,7 +312,7 @@ header #logo>a>img {
 <p dir="ltr"><!--more--></p>
 <h2>Affected Installations / deployments</h2>
 <p dir="ltr" id="docs-internal-guid-4f8cc666-7fff-1a1c-4d07-3020c713b227"><span>Any StackStorm installation which is using Python 3 and doesn’t have the system locale / encoding used for StackStorm services set to utf-8 is affected.</span></p>
-<p dir="ltr"><span>Until StackStorm v3.4.0 <a href="/2021/03/04/v3-4-0-released/">which was released recently</a>, StackStorm was still using Python 2.7 on most distros except RHEL / CentOS 8 and Ubuntu Bionic 18.04. StackStorm already used Python 3 on those operating systems.<br></span></p>
+<p dir="ltr"><span>Until StackStorm v3.4.0 <a href="../../../../2021/03/04/v3-4-0-released/index.html">which was released recently</a>, StackStorm was still using Python 2.7 on most distros except RHEL / CentOS 8 and Ubuntu Bionic 18.04. StackStorm already used Python 3 on those operating systems.<br></span></p>
 <p dir="ltr"><span>It’s worth noting that nowadays that the system and processes locales are almost always set to utf-8, and when locales are either not being set, or set to C.ascii, is is usually a system misconfiguration.</span></p>
 <h2 dir="ltr" id="docs-internal-guid-c83eaa8c-7fff-51be-4053-b322e77d499d"><span>The bug</span></h2>
 <p dir="ltr" id="docs-internal-guid-ccb86944-7fff-7490-1000-e1f64fca163c"><span>The actual bug and security vulnerability is located in the piece of code which is responsible for routing any data which is written to standard error (those are mostly just exception stack traces) to the logger method and logging this data under ERROR log level.</span></p>
@@ -342,11 +342,11 @@ LC_MESSAGES=en_US.UTF-8</pre>
 	
 	
 				<div class="pnav">
-			<a class="pav left" href="/2021/03/04/v3-4-0-released/">
+			<a class="pav left" href="../../../../2021/03/04/v3-4-0-released/index.html">
 				<span>Previous Post</span>
 				<span>StackStorm v3.4.0 Released</span>
 			</a>
-			<a class="pav right" href="/2021/06/29/stackstorm-v3-5-0-released/">
+			<a class="pav right" href="../../../../2021/06/29/stackstorm-v3-5-0-released/index.html">
 				<span>Next Post</span>
 				<span>StackStorm v3.5.0 Released</span>
 			</a>

@@ -19,7 +19,7 @@
 
 	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>StackStorm v2.9.2 and v2.10.1: A Security Release (CVE-2018-20345) - StackStorm</title>
-	<link rel="canonical" href="/2018/12/20/stackstorm-v2-9-2-and-v2-10-1-a-security-release/">
+	<link rel="canonical" href="./index.html">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="StackStorm v2.9.2 and v2.10.1: A Security Release (CVE-2018-20345) - StackStorm">
@@ -310,7 +310,7 @@ header #logo>a>img {
 <h2>Background</h2>
 <p>The issue lies in the <code>GET /v1/keys</code> API endpoint where <code>?scope=all</code> and <code>?user=&lt;username&gt;</code> query parameter filters are not correctly handled. This allows any authenticated user to potentially retrieve user-scoped datastore items for other users.</p>
 <p>The issue affects all the Open Source StackStorm releases from 1.5.0 to v2.10.0 (inclusive). Enterprise editions with RBAC enabled are not affected. When RBAC is enabled, only users with admin role can utilize <code>?scope=all</code> and <code>?user=&lt;username&gt;</code> query parameter filter and retrieve / view values for any system user.</p>
-<p>We would strongly encourage our users who are affected by this issue to upgrade to one of those releases. If you are unable to upgrade to the v2.10.x series yet which has <a href="/2018/12/14/pre-change-freeze-stackstorm-2-10/">just been released</a>, you should upgrade to v2.9.2 which also includes this fix.</p>
+<p>We would strongly encourage our users who are affected by this issue to upgrade to one of those releases. If you are unable to upgrade to the v2.10.x series yet which has <a href="../../../../2018/12/14/pre-change-freeze-stackstorm-2-10/index.html">just been released</a>, you should upgrade to v2.9.2 which also includes this fix.</p>
 <p>The issue has been assigned CVE identifier <strong>CVE-2018-20345</strong>.</p>
 <h2>Better Security Issue Handling</h2>
 <p>Software security and robustness are the key qualities we strive for in every change we make. But we realized we didn&#8217;t have clear procedures for reporting security issues.</p>
@@ -324,11 +324,11 @@ header #logo>a>img {
 	
 	
 				<div class="pnav">
-			<a class="pav left" href="/2018/12/14/pre-change-freeze-stackstorm-2-10/">
+			<a class="pav left" href="../../../../2018/12/14/pre-change-freeze-stackstorm-2-10/index.html">
 				<span>Previous Post</span>
 				<span>Pre-Change Freeze: StackStorm 2.10</span>
 			</a>
-			<a class="pav right" href="/2019/01/15/ansible-st2-v1-0-0-released/">
+			<a class="pav right" href="../../../../2019/01/15/ansible-st2-v1-0-0-released/index.html">
 				<span>Next Post</span>
 				<span>Ansible StackStorm role v1.0.0 released</span>
 			</a>

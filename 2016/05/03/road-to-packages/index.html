@@ -19,7 +19,7 @@
 
 	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>Road to native StackStorm packages - StackStorm</title>
-	<link rel="canonical" href="/2016/05/03/road-to-packages/">
+	<link rel="canonical" href="./index.html">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Road to native StackStorm packages - StackStorm">
@@ -321,7 +321,7 @@ header #logo>a>img {
 <li>to self reflect on where we went wrong and how we course corrected.</li>
 </ol>
 <p><span id="more-5662"></span></p>
-<p>Some of you already know that the StackStorm product is a collection of individual services all designed to interact with each other through well defined remote procedure calls (both REST and non-REST). To sum up the product, we have a core <a href="https://github.com/StackStorm/st2">StackStorm system</a> that consists of API servers (HTTP), sensor containers (process manager that manages sensor processes), rules engine (processes that work on incoming events and invoke appropriate actions or workflows) and action runners (processes that invoke some code that interacts with physical infrastructure or applications). We have end user interaction pieces such as the StackStorm CLI and <a href="https://github.com/StackStorm/st2web">UI</a>. We also have <a href="/2015/06/08/enhanced-chatops-from-stackstorm/">ChatOps pieces</a> that let end users interact with StackStorm in fun and interesting ways via a chat client. Not to prolong this list, but we also have our enterprise features such as LDAP integration plugin and the workflow authoring web tool that we call Flow. Here is a some cool chatops demo to refresh your mind!</p>
+<p>Some of you already know that the StackStorm product is a collection of individual services all designed to interact with each other through well defined remote procedure calls (both REST and non-REST). To sum up the product, we have a core <a href="https://github.com/StackStorm/st2">StackStorm system</a> that consists of API servers (HTTP), sensor containers (process manager that manages sensor processes), rules engine (processes that work on incoming events and invoke appropriate actions or workflows) and action runners (processes that invoke some code that interacts with physical infrastructure or applications). We have end user interaction pieces such as the StackStorm CLI and <a href="https://github.com/StackStorm/st2web">UI</a>. We also have <a href="../../../../2015/06/08/enhanced-chatops-from-stackstorm/index.html">ChatOps pieces</a> that let end users interact with StackStorm in fun and interesting ways via a chat client. Not to prolong this list, but we also have our enterprise features such as LDAP integration plugin and the workflow authoring web tool that we call Flow. Here is a some cool chatops demo to refresh your mind!</p>
 <p>Chatops demo!<br>
 <img loading="lazy" class="alignnone size-full wp-image-3541" src="../../../../wp/wp-content/uploads/2015/06/chatops_step_2.gif" alt="chatops_step_1" width="1299" height="710"></p>
 <p>As much as we would like to write all these pieces using the same tech stack, reality dictates that we pick the tool of choice for each piece. Some of these choices (Coffee) are also restricted by our reliability on third party components &#8211; Hubot for example. To give you an idea of technology involved in StackStorm product, we have Python, Javascript, Coffee and minimal Bash. You can infer the runtime requirements for these (Python 2.7, Node etc). As much as we would like StackStorm to be a self-sustaining piece of software, we need a database for storing things and a queue for inter-process communication (RabbitMQ). And not to forget Mistral, our workflow orchestrator. It is a multi-process system with APIs, runners, datastore (PostgreSQL) and a queue (luckily, RabbitMQ).</p>
@@ -371,11 +371,11 @@ hard to handle proxying in all kinds of dependency installation using a multitud
 	
 	
 				<div class="pnav">
-			<a class="pav left" href="/2016/04/21/goodbye-aio/">
+			<a class="pav left" href="../../../../2016/04/21/goodbye-aio/index.html">
 				<span>Previous Post</span>
 				<span>Welcome linux packages, goodbye AIO installer</span>
 			</a>
-			<a class="pav right" href="/2016/05/19/automating-docker-networking-with-stackstorm/">
+			<a class="pav right" href="../../../../2016/05/19/automating-docker-networking-with-stackstorm/index.html">
 				<span>Next Post</span>
 				<span>Network Automation with StackStorm and Docker</span>
 			</a>

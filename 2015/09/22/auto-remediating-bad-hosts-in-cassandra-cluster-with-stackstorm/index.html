@@ -19,7 +19,7 @@
 
 	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>Auto-remediating bad hosts in Cassandra cluster with StackStorm - StackStorm</title>
-	<link rel="canonical" href="/2015/09/22/auto-remediating-bad-hosts-in-cassandra-cluster-with-stackstorm/">
+	<link rel="canonical" href="./index.html">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Auto-remediating bad hosts in Cassandra cluster with StackStorm - StackStorm">
@@ -453,7 +453,7 @@ cassandra.replace_host:
                 message: "```[CASS-REPLACE-HOST] [&lt;% $.dead_node %&gt;] STATUS: FAILED```. REASON: BOOTSTRAP TIMED OUT."</pre>
 <h2 id="toc_4">Runbook as code</h2>
 <p>We picked a simple case where a dead node is first checked to see if it is a seed node. Seed nodes are special in Cassandra and for the purpose of simplicity, we do not handle seed node replacements. Instead, as you can see, we abort the workflow if a node is a seed node. If it is not, then we follow the steps listed in the runbook one at a time. Each step in the runbook is codified as simple actions in StackStorm and placed in appropriate packs. For a brief intro to packs, read our <a href="http://docs.stackstorm.com/packs.html">documentation</a> and check out the <a href="https://exchange.stackstorm.org/">community packs</a> available. All the actions listed in the <a href="http://docs.stackstorm.com/mistral.html">mistral workflow</a> are part of <a href="https://github.com/StackStorm/st2incubator/tree/master/packs/cassandra">Cassandra pack</a></p>
-<p>As you might guess, some of the actions need to happen on remote boxes. To be precise, they need to happen on the new box being spun up. It goes without saying, StackStorm needs passwordless SSH access (via keys) to this new box. You might also notice the <code>notify</code> tasks in the workflow. They post notifications on a specified channel in <code>slack</code>. This gives you visibility into the status of the workflow as it&#8217;s being run! The point here is instead of having to have a task that notifies at each task completion, you can configure the whole workflow to notify Slack. This is one of many ways we&#8217;ve made ChatOps a first class citizen, but I digress. There is a great blog about simplifying and extending ChatOps with StackStorm <a href="/2015/06/08/enhanced-chatops-from-stackstorm/">here</a>.</p>
+<p>As you might guess, some of the actions need to happen on remote boxes. To be precise, they need to happen on the new box being spun up. It goes without saying, StackStorm needs passwordless SSH access (via keys) to this new box. You might also notice the <code>notify</code> tasks in the workflow. They post notifications on a specified channel in <code>slack</code>. This gives you visibility into the status of the workflow as it&#8217;s being run! The point here is instead of having to have a task that notifies at each task completion, you can configure the whole workflow to notify Slack. This is one of many ways we&#8217;ve made ChatOps a first class citizen, but I digress. There is a great blog about simplifying and extending ChatOps with StackStorm <a href="../../../../2015/06/08/enhanced-chatops-from-stackstorm/index.html">here</a>.</p>
 <h2 id="toc_5">Hey, so how do I run the codified runbook?</h2>
 <p>StackStorm ships with a CLI and a lovely UI in the community version. The Cassandra pack comes with a <code>nodetool</code> action that you can use to run <code>nodetool</code> actions on cluster. For example:</p>
 <pre class="EnlighterJSRAW" data-enlighter-language="null">st2 run cassandra.nodetool hosts=10.0.2.247 command='status'</pre>
@@ -513,11 +513,11 @@ cassandra.replace_host:
 	
 	
 				<div class="pnav">
-			<a class="pav left" href="/2015/09/15/java-action/">
+			<a class="pav left" href="../../../../2015/09/15/java-action/index.html">
 				<span>Previous Post</span>
 				<span>Turning Java App Into StackStorm Action</span>
 			</a>
-			<a class="pav right" href="/2015/09/22/stackstorm-1-0-enterprise-edition-launched-w-netflix-as-user/">
+			<a class="pav right" href="../../../../2015/09/22/stackstorm-1-0-enterprise-edition-launched-w-netflix-as-user/index.html">
 				<span>Next Post</span>
 				<span>StackStorm 1.0 Enterprise Edition launched: w/ Netflix as user</span>
 			</a>

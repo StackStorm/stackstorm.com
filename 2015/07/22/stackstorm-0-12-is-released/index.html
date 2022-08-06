@@ -20,7 +20,7 @@
 	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>StackStorm 0.12 Is Released - StackStorm</title>
 	<meta name="description" content="StackStorm gains contributions from Netflix, HP and others as it adds secrets management and more.">
-	<link rel="canonical" href="/2015/07/22/stackstorm-0-12-is-released/">
+	<link rel="canonical" href="./index.html">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="StackStorm 0.12 Is Released - StackStorm">
@@ -324,7 +324,7 @@ header #logo>a>img {
 <p><a href="https://github.com/orius123" target="_blank">Eliya Sadan</a>, <a href="https://github.com/meirwah" target="_blank">Meir Wahnon</a>, <a href="https://github.com/SamMarkowitz" target="_blank">Sam Markowitz </a>(from the HP workflow project cloudslang.io) added a new cloudslang runner. Now you can run cloudslang orchestrations and workflows from within stackstorm which also proves our workflow really is pluggable. Thanks to all the above people for their awesome contributions.</p>
 <p>With 0.12, we introduce secret parameters. When a parameter is defined as a secret in action metadata, it will be masked completely. The clear version is never printed in logs or sent out in API responses. Only admin users (added to st2 configuration file) can unmask the secret parameters in API responses by explicitly sending out a query param<code>show_secrets=True</code>.</p>
 <p>Also in 0.12, actions can get access to ST2_ACTION_API_URL and ST2_ACTION_AUTH_TOKEN environment variables. So actions can hit StackStorm APIs to call other actions or consume any other StackStorm API.</p>
-<p>On the chatops front, our APIs have matured to a point we no longer think they can remain in experimental. Action alias and alias execution APIs have now been promoted to v1. Using these APIs will let you define an alias for an action in StackStorm to be used in chatops. Alias execution API is the API that our bot hits to kick off a chatops command. As a refresher, read <a href="/2015/06/12/integrating-chatops-with-stackstorm/">James Fryman&#8217;s blog</a> on chatops with StackStorm.</p>
+<p>On the chatops front, our APIs have matured to a point we no longer think they can remain in experimental. Action alias and alias execution APIs have now been promoted to v1. Using these APIs will let you define an alias for an action in StackStorm to be used in chatops. Alias execution API is the API that our bot hits to kick off a chatops command. As a refresher, read <a href="../../../../2015/06/12/integrating-chatops-with-stackstorm/index.html">James Fryman&#8217;s blog</a> on chatops with StackStorm.</p>
 <p>Pack management APIs are also showing up in StackStorm. We now have an API to list installed packs. We&#8217;ll be adding more APIs in the near future to make it easy to install, uninstall or manage packs.</p>
 <h2>
 <a id="user-content-bug-fixes" class="anchor" href="https://github.com/StackStorm/blogs/blob/epowell101-patch-2/2015/07/2015_07_21_0.12_release.md#bug-fixes"></a>Bug fixes</h2>
@@ -341,11 +341,11 @@ header #logo>a>img {
 	
 	
 				<div class="pnav">
-			<a class="pav left" href="/2015/07/21/the-most-popular-recent-how-to-blogs-on-stackstorm-com/">
+			<a class="pav left" href="../../../../2015/07/21/the-most-popular-recent-how-to-blogs-on-stackstorm-com/index.html">
 				<span>Previous Post</span>
 				<span>The Most Popular Recent &#8220;How To&#8221; Blogs On StackStorm.com</span>
 			</a>
-			<a class="pav right" href="/2015/07/28/the-top-10-additions-to-stackstorm-since-1114-open-sourcing/">
+			<a class="pav right" href="../../../../2015/07/28/the-top-10-additions-to-stackstorm-since-1114-open-sourcing/index.html">
 				<span>Next Post</span>
 				<span>The Top 10 Additions To StackStorm Since 11/14 Open Sourcing</span>
 			</a>

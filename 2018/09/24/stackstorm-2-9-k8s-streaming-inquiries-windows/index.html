@@ -19,7 +19,7 @@
 
 	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>StackStorm 2.9: K8s, Streaming, Inquiries, Windows - StackStorm</title>
-	<link rel="canonical" href="/2018/09/24/stackstorm-2-9-k8s-streaming-inquiries-windows/">
+	<link rel="canonical" href="./index.html">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="StackStorm 2.9: K8s, Streaming, Inquiries, Windows - StackStorm">
@@ -308,7 +308,7 @@ header #logo>a>img {
 <p>New Streaming &amp; Inquiries Apps in the Web UI, Orquesta second beta, Helm Chart for running StackStorm in HA mode on Kubernetes, new Windows runners, and plenty of fixes and improvements: StackStorm 2.9 is ready to go! Here’s all the details:</p>
 <p><span id="more-8206"></span></p>
 <h2>Web UI &#8211; Streaming Output, Inquiries</h2>
-<p>In StackStorm 2.5 we added support for <a href="/2017/11/07/new-stackstorm-2-5-real-time-action-output-streaming/">real-time streaming output</a> for long-running actions. But it only worked via CLI or API. We’ve made it a lot easier: you can see it in the Web UI!</p>
+<p>In StackStorm 2.5 we added support for <a href="../../../../2017/11/07/new-stackstorm-2-5-real-time-action-output-streaming/index.html">real-time streaming output</a> for long-running actions. But it only worked via CLI or API. We’ve made it a lot easier: you can see it in the Web UI!</p>
 <p>Here’s how to use it:</p>
 <p>First launch a long-running command that produces output:</p>
 <p><code>st2 run core.local cmd="i=0;while [[ $i -lt 10 ]]; do echo $(date); i=$[$i+1];sleep 10; done" timeout=220</code></p>
@@ -319,7 +319,7 @@ header #logo>a>img {
 <p><a href="../../../../wp/wp-content/uploads/2018/09/example_live_output.png"><img loading="lazy" src="../../../../wp/wp-content/uploads/2018/09/example_live_output.png" alt="" width="600" height="484" class="aligncenter size-full wp-image-8212"></a></p>
 <p>That will keep updating until the action finishes.</p>
 <p>Nifty eh?</p>
-<p>In 2.5 we also added <a href="/2017/10/31/new-stackstorm-2-5-inquiries/">Inquiries</a>, but again, it was only available via CLI and API. Now check out the new “Inquiries” tab in the Web UI:</p>
+<p>In 2.5 we also added <a href="../../../../2017/10/31/new-stackstorm-2-5-inquiries/index.html">Inquiries</a>, but again, it was only available via CLI and API. Now check out the new “Inquiries” tab in the Web UI:</p>
 <p><a href="../../../../wp/wp-content/uploads/2018/09/empty_inquiries.png"><img loading="lazy" src="../../../../wp/wp-content/uploads/2018/09/empty_inquiries.png" alt="" width="1200" height="436" class="aligncenter size-full wp-image-8214" srcset="../../../../wp/wp-content/uploads/2018/09/empty_inquiries.png 1200w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-150x55.png 150w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-300x109.png 300w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-768x279.png 768w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-1024x372.png 1024w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-80x29.png 80w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-220x80.png 220w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-250x91.png 250w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-280x102.png 280w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-510x185.png 510w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-750x273.png 750w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-975x354.png 975w, ../../../../wp/wp-content/uploads/2018/09/empty_inquiries-1190x432.png 1190w" sizes="(max-width: 1200px) 100vw, 1200px"></a></p>
 <p>No open inquiries at the moment, so let’s kick something off.</p>
 <p>We’ll use the <a href="https://github.com/StackStorm/st2/blob/master/contrib/examples/actions/workflows/orquesta-ask-basic.yaml">orquesta-ask-basic</a> example from the Examples pack:</p>
@@ -397,11 +397,11 @@ result:
 	
 	
 				<div class="pnav">
-			<a class="pav left" href="/2018/08/17/more-packs-more-fixes/">
+			<a class="pav left" href="../../../../2018/08/17/more-packs-more-fixes/index.html">
 				<span>Previous Post</span>
 				<span>More Packs, More Fixes</span>
 			</a>
-			<a class="pav right" href="/2018/09/26/stackstorm-enterprise-ha-in-kubernetes-beta/">
+			<a class="pav right" href="../../../../2018/09/26/stackstorm-enterprise-ha-in-kubernetes-beta/index.html">
 				<span>Next Post</span>
 				<span>StackStorm Enterprise HA in Kubernetes &#8211; βeta</span>
 			</a>

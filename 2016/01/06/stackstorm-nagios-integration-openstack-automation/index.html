@@ -19,7 +19,7 @@
 
 	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>Stackstorm: from Nagios integration to Openstack automation - StackStorm</title>
-	<link rel="canonical" href="/2016/01/06/stackstorm-nagios-integration-openstack-automation/">
+	<link rel="canonical" href="./index.html">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Stackstorm: from Nagios integration to Openstack automation - StackStorm">
@@ -310,7 +310,7 @@ header #logo>a>img {
 <p>I&#8217;ve been thinking for a while and initially I was going to bring everything up in one blog post. But later, it didn&#8217;t seem like a good idea. That being said, I&#8217;d rather break it into multiple posts, no matter how many there would be. Anyway, it seems to me that it&#8217;d be more practical and easier to read and understand.</p>
 <h2>Nagios</h2>
 <p>Let&#8217;s start with integrating Nagios alerts into Stackstorm. Assuming that you already have Stackstorm version 1.2.0+ installed, configured and running, as well as there&#8217;s Nagios running somewhere else that is capable of processing alerts and handling events. If not, please, proceed to <a href="/2016/01/06/stackstorm-nagios-integration-openstack-automation/www.">www.stackstorm.com</a> and <a href="/2016/01/06/stackstorm-nagios-integration-openstack-automation/www.nagios.org">www.nagios.org</a> (installation and initial configuration of these two tools is beyond the scope of this post). Both tools are open source and free to use and have extensive documentation on installation and basic configuration.</p>
-<p>First of all, I was happy to find an existing Nagios integration pack <a href="https://github.com/StackStorm-Exchange/stackstorm-nagios">on StackStorm community repo</a>, but my joy ended really quickly as I found it not working. Secondly, <a href="/2015/10/05/auto-remediation-out-of-disk-space/">this StackStorm tutorial</a> helped me to get started.</p>
+<p>First of all, I was happy to find an existing Nagios integration pack <a href="https://github.com/StackStorm-Exchange/stackstorm-nagios">on StackStorm community repo</a>, but my joy ended really quickly as I found it not working. Secondly, <a href="../../../../2015/10/05/auto-remediation-out-of-disk-space/index.html">this StackStorm tutorial</a> helped me to get started.</p>
 <p><span id="more-5203"></span></p>
 <p>Although it talks about sensu and victorops (monitoring and paging tools), you can easily apply the logic to Nagios. With the help from Stackstorm support team (they are really cool guys and they reside on Slack, see <a href="/community">/community</a> for details) I was able to patch the st2 service handler python script to make it work (see diff here <a href="https://www.diffchecker.com/vzsiskbg">https://www.diffchecker.com/vzsiskbg</a>). Don&#8217;t worry, later I&#8217;ll post a link to the github repository with all the files you need.</p>
 <p>Also, don&#8217;t forget to apply for a trial <a href="/product/#enterprise">Enterprise Stackstorm edition</a>! You will get a very cool Flow Visual Editor that will let you create really nice workflows with a drag of your mouse! I highly recommend to at least try it. It won&#8217;t hurt, I promise.</p>
@@ -661,11 +661,11 @@ e_nagios.remediate_disk_workflow:
 	
 	
 				<div class="pnav">
-			<a class="pav left" href="/2015/12/12/automation-happy-hour-9-multi-cloud-orchestration/">
+			<a class="pav left" href="../../../../2015/12/12/automation-happy-hour-9-multi-cloud-orchestration/index.html">
 				<span>Previous Post</span>
 				<span>Automation Happy Hour #09 &#8211; Multi-Cloud Orchestration</span>
 			</a>
-			<a class="pav right" href="/2016/01/16/automation-happy-hour-10-designing-a-remediation-solution/">
+			<a class="pav right" href="../../../../2016/01/16/automation-happy-hour-10-designing-a-remediation-solution/index.html">
 				<span>Next Post</span>
 				<span>Automation Happy Hour #10 &#8211; ChatOps, Auto-Remediation, and More!</span>
 			</a>
