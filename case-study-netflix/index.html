@@ -2,14 +2,14 @@
 <html lang="en-US">
 <head>
 	<style type="text/css">.ttfm1{font-family: 'dual300';font-size:em;line-height:em;color:;}  .ttfm2{font-family: 'Roboto';font-size:em;line-height:3em;color:;}</style>	<!--[if lt IE 9]>
-	<script src="/wp/wp-content/themes/rise/js/html5/dist/html5shiv.js"></script>
+	<script src="../wp/wp-content/themes/rise/js/html5/dist/html5shiv.js"></script>
 	<script src="//css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
 	<![endif]-->
 	<!--[if IE 8]>
-	<link rel="stylesheet" type="text/css" href="/wp/wp-content/themes/rise/css/ie8.css"/>
+	<link rel="stylesheet" type="text/css" href="../wp/wp-content/themes/rise/css/ie8.css"/>
 	<![endif]-->
 	<!--[if IE 7]>
-	<link rel="stylesheet" type="text/css" href="/wp/wp-content/themes/rise/css/ie7.css"/>
+	<link rel="stylesheet" type="text/css" href="../wp/wp-content/themes/rise/css/ie7.css"/>
 	<![endif]-->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
@@ -19,14 +19,14 @@
 
 	<!-- This site is optimized with the Yoast SEO plugin v16.4 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>Case Study: Netflix - StackStorm</title>
-	<link rel="canonical" href="/case-study-netflix/">
+	<link rel="canonical" href="./index.html">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Case Study: Netflix - StackStorm">
 	<meta property="og:description" content="Winston provides an event driven runbook automation platform for Netflix engineers. It is designed to host and execute runbooks in response to operational events like alerts.&nbsp;Winston’s goal is to act as Tier-1 support for developers where they can outsource their repeatable diagnostic and remediation tasks and have them run automatically in response to events. &quot;We&hellip;">
 	<meta property="og:url" content="/case-study-netflix/">
 	<meta property="og:site_name" content="StackStorm">
-	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"StackStorm","url":"/","sameAs":[],"logo":{"@type":"ImageObject","@id":"/#logo","inLanguage":"en-US","url":"/wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","contentUrl":"/wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","width":228,"height":59,"caption":"StackStorm"},"image":{"@id":"/#logo"}},{"@type":"WebSite","@id":"/#website","url":"/","name":"StackStorm","description":"Event-driven automation","publisher":{"@id":"/#organization"},"potentialAction":[{"@type":"SearchAction","target":"/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"/case-study-netflix/#webpage","url":"/case-study-netflix/","name":"Case Study: Netflix - StackStorm","isPartOf":{"@id":"/#website"},"datePublished":"2017-11-14T04:54:02+00:00","dateModified":"2017-11-14T04:54:02+00:00","breadcrumb":{"@id":"/case-study-netflix/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["/case-study-netflix/"]}]},{"@type":"BreadcrumbList","@id":"/case-study-netflix/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"/","url":"/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"/case-study-netflix/#webpage"}}]}]}</script>
+	<script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"/#organization","name":"StackStorm","url":"/","sameAs":[],"logo":{"@type":"ImageObject","@id":"/#logo","inLanguage":"en-US","url":"../wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","contentUrl":"../wp/wp-content/uploads/2014/10/stackstorm-logo-header.png","width":228,"height":59,"caption":"StackStorm"},"image":{"@id":"/#logo"}},{"@type":"WebSite","@id":"/#website","url":"/","name":"StackStorm","description":"Event-driven automation","publisher":{"@id":"/#organization"},"potentialAction":[{"@type":"SearchAction","target":"/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"en-US"},{"@type":"WebPage","@id":"/case-study-netflix/#webpage","url":"/case-study-netflix/","name":"Case Study: Netflix - StackStorm","isPartOf":{"@id":"/#website"},"datePublished":"2017-11-14T04:54:02+00:00","dateModified":"2017-11-14T04:54:02+00:00","breadcrumb":{"@id":"/case-study-netflix/#breadcrumb"},"inLanguage":"en-US","potentialAction":[{"@type":"ReadAction","target":["/case-study-netflix/"]}]},{"@type":"BreadcrumbList","@id":"/case-study-netflix/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"/","url":"/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@id":"/case-study-netflix/#webpage"}}]}]}</script>
 	<!-- / Yoast SEO plugin. -->
 
 
@@ -47,21 +47,21 @@ img.emoji {
 	background: none !important;
 	padding: 0 !important;
 }</style>
-	<link rel="stylesheet" id="dashicons-css" href="/wp/wp-includes/css/dashicons.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
-<link rel="stylesheet" id="menu-icons-extra-css" href="/wp/wp-content/plugins/menu-icons/css/extra.min.css?ver=0.12.8" type="text/css" media="all">
-<link rel="stylesheet" id="wp-block-library-css" href="/wp/wp-includes/css/dist/block-library/style.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
-<link rel="stylesheet" id="cookie-law-info-css" href="/wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-public.css?ver=2.0.3" type="text/css" media="all">
-<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="/wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-gdpr.css?ver=2.0.3" type="text/css" media="all">
-<link rel="stylesheet" id="tve_style_family_tve_flt-css" href="/wp/wp-content/plugins/thrive-visual-editor/editor/css/thrive_flat.css?ver=2.6.8.1" type="text/css" media="all">
-<link rel="stylesheet" id="testimonial-rotator-style-css" href="/wp/wp-content/plugins/testimonial-rotator/testimonial-rotator-style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
-<link rel="stylesheet" id="font-awesome-css" href="/wp/wp-content/plugins/menu-icons/vendor/codeinwp/icon-picker/css/types/font-awesome.min.css?ver=4.7.0" type="text/css" media="all">
-<link rel="stylesheet" id="rise-style-css" href="/wp/wp-content/themes/stackstorm/style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
-<link rel="stylesheet" id="thrive-reset-css" href="/wp/wp-content/themes/rise/css/reset.css?v=1.101.1" type="text/css" media="all">
-<link rel="stylesheet" id="thrive-main-style-css" href="/wp/wp-content/themes/rise/css/main_blue.css?v=1.101.1" type="text/css" media="all">
-<link rel="stylesheet" id="thrive_icon_pack-css" href="/wp/wp-content/uploads/2015/09/icomoon/style.css?ver=6.04" type="text/css" media="all">
-<link rel="stylesheet" id="enlighterjs-css" href="/wp/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=c8vUwCl5jS8Iu00" type="text/css" media="all">
-<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery.min.js?v=1.101.1" id="jquery-core-js"></script>
-<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery-migrate.min.js?v=1.101.1" id="jquery-migrate-js"></script>
+	<link rel="stylesheet" id="dashicons-css" href="../wp/wp-includes/css/dashicons.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="menu-icons-extra-css" href="../wp/wp-content/plugins/menu-icons/css/extra.min.css?ver=0.12.8" type="text/css" media="all">
+<link rel="stylesheet" id="wp-block-library-css" href="../wp/wp-includes/css/dist/block-library/style.min.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-css" href="../wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-public.css?ver=2.0.3" type="text/css" media="all">
+<link rel="stylesheet" id="cookie-law-info-gdpr-css" href="../wp/wp-content/plugins/cookie-law-info/public/css/cookie-law-info-gdpr.css?ver=2.0.3" type="text/css" media="all">
+<link rel="stylesheet" id="tve_style_family_tve_flt-css" href="../wp/wp-content/plugins/thrive-visual-editor/editor/css/thrive_flat.css?ver=2.6.8.1" type="text/css" media="all">
+<link rel="stylesheet" id="testimonial-rotator-style-css" href="../wp/wp-content/plugins/testimonial-rotator/testimonial-rotator-style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="font-awesome-css" href="../wp/wp-content/plugins/menu-icons/vendor/codeinwp/icon-picker/css/types/font-awesome.min.css?ver=4.7.0" type="text/css" media="all">
+<link rel="stylesheet" id="rise-style-css" href="../wp/wp-content/themes/stackstorm/style.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-reset-css" href="../wp/wp-content/themes/rise/css/reset.css?v=1.101.1" type="text/css" media="all">
+<link rel="stylesheet" id="thrive-main-style-css" href="../wp/wp-content/themes/rise/css/main_blue.css?v=1.101.1" type="text/css" media="all">
+<link rel="stylesheet" id="thrive_icon_pack-css" href="../wp/wp-content/uploads/2015/09/icomoon/style.css?ver=6.04" type="text/css" media="all">
+<link rel="stylesheet" id="enlighterjs-css" href="../wp/wp-content/plugins/enlighter/cache/enlighterjs.min.css?ver=c8vUwCl5jS8Iu00" type="text/css" media="all">
+<script type="text/javascript" src="../wp/wp-includes/js/jquery/jquery.min.js?v=1.101.1" id="jquery-core-js"></script>
+<script type="text/javascript" src="../wp/wp-includes/js/jquery/jquery-migrate.min.js?v=1.101.1" id="jquery-migrate-js"></script>
 <script type="text/javascript" id="cookie-law-info-js-extra">
 /* <![CDATA[ */
 var Cli_Data = {"nn_cookie_ids":[],"cookielist":[],"non_necessary_cookies":[],"ccpaEnabled":"","ccpaRegionBased":"","ccpaBarEnabled":"","strictlyEnabled":["necessary","obligatoire"],"ccpaType":"gdpr","js_blocking":"","custom_integration":"","triggerDomRefresh":"","secure_cookies":""};
@@ -69,13 +69,13 @@ var cli_cookiebar_settings = {"animate_speed_hide":"500","animate_speed_show":"5
 var log_object = {"ajax_url":"\/wp\/wp-admin\/admin-ajax.php"};
 /* ]]> */
 </script>
-<script type="text/javascript" src="/wp/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js?ver=2.0.3" id="cookie-law-info-js"></script>
-<script type="text/javascript" src="/wp/wp-includes/js/plupload/moxie.min.js?ver=1.3.5" id="moxiejs-js"></script>
-<script type="text/javascript" src="/wp/wp-includes/js/plupload/plupload.min.js?ver=2.1.9" id="plupload-js"></script>
-<script type="text/javascript" src="/wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.js?v=1.101.1" id="cycletwo-js"></script>
-<script type="text/javascript" src="/wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.addons.js?v=1.101.1" id="cycletwo-addons-js"></script>
-<script type="text/javascript" src="/wp/wp-content/plugins/easy-logo-slider/js/jquery.jcarousel.min.js?v=1.101.1" id="jquery_jcarousel_min-js"></script>
-<script type="text/javascript" src="/wp/wp-content/plugins/easy-logo-slider/js/jcarousel.responsive.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="jcarousel_responsive-js"></script>
+<script type="text/javascript" src="../wp/wp-content/plugins/cookie-law-info/public/js/cookie-law-info-public.js?ver=2.0.3" id="cookie-law-info-js"></script>
+<script type="text/javascript" src="../wp/wp-includes/js/plupload/moxie.min.js?ver=1.3.5" id="moxiejs-js"></script>
+<script type="text/javascript" src="../wp/wp-includes/js/plupload/plupload.min.js?ver=2.1.9" id="plupload-js"></script>
+<script type="text/javascript" src="../wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.js?v=1.101.1" id="cycletwo-js"></script>
+<script type="text/javascript" src="../wp/wp-content/plugins/testimonial-rotator/js/jquery.cycletwo.addons.js?v=1.101.1" id="cycletwo-addons-js"></script>
+<script type="text/javascript" src="../wp/wp-content/plugins/easy-logo-slider/js/jquery.jcarousel.min.js?v=1.101.1" id="jquery_jcarousel_min-js"></script>
+<script type="text/javascript" src="../wp/wp-content/plugins/easy-logo-slider/js/jcarousel.responsive.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="jcarousel_responsive-js"></script>
 
 
 
@@ -100,10 +100,10 @@ var log_object = {"ajax_url":"\/wp\/wp-admin\/admin-ajax.php"};
 		<style type="text/css">span.oe_textdirection { unicode-bidi: bidi-override; direction: rtl; }
 	span.oe_displaynone { display: none; }</style>
 <style type="text/css" id="thrive-default-styles">@media (min-width: 300px) { .tcb-style-wrap blockquote {color:rgb(102, 102, 102);background-color:rgba(0, 0, 0, 0);font-family:Roboto, sans-serif;font-size:18px;font-weight:300;font-style:normal;margin:;padding-top:0px;padding-bottom:0px;text-decoration:rgb(102, 102, 102);text-transform:none;border-left:;--tcb-applied-color:;} }</style>
-<link rel="icon" href="/wp/wp-content/uploads/2015/09/st2.png" sizes="32x32">
-<link rel="icon" href="/wp/wp-content/uploads/2015/09/st2.png" sizes="192x192">
-<link rel="apple-touch-icon" href="/wp/wp-content/uploads/2015/09/st2.png">
-<meta name="msapplication-TileImage" content="/wp/wp-content/uploads/2015/09/st2.png">
+<link rel="icon" href="../wp/wp-content/uploads/2015/09/st2.png" sizes="32x32">
+<link rel="icon" href="../wp/wp-content/uploads/2015/09/st2.png" sizes="192x192">
+<link rel="apple-touch-icon" href="../wp/wp-content/uploads/2015/09/st2.png">
+<meta name="msapplication-TileImage" content="../wp/wp-content/uploads/2015/09/st2.png">
 			<style type="text/css" class="tve_custom_style">@media (min-width: 300px){[data-css="tve-u-15fb8e15188"] { background-color: rgb(239, 239, 239) !important; clip-path: url("#clip-bottom-1c2b79c46c2c2"); -webkit-clip-path: url("#clip-bottom-1c2b79c46c2c2");  }[data-css="tve-u-15fb8e0e55e"] { max-width: 700px; margin-left: auto !important; margin-right: auto !important; float: none; padding: 36px 35px !important; }:not(#tve) [data-css="tve-u-15fb8d7d7c6"] > :first-child { color: rgb(255, 146, 18); }:not(#tve) [data-css="tve-u-15fb8db9057"] > :first-child { color: rgb(255, 146, 18); }:not(#tve) [data-css="tve-u-15fb8db1ada"] > :first-child { color: rgb(255, 146, 18); }[data-css="tve-u-15fb8daf86e"] { margin-top: 0px !important; }[data-css="tve-u-15fb8da84b5"] { margin-top: 5px !important; }[data-css="tve-u-15fb8da53ba"] { margin-top: 0px !important; margin-bottom: 0px !important; }[data-css="tve-u-15fb8d9f334"] { margin-top: 5px !important; }[data-css="tve-u-15fb8d87bb3"] { margin: 15px !important; }[data-css="tve-u-15fb8d83a1b"] { max-width: 85%; }[data-css="tve-u-15fb8d83a13"] { max-width: 15%; }[data-css="tve-u-15fb8d7d7c6"] { font-size: 60px; width: 60px; height: 60px; margin-top: 0px !important; margin-bottom: 0px !important; }[data-css="tve-u-15fb8d6bcd8"] { max-width: 25%; }[data-css="tve-u-15fb8d6bccf"] { max-width: 75%; }[data-css="tve-u-15fb8d67045"] { float: none; width: 150px; }[data-css="tve-u-15fb8d9a807"] { margin: 15px 15px 0px !important; }[data-css="tve-u-15fb8d9d2ed"] { margin: 15px 15px 0px !important; }[data-css="tve-u-15fb8db1ada"] { font-size: 60px; width: 60px; height: 60px; margin-top: 0px !important; margin-bottom: 0px !important; }[data-css="tve-u-15fb8db9057"] { font-size: 60px; width: 60px; height: 60px; margin-top: 0px !important; margin-bottom: 0px !important; }}</style>
 					<style type="text/css" id="wp-custom-css">/*
 You can add your own CSS here.
@@ -228,7 +228,7 @@ header #logo>a>img {
 <body class="page-template-default page page-id-7267">
 
 
-<!-- BEGIN LF Header --> 	<div id="lf-header" style="padding-bottom: 3px; padding-top: 3px;background: #252525;"> 		<div class="container wrp"> 			<a href="https://linuxfoundation.org/projects" target="_blank" rel="noopener noreferrer"> 				<img src="/wp/wp-content/themes/stackstorm/images/logo_lf_projects_horizontal.png" style="max-width: 270px;"> 			</a> 		</div> 	</div> 	<!-- END LF Header -->
+<!-- BEGIN LF Header --> 	<div id="lf-header" style="padding-bottom: 3px; padding-top: 3px;background: #252525;"> 		<div class="container wrp"> 			<a href="https://linuxfoundation.org/projects" target="_blank" rel="noopener noreferrer"> 				<img src="../wp/wp-content/themes/stackstorm/images/logo_lf_projects_horizontal.png" style="max-width: 270px;"> 			</a> 		</div> 	</div> 	<!-- END LF Header -->
 
 <div class="theme-wrapper">
 	
@@ -241,19 +241,19 @@ header #logo>a>img {
 								<div class="h-i">
 					<div class="wrp">
 														<div id="logo">
-									<a href="/">
-										<img src="/wp/wp-content/uploads/2016/10/StackStorm-logo228.png" alt="StackStorm"></a>
+									<a href="../index.html">
+										<img src="../wp/wp-content/uploads/2016/10/StackStorm-logo228.png" alt="StackStorm"></a>
 								</div>
 																					<div class="m-s">
 								<div class="hsm"></div>
 								<div class="m-si">
 																												<nav class="menu-stackstorm-refresh-container"><ul id="menu-stackstorm-refresh" class="menu">
-<li id="menu-item-5952" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/features">Features</a></li>
-<li id="menu-item-6100" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/#community">Community</a></li>
+<li id="menu-item-5952" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="../features/index.html">Features</a></li>
+<li id="menu-item-6100" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="../index.html#community">Community</a></li>
 <li id="menu-item-4207" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a target="_blank" href="http://docs.stackstorm.com/">Docs</a></li>
 <li id="menu-item-8701" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="https://exchange.stackstorm.org/">Exchange</a></li>
-<li id="menu-item-2277" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="/blog">Blog</a></li>
-<li id="menu-item-9062" class="menu-item menu-item-type-post_type menu-item-object-page toplvl"><a href="/donate/">Donate</a></li>
+<li id="menu-item-2277" class="menu-item menu-item-type-custom menu-item-object-custom toplvl"><a href="../blog/index.html">Blog</a></li>
+<li id="menu-item-9062" class="menu-item menu-item-type-post_type menu-item-object-page toplvl"><a href="../donate/index.html">Donate</a></li>
 </ul></nav>										<!-- Cart Dropdown -->
 									
 																	</div>
@@ -289,7 +289,7 @@ header #logo>a>img {
 <div class="thrv_wrapper thrv-columns" data-css="tve-u-15f3a711953"><div class="tcb-flex-row tcb-resized tcb--cols--2" data-css="tve-u-15f3a71c57f">
 <div class="tcb-flex-col" data-css="tve-u-15fb8d6bccf"><div class="tcb-col tve_empty_dropzone" data-css="tve-u-15f31a6a6c0">
 <div class="thrv_wrapper thrv-columns" data-css="tve-u-15f3a6ef277"><div class="tcb-flex-row tcb-resized tcb--cols--2" data-css="tve-u-15f3a70d074">
-<div class="tcb-flex-col" data-css="tve-u-15f3a6d85ce"><div class="tcb-col tve_empty_dropzone"><div class="thrv_wrapper tve_image_caption" data-css="tve-u-15fb8d67045"><span class="tve_image_frame" style="width: 100%;"><a href="/wp/wp-content/uploads/2017/11/netflix.jpg" rel=""><img loading="lazy" class="tve_image wp-image-7231" alt="" width="300" height="200" title="netflix" data-id="7231" src="/wp/wp-content/uploads/2017/11/netflix.jpg" scale="0" style="width: 100%;" srcset="/wp/wp-content/uploads/2017/11/netflix.jpg 300w, /wp/wp-content/uploads/2017/11/netflix-150x100.jpg 150w, /wp/wp-content/uploads/2017/11/netflix-80x53.jpg 80w, /wp/wp-content/uploads/2017/11/netflix-220x147.jpg 220w, /wp/wp-content/uploads/2017/11/netflix-225x150.jpg 225w" sizes="(max-width: 300px) 100vw, 300px"></a></span></div></div></div>
+<div class="tcb-flex-col" data-css="tve-u-15f3a6d85ce"><div class="tcb-col tve_empty_dropzone"><div class="thrv_wrapper tve_image_caption" data-css="tve-u-15fb8d67045"><span class="tve_image_frame" style="width: 100%;"><a href="../wp/wp-content/uploads/2017/11/netflix.jpg" rel=""><img loading="lazy" class="tve_image wp-image-7231" alt="" width="300" height="200" title="netflix" data-id="7231" src="../wp/wp-content/uploads/2017/11/netflix.jpg" scale="0" style="width: 100%;" srcset="../wp/wp-content/uploads/2017/11/netflix.jpg 300w, ../wp/wp-content/uploads/2017/11/netflix-150x100.jpg 150w, ../wp/wp-content/uploads/2017/11/netflix-80x53.jpg 80w, ../wp/wp-content/uploads/2017/11/netflix-220x147.jpg 220w, ../wp/wp-content/uploads/2017/11/netflix-225x150.jpg 225w" sizes="(max-width: 300px) 100vw, 300px"></a></span></div></div></div>
 <div class="tcb-flex-col" data-css="tve-u-15f3a6d85dc"><div class="tcb-col tve_empty_dropzone"><div class="thrv_wrapper thrv_text_element tve_empty_dropzone">
 <p>Winston provides an event driven runbook automation platform for Netflix engineers. It is designed to host and execute runbooks in response to operational events like alerts.</p>
 <p>Winston’s goal is to act as Tier-1 support for developers where they can outsource their repeatable diagnostic and remediation tasks and have them run automatically in response to events.</p>
@@ -328,11 +328,11 @@ header #logo>a>img {
 <div class="thrv_wrapper thrv_text_element tve_empty_dropzone"><p><br></p></div>
 </div></div>
 <div class="tcb-flex-col" data-css="tve-u-15fb8d6bcd8"><div class="tcb-col tve_empty_dropzone">
-<div class="thrv_wrapper thrv_text_element tve_empty_dropzone" data-css="tve-u-15f6f4e0ffb"><p style="text-align: center;"><strong>Vinay Shah&nbsp;</strong><br><a href="munity.slack.com/team/U083SAH19" rel="nofollow" target="_blank">@shah.vinay</a> in the <a href="/community-signup" rel="nofollow" target="_blank">StackStorm Slack community</a></p></div>
-<div class="thrv_wrapper thrv_text_element tve_empty_dropzone"><p style="text-align: center;"><strong>Sayli Karmarkar&nbsp;</strong><br><a href="munity.slack.com/team/U083QLAPP" rel="nofollow" target="_blank">@sayli</a> in the <a href="/community-signup" rel="nofollow" target="_blank">StackStorm Slack community</a><br></p></div>
+<div class="thrv_wrapper thrv_text_element tve_empty_dropzone" data-css="tve-u-15f6f4e0ffb"><p style="text-align: center;"><strong>Vinay Shah&nbsp;</strong><br><a href="munity.slack.com/team/U083SAH19" rel="nofollow" target="_blank">@shah.vinay</a> in the <a href="../community-signup/index.html" rel="nofollow" target="_blank">StackStorm Slack community</a></p></div>
+<div class="thrv_wrapper thrv_text_element tve_empty_dropzone"><p style="text-align: center;"><strong>Sayli Karmarkar&nbsp;</strong><br><a href="munity.slack.com/team/U083QLAPP" rel="nofollow" target="_blank">@sayli</a> in the <a href="../community-signup/index.html" rel="nofollow" target="_blank">StackStorm Slack community</a><br></p></div>
 </div></div>
 </div></div>
-<div class="thrv_wrapper thrv_text_element tve_empty_dropzone"><p><a href="/stackstorm-thought-leaders/">SEE MORE THOUGHT LEADERSHIP STORIES...</a></p></div>
+<div class="thrv_wrapper thrv_text_element tve_empty_dropzone"><p><a href="../stackstorm-thought-leaders/index.html">SEE MORE THOUGHT LEADERSHIP STORIES...</a></p></div>
 </div></div>
 <div class="tcb_flag" style="display: none"></div>	</div>
 	<div class="clear"></div>
@@ -356,21 +356,21 @@ header #logo>a>img {
 						<section id="text-7" class="col"><div class="scn">			<div class="textwidget">
 <p><a href="http://docs.stackstorm.com/" target="_blank" rel="noopener">Documentation</a><br>
 <a href="https://github.com/StackStorm" target="_blank" rel="noopener">GitHub</a><br>
-<a href="/#community" target="_blank" rel="noopener">Community</a><br>
-<a href="/security" target="_blank" rel="noopener">Security</a></p>
+<a href="../index.html#community" target="_blank" rel="noopener">Community</a><br>
+<a href="../security/index.html" target="_blank" rel="noopener">Security</a></p>
 </div>
 		</div></section>					</div>
 									<div class="colm oth ">
 						<section id="text-8" class="col"><div class="scn">			<div class="textwidget">
-<p><a href="/blog">Blog</a><br>
+<p><a href="../blog/index.html">Blog</a><br>
 <a href="https://www.youtube.com/channel/UCColc5CuBJ8-1SnALnkDz8Q">Video Gallery</a><br>
-<a href="/privacy-policy">Privacy Policy</a></p>
+<a href="../privacy-policy/index.html">Privacy Policy</a></p>
 </div>
 		</div></section>					</div>
 									<div class="colm oth lst">
 						<section id="text-9" class="col"><div class="scn">			<div class="textwidget">
 <div style="line-height:1.7em;">
-<a href="/contact">Contact</a><br>
+<a href="../contact/index.html">Contact</a><br>
 
 <div class="ic-social">
 <a href="https://www.facebook.com/stackstormdevops" target="_blank" rel="noopener"><i class="fa fa-facebook-square"></i></a>
@@ -435,7 +435,7 @@ height: 30px;
 </div>
 
 
-<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>We use cookies for traffic analytics and ad and content personalization. By clicking on any of the content or interacting with any section of this website,<br>you are agreeing to this use of cookies in the manner described in our <a href="/privacy-policy" id="CONSTANT_OPEN_URL" target="_blank" class="cli-plugin-main-link" style="display:inline-block;">Privacy Policy</a> <a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="cli-plugin-main-button cookie_action_close_header cli_action_button" style="display:inline-block; ">close [x]</a></span></div>
+<!--googleoff: all--><div id="cookie-law-info-bar" data-nosnippet="true"><span>We use cookies for traffic analytics and ad and content personalization. By clicking on any of the content or interacting with any section of this website,<br>you are agreeing to this use of cookies in the manner described in our <a href="../privacy-policy/index.html" id="CONSTANT_OPEN_URL" target="_blank" class="cli-plugin-main-link" style="display:inline-block;">Privacy Policy</a> <a role="button" tabindex="0" data-cli_action="accept" id="cookie_action_close_header" class="cli-plugin-main-button cookie_action_close_header cli_action_button" style="display:inline-block; ">close [x]</a></span></div>
 <div id="cookie-law-info-again" style="display:none;" data-nosnippet="true"><span id="cookie_hdr_showagain">Privacy & Cookies Policy</span></div>
 <div class="cli-modal" data-nosnippet="true" id="cliSettingsPopup" tabindex="-1" role="dialog" aria-labelledby="cliSettingsPopup" aria-hidden="true">
   <div class="cli-modal-dialog" role="document">
@@ -552,28 +552,28 @@ function tcbToast( message, error, callback ) {
 
 	}, 3000 );
 }
-</script><link rel="stylesheet" id="jcarouselresponsive-css" href="/wp/wp-content/plugins/easy-logo-slider/css/jcarouselresponsive.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
-<link rel="stylesheet" id="style-admin-css" href="/wp/wp-content/plugins/easy-logo-slider/css/style-admin.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
-<script type="text/javascript" src="/wp/wp-includes/js/imagesloaded.min.js?ver=4.1.4" id="imagesloaded-js"></script>
-<script type="text/javascript" src="/wp/wp-includes/js/masonry.min.js?ver=4.2.2" id="masonry-js"></script>
-<script type="text/javascript" src="/wp/wp-includes/js/jquery/jquery.masonry.min.js?v=1.101.1" id="jquery-masonry-js"></script>
+</script><link rel="stylesheet" id="jcarouselresponsive-css" href="../wp/wp-content/plugins/easy-logo-slider/css/jcarouselresponsive.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<link rel="stylesheet" id="style-admin-css" href="../wp/wp-content/plugins/easy-logo-slider/css/style-admin.css?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" type="text/css" media="all">
+<script type="text/javascript" src="../wp/wp-includes/js/imagesloaded.min.js?ver=4.1.4" id="imagesloaded-js"></script>
+<script type="text/javascript" src="../wp/wp-includes/js/masonry.min.js?ver=4.2.2" id="masonry-js"></script>
+<script type="text/javascript" src="../wp/wp-includes/js/jquery/jquery.masonry.min.js?v=1.101.1" id="jquery-masonry-js"></script>
 <script type="text/javascript" id="tve_frontend-js-extra">
 
 </script>
-<script type="text/javascript" src="/wp/wp-content/plugins/thrive-visual-editor/editor/js/dist/frontend.min.js?ver=2.6.8.1" id="tve_frontend-js"></script>
+<script type="text/javascript" src="../wp/wp-content/plugins/thrive-visual-editor/editor/js/dist/frontend.min.js?ver=2.6.8.1" id="tve_frontend-js"></script>
 <script type="text/javascript" id="thrive-main-script-js-extra">
 
 </script>
-<script type="text/javascript" src="/wp/wp-content/themes/rise/js/script.js?v=1.101.1" id="thrive-main-script-js"></script>
+<script type="text/javascript" src="../wp/wp-content/themes/rise/js/script.js?v=1.101.1" id="thrive-main-script-js"></script>
 <script type="text/javascript" id="tve-dash-frontend-js-extra">
 
 </script>
-<script type="text/javascript" src="/wp/wp-content/themes/rise/thrive-dashboard/js/dist/frontend.min.js?ver=2.4.0.1" id="tve-dash-frontend-js"></script>
-<script type="text/javascript" src="/wp/wp-content/plugins/enlighter/cache/enlighterjs.min.js?ver=c8vUwCl5jS8Iu00" id="enlighterjs-js"></script>
+<script type="text/javascript" src="../wp/wp-content/themes/rise/thrive-dashboard/js/dist/frontend.min.js?ver=2.4.0.1" id="tve-dash-frontend-js"></script>
+<script type="text/javascript" src="../wp/wp-content/plugins/enlighter/cache/enlighterjs.min.js?ver=c8vUwCl5jS8Iu00" id="enlighterjs-js"></script>
 <script type="text/javascript" id="enlighterjs-js-after">
 !function(e,n){if("undefined"!=typeof EnlighterJS){var o={"selectors":{"block":"pre.EnlighterJSRAW","inline":"code.EnlighterJSRAW"},"options":{"indent":2,"ampersandCleanup":true,"linehover":true,"rawcodeDbclick":false,"textOverflow":"break","linenumbers":false,"theme":"beyond","language":"python","retainCssClasses":false,"collapse":false,"toolbarOuter":"","toolbarTop":"{BTN_RAW}{BTN_COPY}{BTN_WINDOW}{BTN_WEBSITE}","toolbarBottom":""}};(e.EnlighterJSINIT=function(){EnlighterJS.init(o.selectors.block,o.selectors.inline,o.options)})()}else{(n&&(n.error||n.log)||function(){})("Error: EnlighterJS resources not loaded yet!")}}(window,console);
 </script>
-<script type="text/javascript" src="/wp/wp-includes/js/wp-embed.min.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="wp-embed-js"></script>
+<script type="text/javascript" src="../wp/wp-includes/js/wp-embed.min.js?ver=09e48cfb58fec140b4ee0c6d1d4da1b2" id="wp-embed-js"></script>
 <script type="text/javascript">var tcb_post_lists=JSON.parse('[]');</script>
 </div>
 </body>
