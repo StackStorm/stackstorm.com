@@ -325,6 +325,32 @@ header #logo>a>img {
 <h3 style="padding-left: 25px !important; text-align: left;" class="">Security Vulnerabilities</h3>
 <p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;">The section below contains a list of security vulnerabilities identified in the past releases. Those issues have been fixed in the latest release so you are always encouraged to run the latest release available.</p>
 <div><br></div>
+
+
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>* [CVE-2022-44009] Improper RBAC check for K/V datastore access</strong><br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Severity:</strong> High<br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Affected versions:</strong> 3.7.0 <br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Description:</strong><br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;">Improper access control in Key-Value RBAC in StackStorm version 3.7.0 didn't check the permissions in Jinja filters, allowing attackers to access K/V pairs of other users, potentially leading to the exposure of sensitive Information. To exploit this vulnerability, the RBAC sould be enabled with K/V permissions rules and attacker should have a StackStorm user account.<br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Mitigation:</strong> This vulnerability has been fixed in StackStorm v3.8.0. You are strongly encouraged to upgrade to that release.<br></p>
+<!--<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Bug fix announcement blog post: <a href="#TBD" target="_blank">TBD</a><br></strong></p>-->
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Credits:</strong> This issue was discovered and reported to us by Guilherme Murad Pim.<br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><br></p>
+
+
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>* [CVE-2022-43706] Web UI XSS via Rules injection</strong><br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Severity:</strong> High<br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Affected versions:</strong> All the versions prior to 3.8.0<br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Description:</strong><br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;">Cross-site scripting (XSS) vulnerability in the Web UI of StackStorm versions prior to 3.8.0 allowed logged in users with write access to pack rules to inject arbitrary script or HTML that may be executed in Web UI for other logged in users.<br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Mitigation:</strong> This vulnerability has been fixed in StackStorm v3.8.0. You are strongly encouraged to upgrade to that release.<br></p>
+<!--<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Bug fix announcement blog post: <a href="#TBD" target="_blank">TBD</a><br></strong></p>-->
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Credits:</strong> This issue was discovered and reported to us by Mohamed Elgllad.<br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><br></p>
+<p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><br></p>
+
+
 <p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>* [CVE-2021-44657] Jinja template without sandbox environment potentially leading to executing arbitrary code&nbsp;</strong><br></p>
 <p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Severity:</strong> High<br></p>
 <p data-unit="px" style="line-height: 20px; margin-bottom: 5px !important; padding-left: 25px !important;"><strong>Affected versions:</strong> All the versions prior to 3.6.0<br></p>
