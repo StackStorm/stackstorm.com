@@ -685,15 +685,14 @@ Click the help icon above to learn more.
 						</em></p>
 
 						<p>
-							StackStorm v3.8.0 has been released. It comes with some critical security patches,
+							StackStorm v3.8.0 has been released. It comes with two critical security patches,
 							new core features and enhancements, web ui updates, and lots of bug fixes.
 
 							<span id="more-9809"></span>
 						</p>
 
 						<hr class="wp-block-separator aligncenter">
-
-						<h4>CVE-2022-43706 - Web UI XSS Security Fix</h4>
+						<h3>CVE-2022-43706 - Web UI XSS Security Fix</h3>
 						<p>
 							Cross-site scripting (XSS) vulnerability in the Web UI of StackStorm versions prior to 3.8.0
 							allowed logged in users with write access to pack rules to inject arbitrary script or HTML
@@ -709,8 +708,7 @@ Click the help icon above to learn more.
 						</p>
 
 						<hr class="wp-block-separator">
-
-						<h4>CVE-2022-44009 - K/V RBAC Security Fix</h4>
+						<h3>CVE-2022-44009 - K/V RBAC Security Fix</h3>
 						<p>
 							Improper access control in Key-Value RBAC in StackStorm version 3.7.0 didn't check the
 							permissions in Jinja filters, allowing attackers to access K/V pairs of other users,
@@ -726,9 +724,187 @@ Click the help icon above to learn more.
 							version, - more on that below.
 						</p>
 
-						<h4>Special Thanks</h4>
+						<hr class="wp-block-separator aligncenter">
+						<h3>Workflow engine graceful shutdown</h3>
 						<p>
-							# TODO: Add a list of contributors here
+							StackStorm’s Workflow engine can now handle shutdown events more gracefully thanks to the
+							contribution by <a href="https://github.com/khushboobhatia01" target="_blank">@khushboobhatia01</a>
+							from VMware.
+						</p>
+						<p>
+							Two new configurations has been added to <code>st2.conf</code> in the <code>[workflow_engine]</code>
+							section to have more granular control:
+						</p>
+						<p>
+							<ul>
+								<li><code>exit_still_active_check = 300</code><br>
+									How long to wait for process (in seconds) to exit after receiving shutdown signal.
+								</li>
+								<li><code>still_active_check_interval = 2</code><br>
+									How long to wait for process (in seconds) to exit after receiving shutdown signal.
+								</li>
+							</ul>
+						</p>
+
+						<hr class="wp-block-separator aligncenter">
+						<h3>Web UI Updates</h3>
+						<p>
+							<img width="420" src="/wp/wp-content/uploads/2022/11/st2web_workflow_autosave.gif" alt="StackStorm Web UI Workflow auto-save feature" />
+							&nbsp;
+							<video controls="controls" width="480" name="Hotkey Shortcuts in StackStorm Workflow Designer">
+								<source src="/wp/wp-content/uploads/2022/11/st2web_hotkey_shortcuts.mov">
+							</video>
+						</p>
+						<p>
+							New Auto-Save Workflow, Hotkey Shortcuts, Support for the Rule Search Criteria and Security
+							fix for XSS were contributed by <a href="https://bitovi.com/" target="_blank">@Bitovi</a>, a
+							StackStorm partner. Check out a dedicated overview with screenshots and videos: <a
+								href="/2022/11/webui-changes-3-8-0">Web UI Updates in v3.8.0</a>.
+						</p>
+						<p>
+							Outside of that, new enhancement that temporarily disable web buttons in forms after onClick
+							to avoid accidental double-clicks was added by <a href="https://github.com/Parths007"
+																			  target="_blank">Parth Shandilya</a> from
+							@CERN in <a href="https://github.com/StackStorm/st2web/pull/977" target="_blank">stackstorm/st2web#977</a>
+							to make the Web UI experience even better!
+						</p>
+
+						<hr class="wp-block-separator aligncenter">
+						<h3>Purging old tokens in Garbagecollector</h3>
+						<p>
+							<a href="https://github.com/amanda11" target="_blank">Amanda McGuinness</a> from <a
+								href="https://intive.com/" target="_blank">@intive</a>, a StackStorm partner, expanded
+							the garbage collector to clean up more resources. The GC will now purge expired old tokens,
+							which were previously excluded from the purge process and could end up consuming a large
+							amount of space over time.
+						</p>
+						<p>
+							You can control the new behavior via <code>st2.conf</code> settings:
+						</p>
+						<p>
+							<code>
+								[garbagecollector]<br>
+								# Tokens that expired over this value (days) will be automatically deleted.<br>
+								# Defaults to None (disabled).<br>
+								tokens_ttl = None<br>
+							</code>
+						</p>
+						<p>
+							See the <a href="https://docs.stackstorm.com/troubleshooting/purging_old_data.html"
+									   target="_blank">garbagecollector purge documentation</a> for more details.
+						</p>
+
+						<hr class="wp-block-separator aligncenter">
+						<h3>Action Output Schema changes</h3>
+						<p>
+							<h5>Breaking change!</h5>
+							If you have <code>[system].validate_output_schema = True</code>
+							(disabled by default) in st2.conf AND you have added <code>output_schema</code> to any of
+							your packs, then you must update your action metadata. Any legacy schemas, like all invalid
+							schemas, will be used for validation; they will be silently ignored. However, for security,
+							secret masking based on the legacy schema is still supported.
+						</p>
+						<p>
+							Secret masking is one of the primary purposes of output validation. But, the legacy schema
+							format assumed that it was describing the properties of an object; that meant that only
+							object properties could be masked, not the entire output. With v3.8.0, <code>output_schema</code> is
+							much more versatile, removing this restriction on what can be masked.
+						</p>
+						<p>
+							In v3.8.0, <code>output_schema</code> must be a full jsonschema. With this change the entire
+							<code>output</code> can be masked as <code>output_schema</code> can describe all basic
+							types: object, list, bool, int, etc. Feel free to validate and/or mask the entire action
+							output, or particular elements of lists, or properties of objects.
+						</p>
+						<p>
+							To migrate an action's legacy output_schema to be a full jsonschema, you'll need to add a
+							top-level type, <code>properties</code>, and <code>additionalProperties</code> to it. See
+							<a href="https://docs.stackstorm.com/upgrade_notes.html#st2-v3-8" target="_blank"> v3.8.0 migration notes</a>
+							for detailed instructions how to update.
+						</p>
+						<p>
+							Contributed by Jacob Floyd (<a href="https://github.com/cognifloyd" target="_blank">@cognifloyd</a>)
+							<a href="https://github.com/copartit" target="_blank">@Copart IT</a>.
+						</p>
+
+						<hr class="wp-block-separator aligncenter">
+						<h3>Other significant changes</h3>
+						<p>
+							<ul>
+								<li>Support to communicate with Redis using TLS encryption.</li>
+								<li>Process patternProperties and additionalItems defined in pack schema.</li>
+								<li>Improved nested array support in schemas.</li>
+								<li>HTTP_PROXY/HTTPS_PROXY environment variables are checked and used by st2client.</li>
+								<li>Date/time module switched from udatetime to ciso8601.</li>
+								<li>Removed deprecated st2exporter code from StackStorm.</li>
+								<li>st2chatops hubot-slack adapter updated to 4.10.0 to use the new Slack API by default.</li>
+							</ul>
+						</p>
+						<p>
+							And more than <strong>30</strong> other bug fixes and enhancements. Read the full
+							<a href="https://docs.stackstorm.com/changelog.html#november-18-2022" target="_blank">v3.8.0 changelog here</a>.
+						</p>
+
+						<hr class="wp-block-separator aligncenter">
+						<h3>Coming up in the next release</h3>
+						<p>
+							There’s a massive amount of work ongoing by community to add
+							<a href="https://github.com/StackStorm/st2/issues/5625" target="_blank">SSO/SAML support</a>
+							to StackStorm across the platform components: <a href="https://github.com/StackStorm/st2/pull/5664" target="_blank">stackstorm/st2#5664</a>,
+							<a href="https://github.com/StackStorm/st2web/pull/983" target="_blank">stackstorm/st2web#983</a>,
+							<a href="https://github.com/StackStorm/st2-auth-backend-sso-saml2/pull/16" target="_blank">stackstorm/st2-auth-backend-sso-saml2</a>.
+							<br>
+							We’re looking for more testing and review from our community to get that major feature
+							included in the next v3.9.0. If you’re interested, - please take a look at the PRs above,
+							try it, and provide feedback. The work in progress documentation for the new feature is
+							available at
+							<a href="https://github.com/StackStorm/st2docs/pull/1146" target="_blank">stackstorm/st2docs#1146</a>
+							and there’s even a
+							<a href="https://github.com/StackStorm/st2-docker/pull/246" target="_blank">docker environment</a>
+							to test it.
+						</p>
+
+						<p>
+							We are also working on improving the developer experience and our build/test/release process
+							with <a href="https://www.pantsbuild.org/" target="_blank">Pants</a>,
+							thanks to Jacob Floyd (<a href="https://github.com/cognifloyd" target="_blank">@cognifloyd</a>).
+							Some Pants features we are most
+							looking forward to include: requirements lockfiles; reliable fine grained caching of results
+							from test, lint, format and other processes; and amazing error messages that guide
+							contributors (both new and old) about how to resolve various dev issues. We hope this will
+							lower the barrier to entry for new contributors, and streamline the StackStorm packaging
+							release process.
+						</p>
+
+						<h3>Special Thanks</h3>
+						<p>
+							StackStorm releases are not possible without the Community of contributors and supporters,
+							as well as release team who dedicated a lot of time to get the v3.8.0 out with assistance of
+							<a href="https://github.com/StackStorm/st2/blob/master/OWNERS.md" target="_blank">TSC maintainers</a>.
+							We want to thank everyone: security researchers who reported issues,
+							<a href="https://stackstorm.com/partners/">StackStorm partners</a> who patched them,
+							release managers who did the heavy-lifting with release automation, contributors for their PRs,
+							as well as our adopters for reporting bugs, asking questions and being an active part
+							of StackStorm open-source Community.
+						</p>
+						<p>
+							The v3.8.0 release was brought by the release managers
+							<a href="https://github.com/nzlosh" target="_blank">Carlos</a> with assistance of
+							<a href="https://github.com/nzlosh" target="_blank">Ankur Singh</a> @CERN.
+							<br>
+							Special thanks: <a href="https://github.com/m4dcoder" target="_blank">@m4dcoder</a>,
+							<a href="https://github.com/amanda11" target="_blank">Amanda McGuinness</a> from <a href="https://intive.com/" target="_blank">@intive</a> partner,
+							<a href="https://github.com/cognifloyd" target="_blank">Jacob Floyd</a>,
+						    <a href="https://github.com/dylan-bitovi">@dylan-bitovi</a> with <a href="https://github.com/" target="_blank">@Jappzy</a>, with <a href="https://github.com/WestonVincze">@WestonVincze</a>, with <a href="https://github.com/cded">@cded</a> and <a href="https://github.com/armab" target="_blank">Eugen</a> from <a href="https://bitovi.com/" target="_blank">@Bitovi</a> partner,
+							<a href="https://github.com/bharath-orchestral" target="_blank">@bharath-orchestral</a> from <a href="https://orchestral.ai/" target="_blank">@Orchestral</a> partner,
+							<a href="https://github.com/bishopbm1" target="_blank">Bradley Bishop</a> from <a href="https://encore.tech/" target="_blank">@Encore</a> partner,
+							<a href="https://github.com/khushboobhatia01" target="_blank">Khushboo Bhatia</a> @VMware,
+							<a href="https://github.com/ParthS007" target="_blank">@ParthS007</a> @CERN,
+							<a href="https://github.com/mamercad" target="_blank">Mark Mercado</a> @DigitalOcean,
+							<a href="https://github.com/LiamRiddell" target="_blank">@LiamRiddell</a>,
+							<a href="https://github.com/luislobo" target="_blank">@luislobo</a>,
+						    <a href="https://github.com/S-T-A-R-L-O-R-D" target="_blank">@S-T-A-R-L-O-R-D</a>,
+							<a href="https://github.com/wfgydbu" target="_blank">@wfgydbu</a>.
 						</p>
 						<p>
 							As usual, you can join the StackStorm Open Source Community in 
