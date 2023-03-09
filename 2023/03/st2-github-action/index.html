@@ -31,15 +31,15 @@
 	<meta name="google-site-verification" content="ovwnX0ej2kps4UuJ9NOzNjJcLOQD8JPDLNhe-hMYTMk">
 	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 
-	<title>Github Action to deploy StackStorm to AWS</title>
+	<title>GitHub Action to deploy StackStorm to AWS</title>
 	<meta name="description"
-		content="Announcing Github Action to deploy StackStorm to AWS on Github Marketplace and the power of Platform Engineering.">
+		content="Announcing GitHub Action to deploy StackStorm to AWS on GitHub Marketplace and the power of Platform Engineering.">
 	<link rel="canonical" href="/2023/03/st2-github-action/">
 	<meta property="og:locale" content="en_US">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="Github Action to deploy StackStorm to AWS">
+	<meta property="og:title" content="GitHub Action to deploy StackStorm to AWS">
 	<meta property="og:description"
-	content="Announcing Github Action to deploy StackStorm to AWS on Github Marketplace and the power of Platform Engineering.">
+	content="Announcing GitHub Action to deploy StackStorm to AWS on GitHub Marketplace and the power of Platform Engineering.">
 	<meta property="og:url" content="/2023/03/st2-github-action/">
 	<meta property="og:site_name" content="StackStorm">
 	<meta property="article:published_time" content="2022-12-02T00:00:00+00:00">
@@ -674,7 +674,7 @@ Click the help icon above to learn more.
 
 				<div class="awr">
 
-					<h1 class="entry-title">Github Action to deploy StackStorm to AWS</h1>
+					<h1 class="entry-title">GitHub Action to deploy StackStorm to AWS</h1>
 
 					<div class="awr-i">
 						<p><strong>Mar 14, 2023</strong></p>
@@ -688,23 +688,23 @@ Click the help icon above to learn more.
                             StackStorm installation and configuration pipeline fit your specific needs. Then you start benefiting from automation!
                         </p>
                         <p>
-                            At Bitovi we work a lot with CI/CD, Github Actions and we created an action that helps deploying StackStorm to AWS in
+                            At Bitovi we work a lot with CI/CD, GitHub Actions and we created an action that helps deploying StackStorm to AWS in
                             under 15 minutes, including all the configuration. It’s a time-saving shortcut to get your deployment ready
                             in the cloud.
 							<span id="more-9809"></span>
 						</p>
 						<p>
-							Today, we want to share it with the StackStorm community. Check the GHA on Github Marketplace:
+							Today, we want to share it with the StackStorm community. Check the GHA on GitHub Marketplace:
                             <a href="https://github.com/marketplace/actions/deploy-single-vm-stackstorm-to-aws-ec2" target="_blank">
                                 <img src="/wp/wp-content/uploads/2023/03//st2-gha-marketplace.png"
-                                    alt="Github Action to deploy StackStorm ot AWS on Github Marketplace" />
+                                    alt="GitHub Action to deploy StackStorm ot AWS on GitHub Marketplace" />
                             </a>
 						</p>
 
                         <hr class="wp-block-separator">
                         <h3>Simple Configuration</h3>
 						<p>
-                            To get started quickly, you will need to create a new Github repository, set your AWS credentials in the Github
+                            To get started quickly, you will need to create a new github repository, set your AWS credentials in the GitHub
                             repository secrets, and configure <code>.github/workflows/st2.yaml</code>:
                         </p>
                         <p>
@@ -714,7 +714,7 @@ Click the help icon above to learn more.
                             Under the hood, it uses Terraform to provision the resources in AWS and Ansible to install and configure StackStorm.
                             The following resources are created in AWS via Terraform: EC2 instance, Route53 records, a load balancer, security
                             groups (ports 80, 443, 22), and optionally, a VPC with subnets. To make the Terraform configuration state persistent
-                            across the deployments, S3 bucket is created automatically. You can fine-tune the AWS configuration in Github Actions
+                            across the deployments, S3 bucket is created automatically. You can fine-tune the AWS configuration in GitHub Actions
                             inputs, see
                             <a href="https://github.com/marketplace/actions/deploy-single-vm-stackstorm-to-aws-ec2#customizing" target="_blank">AWS Configuration</a>.
 						</p>
@@ -728,7 +728,7 @@ Click the help icon above to learn more.
                             stackstorm configuration is needed, such as adjusting the st2.conf parameters, chatops, RBAC and LDAP, users,
                             certificates, and more.
                             
-                            Here is an example Github workflow: <code>.github/workflows/st2.yaml</code>:
+                            Here is an example GitHub workflow: <code>.github/workflows/st2.yaml</code>:
                             <script src="https://gist.github.com/armab/fc60416d7b3dd026ef84466e2d807133.js?file=github_workflows_st2_advanced.yaml"></script>
 
                             An example <code>st2_vars.yaml</code> you include in the repository with extra StackStorm configuration for <a
@@ -764,7 +764,7 @@ Click the help icon above to learn more.
                             <center>
                                 <a href="https://my.demio.com/ref/jxCqbpBTjKhKLJdC" target="_blank">
                                     <img width="800" src="/wp/wp-content/uploads/2023/03/github-action-stackstorm-bitovi-webinar.gif"
-                                    alt="Github Action to deploy StackStorm Webinar by Bitovi" />
+                                    alt="GitHub Action to deploy StackStorm Webinar by Bitovi" />
                                 </a>
                             </center>
                         </p>
@@ -776,7 +776,7 @@ Click the help icon above to learn more.
 						</p>
 						<p>
                             There’s more to show and tell. We’d like to invite everyone to join us live in a Webinar where we'll highlight the power
-                            of Platform Engineering, Github Actions, and StackStorm event-driven
+                            of Platform Engineering, GitHub Actions, and StackStorm event-driven
                             automation. Join us on <i>April 4, 2023, 11am US Central / 9am US West / 6pm
                                 EU Central time</i>.
 						</p>
