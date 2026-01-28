@@ -1,6 +1,6 @@
 #!/bin/bash
 
-BRANCH="v3.8"
+BRANCH="v3.9"
 URL="https://raw.githubusercontent.com/StackStorm/st2-packages/$BRANCH/scripts/st2_bootstrap.sh"
 TIMEOUT=5
 
